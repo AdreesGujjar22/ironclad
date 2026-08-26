@@ -1,24 +1,37 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense, lazy } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
-import { AppointmentModal } from './components/AppointmentModal';
 import { HomePage } from './pages/HomePage';
-import { AboutPage } from './pages/AboutPage';
-import { ServicesPage } from './pages/ServicesPage';
-import { ServiceDetailPage } from './pages/ServiceDetailPage';
-import { FlooringInstallationPage } from './pages/FlooringInstallationPage';
-import { FlooringRepairPage } from './pages/FlooringRepairPage';
-import { FlooringReplacementPage } from './pages/FlooringReplacementPage';
-import { CommercialEpoxyFlooringPage } from './pages/CommercialEpoxyFlooringPage';
-import { GarageEpoxyFlooringPage } from './pages/GarageEpoxyFlooringPage';
-import { ProjectsPage } from './pages/ProjectsPage';
-import { BlogsPage } from './pages/BlogsPage';
-import { BlogDetailPage } from './pages/BlogDetailPage';
-import { LocationsPage } from './pages/LocationsPage';
-import { LocationDetailPage } from './pages/LocationDetailPage';
-import { ContactPage } from './pages/ContactPage';
 import { Phone, Calendar, ArrowUp } from 'lucide-react';
+
+// Code split all secondary pages and modals for mobile performance & minimal bundle size
+const AboutPage = lazy(() => import('./pages/AboutPage').then(m => ({ default: m.AboutPage })));
+const ServicesPage = lazy(() => import('./pages/ServicesPage').then(m => ({ default: m.ServicesPage })));
+const ServiceDetailPage = lazy(() => import('./pages/ServiceDetailPage').then(m => ({ default: m.ServiceDetailPage })));
+const FlooringInstallationPage = lazy(() => import('./pages/FlooringInstallationPage').then(m => ({ default: m.FlooringInstallationPage })));
+const FlooringRepairPage = lazy(() => import('./pages/FlooringRepairPage').then(m => ({ default: m.FlooringRepairPage })));
+const FlooringReplacementPage = lazy(() => import('./pages/FlooringReplacementPage').then(m => ({ default: m.FlooringReplacementPage })));
+const CommercialEpoxyFlooringPage = lazy(() => import('./pages/CommercialEpoxyFlooringPage').then(m => ({ default: m.CommercialEpoxyFlooringPage })));
+const GarageEpoxyFlooringPage = lazy(() => import('./pages/GarageEpoxyFlooringPage').then(m => ({ default: m.GarageEpoxyFlooringPage })));
+const ProjectsPage = lazy(() => import('./pages/ProjectsPage').then(m => ({ default: m.ProjectsPage })));
+const BlogsPage = lazy(() => import('./pages/BlogsPage').then(m => ({ default: m.BlogsPage })));
+const BlogDetailPage = lazy(() => import('./pages/BlogDetailPage').then(m => ({ default: m.BlogDetailPage })));
+const LocationsPage = lazy(() => import('./pages/LocationsPage').then(m => ({ default: m.LocationsPage })));
+const LocationDetailPage = lazy(() => import('./pages/LocationDetailPage').then(m => ({ default: m.LocationDetailPage })));
+const ContactPage = lazy(() => import('./pages/ContactPage').then(m => ({ default: m.ContactPage })));
+const AppointmentModal = lazy(() => import('./components/AppointmentModal').then(m => ({ default: m.AppointmentModal })));
+
+function PageLoadingFallback() {
+  return (
+    <div className="min-h-[60vh] flex items-center justify-center bg-[#F8F9FA]">
+      <div className="flex flex-col items-center gap-3">
+        <div className="w-8 h-8 border-3 border-[#3B945E]/30 border-t-[#3B945E] rounded-full animate-spin" />
+        <span className="text-xs font-mono font-bold text-slate-500 uppercase tracking-wider">Loading...</span>
+      </div>
+    </div>
+  );
+}
 
 export function App() {
   const [currentPage, setCurrentPage] = useState<string>('home');
@@ -170,7 +183,9 @@ export function App() {
             transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
             className="w-full"
           >
-            {renderPage()}
+            <Suspense fallback={<PageLoadingFallback />}>
+              {renderPage()}
+            </Suspense>
           </motion.div>
         </AnimatePresence>
       </main>
@@ -182,11 +197,15 @@ export function App() {
       />
 
       {/* Global Booking & Estimate Modal */}
-      <AppointmentModal
-        isOpen={bookingModalOpen}
-        onClose={() => setBookingModalOpen(false)}
-        initialServiceId={bookingInitialData?.serviceId}
-      />
+      {bookingModalOpen && (
+        <Suspense fallback={null}>
+          <AppointmentModal
+            isOpen={bookingModalOpen}
+            onClose={() => setBookingModalOpen(false)}
+            initialServiceId={bookingInitialData?.serviceId}
+          />
+        </Suspense>
+      )}
 
       {/* Floating Action Architectural Dispatch Bar - Matching Hero Section UI Standard & Fully Responsive */}
       <motion.div 

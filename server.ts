@@ -1,11 +1,14 @@
 import express from "express";
 import path from "path";
+import compression from "compression";
 import { createServer as createViteServer } from "vite";
 
 async function startServer() {
   const app = express();
   const PORT = 3000;
 
+  // Compress all responses for fast mobile load
+  app.use(compression());
   app.use(express.json());
 
   // API routes FIRST
@@ -22,8 +25,14 @@ async function startServer() {
     app.use(vite.middlewares);
   } else {
     const distPath = path.join(process.cwd(), 'dist');
-    app.use(express.static(distPath));
+    // Static assets with aggressive caching
+    app.use(express.static(distPath, {
+      maxAge: '1y',
+      immutable: true,
+      index: false,
+    }));
     app.get('*', (req, res) => {
+      res.setHeader('Cache-Control', 'no-cache');
       res.sendFile(path.join(distPath, 'index.html'));
     });
   }

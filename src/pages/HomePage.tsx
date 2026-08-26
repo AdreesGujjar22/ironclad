@@ -147,6 +147,9 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenBooking })
             src={flooringImages.flooringHandsInstallation}
             alt="Commercial Flooring Contractor in Vancouver, BC - Ironclad Commercial Floors"
             className="w-full h-full object-cover object-center scale-100"
+            loading="eager"
+            fetchPriority="high"
+            decoding="async"
             referrerPolicy="no-referrer"
           />
           {/* Subtle directional gradient overlay ensuring text readability while keeping the photo clearly visible */}
@@ -263,6 +266,8 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenBooking })
                 src={flooringImages.luxuryWoodFloorInterior}
                 alt="About Ironclad Commercial Floors - Finished Wood and Laminate Flooring"
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                loading="lazy"
+                decoding="async"
                 referrerPolicy="no-referrer"
               />
             </div>
@@ -304,6 +309,8 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenBooking })
                 src={flooringImages.vinylPlankKneeling}
                 alt="Ironclad Red Seal Certified Flooring Installation Team"
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                loading="lazy"
+                decoding="async"
                 referrerPolicy="no-referrer"
               />
             </div>
@@ -398,6 +405,8 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenBooking })
                 src={flooringImages.flooringInstallationLvt}
                 alt="Commercial Flooring Installation Vancouver BC"
                 className="w-full h-72 sm:h-80 object-cover hover:scale-105 transition-transform duration-700"
+                loading="lazy"
+                decoding="async"
               />
             </div>
             {/* Offset Decorative Box Behind */}
@@ -424,6 +433,8 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenBooking })
                 src={flooringImages.heroCommercialEpoxy}
                 alt="Commercial & Garage Epoxy Flooring Vancouver BC"
                 className="w-full h-72 sm:h-80 object-cover hover:scale-105 transition-transform duration-700"
+                loading="lazy"
+                decoding="async"
               />
             </div>
           </div>
@@ -489,6 +500,8 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenBooking })
                 src={flooringImages.laminateMalletInstall}
                 alt="Commercial Flooring Repair Vancouver BC"
                 className="w-full h-72 sm:h-80 object-cover hover:scale-105 transition-transform duration-700"
+                loading="lazy"
+                decoding="async"
                 referrerPolicy="no-referrer"
               />
             </div>
@@ -513,6 +526,8 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenBooking })
                 src={flooringImages.glovedHandsFlooring}
                 alt="Commercial Flooring Replacement Vancouver BC"
                 className="w-full h-72 sm:h-80 object-cover hover:scale-105 transition-transform duration-700"
+                loading="lazy"
+                decoding="async"
                 referrerPolicy="no-referrer"
               />
             </div>
