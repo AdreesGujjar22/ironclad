@@ -49,7 +49,7 @@ const sectionVariant = {
 };
 
 export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenBooking }) => {
-  const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [openFaq, setOpenFaq] = useState<number | null>(0);
   const [activeLocation, setActiveLocation] = useState<number>(0);
 
   const homeFaqs = [
@@ -120,7 +120,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenBooking })
     <div className="bg-[#F8F9FA] text-slate-800 selection:bg-[#3B945E] selection:text-white">
       {/* Dynamic SEO Meta & JSON-LD Structured Data */}
       <SEOHead
-        title="Flooring Contractor Vancouver, BC | Ironclad Commercial Floors"
+        title="Flooring Contractor Vancouver | Ironclad Commercial Floors"
         description="Ironclad Commercial Floors is Vancouver, BC's trusted commercial flooring contractor. Epoxy, installation, repair & replacement. Free on-site estimates."
         canonicalPath="/"
         ogImage="https://ironcladcommercialfloors.ca/IRONCLAD-COMMERCIAL-FLOORS.jpg"
@@ -854,37 +854,36 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenBooking })
           </p>
         </div>
 
-        <div className="space-y-3">
+        <div className="space-y-3" itemScope itemType="https://schema.org/FAQPage">
           {homeFaqs.map((faq, idx) => {
             const isOpen = openFaq === idx;
             return (
               <div 
                 key={idx}
-                className="bg-white border border-slate-200 transition-all shadow-sm"
+                itemScope 
+                itemProp="mainEntity" 
+                itemType="https://schema.org/Question"
+                className="bg-white border border-slate-200 transition-all shadow-sm rounded-xs"
               >
                 <button
                   type="button"
                   onClick={() => setOpenFaq(isOpen ? null : idx)}
+                  aria-expanded={isOpen}
                   className="w-full p-5 text-left flex items-center justify-between gap-4 font-bold text-slate-900 hover:text-[#3B945E] transition-colors cursor-pointer"
                 >
-                  <span className="text-sm font-bold">{faq.question}</span>
+                  <span className="text-sm sm:text-base font-bold" itemProp="name">{faq.question}</span>
                   <ChevronDown className={`w-4 h-4 text-[#3B945E] shrink-0 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
                 </button>
-                <AnimatePresence>
-                  {isOpen && (
-                    <motion.div 
-                      initial={{ opacity: 0, height: 0 }}
-                      animate={{ opacity: 1, height: 'auto' }}
-                      exit={{ opacity: 0, height: 0 }}
-                      transition={{ duration: 0.25, ease: 'easeOut' }}
-                      className="overflow-hidden"
-                    >
-                      <div className="px-5 pb-5 text-slate-600 text-xs sm:text-sm leading-relaxed border-t border-slate-100 pt-3 bg-slate-50/50">
-                        {faq.answer}
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+                <div 
+                  itemScope 
+                  itemProp="acceptedAnswer" 
+                  itemType="https://schema.org/Answer"
+                  className={isOpen ? 'block' : 'hidden'}
+                >
+                  <div className="px-5 pb-5 text-slate-600 text-xs sm:text-sm leading-relaxed border-t border-slate-100 pt-3 bg-slate-50/50" itemProp="text">
+                    {faq.answer}
+                  </div>
+                </div>
               </div>
             );
           })}

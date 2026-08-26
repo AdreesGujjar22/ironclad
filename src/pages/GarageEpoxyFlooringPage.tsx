@@ -53,7 +53,7 @@ export const GarageEpoxyFlooringPage: React.FC<GarageEpoxyFlooringPageProps> = (
   return (
     <div className="bg-[#F8F9FA] text-slate-800 min-h-screen pb-16">
       <SEOHead
-        title="Garage Epoxy Flooring Vancouver, BC | Ironclad Commercial Floors"
+        title="Garage Epoxy Flooring Vancouver | Ironclad Floors"
         description="Ironclad Commercial Floors installs garage epoxy flooring in Vancouver, BC for fleet & parking facilities. Durable, easy-clean coatings. Free quotes."
         canonicalPath="/garage-epoxy-flooring-vancouver-bc"
         ogImage="https://ironcladcommercialfloors.ca/IRONCLAD-COMMERCIAL-FLOORS.jpg"

@@ -98,26 +98,55 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenBooking }) => 
 
             {/* Direct Contact Details */}
             <div className="space-y-3 text-xs sm:text-sm text-slate-300 pt-4 border-t border-slate-700">
-              <div className="flex items-start gap-3">
+              <address 
+                className="not-italic flex items-start gap-3"
+                itemScope 
+                itemType="https://schema.org/PostalAddress"
+              >
                 <MapPin className="w-4 h-4 text-[#88D2A8] shrink-0 mt-0.5" />
-                <span>783 E 60th Ave, Vancouver, BC V5X 2A5 Canada</span>
-              </div>
+                <span>
+                  <span itemProp="streetAddress">783 E 60th Ave</span>,{' '}
+                  <span itemProp="addressLocality">Vancouver</span>,{' '}
+                  <span itemProp="addressRegion">BC</span>{' '}
+                  <span itemProp="postalCode">V5X 2A5</span>,{' '}
+                  <span itemProp="addressCountry">Canada</span>
+                </span>
+              </address>
               <div className="flex items-center gap-3">
                 <Phone className="w-4 h-4 text-[#88D2A8] shrink-0" />
-                <a href="tel:6045403999" className="hover:text-white font-black text-sm sm:text-base text-white transition-colors">
+                <a href="tel:6045403999" className="hover:text-white font-black text-sm sm:text-base text-white transition-colors" itemProp="telephone">
                   (604) 540-3999
                 </a>
                 <span className="text-[10px] font-mono bg-white/10 text-[#88D2A8] px-2 py-0.5 border border-white/20 font-bold uppercase">Direct Line</span>
               </div>
               <div className="flex items-center gap-3">
                 <Mail className="w-4 h-4 text-[#88D2A8] shrink-0" />
-                <a href="mailto:info@ironcladcommercialfloors.ca" className="hover:text-white transition-colors">
+                <a href="mailto:info@ironcladcommercialfloors.ca" className="hover:text-white transition-colors" itemProp="email">
                   info@ironcladcommercialfloors.ca
                 </a>
               </div>
               <div className="flex items-center gap-3">
                 <Clock className="w-4 h-4 text-[#88D2A8] shrink-0" />
                 <span>Overnight & Weekend Shifts Available</span>
+              </div>
+
+              {/* Google Business Profile Verified Link */}
+              <div className="pt-2">
+                <a
+                  href="https://www.google.com/maps?q=Ironclad+Commercial+Floors+783+E+60th+Ave+Vancouver+BC+V5X+2A5"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-3 py-1.5 rounded bg-slate-800/90 hover:bg-slate-700 text-white text-xs font-semibold border border-slate-600 transition-all shadow-xs group"
+                  title="Ironclad Commercial Floors Google Business Profile & Google Maps"
+                >
+                  <svg className="w-3.5 h-3.5" viewBox="0 0 24 24">
+                    <path fill="#EA4335" d="M12 5c1.58 0 3 .55 4.13 1.62l3.07-3.07C17.34 1.8 14.86 1 12 1 7.73 1 4.09 3.47 2.34 7.07l3.66 2.84C6.88 7.35 9.24 5 12 5z"/>
+                    <path fill="#4285F4" d="M23.49 12.27c0-.79-.07-1.54-.19-2.27H12v4.51h6.47c-.29 1.48-1.14 2.73-2.4 3.58l3.71 2.88c2.16-1.99 3.71-4.93 3.71-8.7z"/>
+                    <path fill="#FBBC05" d="M5.99 14.09c-.24-.72-.37-1.49-.37-2.29s.13-1.57.37-2.29L2.34 6.67C1.49 8.35 1 10.22 1 12.2s.49 3.85 1.34 5.53l3.65-2.84z"/>
+                    <path fill="#34A853" d="M12 23.4c3.24 0 5.95-1.08 7.93-2.91l-3.71-2.88c-1.07.72-2.45 1.16-4.22 1.16-2.76 0-5.12-2.35-6-4.91L2.34 16.7C4.09 20.33 7.73 23.4 12 23.4z"/>
+                  </svg>
+                  <span className="group-hover:text-[#88D2A8] transition-colors">Google Business Profile Verified</span>
+                </a>
               </div>
             </div>
           </div>

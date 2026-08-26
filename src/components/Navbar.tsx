@@ -113,10 +113,19 @@ export const Navbar: React.FC<NavbarProps> = ({
               <span>(604) 540-3999</span>
             </a>
 
-            <div className="hidden lg:flex items-center gap-1.5 text-emerald-100/80">
-              <MapPin className="w-3.5 h-3.5 text-[#57BC83]" />
-              <span>783 E 60th Ave, Vancouver, BC V5X 2A5 Canada</span>
-            </div>
+            <address 
+              className="not-italic hidden lg:flex items-center gap-1.5 text-emerald-100/90"
+              itemScope 
+              itemType="https://schema.org/PostalAddress"
+            >
+              <MapPin className="w-3.5 h-3.5 text-[#57BC83] shrink-0" />
+              <span>
+                <span itemProp="streetAddress">783 E 60th Ave</span>,{' '}
+                <span itemProp="addressLocality">Vancouver</span>,{' '}
+                <span itemProp="addressRegion">BC</span>{' '}
+                <span itemProp="postalCode">V5X 2A5</span>
+              </span>
+            </address>
 
             <div className="hidden sm:flex items-center gap-1.5 text-emerald-100/80">
               <Clock className="w-3.5 h-3.5 text-[#88D2A8]" />
@@ -124,7 +133,19 @@ export const Navbar: React.FC<NavbarProps> = ({
             </div>
           </div>
 
-          <div className="flex items-center gap-4 text-emerald-100/80 min-w-0">
+          <div className="flex items-center gap-3 sm:gap-4 text-emerald-100/80 min-w-0">
+            <a 
+              href="https://www.google.com/maps?q=Ironclad+Commercial+Floors+783+E+60th+Ave+Vancouver+BC+V5X+2A5"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden md:inline-flex items-center gap-1.5 text-xs text-[#88D2A8] hover:text-white font-medium transition-colors"
+              title="Google Business Profile & Reviews"
+            >
+              <span className="bg-white/10 px-2 py-0.5 rounded border border-white/20 text-[10px] font-bold text-white flex items-center gap-1">
+                <span className="text-amber-400">★</span> Google Business Profile
+              </span>
+            </a>
+
             <a 
               href="mailto:info@ironcladcommercialfloors.ca" 
               className="flex items-center gap-1.5 hover:text-white transition-colors truncate text-xs"

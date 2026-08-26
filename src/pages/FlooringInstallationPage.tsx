@@ -53,7 +53,7 @@ export const FlooringInstallationPage: React.FC<FlooringInstallationPageProps> =
   return (
     <div className="bg-[#F8F9FA] text-slate-800 min-h-screen pb-16">
       <SEOHead
-        title="Flooring Installation Vancouver, BC | Ironclad Commercial Floors"
+        title="Flooring Installation Vancouver | Ironclad Commercial Floors"
         description="Ironclad Commercial Floors offers professional flooring installation in Vancouver, BC. Epoxy, vinyl, tile & concrete flooring. Free quotes available."
         canonicalPath="/flooring-installation-vancouver-bc"
         ogImage="https://ironcladcommercialfloors.ca/IRONCLAD-COMMERCIAL-FLOORS.jpg"

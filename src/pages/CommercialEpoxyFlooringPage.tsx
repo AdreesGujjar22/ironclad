@@ -53,7 +53,7 @@ export const CommercialEpoxyFlooringPage: React.FC<CommercialEpoxyFlooringPagePr
   return (
     <div className="bg-[#F8F9FA] text-slate-800 min-h-screen pb-16">
       <SEOHead
-        title="Commercial Epoxy Flooring Vancouver, BC | Ironclad Commercial Floors"
+        title="Epoxy Flooring Vancouver | Ironclad Commercial Floors"
         description="Ironclad Commercial Floors installs industrial & commercial epoxy flooring in Vancouver, BC. Chemical-resistant, seamless coatings. Free estimates."
         canonicalPath="/commercial-epoxy-flooring-vancouver-bc"
         ogImage="https://ironcladcommercialfloors.ca/IRONCLAD-COMMERCIAL-FLOORS.jpg"

@@ -138,7 +138,13 @@ const LOCAL_BUSINESS_SCHEMA = {
     latitude: 49.2158341,
     longitude: -123.088378
   },
-  hasMap: 'https://maps.google.com/?q=783+E+60th+Ave,+Vancouver,+BC+V5X+2A5',
+  hasMap: 'https://www.google.com/maps?q=Ironclad+Commercial+Floors+783+E+60th+Ave+Vancouver+BC+V5X+2A5',
+  sameAs: [
+    'https://www.google.com/maps?q=Ironclad+Commercial+Floors+783+E+60th+Ave+Vancouver+BC+V5X+2A5',
+    'https://www.facebook.com/ironcladcommercialfloors',
+    'https://www.linkedin.com/company/ironcladcommercialfloors',
+    'https://www.instagram.com/ironcladcommercialfloors'
+  ],
   openingHoursSpecification: [
     {
       '@type': 'OpeningHoursSpecification',
@@ -262,7 +268,7 @@ const WEBSITE_SCHEMA = {
 };
 
 export const SEOHead: React.FC<SEOHeadProps> = ({
-  title = 'Commercial Flooring Contractor Vancouver | Ironclad Floors',
+  title = 'Flooring Contractor Vancouver | Ironclad Commercial Floors',
   description = 'Commercial Flooring Contractor in Vancouver, BC. Ironclad installs concrete polishing, industrial epoxy, carpet tile & vinyl flooring 24/7. Call (604) 540-3999.',
   canonicalPath = '/',
   ogImage = DEFAULT_IMAGE,

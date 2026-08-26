@@ -172,9 +172,25 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
                   <span className="text-[11px] font-mono uppercase font-bold text-slate-500 block">
                     Facility & Headquarters
                   </span>
-                  <p className="font-bold text-slate-900 mt-0.5">
-                    783 E 60th Ave, Vancouver, BC V5X 2A5
-                  </p>
+                  <address 
+                    className="not-italic font-bold text-slate-900 mt-0.5"
+                    itemScope 
+                    itemType="https://schema.org/PostalAddress"
+                  >
+                    <span itemProp="streetAddress">783 E 60th Ave</span>,{' '}
+                    <span itemProp="addressLocality">Vancouver</span>,{' '}
+                    <span itemProp="addressRegion">BC</span>{' '}
+                    <span itemProp="postalCode">V5X 2A5</span>,{' '}
+                    <span itemProp="addressCountry">Canada</span>
+                  </address>
+                  <a
+                    href="https://www.google.com/maps?q=Ironclad+Commercial+Floors+783+E+60th+Ave+Vancouver+BC+V5X+2A5"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-xs text-[#2A6E44] hover:underline font-bold mt-2"
+                  >
+                    <span>View on Google Business Profile & Maps →</span>
+                  </a>
                 </div>
               </div>
 

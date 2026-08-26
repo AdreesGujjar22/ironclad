@@ -53,7 +53,7 @@ export const FlooringReplacementPage: React.FC<FlooringReplacementPageProps> = (
   return (
     <div className="bg-[#F8F9FA] text-slate-800 min-h-screen pb-16">
       <SEOHead
-        title="Commercial Flooring Replacement Vancouver, BC | Ironclad Commercial Floors"
+        title="Flooring Replacement Vancouver | Ironclad Commercial Floors"
         description="Ironclad Commercial Floors handles commercial flooring replacement in Vancouver, BC. We remove old flooring and install durable new surfaces. Free estimates."
         canonicalPath="/flooring-replacement-vancouver-bc"
         ogImage="https://ironcladcommercialfloors.ca/IRONCLAD-COMMERCIAL-FLOORS.jpg"
