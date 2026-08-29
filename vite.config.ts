@@ -15,12 +15,18 @@ export default defineConfig(() => {
       target: 'es2020',
       minify: 'esbuild' as const,
       cssMinify: true,
+      reportCompressedSize: true,
       rollupOptions: {
         output: {
-          manualChunks: {
-            'vendor-react': ['react', 'react-dom'],
-            'vendor-motion': ['motion'],
-            'vendor-icons': ['lucide-react'],
+          manualChunks(id) {
+            if (id.includes('node_modules')) {
+              if (id.includes('react-dom') || (id.includes('react') && !id.includes('lucide-react') && !id.includes('motion'))) {
+                return 'vendor-react';
+              }
+              if (id.includes('lucide-react')) {
+                return 'vendor-icons';
+              }
+            }
           },
         },
       },

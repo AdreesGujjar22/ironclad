@@ -205,500 +205,352 @@
     }
     </script>
     <style>
-      /* Prevent Flash of Unstyled Content (FOUC) while preserving 100% crawlability for LLMs and Search Bots */
+      /* Base high-performance styling for instant mobile paint and 0 layout shift */
+      html {
+        box-sizing: border-box;
+        -webkit-text-size-adjust: 100%;
+        scroll-behavior: smooth;
+      }
+      *, *:before, *:after {
+        box-sizing: inherit;
+      }
       body {
         margin: 0;
         padding: 0;
-        background-color: #1A2530;
-        color: #F8F9FA;
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        background-color: #F8F9FA;
+        color: #1E293B;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
       }
-      .pre-render-loader {
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        background: #1A2530;
-        color: #ffffff;
+      a {
+        color: #3B945E;
+        text-decoration: none;
       }
-      .pre-render-spinner {
-        width: 44px;
-        height: 44px;
-        border: 3px solid rgba(87, 188, 131, 0.2);
-        border-top-color: #57BC83;
-        border-radius: 50%;
-        animation: pr-spin 0.7s linear infinite;
-      }
-      @keyframes pr-spin {
-        to { transform: rotate(360deg); }
-      }
-      .static-semantic-content {
-        position: absolute;
-        width: 1px;
-        height: 1px;
-        padding: 0;
-        margin: -1px;
-        overflow: hidden;
-        clip: rect(0, 0, 0, 0);
-        white-space: normal;
-        border: 0;
+      a:hover {
+        text-decoration: underline;
       }
     </style>
   </head>
   <body>
     <div id="root">
-      <!-- Branded instantaneous loading skeleton to eliminate raw unstyled text flashing -->
-      <div class="pre-render-loader" aria-label="Loading Ironclad Commercial Floors...">
-        <div class="pre-render-spinner"></div>
-        <div style="margin-top: 18px; font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #88D2A8; font-family: monospace;">
-          IRONCLAD COMMERCIAL FLOORS
-        </div>
-        <div style="margin-top: 6px; font-size: 11px; color: #94A3B8; font-family: monospace;">
-          Vancouver, BC • (604) 540-3999
-        </div>
-      </div>
-    </div>
-
-    <!-- Full Pre-Rendered Semantic HTML for Search Engines, LLMs & AI Crawlers (Rendering Difference < 5%) -->
-    <noscript>
+      <!-- Full Pre-Rendered Semantic HTML for Search Engines, LLMs & Instant Mobile First Paint -->
       <div class="static-semantic-content">
         <!-- Top Info Bar -->
-      <div class="top-info-bar">
-        <div>
-          <a href="tel:6045403999"><strong>Phone: (604) 540-3999</strong></a>
-          <address itemscope itemtype="https://schema.org/PostalAddress" style="display:inline;">
-            <span itemprop="streetAddress">783 E 60th Ave</span>, 
-            <span itemprop="addressLocality">Vancouver</span>, 
-            <span itemprop="addressRegion">BC</span> 
-            <span itemprop="postalCode">V5X 2A5</span>, 
-            <span itemprop="addressCountry">Canada</span>
-          </address>
-          <span>Overnight & Weekend Shifts Available</span>
-          <a href="https://www.google.com/maps?q=Ironclad+Commercial+Floors+783+E+60th+Ave+Vancouver+BC+V5X+2A5">Google Business Profile Verified</a>
-          <a href="mailto:info@ironcladcommercialfloors.ca">info@ironcladcommercialfloors.ca</a>
+        <div style="background-color: #0A1118; color: #94A3B8; font-size: 12px; padding: 6px 16px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; border-bottom: 1px solid #1E293B;">
+          <div>
+            <a href="tel:6045403999" style="color: #88D2A8; font-weight: bold; margin-right: 16px;">Direct Dispatch: (604) 540-3999</a>
+            <address itemscope itemtype="https://schema.org/PostalAddress" style="display: inline; font-style: normal;">
+              <span itemprop="streetAddress">783 E 60th Ave</span>, 
+              <span itemprop="addressLocality">Vancouver</span>, 
+              <span itemprop="addressRegion">BC</span> 
+              <span itemprop="postalCode">V5X 2A5</span>, 
+              <span itemprop="addressCountry">Canada</span>
+            </address>
+          </div>
+          <div>
+            <span style="margin-right: 12px; color: #88D2A8;">24/7 Overnight &amp; Weekend Shifts</span>
+            <a href="mailto:info@ironcladcommercialfloors.ca" style="color: #94A3B8;">info@ironcladcommercialfloors.ca</a>
+          </div>
         </div>
-      </div>
 
-      <!-- Main Header Navigation -->
-      <header>
-        <nav aria-label="Main Navigation">
-          <div>
-            <a href="/" aria-label="Ironclad Commercial Floors Home">
-              <strong>IRONCLAD COMMERCIAL FLOORS</strong>
+        <!-- Main Header Navigation -->
+        <header style="background-color: #1A2530; color: #FFFFFF; padding: 16px 20px; border-bottom: 1px solid #2D3D4D;">
+          <nav aria-label="Main Navigation" style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+            <a href="/" aria-label="Ironclad Commercial Floors Home" style="color: #FFFFFF; font-weight: 900; font-size: 18px; letter-spacing: -0.02em; text-transform: uppercase;">
+              IRONCLAD COMMERCIAL FLOORS
             </a>
-            <ul>
-              <li><a href="/">Home</a></li>
-              <li><a href="/about">About Us</a></li>
-              <li>
-                <a href="/services">Services</a>
-                <ul>
-                  <li><a href="/flooring-installation-vancouver-bc">Flooring Installation</a></li>
-                  <li><a href="/flooring-repair-vancouver-bc">Flooring Repair</a></li>
-                  <li><a href="/flooring-replacement-vancouver-bc">Flooring Replacement</a></li>
-                  <li><a href="/commercial-epoxy-flooring-vancouver-bc">Commercial Epoxy Flooring</a></li>
-                  <li><a href="/garage-epoxy-flooring-vancouver-bc">Garage Epoxy Flooring</a></li>
-                  <li><a href="/services/industrial-epoxy-flooring">Industrial Epoxy Coatings</a></li>
-                  <li><a href="/services/commercial-carpet-tile-installation">Commercial Carpet Tile</a></li>
-                  <li><a href="/services/luxury-vinyl-tile-installation">Luxury Vinyl Plank & Tile (LVT)</a></li>
-                  <li><a href="/services/commercial-sheet-vinyl-flooring">Hygienic Sheet Vinyl</a></li>
-                  <li><a href="/services/concrete-moisture-barrier-installation">Concrete Moisture Barriers</a></li>
-                  <li><a href="/services/concrete-polishing-vancouver-bc">Polished Concrete Flooring</a></li>
-                </ul>
-              </li>
-              <li><a href="/locations">Service Areas</a></li>
-              <li><a href="/projects">Projects</a></li>
-              <li><a href="/blogs">Technical Specs</a></li>
-              <li><a href="/contact">Contact & Dispatch</a></li>
+            <ul style="list-style: none; margin: 0; padding: 0; display: flex; gap: 16px; flex-wrap: wrap; font-size: 14px; font-weight: 600;">
+              <li><a href="/" style="color: #FFFFFF;">Home</a></li>
+              <li><a href="/about" style="color: #E2E8F0;">About Us</a></li>
+              <li><a href="/services" style="color: #E2E8F0;">Services</a></li>
+              <li><a href="/flooring-installation-vancouver-bc" style="color: #E2E8F0;">Installation</a></li>
+              <li><a href="/flooring-repair-vancouver-bc" style="color: #E2E8F0;">Repair</a></li>
+              <li><a href="/flooring-replacement-vancouver-bc" style="color: #E2E8F0;">Replacement</a></li>
+              <li><a href="/commercial-epoxy-flooring-vancouver-bc" style="color: #E2E8F0;">Epoxy</a></li>
+              <li><a href="/garage-epoxy-flooring-vancouver-bc" style="color: #E2E8F0;">Garage</a></li>
+              <li><a href="/locations" style="color: #E2E8F0;">Service Areas</a></li>
+              <li><a href="/projects" style="color: #E2E8F0;">Projects</a></li>
+              <li><a href="/blogs" style="color: #E2E8F0;">Technical Specs</a></li>
+              <li><a href="/contact" style="color: #88D2A8;">Contact &amp; Dispatch</a></li>
             </ul>
-            <div>
-              <a href="tel:6045403999">Call (604) 540-3999</a>
-              <a href="/contact">Book Free Estimate</a>
-            </div>
-          </div>
-        </nav>
-      </header>
+          </nav>
+        </header>
 
-      <main>
-        <!-- 1. Hero Section -->
-        <section id="hero">
-          <article>
-            <h2>Commercial Flooring Contractor in Vancouver, BC</h2>
-            <p>
-              Ironclad Commercial Floors is Vancouver, BC's trusted commercial flooring contractor. We handle <a href="/flooring-installation-vancouver-bc">flooring installation</a>, <a href="/flooring-repair-vancouver-bc">repair</a>, <a href="/flooring-replacement-vancouver-bc">replacement</a>, and <a href="/commercial-epoxy-flooring-vancouver-bc">epoxy flooring</a> including <a href="/garage-epoxy-flooring-vancouver-bc">garage epoxy flooring</a>. Serving Vancouver, Burnaby, Surrey, Richmond, and nearby BC communities call for a free on-site estimate.
-            </p>
-            <div>
-              <a href="/contact">Book Free Estimate</a>
-              <a href="tel:6045403999">Call (604) 540-3999</a>
-            </div>
-          </article>
-        </section>
-
-        <!-- 2. Core Values Ribbon -->
-        <section id="core-values">
-          <div>
-            <div>
-              <strong>Red Seal Certified</strong>
-              <p>Certified commercial installers and ICRI substrate prep technicians.</p>
-            </div>
-            <div>
-              <strong>$5M WCB Insured</strong>
-              <p>Full commercial general liability insurance and WorkSafeBC coverage.</p>
-            </div>
-            <div>
-              <strong>24/7 Rapid Service</strong>
-              <p>Overnight, weekend, and rapid emergency commercial repairs.</p>
-            </div>
-            <div>
-              <strong>10-Yr Bonded Warranty</strong>
-              <p>Bonded manufacturer warranties and lifetime adhesion assurance.</p>
-            </div>
-          </div>
-        </section>
-
-        <!-- 3. Dual Highlight Cards -->
-        <section id="about-us-section">
-          <div>
+        <main style="max-width: 1200px; margin: 0 auto; padding: 24px 16px;">
+          <!-- 1. Hero Section -->
+          <section id="hero" style="background: #0A1118; color: #FFFFFF; padding: 48px 24px; border-radius: 8px; margin-bottom: 32px;">
             <article>
-              <h2>About Us</h2>
-              <p>
-                We started Ironclad Commercial Floors because too many Vancouver businesses were waiting weeks for flooring work that should have taken days.
+              <h1 style="font-size: 32px; line-height: 1.15; font-weight: 900; margin: 0 0 16px 0; color: #FFFFFF;">
+                Commercial Flooring Contractor in Vancouver, BC
+              </h1>
+              <p style="font-size: 16px; line-height: 1.6; color: #E2E8F0; max-width: 800px; margin-bottom: 24px;">
+                Ironclad Commercial Floors is Vancouver, BC's trusted commercial flooring contractor. We handle <a href="/flooring-installation-vancouver-bc" style="color: #88D2A8; font-weight: bold;">flooring installation</a>, <a href="/flooring-repair-vancouver-bc" style="color: #88D2A8; font-weight: bold;">repair</a>, <a href="/flooring-replacement-vancouver-bc" style="color: #88D2A8; font-weight: bold;">replacement</a>, and <a href="/commercial-epoxy-flooring-vancouver-bc" style="color: #88D2A8; font-weight: bold;">epoxy flooring</a> including <a href="/garage-epoxy-flooring-vancouver-bc" style="color: #88D2A8; font-weight: bold;">garage epoxy flooring</a>. Serving Vancouver, Burnaby, Surrey, Richmond, and nearby BC communities call for a free on-site estimate.
               </p>
-              <p>
-                We have installed patched and replaced nearly every kind of commercial floor there is including offices warehouses retail spaces and parking garages.
-              </p>
-              <a href="/about-ironclad-commercial-floors-vancouver-bc">Learn More</a>
-            </article>
-
-            <article>
-              <h3>Our Certified Team</h3>
-              <p>
-                Epoxy flooring is our specialty and we build it tough enough to handle oil tires and heavy daily traffic without a second thought.
-              </p>
-              <p>
-                Our goal is simple. We want every client to call us once and never need another flooring contractor again.
-              </p>
-              <a href="/contact">Get A Quote Now</a>
-            </article>
-          </div>
-        </section>
-
-        <!-- 4. Services Section Header & Offset Service Blocks -->
-        <section id="services-section">
-          <header>
-            <h2>Our Commercial Flooring Services in Vancouver, BC</h2>
-            <p>
-              Ironclad Commercial Floors offers a full range of commercial flooring solutions designed for durability, safety, and long-term performance.
-            </p>
-          </header>
-
-          <div>
-            <!-- Service 1 -->
-            <article>
-              <h3>Commercial Flooring Installation</h3>
-              <p>
-                New construction and renovation projects need a flooring installation partner who understands commercial-grade materials, subfloor prep, and tight project timelines. We install polished concrete, vinyl plank, carpet tile, and epoxy systems for offices, retail spaces, and warehouses throughout Vancouver, BC.
-              </p>
-              <a href="/flooring-installation-vancouver-bc">Learn More</a>
-            </article>
-
-            <!-- Service 2 -->
-            <article>
-              <h3>Commercial &amp; Garage Epoxy Flooring</h3>
-              <p>
-                We install seamless, chemical-resistant epoxy flooring for warehouses, manufacturing plants, and garage epoxy flooring for fleet and parking facilities across Vancouver, BC. Epoxy coatings resist stains, impact, and heavy equipment traffic.
-              </p>
-              <div>
-                <a href="/commercial-epoxy-flooring-vancouver-bc">Commercial Epoxy</a>
-                <a href="/garage-epoxy-flooring-vancouver-bc">Garage Epoxy</a>
+              <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                <a href="/contact" style="background: #3B945E; color: #FFFFFF; padding: 12px 24px; font-weight: bold; border-radius: 4px; text-transform: uppercase; font-size: 13px;">Book Free Estimate</a>
+                <a href="tel:6045403999" style="background: #1A2530; color: #FFFFFF; padding: 12px 24px; font-weight: bold; border: 1px solid #475569; border-radius: 4px; font-size: 13px;">Call (604) 540-3999</a>
               </div>
             </article>
+          </section>
 
-            <!-- Service 3 -->
-            <article>
-              <h3>Commercial Flooring Repair</h3>
-              <p>
-                Cracked concrete, peeling epoxy, or damaged tile can create safety hazards and disrupt operations. Our flooring repair team responds quickly to restore your commercial floor without shutting down your business for long.
+          <!-- 2. Core Values Ribbon -->
+          <section id="core-values" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 32px;">
+            <div style="background: #FFFFFF; border: 1px solid #E2E8F0; padding: 20px; border-radius: 6px;">
+              <strong style="font-size: 16px; color: #0F172A; display: block; margin-bottom: 6px;">Red Seal Certified</strong>
+              <p style="font-size: 14px; color: #64748B; margin: 0;">Certified commercial installers and ICRI substrate prep technicians.</p>
+            </div>
+            <div style="background: #FFFFFF; border: 1px solid #E2E8F0; padding: 20px; border-radius: 6px;">
+              <strong style="font-size: 16px; color: #0F172A; display: block; margin-bottom: 6px;">$5M WCB Insured</strong>
+              <p style="font-size: 14px; color: #64748B; margin: 0;">Full commercial general liability insurance and WorkSafeBC coverage.</p>
+            </div>
+            <div style="background: #FFFFFF; border: 1px solid #E2E8F0; padding: 20px; border-radius: 6px;">
+              <strong style="font-size: 16px; color: #0F172A; display: block; margin-bottom: 6px;">24/7 Rapid Service</strong>
+              <p style="font-size: 14px; color: #64748B; margin: 0;">Overnight, weekend, and rapid emergency commercial repairs.</p>
+            </div>
+            <div style="background: #FFFFFF; border: 1px solid #E2E8F0; padding: 20px; border-radius: 6px;">
+              <strong style="font-size: 16px; color: #0F172A; display: block; margin-bottom: 6px;">10-Yr Bonded Warranty</strong>
+              <p style="font-size: 14px; color: #64748B; margin: 0;">Bonded manufacturer warranties and lifetime adhesion assurance.</p>
+            </div>
+          </section>
+
+          <!-- 3. About Us Section -->
+          <section id="about-us-section" style="margin-bottom: 32px; background: #FFFFFF; border: 1px solid #E2E8F0; padding: 28px; border-radius: 8px;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;">
+              <article>
+                <h2 style="font-size: 24px; font-weight: 800; color: #0F172A; margin: 0 0 12px 0;">About Us</h2>
+                <p style="font-size: 15px; color: #475569; line-height: 1.6; margin-bottom: 12px;">
+                  We started Ironclad Commercial Floors because too many Vancouver businesses were waiting weeks for flooring work that should have taken days.
+                </p>
+                <p style="font-size: 15px; color: #475569; line-height: 1.6; margin-bottom: 16px;">
+                  We have installed patched and replaced nearly every kind of commercial floor there is including offices warehouses retail spaces and parking garages.
+                </p>
+                <a href="/about-ironclad-commercial-floors-vancouver-bc" style="font-weight: bold; color: #3B945E;">Learn More &rarr;</a>
+              </article>
+              <article>
+                <h3 style="font-size: 20px; font-weight: 800; color: #0F172A; margin: 0 0 12px 0;">Our Certified Team</h3>
+                <p style="font-size: 15px; color: #475569; line-height: 1.6; margin-bottom: 12px;">
+                  Epoxy flooring is our specialty and we build it tough enough to handle oil tires and heavy daily traffic without a second thought.
+                </p>
+                <p style="font-size: 15px; color: #475569; line-height: 1.6; margin-bottom: 16px;">
+                  Our goal is simple. We want every client to call us once and never need another flooring contractor again.
+                </p>
+                <a href="/contact" style="font-weight: bold; color: #3B945E;">Get A Quote Now &rarr;</a>
+              </article>
+            </div>
+          </section>
+
+          <!-- 4. Services Section -->
+          <section id="services-section" style="margin-bottom: 32px;">
+            <header style="margin-bottom: 20px;">
+              <h2 style="font-size: 26px; font-weight: 900; color: #0F172A; margin: 0 0 8px 0;">Our Commercial Flooring Services in Vancouver, BC</h2>
+              <p style="font-size: 15px; color: #64748B; margin: 0;">
+                Ironclad Commercial Floors offers a full range of commercial flooring solutions designed for durability, safety, and long-term performance.
               </p>
-              <a href="/flooring-repair-vancouver-bc">Learn More</a>
-            </article>
-
-            <!-- Service 4 -->
-            <article>
-              <h3>Commercial Flooring Replacement</h3>
-              <p>
-                When repairs aren't enough, our flooring replacement service removes old, worn, or damaged flooring and installs a new, long-lasting surface — matched to your facility's traffic and durability needs.
-              </p>
-              <a href="/flooring-replacement-vancouver-bc">Learn More</a>
-            </article>
-          </div>
-        </section>
-
-        <!-- 5. Why Vancouver, BC Businesses Choose Us -->
-        <section id="why-choose-us">
-          <h2>Why Vancouver, BC Businesses Choose Ironclad Commercial Floors</h2>
-          <p>
-            Engineered specifically for the mechanical demands and moisture levels of commercial real estate in British Columbia.
-          </p>
-          <ul>
-            <li>Licensed and insured commercial flooring contractor serving Vancouver, BC and the Lower Mainland ($5M liability + WorkSafeBC)</li>
-            <li>Free on-site estimates and transparent, upfront pricing</li>
-            <li>Fast-turnaround flooring installation, repair, and replacement to minimize downtime</li>
-            <li>Industrial-grade epoxy flooring and garage epoxy flooring systems built to last</li>
-            <li>24/7 availability for emergency commercial flooring repair</li>
-          </ul>
-        </section>
-
-        <!-- 6. Affiliations and Memberships -->
-        <section id="affiliations">
-          <h2>Affiliations and Memberships</h2>
-          <ul>
-            <li><strong>BBB A+</strong> Accredited Better Business Bureau Contractor</li>
-            <li><strong>Red Seal Canada</strong> Certified Journeyperson Floorcovering Installers</li>
-            <li><strong>WorkSafeBC</strong> Active Good Standing &amp; Safety Certified</li>
-            <li><strong>BC Construction Assoc.</strong> British Columbia Construction Association Member</li>
-            <li><strong>ICRI CSP Certified</strong> International Concrete Repair Institute Certified</li>
-          </ul>
-        </section>
-
-        <!-- 7. Partner Brands -->
-        <section id="partners">
-          <h3>Take a look at a few of our partners below</h3>
-          <p>
-            In order to continually deliver quality and superior service to our customers, we pride ourselves on working exclusively with the most trustworthy and established brands in the industry.
-          </p>
-          <ul>
-            <li>SIKA COMMERCIAL</li>
-            <li>MAPEI CANADA</li>
-            <li>ARDEX AMERICAS</li>
-            <li>SHAW CONTRACT</li>
-          </ul>
-        </section>
-
-        <!-- 8. Service Areas / Areas We Serve Near Vancouver, BC -->
-        <section id="service-areas">
-          <h2>Areas We Serve Near Vancouver, BC</h2>
-          <p>
-            Ironclad Commercial Floors provides commercial flooring contractor services throughout Vancouver, Burnaby, Surrey, Richmond, Coquitlam, and New Westminster, BC.
-          </p>
-          <div>
-            <ul>
-              <li>
-                <strong><a href="/locations/vancouver">Vancouver, BC</a></strong>
-                <p>Phone: (604) 540-3999</p>
-                <p>Address: 783 E 60th Ave, Vancouver, BC V5X 2A5, Canada (Headquarters &amp; Main Dispatch)</p>
-              </li>
-              <li>
-                <strong><a href="/locations/burnaby">Burnaby, BC</a></strong>
-                <p>Phone: (604) 540-3999</p>
-                <p>Address: Serving Burnaby &amp; Brentwood Commercial Districts (Rapid Response Crew)</p>
-              </li>
-              <li>
-                <strong><a href="/locations/surrey">Surrey, BC</a></strong>
-                <p>Phone: (604) 540-3999</p>
-                <p>Address: Serving Surrey &amp; Fraser Valley Facilities (Industrial Fleet Dispatch)</p>
-              </li>
-              <li>
-                <strong><a href="/locations/richmond">Richmond, BC</a></strong>
-                <p>Phone: (604) 540-3999</p>
-                <p>Address: Serving Richmond Commercial &amp; Airport Logistics (Commercial Surface Division)</p>
-              </li>
-              <li>
-                <strong><a href="/locations/coquitlam">Coquitlam, BC</a></strong>
-                <p>Phone: (604) 540-3999</p>
-                <p>Address: Serving Tri-Cities &amp; Lougheed Commercial Sector (Specialty Flooring Crew)</p>
-              </li>
-              <li>
-                <strong><a href="/locations/new-westminster">New Westminster, BC</a></strong>
-                <p>Phone: (604) 540-3999</p>
-                <p>Address: Serving Historic &amp; Modern Commercial Properties (Tenant Improvement Unit)</p>
-              </li>
-            </ul>
-          </div>
-        </section>
-
-        <!-- 9. Commercial Estimator Calculator Summary -->
-        <section id="calculator-section">
-          <h2>Commercial Flooring Estimator Calculator</h2>
-          <p>
-            Estimate your commercial flooring costs in Vancouver, BC. Calculate budget requirements for industrial epoxy, commercial vinyl tile, carpet plank, and polished concrete across any square footage.
-          </p>
-          <a href="/contact">Calculate Commercial Flooring Cost Online</a>
-        </section>
-
-        <!-- 10. Verified Reviews -->
-        <section id="testimonials">
-          <h2>Verified Commercial Flooring Reviews</h2>
-          <p>
-            Feedback from general contractors, facility managers, and business owners across Vancouver.
-          </p>
-          <div>
-            <blockquote>
-              <p>"Ironclad resurfaced our 45,000 sq ft distribution facility with heavy-duty epoxy mortar over a long weekend. Flawless execution and zero operational downtime."</p>
-              <footer>
-                <strong>Marcus Vance</strong> — Operations Director, Pacific Logistics Hub (Richmond, BC)
-              </footer>
-            </blockquote>
-
-            <blockquote>
-              <p>"We subcontract all our commercial tenant improvement flooring to Ironclad. Their subfloor moisture mitigation and vinyl plank installation are second to none in the Lower Mainland."</p>
-              <footer>
-                <strong>Elena Rostova</strong> — Senior Project Manager, Apex Commercial Developments (Vancouver, BC)
-              </footer>
-            </blockquote>
-
-            <blockquote>
-              <p>"Fast emergency response when our warehouse joint spalls needed immediate repair. Licensed, WorkSafeBC compliant, and completed within 24 hours."</p>
-              <footer>
-                <strong>David Chen</strong> — Facility Operations Lead, Metro Industrial Services (Burnaby, BC)
-              </footer>
-            </blockquote>
-          </div>
-        </section>
-
-        <!-- 11. FAQ Section with Schema Microdata -->
-        <section id="faq-section" itemscope itemtype="https://schema.org/FAQPage">
-          <h2>Frequently Asked Questions</h2>
-          <p>
-            Expert answers regarding project timelines, substrate prep, moisture testing, and commercial warranties.
-          </p>
-          <dl>
-            <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-              <dt itemprop="name"><strong>What commercial flooring services does Ironclad provide in Vancouver, BC?</strong></dt>
-              <dd itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                <span itemprop="text">Ironclad Commercial Floors provides commercial flooring installation, commercial flooring repair, commercial flooring replacement, industrial epoxy flooring, garage epoxy flooring, concrete polishing, luxury vinyl plank (LVP), and carpet tile installation across Vancouver, BC and the Lower Mainland.</span>
-              </dd>
+            </header>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px;">
+              <article style="background: #FFFFFF; border: 1px solid #E2E8F0; padding: 20px; border-radius: 6px;">
+                <h3 style="font-size: 18px; font-weight: 800; color: #0F172A; margin: 0 0 8px 0;">Commercial Flooring Installation</h3>
+                <p style="font-size: 14px; color: #475569; line-height: 1.5; margin-bottom: 12px;">
+                  New construction and renovation projects need a flooring installation partner who understands commercial-grade materials, subfloor prep, and tight project timelines. We install polished concrete, vinyl plank, carpet tile, and epoxy systems for offices, retail spaces, and warehouses throughout Vancouver, BC.
+                </p>
+                <a href="/flooring-installation-vancouver-bc" style="font-weight: bold; color: #3B945E; font-size: 14px;">Learn More &rarr;</a>
+              </article>
+              <article style="background: #FFFFFF; border: 1px solid #E2E8F0; padding: 20px; border-radius: 6px;">
+                <h3 style="font-size: 18px; font-weight: 800; color: #0F172A; margin: 0 0 8px 0;">Commercial &amp; Garage Epoxy Flooring</h3>
+                <p style="font-size: 14px; color: #475569; line-height: 1.5; margin-bottom: 12px;">
+                  We install seamless, chemical-resistant epoxy flooring for warehouses, manufacturing plants, and garage epoxy flooring for fleet and parking facilities across Vancouver, BC. Epoxy coatings resist stains, impact, and heavy equipment traffic.
+                </p>
+                <div>
+                  <a href="/commercial-epoxy-flooring-vancouver-bc" style="font-weight: bold; color: #3B945E; font-size: 14px; margin-right: 12px;">Commercial Epoxy</a>
+                  <a href="/garage-epoxy-flooring-vancouver-bc" style="font-weight: bold; color: #3B945E; font-size: 14px;">Garage Epoxy</a>
+                </div>
+              </article>
+              <article style="background: #FFFFFF; border: 1px solid #E2E8F0; padding: 20px; border-radius: 6px;">
+                <h3 style="font-size: 18px; font-weight: 800; color: #0F172A; margin: 0 0 8px 0;">Commercial Flooring Repair</h3>
+                <p style="font-size: 14px; color: #475569; line-height: 1.5; margin-bottom: 12px;">
+                  Cracked concrete, peeling epoxy, or damaged tile can create safety hazards and disrupt operations. Our flooring repair team responds quickly to restore your commercial floor without shutting down your business for long.
+                </p>
+                <a href="/flooring-repair-vancouver-bc" style="font-weight: bold; color: #3B945E; font-size: 14px;">Learn More &rarr;</a>
+              </article>
+              <article style="background: #FFFFFF; border: 1px solid #E2E8F0; padding: 20px; border-radius: 6px;">
+                <h3 style="font-size: 18px; font-weight: 800; color: #0F172A; margin: 0 0 8px 0;">Commercial Flooring Replacement</h3>
+                <p style="font-size: 14px; color: #475569; line-height: 1.5; margin-bottom: 12px;">
+                  When repairs aren't enough, our flooring replacement service removes old, worn, or damaged flooring and installs a new, long-lasting surface matched to your facility's traffic and durability needs.
+                </p>
+                <a href="/flooring-replacement-vancouver-bc" style="font-weight: bold; color: #3B945E; font-size: 14px;">Learn More &rarr;</a>
+              </article>
             </div>
+          </section>
 
-            <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-              <dt itemprop="name"><strong>How do you minimize downtime for operating commercial businesses in Vancouver?</strong></dt>
-              <dd itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                <span itemprop="text">We provide overnight, weekend, and phased off-hours flooring installations and repairs. Our rapid-cure polyaspartic and high-early-strength epoxy formulations allow foot traffic within 12 hours and vehicle traffic within 48 hours.</span>
-              </dd>
-            </div>
-
-            <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-              <dt itemprop="name"><strong>Are Ironclad Commercial Floors crews licensed, insured, and certified in BC?</strong></dt>
-              <dd itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                <span itemprop="text">Yes. Ironclad Commercial Floors carries $5,000,000 in commercial general liability insurance, full WorkSafeBC coverage, and Red Seal certified installers trained in ICRI concrete surface preparation and ASTM moisture testing.</span>
-              </dd>
-            </div>
-
-            <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-              <dt itemprop="name"><strong>How do I get a free commercial flooring estimate in Vancouver, BC?</strong></dt>
-              <dd itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                <span itemprop="text">You can call us directly at (604) 540-3999 or book an on-site consultation online. Our estimating engineers perform laser square footage measurement, substrate inspection, and deliver a detailed, guaranteed fixed-quote.</span>
-              </dd>
-            </div>
-          </dl>
-        </section>
-
-        <!-- 12. Bottom CTA Section -->
-        <section id="cta-estimate">
-          <h2>Get a Free Commercial Flooring Estimate in Vancouver, BC</h2>
-          <p>
-            Call Ironclad Commercial Floors at <a href="tel:6045403999"><strong>(604) 540-3999</strong></a> or request a quote online to schedule your free consultation with Vancouver, BC's trusted commercial flooring contractor.
-          </p>
-          <div>
-            <a href="tel:6045403999">Call (604) 540-3999</a>
-            <a href="/contact">Request Free Consultation</a>
-          </div>
-        </section>
-
-        <!-- 13. Central Headquarters Dispatch Map Info -->
-        <section id="map-hub">
-          <h2>Vancouver Central Headquarters &amp; Estimating Hub</h2>
-          <p>
-            783 E 60th Ave, Vancouver, BC V5X 2A5, Canada • Serving All Lower Mainland Municipalities
-          </p>
-          <a href="https://www.google.com/maps?q=Ironclad+Commercial+Floors+783+E+60th+Ave+Vancouver+BC+V5X+2A5">Open in Google Maps</a>
-        </section>
-      </main>
-
-      <!-- Complete Footer Pre-Render -->
-      <footer id="footer-section">
-        <div>
-          <div>
-            <h3>Ready to Upgrade or Restore Your Commercial Facility?</h3>
-            <p>
-              Schedule an in-person 3D subfloor moisture diagnostic, engineering proposal, and customized fixed-quote with Vancouver’s premier commercial flooring specialists.
+          <!-- 5. Why Choose Us -->
+          <section id="why-choose-us" style="background: #FFFFFF; border: 1px solid #E2E8F0; padding: 28px; border-radius: 8px; margin-bottom: 32px;">
+            <h2 style="font-size: 24px; font-weight: 800; color: #0F172A; margin: 0 0 12px 0;">Why Vancouver, BC Businesses Choose Ironclad Commercial Floors</h2>
+            <p style="font-size: 15px; color: #475569; margin-bottom: 16px;">
+              Engineered specifically for the mechanical demands and moisture levels of commercial real estate in British Columbia.
             </p>
-            <a href="tel:6045403999">Call (604) 540-3999</a>
-            <a href="/contact">Book Site Survey</a>
-          </div>
+            <ul style="padding-left: 20px; color: #334155; line-height: 1.8; font-size: 15px; margin: 0;">
+              <li>Licensed and insured commercial flooring contractor serving Vancouver, BC and the Lower Mainland ($5M liability + WorkSafeBC)</li>
+              <li>Free on-site estimates and transparent, upfront pricing</li>
+              <li>Fast-turnaround flooring installation, repair, and replacement to minimize downtime</li>
+              <li>Industrial-grade epoxy flooring and garage epoxy flooring systems built to last</li>
+              <li>24/7 availability for emergency commercial flooring repair</li>
+            </ul>
+          </section>
 
-          <div>
+          <!-- 6. Service Areas -->
+          <section id="service-areas" style="margin-bottom: 32px;">
+            <h2 style="font-size: 24px; font-weight: 800; color: #0F172A; margin: 0 0 8px 0;">Areas We Serve Near Vancouver, BC</h2>
+            <p style="font-size: 15px; color: #64748B; margin: 0 0 16px 0;">
+              Ironclad Commercial Floors provides commercial flooring contractor services throughout Vancouver, Burnaby, Surrey, Richmond, Coquitlam, and New Westminster, BC.
+            </p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px;">
+              <div style="background: #FFFFFF; border: 1px solid #E2E8F0; padding: 16px; border-radius: 6px;">
+                <strong><a href="/locations/vancouver" style="color: #0F172A;">Vancouver, BC</a></strong>
+                <p style="font-size: 13px; color: #64748B; margin: 4px 0;">Phone: (604) 540-3999</p>
+                <p style="font-size: 13px; color: #475569; margin: 0;">783 E 60th Ave, Vancouver, BC V5X 2A5, Canada (Headquarters)</p>
+              </div>
+              <div style="background: #FFFFFF; border: 1px solid #E2E8F0; padding: 16px; border-radius: 6px;">
+                <strong><a href="/locations/burnaby" style="color: #0F172A;">Burnaby, BC</a></strong>
+                <p style="font-size: 13px; color: #64748B; margin: 4px 0;">Phone: (604) 540-3999</p>
+                <p style="font-size: 13px; color: #475569; margin: 0;">Burnaby &amp; Brentwood Commercial Districts</p>
+              </div>
+              <div style="background: #FFFFFF; border: 1px solid #E2E8F0; padding: 16px; border-radius: 6px;">
+                <strong><a href="/locations/surrey" style="color: #0F172A;">Surrey, BC</a></strong>
+                <p style="font-size: 13px; color: #64748B; margin: 4px 0;">Phone: (604) 540-3999</p>
+                <p style="font-size: 13px; color: #475569; margin: 0;">Surrey &amp; Fraser Valley Facilities</p>
+              </div>
+              <div style="background: #FFFFFF; border: 1px solid #E2E8F0; padding: 16px; border-radius: 6px;">
+                <strong><a href="/locations/richmond" style="color: #0F172A;">Richmond, BC</a></strong>
+                <p style="font-size: 13px; color: #64748B; margin: 4px 0;">Phone: (604) 540-3999</p>
+                <p style="font-size: 13px; color: #475569; margin: 0;">Richmond Commercial &amp; Airport Logistics</p>
+              </div>
+              <div style="background: #FFFFFF; border: 1px solid #E2E8F0; padding: 16px; border-radius: 6px;">
+                <strong><a href="/locations/coquitlam" style="color: #0F172A;">Coquitlam, BC</a></strong>
+                <p style="font-size: 13px; color: #64748B; margin: 4px 0;">Phone: (604) 540-3999</p>
+                <p style="font-size: 13px; color: #475569; margin: 0;">Tri-Cities &amp; Lougheed Commercial Sector</p>
+              </div>
+              <div style="background: #FFFFFF; border: 1px solid #E2E8F0; padding: 16px; border-radius: 6px;">
+                <strong><a href="/locations/new-westminster" style="color: #0F172A;">New Westminster, BC</a></strong>
+                <p style="font-size: 13px; color: #64748B; margin: 4px 0;">Phone: (604) 540-3999</p>
+                <p style="font-size: 13px; color: #475569; margin: 0;">Historic &amp; Modern Commercial Properties</p>
+              </div>
+            </div>
+          </section>
+
+          <!-- 7. Verified Reviews -->
+          <section id="testimonials" style="background: #FFFFFF; border: 1px solid #E2E8F0; padding: 28px; border-radius: 8px; margin-bottom: 32px;">
+            <h2 style="font-size: 24px; font-weight: 800; color: #0F172A; margin: 0 0 16px 0;">Verified Commercial Flooring Reviews</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px;">
+              <blockquote style="margin: 0; padding: 16px; background: #F8FAFC; border-left: 4px solid #3B945E; border-radius: 4px;">
+                <p style="font-size: 14px; color: #334155; font-style: italic; margin-bottom: 8px;">"Ironclad resurfaced our 45,000 sq ft distribution facility with heavy-duty epoxy mortar over a long weekend. Flawless execution and zero operational downtime."</p>
+                <footer style="font-size: 12px; color: #64748B;"><strong>Marcus Vance</strong> &mdash; Operations Director, Pacific Logistics Hub (Richmond, BC)</footer>
+              </blockquote>
+              <blockquote style="margin: 0; padding: 16px; background: #F8FAFC; border-left: 4px solid #3B945E; border-radius: 4px;">
+                <p style="font-size: 14px; color: #334155; font-style: italic; margin-bottom: 8px;">"We subcontract all our commercial tenant improvement flooring to Ironclad. Their subfloor moisture mitigation and vinyl plank installation are second to none in the Lower Mainland."</p>
+                <footer style="font-size: 12px; color: #64748B;"><strong>Elena Rostova</strong> &mdash; Senior Project Manager, Apex Commercial Developments (Vancouver, BC)</footer>
+              </blockquote>
+              <blockquote style="margin: 0; padding: 16px; background: #F8FAFC; border-left: 4px solid #3B945E; border-radius: 4px;">
+                <p style="font-size: 14px; color: #334155; font-style: italic; margin-bottom: 8px;">"Fast emergency response when our warehouse joint spalls needed immediate repair. Licensed, WorkSafeBC compliant, and completed within 24 hours."</p>
+                <footer style="font-size: 12px; color: #64748B;"><strong>David Chen</strong> &mdash; Facility Operations Lead, Metro Industrial Services (Burnaby, BC)</footer>
+              </blockquote>
+            </div>
+          </section>
+
+          <!-- 8. FAQ Section -->
+          <section id="faq-section" itemscope itemtype="https://schema.org/FAQPage" style="background: #FFFFFF; border: 1px solid #E2E8F0; padding: 28px; border-radius: 8px; margin-bottom: 32px;">
+            <h2 style="font-size: 24px; font-weight: 800; color: #0F172A; margin: 0 0 16px 0;">Frequently Asked Questions</h2>
+            <dl style="margin: 0;">
+              <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" style="margin-bottom: 16px; padding-bottom: 16px; border-bottom: 1px solid #F1F5F9;">
+                <dt itemprop="name" style="font-weight: 700; font-size: 16px; color: #0F172A; margin-bottom: 6px;">What commercial flooring services does Ironclad provide in Vancouver, BC?</dt>
+                <dd itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" style="margin: 0; font-size: 14px; color: #475569; line-height: 1.6;">
+                  <span itemprop="text">Ironclad Commercial Floors provides commercial flooring installation, commercial flooring repair, commercial flooring replacement, industrial epoxy flooring, garage epoxy flooring, concrete polishing, luxury vinyl plank (LVP), and carpet tile installation across Vancouver, BC and the Lower Mainland.</span>
+                </dd>
+              </div>
+              <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" style="margin-bottom: 16px; padding-bottom: 16px; border-bottom: 1px solid #F1F5F9;">
+                <dt itemprop="name" style="font-weight: 700; font-size: 16px; color: #0F172A; margin-bottom: 6px;">How do you minimize downtime for operating commercial businesses in Vancouver?</dt>
+                <dd itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" style="margin: 0; font-size: 14px; color: #475569; line-height: 1.6;">
+                  <span itemprop="text">We provide overnight, weekend, and phased off-hours flooring installations and repairs. Our rapid-cure polyaspartic and high-early-strength epoxy formulations allow foot traffic within 12 hours and vehicle traffic within 48 hours.</span>
+                </dd>
+              </div>
+              <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" style="margin-bottom: 16px; padding-bottom: 16px; border-bottom: 1px solid #F1F5F9;">
+                <dt itemprop="name" style="font-weight: 700; font-size: 16px; color: #0F172A; margin-bottom: 6px;">Are Ironclad Commercial Floors crews licensed, insured, and certified in BC?</dt>
+                <dd itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" style="margin: 0; font-size: 14px; color: #475569; line-height: 1.6;">
+                  <span itemprop="text">Yes. Ironclad Commercial Floors carries $5,000,000 in commercial general liability insurance, full WorkSafeBC coverage, and Red Seal certified installers trained in ICRI concrete surface preparation and ASTM moisture testing.</span>
+                </dd>
+              </div>
+              <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" style="margin: 0;">
+                <dt itemprop="name" style="font-weight: 700; font-size: 16px; color: #0F172A; margin-bottom: 6px;">How do I get a free commercial flooring estimate in Vancouver, BC?</dt>
+                <dd itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" style="margin: 0; font-size: 14px; color: #475569; line-height: 1.6;">
+                  <span itemprop="text">You can call us directly at (604) 540-3999 or book an on-site consultation online. Our estimating engineers perform laser square footage measurement, substrate inspection, and deliver a detailed, guaranteed fixed-quote.</span>
+                </dd>
+              </div>
+            </dl>
+          </section>
+
+          <!-- 9. Headquarters Map & Dispatch -->
+          <section id="map-hub" style="background: #FFFFFF; border: 1px solid #E2E8F0; padding: 24px; border-radius: 8px; margin-bottom: 32px; text-align: center;">
+            <h2 style="font-size: 20px; font-weight: 800; color: #0F172A; margin: 0 0 8px 0;">Vancouver Central Headquarters &amp; Estimating Hub</h2>
+            <p style="font-size: 14px; color: #475569; margin: 0 0 12px 0;">
+              783 E 60th Ave, Vancouver, BC V5X 2A5, Canada &bull; Serving All Lower Mainland Municipalities
+            </p>
+            <a href="https://www.google.com/maps?q=Ironclad+Commercial+Floors+783+E+60th+Ave+Vancouver+BC+V5X+2A5" style="display: inline-block; background: #1A2530; color: #FFFFFF; padding: 10px 20px; font-size: 13px; font-weight: bold; border-radius: 4px;">Open in Google Maps</a>
+          </section>
+        </main>
+
+        <!-- Footer -->
+        <footer id="footer-section" style="background: #1A2530; color: #94A3B8; padding: 40px 16px; border-top: 1px solid #2D3D4D;">
+          <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px;">
             <div>
-              <strong>IRONCLAD COMMERCIAL FLOORS</strong>
-              <p>
-                Vancouver’s heavy-duty commercial, institutional, and industrial flooring contractor. We deliver precision subfloor preparation, diamond polished concrete, chemical-resistant epoxy mortars, and high-performance architectural floor systems.
+              <strong style="color: #FFFFFF; font-size: 16px; display: block; margin-bottom: 10px;">IRONCLAD COMMERCIAL FLOORS</strong>
+              <p style="font-size: 13px; line-height: 1.6; margin-bottom: 12px;">
+                Vancouver's heavy-duty commercial, institutional, and industrial flooring contractor. Precision subfloor prep, diamond polished concrete, and high-performance epoxy systems.
               </p>
-              <address itemscope itemtype="https://schema.org/PostalAddress">
+              <address itemscope itemtype="https://schema.org/PostalAddress" style="font-style: normal; font-size: 13px; line-height: 1.6;">
                 <span itemprop="streetAddress">783 E 60th Ave</span>, 
                 <span itemprop="addressLocality">Vancouver</span>, 
                 <span itemprop="addressRegion">BC</span> 
                 <span itemprop="postalCode">V5X 2A5</span>, 
                 <span itemprop="addressCountry">Canada</span><br />
-                Direct Line: <a href="tel:6045403999" itemprop="telephone">(604) 540-3999</a><br />
-                Email: <a href="mailto:info@ironcladcommercialfloors.ca" itemprop="email">info@ironcladcommercialfloors.ca</a><br />
-                <span>Overnight &amp; Weekend Shifts Available</span>
+                Direct Line: <a href="tel:6045403999" itemprop="telephone" style="color: #88D2A8;">(604) 540-3999</a>
               </address>
-              <p><a href="https://www.google.com/maps?q=Ironclad+Commercial+Floors+783+E+60th+Ave+Vancouver+BC+V5X+2A5">Google Business Profile Verified Listing</a></p>
             </div>
-
             <div>
-              <h4>Flooring Solutions</h4>
-              <ul>
-                <li><a href="/garage-epoxy-flooring-vancouver-bc">Garage Epoxy Flooring</a></li>
-                <li><a href="/services/industrial-epoxy-flooring">Industrial Epoxy Coatings</a></li>
-                <li><a href="/services/commercial-carpet-tile-installation">Commercial Carpet Tile</a></li>
-                <li><a href="/services/luxury-vinyl-tile-installation">Luxury Vinyl Plank &amp; Tile (LVT)</a></li>
-                <li><a href="/services/commercial-sheet-vinyl-flooring">Hygienic Sheet Vinyl</a></li>
-                <li><a href="/services/concrete-moisture-barrier-installation">Subfloor Moisture Barriers</a></li>
-                <li><a href="/services">Explore Our Services</a></li>
+              <strong style="color: #FFFFFF; font-size: 14px; display: block; margin-bottom: 10px;">Solutions</strong>
+              <ul style="list-style: none; margin: 0; padding: 0; font-size: 13px; line-height: 2;">
+                <li><a href="/flooring-installation-vancouver-bc" style="color: #CBD5E1;">Flooring Installation</a></li>
+                <li><a href="/flooring-repair-vancouver-bc" style="color: #CBD5E1;">Flooring Repair</a></li>
+                <li><a href="/flooring-replacement-vancouver-bc" style="color: #CBD5E1;">Flooring Replacement</a></li>
+                <li><a href="/commercial-epoxy-flooring-vancouver-bc" style="color: #CBD5E1;">Commercial Epoxy</a></li>
+                <li><a href="/garage-epoxy-flooring-vancouver-bc" style="color: #CBD5E1;">Garage Epoxy</a></li>
               </ul>
             </div>
-
             <div>
-              <h4>Metro Vancouver Coverage</h4>
-              <ul>
-                <li><a href="/locations/vancouver">Vancouver (HQ)</a></li>
-                <li><a href="/locations/burnaby">Burnaby</a></li>
-                <li><a href="/locations/richmond">Richmond</a></li>
-                <li><a href="/locations/surrey">Surrey</a></li>
-                <li><a href="/locations/coquitlam">Coquitlam</a></li>
-                <li><a href="/locations/delta">Delta</a></li>
-                <li><a href="/locations/langley">Langley</a></li>
-                <li><a href="/locations/north-vancouver">North Vancouver</a></li>
-                <li><a href="/locations/new-westminster">New Westminster</a></li>
-                <li><a href="/locations/port-coquitlam">Port Coquitlam</a></li>
-                <li><a href="/locations">View Full Coverage Map</a></li>
+              <strong style="color: #FFFFFF; font-size: 14px; display: block; margin-bottom: 10px;">Service Areas</strong>
+              <ul style="list-style: none; margin: 0; padding: 0; font-size: 13px; line-height: 2;">
+                <li><a href="/locations/vancouver" style="color: #CBD5E1;">Vancouver (HQ)</a></li>
+                <li><a href="/locations/burnaby" style="color: #CBD5E1;">Burnaby</a></li>
+                <li><a href="/locations/richmond" style="color: #CBD5E1;">Richmond</a></li>
+                <li><a href="/locations/surrey" style="color: #CBD5E1;">Surrey</a></li>
+                <li><a href="/locations/coquitlam" style="color: #CBD5E1;">Coquitlam</a></li>
               </ul>
             </div>
-
             <div>
-              <h4>Company</h4>
-              <ul>
-                <li><a href="/about">About Us &amp; Fleet</a></li>
-                <li><a href="/projects">Project Gallery</a></li>
-                <li><a href="/blogs">Technical Specs</a></li>
-                <li><a href="/contact">Contact &amp; Dispatch</a></li>
+              <strong style="color: #FFFFFF; font-size: 14px; display: block; margin-bottom: 10px;">Company</strong>
+              <ul style="list-style: none; margin: 0; padding: 0; font-size: 13px; line-height: 2;">
+                <li><a href="/about" style="color: #CBD5E1;">About Us</a></li>
+                <li><a href="/projects" style="color: #CBD5E1;">Project Gallery</a></li>
+                <li><a href="/blogs" style="color: #CBD5E1;">Technical Specs</a></li>
+                <li><a href="/contact" style="color: #88D2A8;">Book Free Estimate</a></li>
               </ul>
             </div>
           </div>
-
-          <div>
-            <p>
-              &copy; 2026 <strong>IRONCLAD COMMERCIAL FLOORS</strong>. All rights reserved. 783 E 60th Ave, Vancouver, BC V5X 2A5, Canada.
-            </p>
-            <p>
-              Commercial Flooring Contractor in Vancouver, BC &bull; Dispatch: <a href="tel:6045403999">(604) 540-3999</a>
-            </p>
+          <div style="max-width: 1200px; margin: 24px auto 0 auto; padding-top: 16px; border-top: 1px solid #2D3D4D; font-size: 12px; text-align: center; color: #64748B;">
+            &copy; 2026 <strong>IRONCLAD COMMERCIAL FLOORS</strong>. All rights reserved. 783 E 60th Ave, Vancouver, BC V5X 2A5, Canada. Dispatch: <a href="tel:6045403999" style="color: #88D2A8;">(604) 540-3999</a>
           </div>
-        </div>
-      </footer>
+        </footer>
       </div>
-    </noscript>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
