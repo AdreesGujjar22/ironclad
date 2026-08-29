@@ -17,7 +17,8 @@ import {
   Info,
   FolderKanban,
   BookOpen,
-  MapPinned
+  MapPinned,
+  Star
 } from 'lucide-react';
 import { SERVICES } from '../data/servicesData';
 import { LOCATIONS } from '../data/locationsData';
@@ -123,7 +124,8 @@ export const Navbar: React.FC<NavbarProps> = ({
                 <span itemProp="streetAddress">783 E 60th Ave</span>,{' '}
                 <span itemProp="addressLocality">Vancouver</span>,{' '}
                 <span itemProp="addressRegion">BC</span>{' '}
-                <span itemProp="postalCode">V5X 2A5</span>
+                <span itemProp="postalCode">V5X 2A5</span>,{' '}
+                <span itemProp="addressCountry">Canada</span>
               </span>
             </address>
 
@@ -142,7 +144,8 @@ export const Navbar: React.FC<NavbarProps> = ({
               title="Google Business Profile & Reviews"
             >
               <span className="bg-white/10 px-2 py-0.5 rounded border border-white/20 text-[10px] font-bold text-white flex items-center gap-1">
-                <span className="text-amber-400">★</span> Google Business Profile
+                <Star className="w-3 h-3 text-amber-400 fill-amber-400" />
+                <span>Google Business Profile</span>
               </span>
             </a>
 
@@ -846,7 +849,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                     <div>
                       <span className="font-bold text-slate-900 text-xs block leading-tight">Ironclad Headquarters</span>
                       <span className="text-[11px] text-slate-500 leading-tight block">
-                        783 E 60th Ave, Vancouver, BC V5X 2A5
+                        783 E 60th Ave, Vancouver, BC V5X 2A5, Canada
                       </span>
                     </div>
                   </div>

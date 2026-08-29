@@ -321,7 +321,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenBooking }) => 
         {/* Bottom Bar with Copyright & Meta */}
         <div className="mt-14 pt-6 border-t border-slate-700 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-400">
           <p>
-            © {new Date().getFullYear()} <strong className="text-white font-bold">IRONCLAD COMMERCIAL FLOORS</strong>. All rights reserved. 783 E 60th Ave, Vancouver, BC V5X 2A5.
+            © {new Date().getFullYear()} <strong className="text-white font-bold">IRONCLAD COMMERCIAL FLOORS</strong>. All rights reserved. 783 E 60th Ave, Vancouver, BC V5X 2A5, Canada.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4 text-xs">
             <span>Commercial Flooring Contractor in Vancouver, BC</span>

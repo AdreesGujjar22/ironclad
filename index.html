@@ -16,9 +16,6 @@
     <link rel="apple-touch-icon" href="/IRONCLAD-COMMERCIAL-FLOORS.webp" />
     <link rel="canonical" href="https://ironcladcommercialfloors.ca/" />
     
-    <!-- Preload High Priority LCP Hero Image for Instant Mobile Painting -->
-    <link rel="preload" as="image" href="/src/assets/images/flooring_hands_installation_1787658759035.webp" type="image/webp" fetchpriority="high" />
-    
     <!-- Open Graph Meta Tags -->
     <meta property="og:locale" content="en_CA" />
     <meta property="og:type" content="website" />
@@ -198,19 +195,73 @@
               "position": 7,
               "name": "Contact & 24/7 Dispatch",
               "url": "https://ironcladcommercialfloors.ca/contact",
-              "description": "24/7 emergency dispatch and commercial estimating team at 783 E 60th Ave, Vancouver, BC."
+              "description": "24/7 emergency dispatch and commercial estimating team at 783 E 60th Ave, Vancouver, BC, Canada."
             }
           ]
         }
       ]
     }
     </script>
+    <style>
+      /* Prevent Flash of Unstyled Content (FOUC) while preserving 100% crawlability for LLMs and Search Bots */
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: #1A2530;
+        color: #F8F9FA;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      }
+      .pre-render-loader {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: #1A2530;
+        color: #ffffff;
+      }
+      .pre-render-spinner {
+        width: 44px;
+        height: 44px;
+        border: 3px solid rgba(87, 188, 131, 0.2);
+        border-top-color: #57BC83;
+        border-radius: 50%;
+        animation: pr-spin 0.7s linear infinite;
+      }
+      @keyframes pr-spin {
+        to { transform: rotate(360deg); }
+      }
+      .static-semantic-content {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: normal;
+        border: 0;
+      }
+    </style>
   </head>
   <body>
     <div id="root">
-      <!-- Full Pre-Rendered Semantic HTML for Search Engines, LLMs & AI Crawlers (Rendering Difference < 5%) -->
-      
-      <!-- Top Info Bar -->
+      <!-- Branded instantaneous loading skeleton to eliminate raw unstyled text flashing -->
+      <div class="pre-render-loader" aria-label="Loading Ironclad Commercial Floors...">
+        <div class="pre-render-spinner"></div>
+        <div style="margin-top: 18px; font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #88D2A8; font-family: monospace;">
+          IRONCLAD COMMERCIAL FLOORS
+        </div>
+        <div style="margin-top: 6px; font-size: 11px; color: #94A3B8; font-family: monospace;">
+          Vancouver, BC • (604) 540-3999
+        </div>
+      </div>
+    </div>
+
+    <!-- Full Pre-Rendered Semantic HTML for Search Engines, LLMs & AI Crawlers (Rendering Difference < 5%) -->
+    <noscript>
+      <div class="static-semantic-content">
+        <!-- Top Info Bar -->
       <div class="top-info-bar">
         <div>
           <a href="tel:6045403999"><strong>Phone: (604) 540-3999</strong></a>
@@ -236,7 +287,7 @@
             </a>
             <ul>
               <li><a href="/">Home</a></li>
-              <li><a href="/about-ironclad-commercial-floors-vancouver-bc">About Us</a></li>
+              <li><a href="/about">About Us</a></li>
               <li>
                 <a href="/services">Services</a>
                 <ul>
@@ -270,7 +321,7 @@
         <!-- 1. Hero Section -->
         <section id="hero">
           <article>
-            <h1>Commercial Flooring Contractor in Vancouver, BC</h1>
+            <h2>Commercial Flooring Contractor in Vancouver, BC</h2>
             <p>
               Ironclad Commercial Floors is Vancouver, BC's trusted commercial flooring contractor. We handle <a href="/flooring-installation-vancouver-bc">flooring installation</a>, <a href="/flooring-repair-vancouver-bc">repair</a>, <a href="/flooring-replacement-vancouver-bc">replacement</a>, and <a href="/commercial-epoxy-flooring-vancouver-bc">epoxy flooring</a> including <a href="/garage-epoxy-flooring-vancouver-bc">garage epoxy flooring</a>. Serving Vancouver, Burnaby, Surrey, Richmond, and nearby BC communities call for a free on-site estimate.
             </p>
@@ -433,7 +484,7 @@
               <li>
                 <strong><a href="/locations/vancouver">Vancouver, BC</a></strong>
                 <p>Phone: (604) 540-3999</p>
-                <p>Address: 783 E 60th Ave, Vancouver, BC V5X 2A5 (Headquarters &amp; Main Dispatch)</p>
+                <p>Address: 783 E 60th Ave, Vancouver, BC V5X 2A5, Canada (Headquarters &amp; Main Dispatch)</p>
               </li>
               <li>
                 <strong><a href="/locations/burnaby">Burnaby, BC</a></strong>
@@ -556,7 +607,7 @@
         <section id="map-hub">
           <h2>Vancouver Central Headquarters &amp; Estimating Hub</h2>
           <p>
-            783 E 60th Ave, Vancouver, BC V5X 2A5 • Serving All Lower Mainland Municipalities
+            783 E 60th Ave, Vancouver, BC V5X 2A5, Canada • Serving All Lower Mainland Municipalities
           </p>
           <a href="https://www.google.com/maps?q=Ironclad+Commercial+Floors+783+E+60th+Ave+Vancouver+BC+V5X+2A5">Open in Google Maps</a>
         </section>
@@ -626,7 +677,7 @@
             <div>
               <h4>Company</h4>
               <ul>
-                <li><a href="/about-ironclad-commercial-floors-vancouver-bc">About Us &amp; Fleet</a></li>
+                <li><a href="/about">About Us &amp; Fleet</a></li>
                 <li><a href="/projects">Project Gallery</a></li>
                 <li><a href="/blogs">Technical Specs</a></li>
                 <li><a href="/contact">Contact &amp; Dispatch</a></li>
@@ -636,7 +687,7 @@
 
           <div>
             <p>
-              &copy; 2026 <strong>IRONCLAD COMMERCIAL FLOORS</strong>. All rights reserved. 783 E 60th Ave, Vancouver, BC V5X 2A5.
+              &copy; 2026 <strong>IRONCLAD COMMERCIAL FLOORS</strong>. All rights reserved. 783 E 60th Ave, Vancouver, BC V5X 2A5, Canada.
             </p>
             <p>
               Commercial Flooring Contractor in Vancouver, BC &bull; Dispatch: <a href="tel:6045403999">(604) 540-3999</a>
@@ -644,7 +695,8 @@
           </div>
         </div>
       </footer>
-    </div>
+      </div>
+    </noscript>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

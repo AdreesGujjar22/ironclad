@@ -83,7 +83,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate, onOpenBooking 
             </h1>
 
             <p className="text-slate-200 text-xs sm:text-sm leading-relaxed">
-              Headquartered at 783 E 60th Ave, Vancouver, BC V5X 2A5, delivering heavy-duty commercial flooring installation, repair, replacement, and epoxy coatings across the Pacific Northwest.
+              Headquartered at 783 E 60th Ave, Vancouver, BC V5X 2A5, Canada, delivering heavy-duty commercial flooring installation, repair, replacement, and epoxy coatings across the Pacific Northwest.
             </p>
 
             {/* CTAs matching Book Site Survey UI standard */}
@@ -342,7 +342,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate, onOpenBooking 
       <section className="max-w-6xl mx-auto px-4 sm:px-6">
         <MapEmbed
           title="Visit Our Vancouver Headquarters"
-          subtitle="Located at 783 E 60th Ave, Vancouver, BC V5X 2A5. Schedule a material sample review or project diagnostic."
+          subtitle="Located at 783 E 60th Ave, Vancouver, BC V5X 2A5, Canada. Schedule a material sample review or project diagnostic."
         />
       </section>
       </div>

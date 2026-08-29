@@ -33,45 +33,147 @@ function PageLoadingFallback() {
   );
 }
 
+function getPathForRoute(page: string, param?: string): string {
+  switch (page) {
+    case 'home':
+    case '':
+      return '/';
+    case 'about':
+    case 'about-ironclad-commercial-floors-vancouver-bc':
+      return '/about';
+    case 'services':
+      return '/services';
+    case 'flooring-installation-vancouver-bc':
+    case 'flooring-installation':
+      return '/flooring-installation-vancouver-bc';
+    case 'flooring-repair-vancouver-bc':
+    case 'flooring-repair':
+      return '/flooring-repair-vancouver-bc';
+    case 'flooring-replacement-vancouver-bc':
+    case 'flooring-replacement':
+      return '/flooring-replacement-vancouver-bc';
+    case 'commercial-epoxy-flooring-vancouver-bc':
+    case 'commercial-epoxy-flooring':
+      return '/commercial-epoxy-flooring-vancouver-bc';
+    case 'garage-epoxy-flooring-vancouver-bc':
+    case 'garage-epoxy-flooring':
+      return '/garage-epoxy-flooring-vancouver-bc';
+    case 'service-detail':
+      return param ? `/services/${param}` : '/services';
+    case 'projects':
+      return '/projects';
+    case 'blogs':
+      return '/blogs';
+    case 'blog-detail':
+      return param ? `/blogs/${param}` : '/blogs';
+    case 'locations':
+      return '/locations';
+    case 'location-detail':
+      return param ? `/locations/${param}` : '/locations';
+    case 'contact':
+    case 'contact-ironclad-commercial-floors-vancouver-bc':
+      return '/contact';
+    default:
+      return page.startsWith('/') ? page : `/${page}`;
+  }
+}
+
+function parseCurrentRoute(): { page: string; param?: string } {
+  // Check if hash exists from old URLs (e.g. #about) and migrate cleanly
+  const hash = window.location.hash.replace(/^#\/?/, '');
+  const path = (window.location.pathname || '/').replace(/^\/+/, '').replace(/\/+$/, '');
+  
+  const rawTarget = hash || path;
+  
+  if (!rawTarget) {
+    return { page: 'home', param: undefined };
+  }
+
+  const segments = rawTarget.split('/');
+
+  if (segments.length >= 2) {
+    const root = segments[0].toLowerCase();
+    const param = segments.slice(1).join('/');
+    if (root === 'services') return { page: 'service-detail', param };
+    if (root === 'locations') return { page: 'location-detail', param };
+    if (root === 'blogs') return { page: 'blog-detail', param };
+    return { page: root, param };
+  }
+
+  const single = segments[0].toLowerCase();
+  if (single === 'about' || single === 'about-ironclad-commercial-floors-vancouver-bc') {
+    return { page: 'about', param: undefined };
+  }
+  if (single === 'contact' || single === 'contact-ironclad-commercial-floors-vancouver-bc') {
+    return { page: 'contact', param: undefined };
+  }
+  if (single === 'services') {
+    return { page: 'services', param: undefined };
+  }
+  if (single === 'projects') {
+    return { page: 'projects', param: undefined };
+  }
+  if (single === 'blogs') {
+    return { page: 'blogs', param: undefined };
+  }
+  if (single === 'locations') {
+    return { page: 'locations', param: undefined };
+  }
+  if (single === 'flooring-installation-vancouver-bc' || single === 'flooring-installation') {
+    return { page: 'flooring-installation-vancouver-bc', param: undefined };
+  }
+  if (single === 'flooring-repair-vancouver-bc' || single === 'flooring-repair') {
+    return { page: 'flooring-repair-vancouver-bc', param: undefined };
+  }
+  if (single === 'flooring-replacement-vancouver-bc' || single === 'flooring-replacement') {
+    return { page: 'flooring-replacement-vancouver-bc', param: undefined };
+  }
+  if (single === 'commercial-epoxy-flooring-vancouver-bc' || single === 'commercial-epoxy-flooring') {
+    return { page: 'commercial-epoxy-flooring-vancouver-bc', param: undefined };
+  }
+  if (single === 'garage-epoxy-flooring-vancouver-bc' || single === 'garage-epoxy-flooring' || single === 'concrete-floor-polishing' || single === 'concrete-floor-polishing-vancouver-bc') {
+    return { page: 'garage-epoxy-flooring-vancouver-bc', param: undefined };
+  }
+
+  return { page: single, param: undefined };
+}
+
 export function App() {
-  const [currentPage, setCurrentPage] = useState<string>('home');
-  const [pageParam, setPageParam] = useState<string | undefined>(undefined);
+  const initialRoute = parseCurrentRoute();
+  const [currentPage, setCurrentPage] = useState<string>(initialRoute.page);
+  const [pageParam, setPageParam] = useState<string | undefined>(initialRoute.param);
   const [bookingModalOpen, setBookingModalOpen] = useState<boolean>(false);
   const [bookingInitialData, setBookingInitialData] = useState<any>({});
   const [showScrollTop, setShowScrollTop] = useState<boolean>(false);
 
-  // Handle browser back/forward and scroll to top
+  // Handle browser navigation with clean URL pathnames
   const handleNavigate = (page: string, param?: string) => {
     setCurrentPage(page);
     setPageParam(param);
     window.scrollTo({ top: 0, behavior: 'smooth' });
     
-    // Update hash for basic bookmarking/history
-    if (param) {
-      window.location.hash = `${page}/${param}`;
-    } else {
-      window.location.hash = page;
+    const targetPath = getPathForRoute(page, param);
+    if (window.location.pathname !== targetPath || window.location.hash) {
+      window.history.pushState({ page, param }, '', targetPath);
     }
   };
 
-  // Sync hash on initial load & popstate
+  // Sync state on popstate (browser back/forward) & initial hash cleanup
   useEffect(() => {
-    const handleHashChange = () => {
-      const hash = window.location.hash.replace('#', '').replace(/^\//, '');
-      if (hash) {
-        const parts = hash.split('/');
-        if (parts.length === 2) {
-          setCurrentPage(parts[0]);
-          setPageParam(parts[1]);
-        } else if (parts.length === 1 && parts[0]) {
-          setCurrentPage(parts[0]);
-          setPageParam(undefined);
-        }
+    const syncRoute = () => {
+      const { page, param } = parseCurrentRoute();
+      setCurrentPage(page);
+      setPageParam(param);
+
+      // Clean up hash if an older link or anchor was used
+      if (window.location.hash) {
+        const cleanPath = getPathForRoute(page, param);
+        window.history.replaceState({ page, param }, '', cleanPath);
       }
     };
 
-    handleHashChange();
-    window.addEventListener('hashchange', handleHashChange);
+    syncRoute();
+    window.addEventListener('popstate', syncRoute);
 
     const handleScroll = () => {
       if (window.scrollY > 350) {
@@ -81,10 +183,10 @@ export function App() {
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
 
     return () => {
-      window.removeEventListener('hashchange', handleHashChange);
+      window.removeEventListener('popstate', syncRoute);
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
