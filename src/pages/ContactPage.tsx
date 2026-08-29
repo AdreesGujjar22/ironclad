@@ -104,7 +104,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
 
             <div className="pt-2 flex flex-wrap gap-4 text-xs font-mono">
               <div className="p-3 bg-white/5 border border-white/10">
-                <span className="text-slate-300 block">DIRECT DISPATCH</span>
+                <span className="text-slate-300 block">DIRECT PHONE LINE</span>
                 <a href="tel:6045403999" className="font-bold text-white hover:text-[#88D2A8]">(604) 540-3999</a>
               </div>
               <div className="p-3 bg-white/5 border border-white/10">

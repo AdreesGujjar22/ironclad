@@ -166,22 +166,22 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({
             </div>
 
             {/* CTAs */}
-            <div className="pt-2 flex flex-col sm:flex-row gap-3 sm:gap-4">
+            <div className="pt-3 flex flex-col sm:flex-row gap-3">
               <button
                 type="button"
                 onClick={() => onOpenBooking({ serviceId: service.id })}
-                className="w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 bg-[#3B945E] hover:bg-[#318051] text-white font-bold text-xs uppercase font-mono tracking-wider transition-all shadow-lg flex items-center justify-center gap-2 cursor-pointer border border-white/20"
+                className="w-full sm:w-auto flex items-center justify-center gap-2 px-5 sm:px-6 py-3 sm:py-3.5 bg-[#3B945E] hover:bg-[#318051] text-white font-bold text-xs uppercase font-mono tracking-wider transition-all shadow-2xl cursor-pointer border border-white/20 shrink-0 whitespace-nowrap"
               >
-                <Calendar className="w-4 h-4 text-emerald-100" />
-                <span>Book Site Survey & Free Estimate</span>
+                <Calendar className="w-4 h-4 text-white" />
+                <span>MAKE APPOINTMENT</span>
               </button>
 
               <a
                 href="tel:6045403999"
-                className="w-full sm:w-auto px-6 py-3.5 sm:py-4 border border-white/40 hover:bg-white/10 text-white font-bold text-xs uppercase font-mono tracking-wider transition-all flex items-center justify-center gap-2"
+                className="w-full sm:w-auto flex items-center justify-center gap-2 px-5 sm:px-6 py-3 sm:py-3.5 bg-[#1A2530] hover:bg-[#243342] text-white border border-slate-600 shadow-2xl transition-all font-mono font-bold text-xs uppercase tracking-wider shrink-0 whitespace-nowrap"
               >
                 <Phone className="w-4 h-4 text-[#88D2A8]" />
-                <span>(604) 540-3999</span>
+                <span className="text-white tracking-wider">Call (604) 540-3999</span>
               </a>
             </div>
 
