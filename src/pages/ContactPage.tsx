@@ -8,7 +8,8 @@ import {
   Send, 
   CheckCircle2, 
   HardHat,
-  ChevronDown
+  ChevronDown,
+  Lock
 } from 'lucide-react';
 import { MapEmbed } from '../components/MapEmbed';
 import { SEOHead } from '../components/SEOHead';
@@ -108,7 +109,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
               </div>
               <div className="p-3 bg-white/5 border border-white/10">
                 <span className="text-slate-300 block">HQ LOCATION</span>
-                <span className="font-bold text-white">783 E 60th Ave, Vancouver</span>
+                <span className="font-bold text-white">783 E 60th Ave, Vancouver, BC, Canada</span>
               </div>
             </div>
           </motion.div>
@@ -408,8 +409,9 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
                     <Send className="w-4 h-4" />
                     <span>Submit Request for Free Estimate</span>
                   </button>
-                  <p className="text-[10px] text-center text-slate-500 mt-2 font-mono">
-                    🔒 Guaranteed privacy. Average response time: &lt; 15 minutes.
+                  <p className="text-[10px] text-center text-slate-500 mt-2 font-mono flex items-center justify-center gap-1">
+                    <Lock className="w-3 h-3 text-[#3B945E]" />
+                    <span>Guaranteed privacy. Average response time: &lt; 15 minutes.</span>
                   </p>
                 </div>
               </form>
@@ -422,7 +424,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
       <section className="max-w-6xl mx-auto px-4 sm:px-6">
         <MapEmbed
           title="Direct Commercial Dispatch Facility"
-          subtitle="Located at 783 E 60th Ave, Vancouver, BC V5X 2A5. Call (604) 540-3999 for immediate dispatch."
+          subtitle="Located at 783 E 60th Ave, Vancouver, BC V5X 2A5, Canada. Call (604) 540-3999 for immediate dispatch."
         />
       </section>
       </div>

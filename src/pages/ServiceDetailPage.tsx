@@ -274,9 +274,10 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({
                 {service.applications.map((app, idx) => (
                   <span 
                     key={idx} 
-                    className="px-3 py-1.5 bg-[#F8F9FA] text-slate-800 text-xs border border-slate-300 font-medium font-mono"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#F8F9FA] text-slate-800 text-xs border border-slate-300 font-medium font-mono"
                   >
-                    🏢 {app}
+                    <Building className="w-3.5 h-3.5 text-[#3B945E]" />
+                    <span>{app}</span>
                   </span>
                 ))}
               </div>
@@ -500,7 +501,7 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({
       <section className="max-w-6xl mx-auto px-4 sm:px-6">
         <MapEmbed
           title={`${service.name} Mobilization & Dispatch Facility`}
-          subtitle={`Dispatched from 783 E 60th Ave, Vancouver, BC V5X 2A5 Canada. Complete commercial coverage across Greater Vancouver & Lower Mainland.`}
+          subtitle={`Dispatched from 783 E 60th Ave, Vancouver, BC V5X 2A5, Canada. Complete commercial coverage across Greater Vancouver & Lower Mainland.`}
         />
       </section>
       </div>

@@ -9,12 +9,12 @@ export const LOCATIONS: LocationArea[] = [
     name: 'Vancouver',
     headline: 'Commercial Flooring Contractor in Vancouver, BC (HQ)',
     metaTitle: 'Commercial Flooring Contractor Vancouver BC | Ironclad Floors',
-    metaDescription: 'Commercial Flooring Contractor in Vancouver, BC. Headquarters at 783 E 60th Ave. 24/7 industrial epoxy, polished concrete & commercial flooring installation.',
-    address: '783 E 60th Ave, Vancouver, BC V5X 2A5 Canada',
+    metaDescription: 'Commercial Flooring Contractor in Vancouver, BC. Headquarters at 783 E 60th Ave, Vancouver, BC, Canada. 24/7 industrial epoxy, polished concrete & commercial flooring installation.',
+    address: '783 E 60th Ave, Vancouver, BC V5X 2A5, Canada',
     phone: '(604) 540-3999',
     coverageZones: ['Downtown Vancouver', 'Yaletown', 'Gastown', 'Mount Pleasant', 'False Creek', 'Kitsilano', 'South Vancouver / Marine Gateway', 'Grandview-Woodland'],
     highlights: [
-      'Headquarters & Main Equipment Yard at 783 E 60th Ave',
+      'Headquarters & Main Equipment Yard at 783 E 60th Ave, Vancouver, BC, Canada',
       'Rapid 30-minute emergency dispatch across Vancouver',
       'Over 650+ corporate, retail & industrial projects delivered',
       '24/7 overnight installation crews for zero business downtime'
@@ -27,7 +27,7 @@ export const LOCATIONS: LocationArea[] = [
       'Restaurant Flooring Installation',
       'Warehouse Flooring Installation'
     ],
-    description: 'Ironclad Commercial Floors is proud to be Vancouver’s premier heavy-duty commercial flooring contractor. Operating from our central facility at 783 E 60th Ave, we provide comprehensive industrial concrete polishing, chemical-resistant epoxy coatings, luxury vinyl planks, and modular carpet tiles to Downtown corporate towers, Gastown restaurants, Mount Pleasant tech offices, and South Vancouver industrial facilities.',
+    description: 'Ironclad Commercial Floors is proud to be Vancouver’s premier heavy-duty commercial flooring contractor. Operating from our central facility at 783 E 60th Ave, Vancouver, BC, Canada, we provide comprehensive industrial concrete polishing, chemical-resistant epoxy coatings, luxury vinyl planks, and modular carpet tiles to Downtown corporate towers, Gastown restaurants, Mount Pleasant tech offices, and South Vancouver industrial facilities.',
     image: flooringImages.flooringHandsInstallation,
     mapEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2175.2224186218696!2d-123.088378!3d49.2158341!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5486751bef21a57d%3A0x41cd6e337360bab!2sIRONCLAD%20COMMERCIAL%20FLOORS!5e1!3m2!1sen!2sca!4v1787440209608!5m2!1sen!2sca',
     completedProjectsCount: 650,
@@ -164,7 +164,7 @@ export const LOCATIONS: LocationArea[] = [
       'Overnight & weekend elevator-compliant mobilization for high-rise towers',
       'Specialized low-VOC carpet tile and luxury vinyl plank installations',
       'Acoustic sound dampening flooring systems for commercial tenants',
-      'Dispatched directly from Vancouver HQ at 783 E 60th Ave'
+      'Dispatched directly from Vancouver HQ at 783 E 60th Ave, Vancouver, BC, Canada'
     ],
     popularServices: [
       'Carpet Tile Installation',
@@ -173,7 +173,7 @@ export const LOCATIONS: LocationArea[] = [
       'Commercial Resilient Flooring Installation',
       'Concrete Floor Polishing'
     ],
-    description: 'For corporate law firms, financial institutions, and high-end retail stores in Downtown Vancouver, Ironclad Commercial Floors provides whisper-quiet overnight flooring installations with zero disruption to daytime tenants. Dispatched rapidly from our main Vancouver headquarters at 783 E 60th Ave, our Red Seal teams execute precision subfloor leveling, high-traffic carpet tile, and luxury vinyl planks.',
+    description: 'For corporate law firms, financial institutions, and high-end retail stores in Downtown Vancouver, Ironclad Commercial Floors provides whisper-quiet overnight flooring installations with zero disruption to daytime tenants. Dispatched rapidly from our main Vancouver headquarters at 783 E 60th Ave, Vancouver, BC, Canada, our Red Seal teams execute precision subfloor leveling, high-traffic carpet tile, and luxury vinyl planks.',
     image: flooringImages.flooringHandsInstallation,
     mapEmbedUrl: 'https://maps.google.com/maps?q=Downtown+Vancouver,+BC,+Canada&t=&z=14&ie=UTF8&iwloc=&output=embed',
     completedProjectsCount: 290,
@@ -192,7 +192,7 @@ export const LOCATIONS: LocationArea[] = [
       'Food-safe slip-resistant urethane cement for busy restaurant kitchens',
       'Heritage building timber & concrete subfloor stabilization',
       'Custom rustic metallic epoxy & high-gloss polished concrete',
-      'Fast 24/7 emergency repair dispatch from 783 E 60th Ave'
+      'Fast 24/7 emergency repair dispatch from 783 E 60th Ave, Vancouver, BC, Canada'
     ],
     popularServices: [
       'Restaurant Flooring Installation',
@@ -220,7 +220,7 @@ export const LOCATIONS: LocationArea[] = [
       'Modern open-concept polished concrete & micro-cement finishes',
       'Commercial waterproof luxury vinyl plank for bustling boutiques',
       'Low-decibel acoustic subfloor prep for mixed-use residential buildings',
-      'Maintained & dispatched from our Vancouver hub at 783 E 60th Ave'
+      'Maintained & dispatched from our Vancouver hub at 783 E 60th Ave, Vancouver, BC, Canada'
     ],
     popularServices: [
       'Commercial Luxury Vinyl Flooring Installation',
@@ -248,7 +248,7 @@ export const LOCATIONS: LocationArea[] = [
       'Brewery & distillery thermal-shock resistant urethane mortar floors',
       'Industrial-chic polished concrete for creative digital agencies',
       'Heavy-duty slurry leveling for vintage commercial industrial buildings',
-      'Under 15-minute dispatch from 783 E 60th Ave Vancouver'
+      'Under 15-minute dispatch from 783 E 60th Ave, Vancouver, BC, Canada'
     ],
     popularServices: [
       'Concrete Floor Polishing',
@@ -304,7 +304,7 @@ export const LOCATIONS: LocationArea[] = [
       'Heavy forklift-rated 100% solids epoxy mortar coatings',
       'Polyurea control joint rebuilding & spalled concrete repair',
       'Dust-proof high-reflective polished concrete for distribution bays',
-      'Full equipment yard dispatch from 783 E 60th Ave'
+      'Full equipment yard dispatch from 783 E 60th Ave, Vancouver, BC, Canada'
     ],
     popularServices: [
       'Warehouse Flooring Installation',

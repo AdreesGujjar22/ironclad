@@ -15,7 +15,7 @@ interface MapEmbedProps {
 export const MapEmbed: React.FC<MapEmbedProps> = ({
   title = "Our Vancouver Headquarters & Equipment Yard",
   subtitle = "Strategically located in South Vancouver for rapid dispatch across Greater Vancouver.",
-  address = "783 E 60th Ave, Vancouver, BC V5X 2A5 Canada",
+  address = "783 E 60th Ave, Vancouver, BC V5X 2A5, Canada",
   phone = "(604) 540-3999",
   hours = "Rapid Response Dispatch & Flexible Night Shifts",
   className = "",
@@ -125,7 +125,7 @@ export const MapEmbed: React.FC<MapEmbedProps> = ({
             className="w-full h-full min-h-[350px] md:min-h-[420px]"
           ></iframe>
           <div className="absolute bottom-3 right-3 bg-white/90 backdrop-blur-sm border border-slate-200 px-3 py-1.5 rounded-lg text-xs font-mono text-slate-800 shadow-sm pointer-events-none">
-            IRONCLAD HQ • 783 E 60th Ave
+            IRONCLAD HQ • 783 E 60th Ave, Vancouver, BC, Canada
           </div>
         </div>
       </div>

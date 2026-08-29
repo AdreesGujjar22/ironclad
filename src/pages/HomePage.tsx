@@ -75,7 +75,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenBooking })
     {
       city: 'Vancouver, BC',
       phone: '(604) 540-3999',
-      address: '783 E 60th Ave, Vancouver, BC V5X 2A5',
+      address: '783 E 60th Ave, Vancouver, BC V5X 2A5, Canada',
       slug: 'vancouver',
       type: 'Headquarters & Main Dispatch'
     },
@@ -948,7 +948,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenBooking })
       <section className="py-12 px-4 sm:px-6 max-w-6xl mx-auto">
         <MapEmbed 
           title="Vancouver Central Headquarters & Estimating Hub" 
-          subtitle="783 E 60th Ave, Vancouver, BC V5X 2A5 • Serving All Lower Mainland Municipalities"
+          subtitle="783 E 60th Ave, Vancouver, BC V5X 2A5, Canada • Serving All Lower Mainland Municipalities"
         />
       </section>
     </div>

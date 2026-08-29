@@ -104,7 +104,7 @@ const SITELINKS_NAVIGATION_SCHEMA = {
       position: 8,
       name: 'Contact & 24/7 Dispatch',
       url: `${BASE_URL}/contact`,
-      description: 'Contact our commercial estimators or request an immediate on-site subfloor survey at 783 E 60th Ave, Vancouver.'
+      description: 'Contact our commercial estimators or request an immediate on-site subfloor survey at 783 E 60th Ave, Vancouver, BC, Canada.'
     }
   ]
 };

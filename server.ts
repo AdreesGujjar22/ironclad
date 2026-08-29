@@ -1,7 +1,6 @@
 import express from "express";
 import path from "path";
 import compression from "compression";
-import { createServer as createViteServer } from "vite";
 
 async function startServer() {
   const app = express();
@@ -16,15 +15,17 @@ async function startServer() {
     res.json({ status: "ok", service: "Ironclad Commercial Floors API" });
   });
 
-  // Vite middleware for development
+  // Vite middleware for development only
   if (process.env.NODE_ENV !== "production") {
+    const { createServer: createViteServer } = await import("vite");
     const vite = await createViteServer({
       server: { middlewareMode: true },
       appType: "spa",
     });
     app.use(vite.middlewares);
   } else {
-    const distPath = path.join(process.cwd(), 'dist');
+    // In production, server.cjs runs from inside the dist/ directory or project root
+    const distPath = path.resolve(__dirname, '.');
     // Static assets with aggressive caching
     app.use(express.static(distPath, {
       maxAge: '1y',

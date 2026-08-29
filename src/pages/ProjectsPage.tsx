@@ -127,8 +127,9 @@ export const ProjectsPage: React.FC<ProjectsPageProps> = ({ onNavigate, onOpenBo
                   <div className="absolute top-3 left-3 bg-[#1A2530]/90 backdrop-blur-sm border border-slate-600 px-3 py-1 text-xs font-mono font-bold text-white uppercase">
                     {project.category}
                   </div>
-                  <div className="absolute bottom-3 left-3 bg-white/95 text-slate-900 border border-slate-300 px-3 py-1.5 text-xs font-mono shadow-sm">
-                    📍 {project.location}
+                  <div className="absolute bottom-3 left-3 bg-white/95 text-slate-900 border border-slate-300 px-3 py-1.5 text-xs font-mono shadow-sm flex items-center gap-1.5">
+                    <MapPin className="w-3.5 h-3.5 text-[#3B945E]" />
+                    <span>{project.location}</span>
                   </div>
                 </div>
               </div>
@@ -194,7 +195,7 @@ export const ProjectsPage: React.FC<ProjectsPageProps> = ({ onNavigate, onOpenBo
       <section className="max-w-6xl mx-auto px-4 sm:px-6">
         <MapEmbed
           title="Vancouver Project Coordination Center"
-          subtitle="All projects managed through our headquarters at 783 E 60th Ave, Vancouver, BC V5X 2A5 Canada."
+          subtitle="All projects managed through our headquarters at 783 E 60th Ave, Vancouver, BC V5X 2A5, Canada."
         />
       </section>
       </div>

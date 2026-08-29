@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import { Calculator, ShieldCheck, ArrowRight, CheckCircle2, Building, Layers, ChevronDown } from 'lucide-react';
+import { Calculator, ShieldCheck, ArrowRight, CheckCircle2, Building, Layers, ChevronDown, Wrench, Clock, FileText } from 'lucide-react';
 import { SERVICES } from '../data/servicesData';
 
 interface CostCalculatorProps {
@@ -15,38 +15,30 @@ export const CostCalculator: React.FC<CostCalculatorProps> = ({ onOpenBooking })
 
   const selectedServiceObj = SERVICES.find(s => s.id === selectedService) || SERVICES[4];
 
-  // Base pricing rate estimate per sqft
-  const getBaseRate = (serviceId: string): number => {
-    switch (serviceId) {
-      case 'concrete-floor-polishing': return 4.50;
-      case 'concrete-epoxy-floor-installation': return 7.50;
-      case 'epoxy-floor-coating': return 6.00;
-      case 'commercial-luxury-vinyl-flooring-installation': return 6.50;
-      case 'carpet-tile-installation': return 5.50;
-      case 'commercial-rubber-flooring-installation': return 9.00;
-      case 'commercial-sheet-vinyl-flooring-installation': return 8.50;
-      case 'ceramic-tile-flooring-installation': return 14.00;
-      case 'warehouse-flooring-installation': return 5.00;
-      case 'restaurant-flooring-installation': return 9.50;
-      case 'commercial-concrete-floor-sealing': return 2.25;
-      default: return 6.00;
+  const getSubfloorLabel = (state: string) => {
+    switch (state) {
+      case 'clean': return 'Mechanical Diamond Grinding (CSP 2-3)';
+      case 'minor-crack': return 'Crack Stitching & Precision Leveling';
+      case 'damaged': return 'Deep Patch Resurfacing & Heavy Moisture Barrier';
+      default: return 'Diamond Grind Prep';
     }
   };
 
-  const baseRate = getBaseRate(selectedService);
-  
-  const subfloorMultiplier = subfloorState === 'clean' ? 1.0 : subfloorState === 'minor-crack' ? 1.15 : 1.35;
-  const urgencyMultiplier = urgency === 'standard' ? 1.0 : urgency === 'overnight' ? 1.12 : 1.25;
-
-  const estimatedTotal = Math.round(sqft * baseRate * subfloorMultiplier * urgencyMultiplier);
-  const estimatedRatePerSqFt = (estimatedTotal / sqft).toFixed(2);
+  const getShiftLabel = (u: string) => {
+    switch (u) {
+      case 'standard': return 'Standard Daytime Shift (Minimal Disruption)';
+      case 'overnight': return 'Night & Weekend Shift (Zero Daytime Downtime)';
+      case 'emergency': return 'Priority Emergency Mobilization';
+      default: return 'Standard Shift';
+    }
+  };
 
   const handleTransferToQuote = () => {
     if (onOpenBooking) {
       onOpenBooking({
         serviceId: selectedService,
-        sqft: `${sqft} sq ft`,
-        facility: 'Commercial Facility'
+        sqft: `${sqft.toLocaleString()} sq ft`,
+        facility: `${selectedServiceObj.name} (${subfloorState === 'clean' ? 'Level Subfloor' : 'Subfloor Prep Required'})`
       });
     }
   };
@@ -64,13 +56,13 @@ export const CostCalculator: React.FC<CostCalculatorProps> = ({ onOpenBooking })
         <div className="space-y-1.5">
           <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/10 text-[#88D2A8] text-xs font-mono font-bold uppercase tracking-wider border border-white/15">
             <Calculator className="w-3.5 h-3.5 text-[#88D2A8]" />
-            <span>Vancouver Cost Estimator</span>
+            <span>Vancouver Project Scope Estimator</span>
           </div>
           <h3 className="text-2xl sm:text-3xl font-black tracking-tight text-white">
-            Instant Commercial Flooring Cost Estimator
+            Instant Commercial Flooring Scope & Project Estimator
           </h3>
           <p className="text-slate-200 text-xs sm:text-sm font-normal">
-            Select your specifications for an immediate budgetary investment range in Greater Vancouver.
+            Configure your facility specifications below for an immediate technical scope assessment and free on-site survey.
           </p>
         </div>
         <div className="shrink-0 flex items-center gap-2 text-xs font-semibold text-emerald-100 bg-[#7D9A87]/30 px-3.5 py-2 border border-white/20">
@@ -198,26 +190,36 @@ export const CostCalculator: React.FC<CostCalculatorProps> = ({ onOpenBooking })
             </div>
           </div>
 
-          {/* Results Summary Box */}
+          {/* Results Summary Box - Project Specification Assessment */}
           <div className="lg:col-span-5 flex flex-col justify-between bg-[#3B4D5D] text-white border border-[#2E3C48] p-6 sm:p-7 shadow-lg">
             <div>
               <div className="flex items-center justify-between text-xs text-slate-300 pb-3 border-b border-white/20 font-mono uppercase tracking-wider">
-                <span>ESTIMATED BUDGET RANGE</span>
-                <span className="text-[#88D2A8] font-bold">CAD ($)</span>
+                <span>PROJECT SPECIFICATION REPORT</span>
+                <span className="text-[#88D2A8] font-bold">READY</span>
               </div>
 
-              <div className="my-6 text-center py-5 bg-[#2E3C48] border border-white/15 shadow-inner">
-                <span className="text-[11px] uppercase tracking-widest text-slate-300 font-mono block">Approx. Total Project Cost</span>
-                <motion.div 
-                  key={estimatedTotal}
-                  initial={{ scale: 0.95, opacity: 0.8 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  className="text-3xl sm:text-4xl font-black text-white tracking-tight mt-1 font-mono"
-                >
-                  ${estimatedTotal.toLocaleString()}
-                </motion.div>
-                <div className="text-xs text-slate-300 mt-1">
-                  Est. <span className="font-bold text-[#88D2A8]">${estimatedRatePerSqFt}</span> / sq ft (Turnkey)
+              {/* Scope Card */}
+              <div className="my-5 p-5 bg-[#2E3C48] border border-white/15 shadow-inner space-y-3">
+                <div className="flex items-center justify-between">
+                  <span className="text-[11px] uppercase tracking-widest text-[#88D2A8] font-mono font-bold flex items-center gap-1.5">
+                    <FileText className="w-3.5 h-3.5" />
+                    <span>Calculated Area</span>
+                  </span>
+                  <span className="font-mono font-bold text-white text-base">{sqft.toLocaleString()} sq ft</span>
+                </div>
+                <div className="text-xs text-slate-200 flex items-start gap-2 pt-2 border-t border-white/10">
+                  <Wrench className="w-3.5 h-3.5 text-[#88D2A8] shrink-0 mt-0.5" />
+                  <div>
+                    <span className="font-semibold text-white">Subfloor Prep:</span>{' '}
+                    <span className="text-slate-300">{getSubfloorLabel(subfloorState)}</span>
+                  </div>
+                </div>
+                <div className="text-xs text-slate-200 flex items-start gap-2 pt-2 border-t border-white/10">
+                  <Clock className="w-3.5 h-3.5 text-[#88D2A8] shrink-0 mt-0.5" />
+                  <div>
+                    <span className="font-semibold text-white">Work Shift:</span>{' '}
+                    <span className="text-slate-300">{getShiftLabel(urgency)}</span>
+                  </div>
                 </div>
               </div>
 
@@ -227,23 +229,19 @@ export const CostCalculator: React.FC<CostCalculatorProps> = ({ onOpenBooking })
                   <span className="font-semibold text-white truncate max-w-[200px]">{selectedServiceObj.name}</span>
                 </div>
                 <div className="flex justify-between py-1.5 border-b border-white/10">
-                  <span className="text-slate-300">Area Size:</span>
-                  <span className="font-mono text-white font-semibold">{sqft.toLocaleString()} sq ft</span>
-                </div>
-                <div className="flex justify-between py-1.5 border-b border-white/10">
-                  <span className="text-slate-300">Expected Durability:</span>
+                  <span className="text-slate-300">Durability Class:</span>
                   <span className="text-white font-medium">{selectedServiceObj.durabilityRating}</span>
                 </div>
                 <div className="flex justify-between py-1.5 border-b border-white/10">
-                  <span className="text-slate-300">Cure / Traffic:</span>
+                  <span className="text-slate-300">Return to Traffic:</span>
                   <span className="text-white font-medium">{selectedServiceObj.cureTime}</span>
                 </div>
               </div>
 
-              <div className="mt-5 p-3.5 bg-black/20 text-slate-200 text-xs leading-relaxed border border-white/10">
+              <div className="mt-4 p-3.5 bg-black/20 text-slate-200 text-xs leading-relaxed border border-white/10">
                 <p className="flex items-start gap-2">
                   <CheckCircle2 className="w-4 h-4 text-[#88D2A8] shrink-0 mt-0.5" />
-                  <span>Includes mechanical surface prep, industrial materials, Red Seal certified labor, and 10-year warranty bond.</span>
+                  <span>Free on-site laser measurement, moisture probe testing, and itemized commercial proposal with guaranteed turnaround times.</span>
                 </p>
               </div>
             </div>
@@ -256,11 +254,11 @@ export const CostCalculator: React.FC<CostCalculatorProps> = ({ onOpenBooking })
                 onClick={handleTransferToQuote}
                 className="w-full py-3.5 px-4 bg-[#7D9A87] hover:bg-[#6A8874] text-white font-bold text-xs uppercase tracking-wider transition-colors shadow-md flex items-center justify-center gap-2 cursor-pointer border border-white/20"
               >
-                <span>Lock In Estimate & Book Site Survey</span>
+                <span>Request Free On-Site Measurement & Quote</span>
                 <ArrowRight className="w-4 h-4" />
               </motion.button>
               <p className="text-xs text-center text-slate-300">
-                Or call directly: <a href="tel:6045403999" className="text-[#88D2A8] font-bold underline hover:text-white">(604) 540-3999</a>
+                Direct Dispatch: <a href="tel:6045403999" className="text-[#88D2A8] font-bold underline hover:text-white">(604) 540-3999</a>
               </p>
             </div>
           </div>

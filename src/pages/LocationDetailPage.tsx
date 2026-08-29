@@ -8,7 +8,8 @@ import {
   Layers,
   ArrowRight,
   ShieldCheck,
-  Award
+  Award,
+  Zap
 } from 'lucide-react';
 import { LOCATIONS } from '../data/locationsData';
 import { SERVICES } from '../data/servicesData';
@@ -112,9 +113,15 @@ export const LocationDetailPage: React.FC<LocationDetailPageProps> = ({
               {location.description}
             </p>
 
-            <div className="p-3.5 bg-black/20 border border-white/10 text-xs font-mono text-slate-200 space-y-1">
-              <div>📍 <strong className="text-white">Physical Dispatch HQ:</strong> 783 E 60th Ave, Vancouver, BC V5X 2A5 Canada</div>
-              <div>⚡ <strong className="text-white">Average Mobilization Time:</strong> {location.averageResponseTime}</div>
+            <div className="p-3.5 bg-black/20 border border-white/10 text-xs font-mono text-slate-200 space-y-1.5">
+              <div className="flex items-center gap-2">
+                <MapPin className="w-3.5 h-3.5 text-[#88D2A8] shrink-0" />
+                <span><strong className="text-white">Physical Dispatch HQ:</strong> 783 E 60th Ave, Vancouver, BC V5X 2A5, Canada</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Zap className="w-3.5 h-3.5 text-[#88D2A8] shrink-0" />
+                <span><strong className="text-white">Average Mobilization Time:</strong> {location.averageResponseTime}</span>
+              </div>
             </div>
 
             <div className="pt-2 flex flex-wrap gap-3.5">
@@ -258,7 +265,7 @@ export const LocationDetailPage: React.FC<LocationDetailPageProps> = ({
       <section className="max-w-6xl mx-auto px-4 sm:px-6">
         <MapEmbed
           title={`Ironclad Commercial Dispatch for ${location.name}, BC`}
-          subtitle={`Dispatched from 783 E 60th Ave, Vancouver, BC. Average emergency arrival time in ${location.name}: ${location.averageResponseTime}.`}
+          subtitle={`Dispatched from 783 E 60th Ave, Vancouver, BC V5X 2A5, Canada. Average emergency arrival time in ${location.name}: ${location.averageResponseTime}.`}
           embedUrl={location.mapEmbedUrl}
         />
       </section>

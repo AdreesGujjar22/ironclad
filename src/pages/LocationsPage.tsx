@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import { MapPin, ChevronRight, Building, CheckCircle2 } from 'lucide-react';
+import { MapPin, ChevronRight, Building, CheckCircle2, Star } from 'lucide-react';
 import { LOCATIONS } from '../data/locationsData';
 import { MapEmbed } from '../components/MapEmbed';
 import { SEOHead } from '../components/SEOHead';
@@ -35,7 +35,7 @@ export const LocationsPage: React.FC<LocationsPageProps> = ({ onNavigate, onOpen
     <div className="bg-[#F8F9FA] text-slate-800 min-h-screen pb-16">
       <SEOHead
         title="Commercial Flooring Service Areas BC | Ironclad Floors"
-        description="Commercial flooring contractor in Vancouver, Burnaby, New Westminster, Coquitlam & neighborhoods. 24/7 installations from 783 E 60th Ave, Vancouver."
+        description="Commercial flooring contractor in Vancouver, Burnaby, New Westminster, Coquitlam & neighborhoods. 24/7 installations from 783 E 60th Ave, Vancouver, BC, Canada."
         canonicalPath="/locations"
         breadcrumbs={[
           { name: 'Home', path: '/' },
@@ -73,7 +73,7 @@ export const LocationsPage: React.FC<LocationsPageProps> = ({ onNavigate, onOpen
             </h1>
 
             <p className="text-slate-200 text-xs sm:text-sm leading-relaxed">
-              Fast 24/7 crew dispatch and dedicated regional coverage for commercial and industrial properties across Metro Vancouver and the Lower Mainland. Dispatched from our central operations yard at 783 E 60th Ave.
+              Fast 24/7 crew dispatch and dedicated regional coverage for commercial and industrial properties across Metro Vancouver and the Lower Mainland. Dispatched from our central operations yard at 783 E 60th Ave, Vancouver, BC, Canada.
             </p>
 
             <div className="pt-2 flex flex-wrap gap-4 text-xs font-mono">
@@ -83,7 +83,7 @@ export const LocationsPage: React.FC<LocationsPageProps> = ({ onNavigate, onOpen
               </div>
               <div className="p-3 bg-white/5 border border-white/10">
                 <span className="text-slate-300 block">HQ PHYSICAL ADDRESS</span>
-                <span className="font-bold text-white">783 E 60th Ave, Vancouver</span>
+                <span className="font-bold text-white">783 E 60th Ave, Vancouver, BC, Canada</span>
               </div>
             </div>
           </motion.div>
@@ -185,8 +185,9 @@ export const LocationsPage: React.FC<LocationsPageProps> = ({ onNavigate, onOpen
                     referrerPolicy="no-referrer"
                   />
                   {loc.id === 'vancouver' && (
-                    <div className="absolute top-3 left-3 bg-[#1A2530] text-white font-bold text-[10px] px-2.5 py-1 font-mono uppercase tracking-wider border border-white/20">
-                      ⭐ Main HQ Dispatch
+                    <div className="absolute top-3 left-3 bg-[#1A2530] text-white font-bold text-[10px] px-2.5 py-1 font-mono uppercase tracking-wider border border-white/20 flex items-center gap-1.5">
+                      <Star className="w-3 h-3 text-amber-400 fill-amber-400" />
+                      <span>Main HQ Dispatch</span>
                     </div>
                   )}
                   <div className="absolute bottom-3 right-3 bg-[#3B4D5D] text-[#88D2A8] text-[11px] font-mono font-bold px-2 py-0.5 border border-white/20">
@@ -232,7 +233,7 @@ export const LocationsPage: React.FC<LocationsPageProps> = ({ onNavigate, onOpen
       <section className="max-w-6xl mx-auto px-4 sm:px-6">
         <MapEmbed
           title="Regional Operations & Dispatch Hub"
-          subtitle="All Greater Vancouver service areas and neighborhoods dispatched from 783 E 60th Ave, Vancouver, BC V5X 2A5 Canada. 24/7 Hotline: (604) 540-3999."
+          subtitle="All Greater Vancouver service areas and neighborhoods dispatched from 783 E 60th Ave, Vancouver, BC V5X 2A5, Canada. 24/7 Hotline: (604) 540-3999."
         />
       </section>
       </div>
