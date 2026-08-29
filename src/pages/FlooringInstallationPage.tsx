@@ -105,24 +105,23 @@ export const FlooringInstallationPage: React.FC<FlooringInstallationPageProps> =
               Ironclad Commercial Floors delivers professional flooring installation for businesses across Vancouver, BC. As a leading commercial flooring contractor, we install durable, code-compliant flooring systems for offices, retail stores, warehouses, and industrial facilities — including epoxy, polished concrete, vinyl plank, and carpet tile.
             </p>
 
-            {/* CTAs matching Book Site Survey UI standard */}
-            <div className="pt-2 flex flex-wrap gap-3.5">
+            {/* CTAs matching reference design */}
+            <div className="pt-3 flex flex-wrap gap-3">
               <button
                 type="button"
                 onClick={() => onOpenBooking({ serviceType: 'Commercial Flooring Installation' })}
-                className="px-6 py-3.5 bg-[#3B945E] hover:bg-[#318051] text-white font-bold text-xs uppercase font-mono tracking-wider transition-all shadow-lg shadow-[#3B945E]/20 flex items-center justify-center gap-2 cursor-pointer border border-white/20"
+                className="flex items-center justify-center gap-2 px-5 sm:px-6 py-3 sm:py-3.5 bg-[#3B945E] hover:bg-[#318051] text-white font-bold text-xs uppercase font-mono tracking-wider transition-all shadow-2xl cursor-pointer border border-white/20 shrink-0 whitespace-nowrap"
               >
-                <Calendar className="w-4 h-4 text-emerald-100" />
-                <span>Book Site Survey / CAD Estimate</span>
-                <ArrowRight className="w-4 h-4" />
+                <Calendar className="w-4 h-4 text-white" />
+                <span>MAKE APPOINTMENT</span>
               </button>
 
               <a
                 href="tel:6045403999"
-                className="px-6 py-3.5 border border-white/40 hover:bg-white/10 text-white font-bold text-xs uppercase font-mono tracking-wider transition-all flex items-center justify-center gap-2"
+                className="flex items-center justify-center gap-2 px-5 sm:px-6 py-3 sm:py-3.5 bg-[#1A2530] hover:bg-[#243342] text-white border border-slate-600 shadow-2xl transition-all font-mono font-bold text-xs uppercase tracking-wider shrink-0 whitespace-nowrap"
               >
                 <Phone className="w-4 h-4 text-[#88D2A8]" />
-                <span>(604) 540-3999</span>
+                <span className="text-white tracking-wider">Call (604) 540-3999</span>
               </a>
             </div>
 

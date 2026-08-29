@@ -258,7 +258,7 @@ export const CostCalculator: React.FC<CostCalculatorProps> = ({ onOpenBooking })
                 <ArrowRight className="w-4 h-4" />
               </motion.button>
               <p className="text-xs text-center text-slate-300">
-                Direct Dispatch: <a href="tel:6045403999" className="text-[#88D2A8] font-bold underline hover:text-white">(604) 540-3999</a>
+                Call Direct: <a href="tel:6045403999" className="text-white font-bold underline hover:text-[#88D2A8]">(604) 540-3999</a>
               </p>
             </div>
           </div>

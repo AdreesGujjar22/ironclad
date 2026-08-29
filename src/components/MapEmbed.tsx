@@ -66,7 +66,7 @@ export const MapEmbed: React.FC<MapEmbedProps> = ({
                 <Phone className="w-5 h-5 text-[#3B945E]" />
               </div>
               <div>
-                <p className="text-xs uppercase tracking-wider text-slate-500 font-semibold">Direct Dispatch Phone</p>
+                <p className="text-xs uppercase tracking-wider text-slate-500 font-semibold">Direct Phone Line</p>
                 <a href="tel:6045403999" className="text-sm md:text-base font-bold text-slate-900 hover:text-[#3B945E] transition-colors">
                   {phone}
                 </a>
@@ -94,9 +94,9 @@ export const MapEmbed: React.FC<MapEmbedProps> = ({
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-[#3B945E] hover:bg-[#318051] text-white font-bold text-xs uppercase font-mono tracking-wider transition-all shadow-md cursor-pointer border border-white/20"
             >
-              <Navigation className="w-4 h-4 text-emerald-100" />
-              <span>Get Driving Directions</span>
-              <ExternalLink className="w-3.5 h-3.5 text-emerald-200" />
+              <Navigation className="w-4 h-4 text-white shrink-0" />
+              <span className="text-white font-bold tracking-wider">Get Driving Directions</span>
+              <ExternalLink className="w-3.5 h-3.5 text-white/90 shrink-0" />
             </motion.a>
             <motion.a
               whileHover={{ scale: 1.02 }}
@@ -104,8 +104,8 @@ export const MapEmbed: React.FC<MapEmbedProps> = ({
               href="tel:6045403999"
               className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-[#1A2530] hover:bg-[#243342] text-white border border-slate-600 font-bold font-mono text-xs uppercase tracking-wider transition-all shadow-xs"
             >
-              <Phone className="w-4 h-4 text-[#88D2A8]" />
-              <span>Call Dispatch: (604) 540-3999</span>
+              <Phone className="w-4 h-4 text-[#88D2A8] shrink-0" />
+              <span className="text-white font-bold tracking-wider">Call (604) 540-3999</span>
             </motion.a>
           </div>
         </div>

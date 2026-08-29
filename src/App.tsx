@@ -2,9 +2,10 @@ import React, { useState, useEffect, Suspense, lazy } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
+import { HomePage } from './pages/HomePage';
 import { Phone, Calendar, ArrowUp } from 'lucide-react';
-// Code split all pages and modals for maximum mobile performance & minimal bundle size
-const HomePage = lazy(() => import('./pages/HomePage').then(m => ({ default: m.HomePage })));
+
+// Code split all secondary pages and modals for maximum mobile performance & minimal bundle size
 const AboutPage = lazy(() => import('./pages/AboutPage').then(m => ({ default: m.AboutPage })));
 const ServicesPage = lazy(() => import('./pages/ServicesPage').then(m => ({ default: m.ServicesPage })));
 const ServiceDetailPage = lazy(() => import('./pages/ServiceDetailPage').then(m => ({ default: m.ServiceDetailPage })));
@@ -338,25 +339,21 @@ export function App() {
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
           onClick={() => openBookingModal()}
-          className="flex items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-5 py-2.5 sm:py-3 bg-[#3B945E] hover:bg-[#318051] text-white font-bold text-[11px] sm:text-xs uppercase font-mono tracking-wider transition-all shadow-2xl cursor-pointer border border-white/20 shrink-0 whitespace-nowrap"
+          className="flex items-center justify-center gap-1.5 sm:gap-2 px-3.5 sm:px-5 py-2.5 sm:py-3 bg-[#3B945E] hover:bg-[#318051] text-white font-bold text-[11px] sm:text-xs uppercase font-mono tracking-wider transition-all shadow-2xl cursor-pointer border border-white/20 shrink-0 whitespace-nowrap"
         >
-          <Calendar className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-emerald-100" />
-          <span>
-            <span className="hidden sm:inline">Make Appointment</span>
-            <span className="sm:hidden">Appointment</span>
-          </span>
+          <Calendar className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white" />
+          <span>MAKE APPOINTMENT</span>
         </motion.button>
 
-        {/* Transparent Call Button */}
+        {/* Dark Call Button with White Text */}
         <motion.a
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
           href="tel:6045403999"
-          className="flex items-center justify-center gap-1.5 sm:gap-2 px-2.5 sm:px-4 py-2.5 sm:py-3 bg-[#1A2530] hover:bg-[#243342] text-white border border-slate-600 shadow-2xl transition-all font-mono font-bold text-[11px] sm:text-xs uppercase tracking-wider shrink-0 whitespace-nowrap"
+          className="flex items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2.5 sm:py-3 bg-[#1A2530] hover:bg-[#243342] text-white border border-slate-600 shadow-2xl transition-all font-mono font-bold text-[11px] sm:text-xs uppercase tracking-wider shrink-0 whitespace-nowrap"
         >
-          <Phone className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#88D2A8]" />
-          <span className="hidden md:inline">(604) 540-3999</span>
-          <span className="md:hidden">Call</span>
+          <Phone className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#88D2A8]" />
+          <span className="text-white">Call (604) 540-3999</span>
         </motion.a>
       </motion.div>
     </div>

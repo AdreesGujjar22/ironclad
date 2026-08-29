@@ -175,25 +175,26 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenBooking })
               Ironclad Commercial Floors is Vancouver, BC's trusted commercial flooring contractor. We handle <button onClick={() => onNavigate('flooring-installation-vancouver-bc')} className="text-[#88D2A8] font-bold underline hover:text-white transition-colors cursor-pointer">flooring installation</button>, <button onClick={() => onNavigate('flooring-repair-vancouver-bc')} className="text-[#88D2A8] font-bold underline hover:text-white transition-colors cursor-pointer">repair</button>, <button onClick={() => onNavigate('flooring-replacement-vancouver-bc')} className="text-[#88D2A8] font-bold underline hover:text-white transition-colors cursor-pointer">replacement</button>, and <button onClick={() => onNavigate('commercial-epoxy-flooring-vancouver-bc')} className="text-[#88D2A8] font-bold underline hover:text-white transition-colors cursor-pointer">epoxy flooring</button> including <button onClick={() => onNavigate('garage-epoxy-flooring-vancouver-bc')} className="text-[#88D2A8] font-bold underline hover:text-white transition-colors cursor-pointer">garage epoxy flooring</button>. Serving Vancouver, Burnaby, Surrey, Richmond, and nearby BC communities call for a free on-site estimate.
             </p>
 
-            {/* CTA Buttons in TFS clean outline & solid style */}
-            <div className="pt-2 flex flex-wrap items-center gap-4">
+            {/* CTA Buttons matching reference design and floating buttons style */}
+            <div className="pt-3 flex flex-wrap items-center gap-3">
               <motion.button
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
                 type="button"
                 onClick={() => onOpenBooking()}
-                className="px-6 sm:px-8 py-3.5 sm:py-4 bg-[#3B945E] hover:bg-[#318051] text-white font-bold text-xs uppercase tracking-wider transition-all shadow-xl cursor-pointer border border-white/20"
+                className="flex items-center justify-center gap-2 px-5 sm:px-6 py-3 sm:py-3.5 bg-[#3B945E] hover:bg-[#318051] text-white font-bold text-xs uppercase font-mono tracking-wider transition-all shadow-2xl cursor-pointer border border-white/20 shrink-0 whitespace-nowrap"
               >
-                Book Free Estimate
+                <Calendar className="w-4 h-4 text-emerald-100" />
+                <span>MAKE APPOINTMENT</span>
               </motion.button>
               <motion.a
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
                 href="tel:6045403999"
-                className="px-6 sm:px-8 py-3.5 sm:py-4 border border-white/50 bg-black/20 hover:bg-white/20 text-white font-bold text-xs uppercase tracking-wider transition-all inline-flex items-center gap-2 backdrop-blur-xs shadow-lg"
+                className="flex items-center justify-center gap-2 px-5 sm:px-6 py-3 sm:py-3.5 bg-[#1A2530] hover:bg-[#243342] text-white border border-slate-600 shadow-2xl transition-all font-mono font-bold text-xs uppercase tracking-wider shrink-0 whitespace-nowrap"
               >
-                <Phone className="w-3.5 h-3.5 text-[#88D2A8]" />
-                <span>(604) 540-3999</span>
+                <Phone className="w-4 h-4 text-[#88D2A8]" />
+                <span className="text-white tracking-wider">Call (604) 540-3999</span>
               </motion.a>
             </div>
           </motion.div>
