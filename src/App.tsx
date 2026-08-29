@@ -2,10 +2,9 @@ import React, { useState, useEffect, Suspense, lazy } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
-import { HomePage } from './pages/HomePage';
 import { Phone, Calendar, ArrowUp } from 'lucide-react';
-
-// Code split all secondary pages and modals for mobile performance & minimal bundle size
+// Code split all pages and modals for maximum mobile performance & minimal bundle size
+const HomePage = lazy(() => import('./pages/HomePage').then(m => ({ default: m.HomePage })));
 const AboutPage = lazy(() => import('./pages/AboutPage').then(m => ({ default: m.AboutPage })));
 const ServicesPage = lazy(() => import('./pages/ServicesPage').then(m => ({ default: m.ServicesPage })));
 const ServiceDetailPage = lazy(() => import('./pages/ServiceDetailPage').then(m => ({ default: m.ServiceDetailPage })));
