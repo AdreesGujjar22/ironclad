@@ -52,17 +52,18 @@ export const FlooringRepairPage: React.FC<FlooringRepairPageProps> = ({
   return (
     <div className="bg-[#F8F9FA] text-slate-800 min-h-screen pb-16">
       <SEOHead
-        title="Flooring Repair Vancouver | Ironclad Commercial Floors"
-        description="Ironclad Commercial Floors provides fast commercial flooring repair in Vancouver, BC. We fix cracked concrete, epoxy damage & worn tile. 24/7 service."
-        canonicalPath="/flooring-repair-vancouver-bc"
+        title="Commercial Flooring Repair | Ironclad Commercial Floors"
+        description="Ironclad Commercial Floors provides fast commercial flooring repair across Canada. We fix cracked concrete, epoxy damage & worn tile. 24/7 service."
+        canonicalPath="/services/flooring-repair"
         ogImage="https://ironcladcommercialfloors.ca/IRONCLAD-COMMERCIAL-FLOORS.jpg"
         breadcrumbs={[
           { name: 'Home', path: '/' },
-          { name: 'Commercial Flooring Repair Vancouver, BC', path: '/flooring-repair-vancouver-bc' }
+          { name: 'Services', path: '/services' },
+          { name: 'Commercial Flooring Repair', path: '/services/flooring-repair' }
         ]}
         serviceData={{
-          name: 'Commercial Flooring Repair in Vancouver, BC',
-          description: 'Damaged commercial flooring is a liability. Ironclad Commercial Floors provides fast, reliable flooring repair throughout Vancouver, BC — restoring safety and appearance without long business closures.',
+          name: 'Commercial Flooring Repair',
+          description: 'Damaged commercial flooring is a liability. Ironclad Commercial Floors provides fast, reliable flooring repair throughout Canada — restoring safety and appearance without long business closures.',
           category: 'Commercial Flooring Repair',
           priceRange: 'Custom Commercial Repair Estimate / 24/7 Emergency Dispatch',
           image: 'https://ironcladcommercialfloors.ca/IRONCLAD-COMMERCIAL-FLOORS.jpg'
@@ -74,7 +75,7 @@ export const FlooringRepairPage: React.FC<FlooringRepairPageProps> = ({
       <Breadcrumbs
         items={[
           { name: 'Services', page: 'services' },
-          { name: 'Commercial Flooring Repair Vancouver, BC', current: true }
+          { name: 'Commercial Flooring Repair', current: true }
         ]}
         onNavigate={onNavigate}
       />
@@ -294,7 +295,7 @@ export const FlooringRepairPage: React.FC<FlooringRepairPageProps> = ({
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 pt-2">
             <button
-              onClick={() => onNavigate('flooring-replacement-vancouver-bc')}
+              onClick={() => onNavigate('flooring-replacement')}
               className="p-6 bg-[#F8F9FA] hover:bg-slate-100 border border-slate-300 hover:border-[#7D9A87] text-left transition-colors group cursor-pointer"
             >
               <h4 className="font-bold text-slate-900 group-hover:text-[#3B4D5D] text-xs sm:text-sm uppercase tracking-wider flex items-center justify-between">
@@ -307,7 +308,7 @@ export const FlooringRepairPage: React.FC<FlooringRepairPageProps> = ({
             </button>
 
             <button
-              onClick={() => onNavigate('commercial-epoxy-flooring-vancouver-bc')}
+              onClick={() => onNavigate('commercial-epoxy-flooring')}
               className="p-6 bg-[#F8F9FA] hover:bg-slate-100 border border-slate-300 hover:border-[#7D9A87] text-left transition-colors group cursor-pointer"
             >
               <h4 className="font-bold text-slate-900 group-hover:text-[#3B4D5D] text-xs sm:text-sm uppercase tracking-wider flex items-center justify-between">
@@ -320,7 +321,7 @@ export const FlooringRepairPage: React.FC<FlooringRepairPageProps> = ({
             </button>
 
             <button
-              onClick={() => onNavigate('flooring-installation-vancouver-bc')}
+              onClick={() => onNavigate('flooring-installation')}
               className="p-6 bg-[#F8F9FA] hover:bg-slate-100 border border-slate-300 hover:border-[#7D9A87] text-left transition-colors group cursor-pointer"
             >
               <h4 className="font-bold text-slate-900 group-hover:text-[#3B4D5D] text-xs sm:text-sm uppercase tracking-wider flex items-center justify-between">
@@ -328,7 +329,7 @@ export const FlooringRepairPage: React.FC<FlooringRepairPageProps> = ({
                 <ArrowRight className="w-4 h-4 text-[#7D9A87] group-hover:translate-x-1 transition-transform" />
               </h4>
               <p className="text-xs text-slate-600 mt-2 leading-relaxed">
-                New construction and tenant improvement flooring installation for vinyl, carpet tile, concrete, and epoxy across Vancouver, BC.
+                New construction and tenant improvement flooring installation for vinyl, carpet tile, concrete, and epoxy across Canada.
               </p>
             </button>
           </div>

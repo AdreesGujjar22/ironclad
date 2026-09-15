@@ -93,7 +93,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenBooking }) => 
             </div>
 
             <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
-              Vancouver’s heavy-duty commercial, institutional, and industrial flooring contractor. We deliver precision subfloor preparation, diamond polished concrete, chemical-resistant epoxy mortars, and high-performance architectural floor systems.
+              Canada’s premier heavy-duty commercial, institutional, and industrial flooring contractor. We deliver precision subfloor preparation, diamond polished concrete, chemical-resistant epoxy mortars, and high-performance architectural floor systems across Canada.
             </p>
 
             {/* Direct Contact Details */}
@@ -159,7 +159,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenBooking }) => 
             <ul className="space-y-2.5 text-xs sm:text-sm">
               <li>
                 <button 
-                  onClick={() => onNavigate('garage-epoxy-flooring-vancouver-bc')} 
+                  onClick={() => onNavigate('garage-epoxy-flooring')} 
                   className="text-slate-300 hover:text-white transition-colors flex items-center gap-2 cursor-pointer group text-left"
                 >
                   <ChevronRight className="w-3.5 h-3.5 text-[#88D2A8] group-hover:translate-x-1 transition-transform shrink-0" />

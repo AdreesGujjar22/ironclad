@@ -53,17 +53,18 @@ export const GarageEpoxyFlooringPage: React.FC<GarageEpoxyFlooringPageProps> = (
   return (
     <div className="bg-[#F8F9FA] text-slate-800 min-h-screen pb-16">
       <SEOHead
-        title="Garage Epoxy Flooring Vancouver | Ironclad Floors"
-        description="Ironclad Commercial Floors installs garage epoxy flooring in Vancouver, BC for fleet & parking facilities. Durable, easy-clean coatings. Free quotes."
-        canonicalPath="/garage-epoxy-flooring-vancouver-bc"
+        title="Garage Epoxy Flooring | Ironclad Floors"
+        description="Ironclad Commercial Floors installs garage epoxy flooring across Canada for fleet & parking facilities. Durable, easy-clean coatings. Free quotes."
+        canonicalPath="/services/garage-epoxy-flooring"
         ogImage="https://ironcladcommercialfloors.ca/IRONCLAD-COMMERCIAL-FLOORS.jpg"
         breadcrumbs={[
           { name: 'Home', path: '/' },
-          { name: 'Garage Epoxy Flooring Vancouver, BC', path: '/garage-epoxy-flooring-vancouver-bc' }
+          { name: 'Services', path: '/services' },
+          { name: 'Garage Epoxy Flooring', path: '/services/garage-epoxy-flooring' }
         ]}
         serviceData={{
-          name: 'Garage Epoxy Flooring in Vancouver, BC',
-          description: 'Ironclad Commercial Floors installs durable garage epoxy flooring for fleet garages, parking structures, and vehicle service facilities across Vancouver, BC. Our epoxy coatings withstand tire traffic, oil, and heavy equipment.',
+          name: 'Garage Epoxy Flooring',
+          description: 'Ironclad Commercial Floors installs durable garage epoxy flooring for fleet garages, parking structures, and vehicle service facilities across Canada. Our epoxy coatings withstand tire traffic, oil, and heavy equipment.',
           category: 'Garage Epoxy Flooring',
           priceRange: 'Custom Garage Epoxy Estimate / Free Site Survey',
           image: 'https://ironcladcommercialfloors.ca/IRONCLAD-COMMERCIAL-FLOORS.jpg'
@@ -75,7 +76,7 @@ export const GarageEpoxyFlooringPage: React.FC<GarageEpoxyFlooringPageProps> = (
       <Breadcrumbs
         items={[
           { name: 'Services', page: 'services' },
-          { name: 'Garage Epoxy Flooring Vancouver, BC', current: true }
+          { name: 'Garage Epoxy Flooring', current: true }
         ]}
         onNavigate={onNavigate}
       />
@@ -299,7 +300,7 @@ export const GarageEpoxyFlooringPage: React.FC<GarageEpoxyFlooringPageProps> = (
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 pt-2">
             <button
-              onClick={() => onNavigate('commercial-epoxy-flooring-vancouver-bc')}
+              onClick={() => onNavigate('commercial-epoxy-flooring')}
               className="p-5 bg-black/20 hover:bg-black/35 border border-white/20 text-left transition-colors group cursor-pointer"
             >
               <h4 className="font-bold text-white group-hover:text-[#88D2A8] text-xs sm:text-sm uppercase tracking-wider flex items-center justify-between">
@@ -312,7 +313,7 @@ export const GarageEpoxyFlooringPage: React.FC<GarageEpoxyFlooringPageProps> = (
             </button>
 
             <button
-              onClick={() => onNavigate('flooring-installation-vancouver-bc')}
+              onClick={() => onNavigate('flooring-installation')}
               className="p-5 bg-black/20 hover:bg-black/35 border border-white/20 text-left transition-colors group cursor-pointer"
             >
               <h4 className="font-bold text-white group-hover:text-[#88D2A8] text-xs sm:text-sm uppercase tracking-wider flex items-center justify-between">
@@ -320,12 +321,12 @@ export const GarageEpoxyFlooringPage: React.FC<GarageEpoxyFlooringPageProps> = (
                 <ArrowRight className="w-3.5 h-3.5 text-[#88D2A8] group-hover:translate-x-1 transition-transform" />
               </h4>
               <p className="text-xs text-slate-300 mt-2 leading-relaxed">
-                New construction flooring installation for concrete, vinyl plank, carpet tile, and epoxy in Vancouver, BC.
+                New construction flooring installation for concrete, vinyl plank, carpet tile, and epoxy across Canada.
               </p>
             </button>
 
             <button
-              onClick={() => onNavigate('flooring-repair-vancouver-bc')}
+              onClick={() => onNavigate('flooring-repair')}
               className="p-5 bg-black/20 hover:bg-black/35 border border-white/20 text-left transition-colors group cursor-pointer"
             >
               <h4 className="font-bold text-white group-hover:text-[#88D2A8] text-xs sm:text-sm uppercase tracking-wider flex items-center justify-between">

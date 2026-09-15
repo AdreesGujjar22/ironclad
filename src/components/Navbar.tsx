@@ -275,12 +275,12 @@ export const Navbar: React.FC<NavbarProps> = ({
 
                       <div className="space-y-1">
                         {[
-                          { name: 'Commercial Epoxy Flooring', slug: 'commercial-epoxy-flooring-vancouver-bc' },
-                          { name: 'Garage Epoxy Flooring', slug: 'garage-epoxy-flooring-vancouver-bc' },
-                          { name: 'Concrete Floor Polishing', slug: 'concrete-floor-polishing-vancouver-bc' },
-                          { name: 'Commercial Concrete Sealing', slug: 'commercial-concrete-floor-sealing-vancouver-bc' },
-                          { name: 'Metallic & Flake Epoxy', slug: 'commercial-epoxy-flooring-vancouver-bc' },
-                          { name: 'Anti-Slip Safety Coatings', slug: 'commercial-epoxy-flooring-vancouver-bc' }
+                          { name: 'Commercial Epoxy Flooring', slug: 'commercial-epoxy-flooring' },
+                          { name: 'Garage Epoxy Flooring', slug: 'garage-epoxy-flooring' },
+                          { name: 'Concrete Floor Polishing', slug: 'concrete-floor-polishing' },
+                          { name: 'Commercial Concrete Sealing', slug: 'commercial-concrete-floor-sealing' },
+                          { name: 'Metallic & Flake Epoxy', slug: 'commercial-epoxy-flooring' },
+                          { name: 'Anti-Slip Safety Coatings', slug: 'commercial-epoxy-flooring' }
                         ].map((item, idx) => (
                           <button
                             key={idx}
@@ -312,12 +312,12 @@ export const Navbar: React.FC<NavbarProps> = ({
 
                       <div className="space-y-1">
                         {[
-                          { name: 'Commercial Flooring Installation', slug: 'flooring-installation-vancouver-bc' },
-                          { name: 'Luxury Vinyl (LVT / LVP)', slug: 'commercial-luxury-vinyl-flooring-vancouver-bc' },
-                          { name: 'Commercial Sheet Vinyl', slug: 'commercial-sheet-vinyl-flooring-vancouver-bc' },
-                          { name: 'Commercial Rubber Flooring', slug: 'flooring-installation-vancouver-bc' },
-                          { name: 'Integral Flash Coving', slug: 'commercial-sheet-vinyl-flooring-vancouver-bc' },
-                          { name: 'Baseboard & Moisture Barriers', slug: 'flooring-installation-vancouver-bc' }
+                          { name: 'Commercial Flooring Installation', slug: 'flooring-installation' },
+                          { name: 'Luxury Vinyl (LVT / LVP)', slug: 'commercial-luxury-vinyl-flooring' },
+                          { name: 'Commercial Sheet Vinyl', slug: 'commercial-sheet-vinyl-flooring' },
+                          { name: 'Commercial Rubber Flooring', slug: 'flooring-installation' },
+                          { name: 'Integral Flash Coving', slug: 'commercial-sheet-vinyl-flooring' },
+                          { name: 'Baseboard & Moisture Barriers', slug: 'flooring-installation' }
                         ].map((item, idx) => (
                           <button
                             key={idx}
@@ -349,12 +349,12 @@ export const Navbar: React.FC<NavbarProps> = ({
 
                       <div className="space-y-1">
                         {[
-                          { name: 'Commercial Carpet Tile', slug: 'carpet-tile-installation-vancouver-bc' },
-                          { name: 'Broadloom Carpet Installation', slug: 'carpet-tile-installation-vancouver-bc' },
-                          { name: 'Ceramic & Porcelain Tile', slug: 'flooring-installation-vancouver-bc' },
-                          { name: 'Commercial Quarry Tile', slug: 'restaurant-flooring-installation-vancouver-bc' },
-                          { name: 'Entryway Walk-Off Systems', slug: 'carpet-tile-installation-vancouver-bc' },
-                          { name: 'Acoustic Subfloor Systems', slug: 'commercial-luxury-vinyl-flooring-vancouver-bc' }
+                          { name: 'Commercial Carpet Tile', slug: 'carpet-tile-installation' },
+                          { name: 'Broadloom Carpet Installation', slug: 'carpet-tile-installation' },
+                          { name: 'Ceramic & Porcelain Tile', slug: 'flooring-installation' },
+                          { name: 'Commercial Quarry Tile', slug: 'restaurant-flooring-installation' },
+                          { name: 'Entryway Walk-Off Systems', slug: 'carpet-tile-installation' },
+                          { name: 'Acoustic Subfloor Systems', slug: 'commercial-luxury-vinyl-flooring' }
                         ].map((item, idx) => (
                           <button
                             key={idx}
@@ -386,12 +386,12 @@ export const Navbar: React.FC<NavbarProps> = ({
 
                       <div className="space-y-1">
                         {[
-                          { name: 'Warehouse & Logistics Floors', slug: 'warehouse-flooring-installation-vancouver-bc' },
-                          { name: 'Restaurant & Kitchen Flooring', slug: 'restaurant-flooring-installation-vancouver-bc' },
-                          { name: 'Commercial Flooring Repair', slug: 'flooring-repair-vancouver-bc' },
-                          { name: 'Commercial Floor Replacement', slug: 'flooring-replacement-vancouver-bc' },
-                          { name: 'Joint Spall & Crack Stitching', slug: 'flooring-repair-vancouver-bc' },
-                          { name: 'Demolition & Self-Leveling', slug: 'flooring-replacement-vancouver-bc' }
+                          { name: 'Warehouse & Logistics Floors', slug: 'warehouse-flooring-installation' },
+                          { name: 'Restaurant & Kitchen Flooring', slug: 'restaurant-flooring-installation' },
+                          { name: 'Commercial Flooring Repair', slug: 'flooring-repair' },
+                          { name: 'Commercial Floor Replacement', slug: 'flooring-replacement' },
+                          { name: 'Joint Spall & Crack Stitching', slug: 'flooring-repair' },
+                          { name: 'Demolition & Self-Leveling', slug: 'flooring-replacement' }
                         ].map((item, idx) => (
                           <button
                             key={idx}
@@ -685,10 +685,10 @@ export const Navbar: React.FC<NavbarProps> = ({
                           <div className="space-y-1 pt-1">
                             <span className="text-[9px] font-mono uppercase text-slate-400 font-bold block px-2">Concrete & Epoxy</span>
                             {[
-                              { slug: 'commercial-epoxy-flooring-vancouver-bc', name: 'Commercial Epoxy Flooring' },
-                              { slug: 'garage-epoxy-flooring-vancouver-bc', name: 'Garage Epoxy Flooring' },
-                              { slug: 'concrete-floor-polishing-vancouver-bc', name: 'Concrete Floor Polishing' },
-                              { slug: 'commercial-concrete-floor-sealing-vancouver-bc', name: 'Concrete Floor Sealing' }
+                              { slug: 'commercial-epoxy-flooring', name: 'Commercial Epoxy Flooring' },
+                              { slug: 'garage-epoxy-flooring', name: 'Garage Epoxy Flooring' },
+                              { slug: 'concrete-floor-polishing', name: 'Concrete Floor Polishing' },
+                              { slug: 'commercial-concrete-floor-sealing', name: 'Concrete Floor Sealing' }
                             ].map(s => (
                               <button
                                 key={s.slug}
@@ -703,10 +703,10 @@ export const Navbar: React.FC<NavbarProps> = ({
                           <div className="space-y-1 pt-1">
                             <span className="text-[9px] font-mono uppercase text-slate-400 font-bold block px-2">Resilient & Carpet</span>
                             {[
-                              { slug: 'flooring-installation-vancouver-bc', name: 'Commercial Flooring Installation' },
-                              { slug: 'carpet-tile-installation-vancouver-bc', name: 'Carpet Tile Installation' },
-                              { slug: 'commercial-luxury-vinyl-flooring-installation', name: 'Luxury Vinyl Plank (LVP)' },
-                              { slug: 'commercial-sheet-vinyl-flooring-installation', name: 'Medical Sheet Vinyl' }
+                              { slug: 'flooring-installation', name: 'Commercial Flooring Installation' },
+                              { slug: 'carpet-tile-installation', name: 'Carpet Tile Installation' },
+                              { slug: 'commercial-luxury-vinyl-flooring', name: 'Luxury Vinyl Plank (LVP)' },
+                              { slug: 'commercial-sheet-vinyl-flooring', name: 'Medical Sheet Vinyl' }
                             ].map(s => (
                               <button
                                 key={s.slug}
@@ -721,8 +721,8 @@ export const Navbar: React.FC<NavbarProps> = ({
                           <div className="space-y-1 pt-1">
                             <span className="text-[9px] font-mono uppercase text-slate-400 font-bold block px-2">Repairs & Replacement</span>
                             {[
-                              { slug: 'flooring-repair-vancouver-bc', name: 'Flooring Repair' },
-                              { slug: 'flooring-replacement-vancouver-bc', name: 'Flooring Replacement' },
+                              { slug: 'flooring-repair', name: 'Flooring Repair' },
+                              { slug: 'flooring-replacement', name: 'Flooring Replacement' },
                               { slug: 'warehouse-flooring-installation', name: 'Warehouse Flooring' }
                             ].map(s => (
                               <button

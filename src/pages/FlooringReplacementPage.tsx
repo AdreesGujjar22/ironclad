@@ -53,17 +53,18 @@ export const FlooringReplacementPage: React.FC<FlooringReplacementPageProps> = (
   return (
     <div className="bg-[#F8F9FA] text-slate-800 min-h-screen pb-16">
       <SEOHead
-        title="Flooring Replacement Vancouver | Ironclad Commercial Floors"
-        description="Ironclad Commercial Floors handles commercial flooring replacement in Vancouver, BC. We remove old flooring and install durable new surfaces. Free estimates."
-        canonicalPath="/flooring-replacement-vancouver-bc"
+        title="Commercial Flooring Replacement | Ironclad Commercial Floors"
+        description="Ironclad Commercial Floors handles commercial flooring replacement across Canada. We remove old flooring and install durable new surfaces. Free estimates."
+        canonicalPath="/services/flooring-replacement"
         ogImage="https://ironcladcommercialfloors.ca/IRONCLAD-COMMERCIAL-FLOORS.jpg"
         breadcrumbs={[
           { name: 'Home', path: '/' },
-          { name: 'Commercial Flooring Replacement Vancouver, BC', path: '/flooring-replacement-vancouver-bc' }
+          { name: 'Services', path: '/services' },
+          { name: 'Commercial Flooring Replacement', path: '/services/flooring-replacement' }
         ]}
         serviceData={{
-          name: 'Commercial Flooring Replacement in Vancouver, BC',
-          description: 'When your commercial floor is beyond repair, Ironclad Commercial Floors provides full flooring replacement services in Vancouver, BC — from demolition and subfloor prep to installation of a new, durable surface.',
+          name: 'Commercial Flooring Replacement',
+          description: 'When your commercial floor is beyond repair, Ironclad Commercial Floors provides full flooring replacement services across Canada — from demolition and subfloor prep to installation of a new, durable surface.',
           category: 'Commercial Flooring Replacement',
           priceRange: 'Custom Replacement Estimate / Free Site Survey',
           image: 'https://ironcladcommercialfloors.ca/IRONCLAD-COMMERCIAL-FLOORS.jpg'
@@ -75,7 +76,7 @@ export const FlooringReplacementPage: React.FC<FlooringReplacementPageProps> = (
       <Breadcrumbs
         items={[
           { name: 'Services', page: 'services' },
-          { name: 'Commercial Flooring Replacement Vancouver, BC', current: true }
+          { name: 'Commercial Flooring Replacement', current: true }
         ]}
         onNavigate={onNavigate}
       />
@@ -301,7 +302,7 @@ export const FlooringReplacementPage: React.FC<FlooringReplacementPageProps> = (
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 pt-2">
             <button
-              onClick={() => onNavigate('flooring-repair-vancouver-bc')}
+              onClick={() => onNavigate('flooring-repair')}
               className="p-5 bg-black/20 hover:bg-black/35 border border-white/20 text-left transition-colors group cursor-pointer"
             >
               <h4 className="font-bold text-white group-hover:text-[#88D2A8] text-xs sm:text-sm uppercase tracking-wider flex items-center justify-between">
@@ -314,7 +315,7 @@ export const FlooringReplacementPage: React.FC<FlooringReplacementPageProps> = (
             </button>
 
             <button
-              onClick={() => onNavigate('flooring-installation-vancouver-bc')}
+              onClick={() => onNavigate('flooring-installation')}
               className="p-5 bg-black/20 hover:bg-black/35 border border-white/20 text-left transition-colors group cursor-pointer"
             >
               <h4 className="font-bold text-white group-hover:text-[#88D2A8] text-xs sm:text-sm uppercase tracking-wider flex items-center justify-between">
@@ -322,12 +323,12 @@ export const FlooringReplacementPage: React.FC<FlooringReplacementPageProps> = (
                 <ArrowRight className="w-3.5 h-3.5 text-[#88D2A8] group-hover:translate-x-1 transition-transform" />
               </h4>
               <p className="text-xs text-slate-300 mt-2 leading-relaxed">
-                New construction and architectural floor installation for vinyl plank, tile, and concrete across BC.
+                New construction and architectural floor installation for vinyl plank, tile, and concrete across Canada.
               </p>
             </button>
 
             <button
-              onClick={() => onNavigate('commercial-epoxy-flooring-vancouver-bc')}
+              onClick={() => onNavigate('commercial-epoxy-flooring')}
               className="p-5 bg-black/20 hover:bg-black/35 border border-white/20 text-left transition-colors group cursor-pointer"
             >
               <h4 className="font-bold text-white group-hover:text-[#88D2A8] text-xs sm:text-sm uppercase tracking-wider flex items-center justify-between">
