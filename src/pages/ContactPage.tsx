@@ -50,17 +50,17 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
   return (
     <div className="bg-[#F8F9FA] text-slate-800 min-h-screen pb-16">
       <SEOHead
-        title="Contact Ironclad Commercial Floors | Vancouver, BC"
-        description="Contact Ironclad Commercial Floors, Vancouver BC's commercial flooring contractor, for a free quote on installation, repair & epoxy flooring services."
-        canonicalPath="/contact-ironclad-commercial-floors-vancouver-bc"
+        title="Contact Ironclad Commercial Floors | Commercial Flooring Estimates"
+        description="Contact Ironclad Commercial Floors for a free quote on commercial flooring installation, repair & epoxy flooring services across Canada."
+        canonicalPath="/contact"
         ogImage="https://ironcladcommercialfloors.ca/IRONCLAD-COMMERCIAL-FLOORS.jpg"
         breadcrumbs={[
           { name: 'Home', path: '/' },
-          { name: 'Contact Ironclad Commercial Floors', path: '/contact-ironclad-commercial-floors-vancouver-bc' }
+          { name: 'Contact Ironclad Commercial Floors', path: '/contact' }
         ]}
         serviceData={{
-          name: 'Contact Ironclad Commercial Floors in Vancouver, BC',
-          description: 'Contact Ironclad Commercial Floors, Vancouver BC’s commercial flooring contractor, for a free quote on installation, repair & epoxy flooring services.',
+          name: 'Contact Ironclad Commercial Floors',
+          description: 'Contact Ironclad Commercial Floors for a free quote on commercial flooring installation, repair & epoxy flooring services across Canada.',
           category: 'Commercial Flooring Contractor',
           priceRange: 'Free On-Site Diagnostic & Guaranteed Fixed Quotes',
           image: 'https://ironcladcommercialfloors.ca/IRONCLAD-COMMERCIAL-FLOORS.jpg'

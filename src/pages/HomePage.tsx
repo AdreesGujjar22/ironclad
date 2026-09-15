@@ -172,7 +172,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenBooking })
 
             {/* Exact SEO Intro Paragraph with highlighted links */}
             <p className="text-slate-100 text-sm sm:text-base sm:leading-relaxed font-normal max-w-2xl drop-shadow-sm">
-              Ironclad Commercial Floors is Vancouver, BC's trusted commercial flooring contractor. We handle <button onClick={() => onNavigate('flooring-installation-vancouver-bc')} className="text-[#88D2A8] font-bold underline hover:text-white transition-colors cursor-pointer">flooring installation</button>, <button onClick={() => onNavigate('flooring-repair-vancouver-bc')} className="text-[#88D2A8] font-bold underline hover:text-white transition-colors cursor-pointer">repair</button>, <button onClick={() => onNavigate('flooring-replacement-vancouver-bc')} className="text-[#88D2A8] font-bold underline hover:text-white transition-colors cursor-pointer">replacement</button>, and <button onClick={() => onNavigate('commercial-epoxy-flooring-vancouver-bc')} className="text-[#88D2A8] font-bold underline hover:text-white transition-colors cursor-pointer">epoxy flooring</button> including <button onClick={() => onNavigate('garage-epoxy-flooring-vancouver-bc')} className="text-[#88D2A8] font-bold underline hover:text-white transition-colors cursor-pointer">garage epoxy flooring</button>. Serving Vancouver, Burnaby, Surrey, Richmond, and nearby BC communities call for a free on-site estimate.
+              Ironclad Commercial Floors is Vancouver, BC's trusted commercial flooring contractor. We handle <button onClick={() => onNavigate('flooring-installation')} className="text-[#88D2A8] font-bold underline hover:text-white transition-colors cursor-pointer">flooring installation</button>, <button onClick={() => onNavigate('flooring-repair')} className="text-[#88D2A8] font-bold underline hover:text-white transition-colors cursor-pointer">repair</button>, <button onClick={() => onNavigate('flooring-replacement')} className="text-[#88D2A8] font-bold underline hover:text-white transition-colors cursor-pointer">replacement</button>, and <button onClick={() => onNavigate('commercial-epoxy-flooring')} className="text-[#88D2A8] font-bold underline hover:text-white transition-colors cursor-pointer">epoxy flooring</button> including <button onClick={() => onNavigate('garage-epoxy-flooring')} className="text-[#88D2A8] font-bold underline hover:text-white transition-colors cursor-pointer">garage epoxy flooring</button>. Serving Vancouver, Burnaby, Surrey, Richmond, and nearby BC communities call for a free on-site estimate.
             </p>
 
             {/* CTA Buttons matching reference design and floating buttons style */}
@@ -290,7 +290,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenBooking })
 
               <div className="pt-4">
                 <button
-                  onClick={() => onNavigate('about-ironclad-commercial-floors-vancouver-bc')}
+                  onClick={() => onNavigate('about')}
                   className="px-6 py-2.5 border border-white/80 hover:bg-white hover:text-slate-900 text-white font-bold text-xs uppercase tracking-wider transition-colors cursor-pointer"
                 >
                   Learn More
@@ -391,7 +391,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenBooking })
             </p>
             <div className="pt-2">
               <button
-                onClick={() => onNavigate('flooring-installation-vancouver-bc')}
+                onClick={() => onNavigate('flooring-installation')}
                 className="px-6 py-2.5 border border-white/70 hover:bg-white hover:text-slate-900 text-white font-bold text-xs uppercase tracking-wider transition-colors cursor-pointer"
               >
                 Learn More
@@ -450,13 +450,13 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenBooking })
             </p>
             <div className="pt-2 flex flex-wrap items-center gap-3">
               <button
-                onClick={() => onNavigate('commercial-epoxy-flooring-vancouver-bc')}
+                onClick={() => onNavigate('commercial-epoxy-flooring')}
                 className="px-6 py-2.5 border border-slate-800 hover:bg-slate-900 hover:text-white text-slate-900 font-bold text-xs uppercase tracking-wider transition-colors cursor-pointer"
               >
                 Commercial Epoxy
               </button>
               <button
-                onClick={() => onNavigate('garage-epoxy-flooring-vancouver-bc')}
+                onClick={() => onNavigate('garage-epoxy-flooring')}
                 className="px-6 py-2.5 border border-slate-400 hover:border-slate-800 text-slate-700 font-bold text-xs uppercase tracking-wider transition-colors cursor-pointer"
               >
                 Garage Epoxy
@@ -485,7 +485,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenBooking })
             </p>
             <div className="pt-2">
               <button
-                onClick={() => onNavigate('flooring-repair-vancouver-bc')}
+                onClick={() => onNavigate('flooring-repair')}
                 className="px-6 py-2.5 border border-white/70 hover:bg-white hover:text-slate-900 text-white font-bold text-xs uppercase tracking-wider transition-colors cursor-pointer"
               >
                 Learn More
@@ -544,7 +544,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenBooking })
             </p>
             <div className="pt-2">
               <button
-                onClick={() => onNavigate('flooring-replacement-vancouver-bc')}
+                onClick={() => onNavigate('flooring-replacement')}
                 className="px-6 py-2.5 border border-slate-800 hover:bg-slate-900 hover:text-white text-slate-900 font-bold text-xs uppercase tracking-wider transition-colors cursor-pointer"
               >
                 Learn More

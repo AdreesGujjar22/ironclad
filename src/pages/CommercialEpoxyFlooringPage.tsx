@@ -53,17 +53,18 @@ export const CommercialEpoxyFlooringPage: React.FC<CommercialEpoxyFlooringPagePr
   return (
     <div className="bg-[#F8F9FA] text-slate-800 min-h-screen pb-16">
       <SEOHead
-        title="Epoxy Flooring Vancouver | Ironclad Commercial Floors"
-        description="Ironclad Commercial Floors installs industrial & commercial epoxy flooring in Vancouver, BC. Chemical-resistant, seamless coatings. Free estimates."
-        canonicalPath="/commercial-epoxy-flooring-vancouver-bc"
+        title="Commercial Epoxy Flooring | Ironclad Commercial Floors"
+        description="Ironclad Commercial Floors installs industrial & commercial epoxy flooring across Canada. Chemical-resistant, seamless coatings. Free estimates."
+        canonicalPath="/services/commercial-epoxy-flooring"
         ogImage="https://ironcladcommercialfloors.ca/IRONCLAD-COMMERCIAL-FLOORS.jpg"
         breadcrumbs={[
           { name: 'Home', path: '/' },
-          { name: 'Commercial Epoxy Flooring Vancouver, BC', path: '/commercial-epoxy-flooring-vancouver-bc' }
+          { name: 'Services', path: '/services' },
+          { name: 'Commercial Epoxy Flooring', path: '/services/commercial-epoxy-flooring' }
         ]}
         serviceData={{
-          name: 'Commercial Epoxy Flooring in Vancouver, BC',
-          description: 'Ironclad Commercial Floors installs seamless, industrial-grade epoxy flooring for warehouses, manufacturing plants, and commercial facilities across Vancouver, BC. Our epoxy coatings resist chemicals, impact, and heavy foot or forklift traffic.',
+          name: 'Commercial Epoxy Flooring',
+          description: 'Ironclad Commercial Floors installs seamless, industrial-grade epoxy flooring for warehouses, manufacturing plants, and commercial facilities across Canada. Our epoxy coatings resist chemicals, impact, and heavy foot or forklift traffic.',
           category: 'Commercial Epoxy Flooring',
           priceRange: 'Custom Commercial Epoxy Quote / Free Site Evaluation',
           image: 'https://ironcladcommercialfloors.ca/IRONCLAD-COMMERCIAL-FLOORS.jpg'
@@ -75,7 +76,7 @@ export const CommercialEpoxyFlooringPage: React.FC<CommercialEpoxyFlooringPagePr
       <Breadcrumbs
         items={[
           { name: 'Services', page: 'services' },
-          { name: 'Commercial Epoxy Flooring Vancouver, BC', current: true }
+          { name: 'Commercial Epoxy Flooring', current: true }
         ]}
         onNavigate={onNavigate}
       />
@@ -303,7 +304,7 @@ export const CommercialEpoxyFlooringPage: React.FC<CommercialEpoxyFlooringPagePr
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 pt-2">
             <button
-              onClick={() => onNavigate('garage-epoxy-flooring-vancouver-bc')}
+              onClick={() => onNavigate('garage-epoxy-flooring')}
               className="p-5 bg-black/20 hover:bg-black/35 border border-white/20 text-left transition-colors group cursor-pointer"
             >
               <h4 className="font-bold text-white group-hover:text-[#88D2A8] text-xs sm:text-sm uppercase tracking-wider flex items-center justify-between">
@@ -316,7 +317,7 @@ export const CommercialEpoxyFlooringPage: React.FC<CommercialEpoxyFlooringPagePr
             </button>
 
             <button
-              onClick={() => onNavigate('flooring-installation-vancouver-bc')}
+              onClick={() => onNavigate('flooring-installation')}
               className="p-5 bg-black/20 hover:bg-black/35 border border-white/20 text-left transition-colors group cursor-pointer"
             >
               <h4 className="font-bold text-white group-hover:text-[#88D2A8] text-xs sm:text-sm uppercase tracking-wider flex items-center justify-between">
@@ -329,7 +330,7 @@ export const CommercialEpoxyFlooringPage: React.FC<CommercialEpoxyFlooringPagePr
             </button>
 
             <button
-              onClick={() => onNavigate('flooring-repair-vancouver-bc')}
+              onClick={() => onNavigate('flooring-repair')}
               className="p-5 bg-black/20 hover:bg-black/35 border border-white/20 text-left transition-colors group cursor-pointer"
             >
               <h4 className="font-bold text-white group-hover:text-[#88D2A8] text-xs sm:text-sm uppercase tracking-wider flex items-center justify-between">
@@ -337,7 +338,7 @@ export const CommercialEpoxyFlooringPage: React.FC<CommercialEpoxyFlooringPagePr
                 <ArrowRight className="w-3.5 h-3.5 text-[#88D2A8] group-hover:translate-x-1 transition-transform" />
               </h4>
               <p className="text-xs text-slate-300 mt-2 leading-relaxed">
-                Fast 24/7 commercial flooring repair for cracked concrete, peeling coatings, and damaged tiles.
+                Fast commercial flooring repair for cracked concrete, peeling coatings, and damaged tiles.
               </p>
             </button>
           </div>

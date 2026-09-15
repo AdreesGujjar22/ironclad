@@ -53,17 +53,18 @@ export const FlooringInstallationPage: React.FC<FlooringInstallationPageProps> =
   return (
     <div className="bg-[#F8F9FA] text-slate-800 min-h-screen pb-16">
       <SEOHead
-        title="Flooring Installation Vancouver | Ironclad Commercial Floors"
-        description="Ironclad Commercial Floors offers professional flooring installation in Vancouver, BC. Epoxy, vinyl, tile & concrete flooring. Free quotes available."
-        canonicalPath="/flooring-installation-vancouver-bc"
+        title="Commercial Flooring Installation | Ironclad Commercial Floors"
+        description="Ironclad Commercial Floors offers professional commercial flooring installation across Canada. Epoxy, vinyl, tile & concrete flooring. Free quotes available."
+        canonicalPath="/services/flooring-installation"
         ogImage="https://ironcladcommercialfloors.ca/IRONCLAD-COMMERCIAL-FLOORS.jpg"
         breadcrumbs={[
           { name: 'Home', path: '/' },
-          { name: 'Flooring Installation Vancouver, BC', path: '/flooring-installation-vancouver-bc' }
+          { name: 'Services', path: '/services' },
+          { name: 'Commercial Flooring Installation', path: '/services/flooring-installation' }
         ]}
         serviceData={{
-          name: 'Commercial Flooring Installation in Vancouver, BC',
-          description: 'Ironclad Commercial Floors delivers professional flooring installation for businesses across Vancouver, BC. As a leading commercial flooring contractor, we install durable, code-compliant flooring systems for offices, retail stores, warehouses, and industrial facilities — including epoxy, polished concrete, vinyl plank, and carpet tile.',
+          name: 'Commercial Flooring Installation',
+          description: 'Ironclad Commercial Floors delivers professional commercial flooring installation for businesses across Canada. As a leading commercial flooring contractor, we install durable, code-compliant flooring systems for offices, retail stores, warehouses, and industrial facilities.',
           category: 'Commercial Flooring Installation',
           priceRange: 'Custom Commercial Estimate / Free On-Site Quote',
           image: 'https://ironcladcommercialfloors.ca/IRONCLAD-COMMERCIAL-FLOORS.jpg'
@@ -75,7 +76,7 @@ export const FlooringInstallationPage: React.FC<FlooringInstallationPageProps> =
       <Breadcrumbs
         items={[
           { name: 'Services', page: 'services' },
-          { name: 'Flooring Installation Vancouver, BC', current: true }
+          { name: 'Commercial Flooring Installation', current: true }
         ]}
         onNavigate={onNavigate}
       />
@@ -303,7 +304,7 @@ export const FlooringInstallationPage: React.FC<FlooringInstallationPageProps> =
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <button
-              onClick={() => onNavigate('flooring-repair-vancouver-bc')}
+              onClick={() => onNavigate('flooring-repair')}
               className="p-5 bg-black/20 hover:bg-black/35 border border-white/20 text-left transition-colors group cursor-pointer"
             >
               <h4 className="font-bold text-white group-hover:text-[#88D2A8] text-xs uppercase tracking-wider flex items-center justify-between">
@@ -311,12 +312,12 @@ export const FlooringInstallationPage: React.FC<FlooringInstallationPageProps> =
                 <ArrowRight className="w-3.5 h-3.5 text-[#88D2A8] group-hover:translate-x-1 transition-transform" />
               </h4>
               <p className="text-xs text-slate-300 mt-1.5 leading-relaxed">
-                Fast crack, tile & epoxy patching in Vancouver, BC.
+                Fast crack, tile & epoxy patching across Canada.
               </p>
             </button>
 
             <button
-              onClick={() => onNavigate('flooring-replacement-vancouver-bc')}
+              onClick={() => onNavigate('flooring-replacement')}
               className="p-5 bg-black/20 hover:bg-black/35 border border-white/20 text-left transition-colors group cursor-pointer"
             >
               <h4 className="font-bold text-white group-hover:text-[#88D2A8] text-xs uppercase tracking-wider flex items-center justify-between">
@@ -329,7 +330,7 @@ export const FlooringInstallationPage: React.FC<FlooringInstallationPageProps> =
             </button>
 
             <button
-              onClick={() => onNavigate('commercial-epoxy-flooring-vancouver-bc')}
+              onClick={() => onNavigate('commercial-epoxy-flooring')}
               className="p-5 bg-black/20 hover:bg-black/35 border border-white/20 text-left transition-colors group cursor-pointer"
             >
               <h4 className="font-bold text-white group-hover:text-[#88D2A8] text-xs uppercase tracking-wider flex items-center justify-between">
@@ -342,7 +343,7 @@ export const FlooringInstallationPage: React.FC<FlooringInstallationPageProps> =
             </button>
 
             <button
-              onClick={() => onNavigate('garage-epoxy-flooring-vancouver-bc')}
+              onClick={() => onNavigate('garage-epoxy-flooring')}
               className="p-5 bg-black/20 hover:bg-black/35 border border-white/20 text-left transition-colors group cursor-pointer"
             >
               <h4 className="font-bold text-white group-hover:text-[#88D2A8] text-xs uppercase tracking-wider flex items-center justify-between">

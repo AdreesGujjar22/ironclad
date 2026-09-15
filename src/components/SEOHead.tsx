@@ -68,15 +68,15 @@ const SITELINKS_NAVIGATION_SCHEMA = {
       '@type': 'SiteNavigationElement',
       position: 3,
       name: 'Commercial Epoxy Flooring',
-      url: `${BASE_URL}/commercial-epoxy-flooring-vancouver-bc`,
-      description: '100% solids industrial epoxy coatings, seamless hygienic systems, and high-traffic warehouse floor solutions in Vancouver.'
+      url: `${BASE_URL}/services/commercial-epoxy-flooring`,
+      description: '100% solids industrial epoxy coatings, seamless hygienic systems, and high-traffic warehouse floor solutions across Canada.'
     },
     {
       '@type': 'SiteNavigationElement',
       position: 4,
       name: 'Flooring Installation',
-      url: `${BASE_URL}/flooring-installation-vancouver-bc`,
-      description: 'Turnkey commercial flooring installation for offices, retail stores, healthcare facilities, and industrial warehouses.'
+      url: `${BASE_URL}/services/flooring-installation`,
+      description: 'Turnkey commercial flooring installation for offices, retail stores, healthcare facilities, and industrial warehouses across Canada.'
     },
     {
       '@type': 'SiteNavigationElement',
@@ -237,13 +237,13 @@ const WEBSITE_SCHEMA = {
     {
       '@type': 'WebPage',
       name: 'Commercial Epoxy Flooring',
-      url: `${BASE_URL}/commercial-epoxy-flooring-vancouver-bc`,
+      url: `${BASE_URL}/services/commercial-epoxy-flooring`,
       description: 'Industrial epoxy, polyaspartic and urethane mortar floors for commercial facilities.'
     },
     {
       '@type': 'WebPage',
       name: 'Flooring Installation',
-      url: `${BASE_URL}/flooring-installation-vancouver-bc`,
+      url: `${BASE_URL}/services/flooring-installation`,
       description: 'Turnkey commercial carpet tile, resilient vinyl and concrete installation.'
     },
     {

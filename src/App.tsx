@@ -33,6 +33,10 @@ function PageLoadingFallback() {
   );
 }
 
+function cleanServiceSlug(slug: string): string {
+  return slug.replace(/-vancouver-bc$/, '');
+}
+
 function getPathForRoute(page: string, param?: string): string {
   switch (page) {
     case 'home':
@@ -45,21 +49,21 @@ function getPathForRoute(page: string, param?: string): string {
       return '/services';
     case 'flooring-installation-vancouver-bc':
     case 'flooring-installation':
-      return '/flooring-installation-vancouver-bc';
+      return '/services/flooring-installation';
     case 'flooring-repair-vancouver-bc':
     case 'flooring-repair':
-      return '/flooring-repair-vancouver-bc';
+      return '/services/flooring-repair';
     case 'flooring-replacement-vancouver-bc':
     case 'flooring-replacement':
-      return '/flooring-replacement-vancouver-bc';
+      return '/services/flooring-replacement';
     case 'commercial-epoxy-flooring-vancouver-bc':
     case 'commercial-epoxy-flooring':
-      return '/commercial-epoxy-flooring-vancouver-bc';
+      return '/services/commercial-epoxy-flooring';
     case 'garage-epoxy-flooring-vancouver-bc':
     case 'garage-epoxy-flooring':
-      return '/garage-epoxy-flooring-vancouver-bc';
+      return '/services/garage-epoxy-flooring';
     case 'service-detail':
-      return param ? `/services/${param}` : '/services';
+      return param ? `/services/${cleanServiceSlug(param)}` : '/services';
     case 'projects':
       return '/projects';
     case 'blogs':
@@ -93,18 +97,19 @@ function parseCurrentRoute(): { page: string; param?: string } {
 
   if (segments.length >= 2) {
     const root = segments[0].toLowerCase();
-    const param = segments.slice(1).join('/');
-    if (root === 'services') return { page: 'service-detail', param };
-    if (root === 'locations') return { page: 'location-detail', param };
-    if (root === 'blogs') return { page: 'blog-detail', param };
+    const rawParam = segments.slice(1).join('/');
+    const param = rawParam.replace(/-vancouver-bc$/, '');
+    if (root === 'services' || root === 'service') return { page: 'service-detail', param };
+    if (root === 'locations' || root === 'location') return { page: 'location-detail', param: rawParam };
+    if (root === 'blogs' || root === 'blog') return { page: 'blog-detail', param: rawParam };
     return { page: root, param };
   }
 
-  const single = segments[0].toLowerCase();
-  if (single === 'about' || single === 'about-ironclad-commercial-floors-vancouver-bc') {
+  const single = segments[0].toLowerCase().replace(/-vancouver-bc$/, '');
+  if (single === 'about') {
     return { page: 'about', param: undefined };
   }
-  if (single === 'contact' || single === 'contact-ironclad-commercial-floors-vancouver-bc') {
+  if (single === 'contact') {
     return { page: 'contact', param: undefined };
   }
   if (single === 'services') {
@@ -119,20 +124,21 @@ function parseCurrentRoute(): { page: string; param?: string } {
   if (single === 'locations') {
     return { page: 'locations', param: undefined };
   }
-  if (single === 'flooring-installation-vancouver-bc' || single === 'flooring-installation') {
-    return { page: 'flooring-installation-vancouver-bc', param: undefined };
-  }
-  if (single === 'flooring-repair-vancouver-bc' || single === 'flooring-repair') {
-    return { page: 'flooring-repair-vancouver-bc', param: undefined };
-  }
-  if (single === 'flooring-replacement-vancouver-bc' || single === 'flooring-replacement') {
-    return { page: 'flooring-replacement-vancouver-bc', param: undefined };
-  }
-  if (single === 'commercial-epoxy-flooring-vancouver-bc' || single === 'commercial-epoxy-flooring') {
-    return { page: 'commercial-epoxy-flooring-vancouver-bc', param: undefined };
-  }
-  if (single === 'garage-epoxy-flooring-vancouver-bc' || single === 'garage-epoxy-flooring' || single === 'concrete-floor-polishing' || single === 'concrete-floor-polishing-vancouver-bc') {
-    return { page: 'garage-epoxy-flooring-vancouver-bc', param: undefined };
+  if (
+    single === 'flooring-installation' ||
+    single === 'flooring-repair' ||
+    single === 'flooring-replacement' ||
+    single === 'commercial-epoxy-flooring' ||
+    single === 'garage-epoxy-flooring' ||
+    single === 'concrete-floor-polishing' ||
+    single === 'commercial-luxury-vinyl-flooring' ||
+    single === 'carpet-tile-installation' ||
+    single === 'commercial-sheet-vinyl-flooring' ||
+    single === 'restaurant-flooring-installation' ||
+    single === 'warehouse-flooring-installation' ||
+    single === 'commercial-concrete-floor-sealing'
+  ) {
+    return { page: 'service-detail', param: single };
   }
 
   return { page: single, param: undefined };
@@ -223,14 +229,31 @@ export function App() {
       case 'concrete-floor-polishing':
       case 'concrete-floor-polishing-vancouver-bc':
         return <GarageEpoxyFlooringPage onNavigate={handleNavigate} onOpenBooking={openBookingModal} />;
-      case 'service-detail':
+      case 'service-detail': {
+        const cleanSlug = cleanServiceSlug(pageParam || '');
+        if (cleanSlug === 'flooring-installation') {
+          return <FlooringInstallationPage onNavigate={handleNavigate} onOpenBooking={openBookingModal} />;
+        }
+        if (cleanSlug === 'flooring-repair') {
+          return <FlooringRepairPage onNavigate={handleNavigate} onOpenBooking={openBookingModal} />;
+        }
+        if (cleanSlug === 'flooring-replacement') {
+          return <FlooringReplacementPage onNavigate={handleNavigate} onOpenBooking={openBookingModal} />;
+        }
+        if (cleanSlug === 'commercial-epoxy-flooring') {
+          return <CommercialEpoxyFlooringPage onNavigate={handleNavigate} onOpenBooking={openBookingModal} />;
+        }
+        if (cleanSlug === 'garage-epoxy-flooring') {
+          return <GarageEpoxyFlooringPage onNavigate={handleNavigate} onOpenBooking={openBookingModal} />;
+        }
         return (
           <ServiceDetailPage 
-            slug={pageParam || 'concrete-epoxy-floor-installation'} 
+            slug={cleanSlug || 'commercial-epoxy-flooring'} 
             onNavigate={handleNavigate} 
             onOpenBooking={openBookingModal} 
           />
         );
+      }
       case 'projects':
         return <ProjectsPage onNavigate={handleNavigate} onOpenBooking={() => openBookingModal()} />;
       case 'blogs':

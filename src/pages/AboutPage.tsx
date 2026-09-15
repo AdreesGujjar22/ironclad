@@ -36,17 +36,17 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate, onOpenBooking 
   return (
     <div className="bg-[#F8F9FA] text-slate-800 min-h-screen pb-16">
       <SEOHead
-        title="About Ironclad Commercial Floors | Vancouver, BC"
-        description="Ironclad Commercial Floors is Vancouver, BC's trusted commercial flooring contractor. Learn about our team, experience & service area."
-        canonicalPath="/about-ironclad-commercial-floors-vancouver-bc"
+        title="About Ironclad Commercial Floors | Commercial Flooring Contractor"
+        description="Ironclad Commercial Floors is Canada's trusted commercial flooring contractor. Learn about our team, experience & nationwide service capabilities."
+        canonicalPath="/about"
         ogImage="https://ironcladcommercialfloors.ca/IRONCLAD-COMMERCIAL-FLOORS.jpg"
         breadcrumbs={[
           { name: 'Home', path: '/' },
-          { name: 'About Ironclad Commercial Floors', path: '/about-ironclad-commercial-floors-vancouver-bc' }
+          { name: 'About Ironclad Commercial Floors', path: '/about' }
         ]}
         serviceData={{
-          name: 'About Ironclad Commercial Floors — Vancouver, BC',
-          description: 'Ironclad Commercial Floors is Vancouver, BC’s trusted commercial flooring contractor. Learn about our team, experience & service area.',
+          name: 'About Ironclad Commercial Floors',
+          description: 'Ironclad Commercial Floors is a leading commercial flooring contractor serving facilities nationwide. Learn about our team, experience & service scope.',
           category: 'Commercial Flooring Contractor',
           priceRange: 'Custom Commercial Estimates / Free Site Consultations',
           image: 'https://ironcladcommercialfloors.ca/IRONCLAD-COMMERCIAL-FLOORS.jpg'
@@ -281,11 +281,11 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate, onOpenBooking 
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 pt-2">
             {[
-              { path: 'flooring-installation-vancouver-bc', title: 'Flooring Installation', desc: 'Vinyl, concrete & carpet tile install.' },
-              { path: 'flooring-repair-vancouver-bc', title: 'Flooring Repair', desc: 'Fast crack, spall & epoxy patching.' },
-              { path: 'flooring-replacement-vancouver-bc', title: 'Flooring Replacement', desc: 'Demolition, prep & new surface.' },
-              { path: 'commercial-epoxy-flooring-vancouver-bc', title: 'Commercial Epoxy', desc: 'Chemical & impact resistant.' },
-              { path: 'garage-epoxy-flooring-vancouver-bc', title: 'Garage Epoxy', desc: 'Fleet & parking structure epoxy.' }
+              { path: 'flooring-installation', title: 'Flooring Installation', desc: 'Vinyl, concrete & carpet tile install.' },
+              { path: 'flooring-repair', title: 'Flooring Repair', desc: 'Fast crack, spall & epoxy patching.' },
+              { path: 'flooring-replacement', title: 'Flooring Replacement', desc: 'Demolition, prep & new surface.' },
+              { path: 'commercial-epoxy-flooring', title: 'Commercial Epoxy', desc: 'Chemical & impact resistant.' },
+              { path: 'garage-epoxy-flooring', title: 'Garage Epoxy', desc: 'Fleet & parking structure epoxy.' }
             ].map(item => (
               <button
                 key={item.path}
