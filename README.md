@@ -1,6 +1,6 @@
 # Ironclad Editor
 
-git clone https://github.com/AdreesGujjar22/ironclad.git and preview as i want to edit something
+git clone https://github.com/AdreesGujjar22/ironclad.git and preview as i want to edit something.
 
 This project was built with [Lovable](https://lovable.dev).
 
