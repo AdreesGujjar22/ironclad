@@ -13,7 +13,7 @@ export const CostCalculator: React.FC<CostCalculatorProps> = ({ onOpenBooking })
   const [subfloorState, setSubfloorState] = useState<'clean' | 'minor-crack' | 'damaged'>('minor-crack');
   const [urgency, setUrgency] = useState<'standard' | 'overnight' | 'emergency'>('standard');
 
-  const selectedServiceObj = SERVICES.find(s => s.id === selectedService) || SERVICES[4];
+  const selectedServiceObj = SERVICES.find(s => s.id === selectedService) || SERVICES[4]!;
 
   const getSubfloorLabel = (state: string) => {
     switch (state) {

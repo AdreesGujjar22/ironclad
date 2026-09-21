@@ -1,46 +1,26 @@
-# Ironclad Commercial Floors
+# Ironclad Editor
 
-Commercial flooring contractor website for Ironclad Commercial Floors, serving Vancouver and the Lower Mainland.
+git clone https://github.com/AdreesGujjar22/ironclad.git and preview as i want to edit something
 
-## Tech stack
+This project was built with [Lovable](https://lovable.dev).
 
-- React
-- TypeScript
-- Vite
-- Tailwind CSS
-- Express development server
+**Live app**: https://project-ironclad-edit.lovable.app
 
-## Local development
+## Build with Lovable
 
-Prerequisites: Node.js 20 or newer.
+Continue developing this project in the [Lovable editor](https://lovable.dev/projects/fc534d59-4298-41d1-b95c-b0004fb4a53d).
 
-```bash
-npm install
+- **Ship faster**: describe what you want to build and Lovable handles the code.
+- **Stay in sync**: every change made in Lovable is committed straight to this repository.
+- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
+
+## Development
+
+Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+
+```sh
+git clone <this-repository-url>
+cd <repository-name>
+npm i
 npm run dev
 ```
-
-The development server runs on port 3000.
-
-## Production build
-
-```bash
-npm run build
-npm run start
-```
-
-The production build outputs the static client bundle and the bundled server to `dist/`.
-
-## Other commands
-
-```bash
-npm run preview
-npm run lint
-```
-
-## Project structure
-
-- `src/components/` — reusable site and UI components
-- `src/pages/` — page-level views
-- `src/data/` — services, locations, projects, and testimonials
-- `src/assets/` — flooring imagery and other static assets
-- `public/` — public files served as-is

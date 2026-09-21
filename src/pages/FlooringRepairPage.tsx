@@ -26,7 +26,7 @@ const sectionVariant = {
   visible: { 
     opacity: 1, 
     y: 0, 
-    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } 
+    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] } 
   }
 };
 
@@ -89,7 +89,7 @@ export const FlooringRepairPage: React.FC<FlooringRepairPageProps> = ({
           <motion.div 
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
             className="lg:col-span-6 bg-[#3B4D5D] p-8 sm:p-12 lg:p-14 flex flex-col justify-center space-y-6"
           >
             <div className="inline-flex items-center gap-2 px-3 py-1 bg-amber-500/20 text-amber-200 text-xs font-mono font-bold uppercase tracking-wider border border-amber-500/30 w-fit">

@@ -44,7 +44,7 @@ const sectionVariant = {
   visible: { 
     opacity: 1, 
     y: 0, 
-    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } 
+    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] } 
   }
 };
 
@@ -162,7 +162,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenBooking })
           <motion.div 
             initial={{ opacity: 0, y: 25 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
             className="max-w-3xl space-y-6 sm:space-y-8"
           >
             {/* Exactly ONE H1 per page */}
@@ -756,19 +756,19 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenBooking })
               </div>
               <div>
                 <h3 className="font-extrabold text-lg text-slate-900">
-                  {locationsList[activeLocation].city}
+                  {locationsList[activeLocation]!.city}
                 </h3>
                 <p className="text-xs text-slate-600 mt-0.5">
-                  {locationsList[activeLocation].address}
+                  {locationsList[activeLocation]!.address}
                 </p>
                 <p className="text-xs font-mono font-bold text-[#3B945E] mt-1">
-                  Direct Line: {locationsList[activeLocation].phone}
+                  Direct Line: {locationsList[activeLocation]!.phone}
                 </p>
               </div>
 
               <div className="pt-2 flex justify-center gap-3">
                 <button
-                  onClick={() => onNavigate('location-detail', locationsList[activeLocation].slug)}
+                  onClick={() => onNavigate('location-detail', locationsList[activeLocation]!.slug)}
                   className="px-4 py-2 bg-slate-900 hover:bg-black text-white text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer"
                 >
                   View City Profile
@@ -777,7 +777,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenBooking })
                   onClick={() => onOpenBooking()}
                   className="px-4 py-2 bg-[#7D9A87] hover:bg-[#688371] text-white text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer"
                 >
-                  Book In {locationsList[activeLocation].city.split(',')[0]}
+                  Book In {locationsList[activeLocation]!.city.split(',')[0]}
                 </button>
               </div>
             </div>

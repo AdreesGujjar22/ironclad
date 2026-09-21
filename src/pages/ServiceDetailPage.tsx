@@ -33,7 +33,7 @@ const sectionVariant = {
   visible: { 
     opacity: 1, 
     y: 0, 
-    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } 
+    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] } 
   }
 };
 
@@ -42,7 +42,7 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({
   onNavigate,
   onOpenBooking
 }) => {
-  const service = SERVICES.find(s => s.slug === slug) || SERVICES[0];
+  const service = SERVICES.find(s => s.slug === slug) || SERVICES[0]!;
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
 
   // Dynamic SEO Title and Description
@@ -122,7 +122,7 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({
           <motion.div 
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
             className="lg:col-span-7 bg-[#3B4D5D] p-6 sm:p-10 lg:p-14 flex flex-col justify-center space-y-6"
           >
             {/* Category & Region Pill */}

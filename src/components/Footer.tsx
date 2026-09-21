@@ -168,16 +168,16 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenBooking }) => 
               </li>
               <li>
                 <button 
-                  onClick={() => onNavigate('service-detail', 'industrial-epoxy-flooring')} 
+                  onClick={() => onNavigate('service-detail', 'commercial-epoxy-flooring')} 
                   className="text-slate-300 hover:text-white transition-colors flex items-center gap-2 cursor-pointer group text-left"
                 >
                   <ChevronRight className="w-3.5 h-3.5 text-[#88D2A8] group-hover:translate-x-1 transition-transform shrink-0" />
-                  <span>Industrial Epoxy Coatings</span>
+                  <span>Commercial Epoxy Coatings</span>
                 </button>
               </li>
               <li>
                 <button 
-                  onClick={() => onNavigate('service-detail', 'commercial-carpet-tile-installation')} 
+                  onClick={() => onNavigate('service-detail', 'carpet-tile-installation')} 
                   className="text-slate-300 hover:text-white transition-colors flex items-center gap-2 cursor-pointer group text-left"
                 >
                   <ChevronRight className="w-3.5 h-3.5 text-[#88D2A8] group-hover:translate-x-1 transition-transform shrink-0" />
@@ -186,7 +186,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenBooking }) => 
               </li>
               <li>
                 <button 
-                  onClick={() => onNavigate('service-detail', 'luxury-vinyl-tile-installation')} 
+                  onClick={() => onNavigate('service-detail', 'commercial-luxury-vinyl-flooring')} 
                   className="text-slate-300 hover:text-white transition-colors flex items-center gap-2 cursor-pointer group text-left"
                 >
                   <ChevronRight className="w-3.5 h-3.5 text-[#88D2A8] group-hover:translate-x-1 transition-transform shrink-0" />
@@ -204,11 +204,11 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenBooking }) => 
               </li>
               <li>
                 <button 
-                  onClick={() => onNavigate('service-detail', 'concrete-moisture-barrier-installation')} 
+                  onClick={() => onNavigate('service-detail', 'commercial-concrete-floor-sealing')} 
                   className="text-slate-300 hover:text-white transition-colors flex items-center gap-2 cursor-pointer group text-left"
                 >
                   <ChevronRight className="w-3.5 h-3.5 text-[#88D2A8] group-hover:translate-x-1 transition-transform shrink-0" />
-                  <span>Subfloor Moisture Barriers</span>
+                  <span>Concrete Sealing & Moisture Control</span>
                 </button>
               </li>
               <li className="pt-2">
