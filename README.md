@@ -1,20 +1,46 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# Ironclad Commercial Floors
 
-# Run and deploy your AI Studio app
+Commercial flooring contractor website for Ironclad Commercial Floors, serving Vancouver and the Lower Mainland.
 
-This contains everything you need to run your app locally.
+## Tech stack
 
-View your app in AI Studio: https://ai.studio/apps/091ab7e7-f170-4022-84a3-e2e774bf5f08
+- React
+- TypeScript
+- Vite
+- Tailwind CSS
+- Express development server
 
-## Run Locally
+## Local development
 
-**Prerequisites:**  Node.js
+Prerequisites: Node.js 20 or newer.
 
+```bash
+npm install
+npm run dev
+```
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+The development server runs on port 3000.
+
+## Production build
+
+```bash
+npm run build
+npm run start
+```
+
+The production build outputs the static client bundle and the bundled server to `dist/`.
+
+## Other commands
+
+```bash
+npm run preview
+npm run lint
+```
+
+## Project structure
+
+- `src/components/` — reusable site and UI components
+- `src/pages/` — page-level views
+- `src/data/` — services, locations, projects, and testimonials
+- `src/assets/` — flooring imagery and other static assets
+- `public/` — public files served as-is
