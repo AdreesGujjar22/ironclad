@@ -28,7 +28,7 @@ const sectionVariant = {
   visible: { 
     opacity: 1, 
     y: 0, 
-    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } 
+    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const } 
   }
 };
 
@@ -39,7 +39,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate, onOpenBooking 
         title="About Ironclad Commercial Floors | Commercial Flooring Contractor"
         description="Ironclad Commercial Floors is Canada's trusted commercial flooring contractor. Learn about our team, experience & nationwide service capabilities."
         canonicalPath="/about"
-        ogImage="https://ironcladcommercialfloors.ca/IRONCLAD-COMMERCIAL-FLOORS.jpg"
+        ogImage="https://ironcladcommercialfloors.ca/IRONCLAD-COMMERCIAL-FLOORS.webp"
         breadcrumbs={[
           { name: 'Home', path: '/' },
           { name: 'About Ironclad Commercial Floors', path: '/about' }
@@ -49,7 +49,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate, onOpenBooking 
           description: 'Ironclad Commercial Floors is a leading commercial flooring contractor serving facilities nationwide. Learn about our team, experience & service scope.',
           category: 'Commercial Flooring Contractor',
           priceRange: 'Custom Commercial Estimates / Free Site Consultations',
-          image: 'https://ironcladcommercialfloors.ca/IRONCLAD-COMMERCIAL-FLOORS.jpg'
+          image: 'https://ironcladcommercialfloors.ca/IRONCLAD-COMMERCIAL-FLOORS.webp'
         }}
       />
 
@@ -70,7 +70,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate, onOpenBooking 
           <motion.div 
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }}
             className="lg:col-span-6 bg-[#3B4D5D] p-8 sm:p-12 lg:p-14 flex flex-col justify-center space-y-6"
           >
             <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/10 text-[#88D2A8] text-xs font-mono font-bold uppercase tracking-wider border border-white/20 w-fit">
@@ -130,6 +130,8 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate, onOpenBooking 
             className="lg:col-span-6 relative min-h-[350px] lg:min-h-full overflow-hidden"
           >
             <img
+              loading="lazy"
+              decoding="async"
               src={flooringImages.luxuryWoodFloorInterior}
               alt="Commercial Flooring Contractor in Vancouver, BC - Ironclad Commercial Floors"
               className="w-full h-full object-cover object-center"
@@ -188,6 +190,8 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate, onOpenBooking 
             <div className="lg:col-span-5 relative">
               <div className="relative border border-slate-300 overflow-hidden shadow-md">
                 <img
+                  loading="lazy"
+                  decoding="async"
                   src={flooringImages.vinylPlankKneeling}
                   alt="Commercial Flooring Installation Craftsman Vancouver, BC"
                   className="w-full h-72 sm:h-96 object-cover"

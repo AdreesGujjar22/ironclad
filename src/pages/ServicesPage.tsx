@@ -30,7 +30,7 @@ const cardVariant = {
   visible: { 
     opacity: 1, 
     y: 0, 
-    transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] } 
+    transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] as const } 
   }
 };
 
@@ -162,6 +162,8 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigate, onOpenBo
                 <div>
                   <div className="h-48 overflow-hidden relative bg-slate-100">
                     <img
+                      loading="lazy"
+                      decoding="async"
                       src={service.heroImage}
                       alt={`${service.name} Vancouver - Ironclad Commercial Floors`}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"

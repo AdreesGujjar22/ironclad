@@ -27,7 +27,7 @@ const sectionVariant = {
   visible: { 
     opacity: 1, 
     y: 0, 
-    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } 
+    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const } 
   }
 };
 
@@ -56,7 +56,7 @@ export const FlooringReplacementPage: React.FC<FlooringReplacementPageProps> = (
         title="Commercial Flooring Replacement | Ironclad Commercial Floors"
         description="Ironclad Commercial Floors handles commercial flooring replacement across Canada. We remove old flooring and install durable new surfaces. Free estimates."
         canonicalPath="/services/flooring-replacement"
-        ogImage="https://ironcladcommercialfloors.ca/IRONCLAD-COMMERCIAL-FLOORS.jpg"
+        ogImage="https://ironcladcommercialfloors.ca/IRONCLAD-COMMERCIAL-FLOORS.webp"
         breadcrumbs={[
           { name: 'Home', path: '/' },
           { name: 'Services', path: '/services' },
@@ -67,7 +67,7 @@ export const FlooringReplacementPage: React.FC<FlooringReplacementPageProps> = (
           description: 'When your commercial floor is beyond repair, Ironclad Commercial Floors provides full flooring replacement services across Canada — from demolition and subfloor prep to installation of a new, durable surface.',
           category: 'Commercial Flooring Replacement',
           priceRange: 'Custom Replacement Estimate / Free Site Survey',
-          image: 'https://ironcladcommercialfloors.ca/IRONCLAD-COMMERCIAL-FLOORS.jpg'
+          image: 'https://ironcladcommercialfloors.ca/IRONCLAD-COMMERCIAL-FLOORS.webp'
         }}
         faqs={replacementFaqs}
       />
@@ -90,7 +90,7 @@ export const FlooringReplacementPage: React.FC<FlooringReplacementPageProps> = (
           <motion.div 
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }}
             className="lg:col-span-6 bg-[#3B4D5D] p-8 sm:p-12 lg:p-14 flex flex-col justify-center space-y-6"
           >
             <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/10 text-[#88D2A8] text-xs font-mono font-bold uppercase tracking-wider border border-white/20 w-fit">
@@ -150,6 +150,9 @@ export const FlooringReplacementPage: React.FC<FlooringReplacementPageProps> = (
             className="lg:col-span-6 relative min-h-[350px] lg:min-h-full overflow-hidden"
           >
             <img
+              loading="eager"
+              fetchPriority="high"
+              decoding="async"
               src={flooringImages.glovedHandsFlooring}
               alt="Commercial Flooring Replacement in Vancouver, BC"
               className="w-full h-full object-cover object-center"

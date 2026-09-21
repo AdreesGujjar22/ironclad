@@ -27,7 +27,7 @@ const sectionVariant = {
   visible: { 
     opacity: 1, 
     y: 0, 
-    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } 
+    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const } 
   }
 };
 
@@ -56,7 +56,7 @@ export const GarageEpoxyFlooringPage: React.FC<GarageEpoxyFlooringPageProps> = (
         title="Garage Epoxy Flooring | Ironclad Floors"
         description="Ironclad Commercial Floors installs garage epoxy flooring across Canada for fleet & parking facilities. Durable, easy-clean coatings. Free quotes."
         canonicalPath="/services/garage-epoxy-flooring"
-        ogImage="https://ironcladcommercialfloors.ca/IRONCLAD-COMMERCIAL-FLOORS.jpg"
+        ogImage="https://ironcladcommercialfloors.ca/IRONCLAD-COMMERCIAL-FLOORS.webp"
         breadcrumbs={[
           { name: 'Home', path: '/' },
           { name: 'Services', path: '/services' },
@@ -67,7 +67,7 @@ export const GarageEpoxyFlooringPage: React.FC<GarageEpoxyFlooringPageProps> = (
           description: 'Ironclad Commercial Floors installs durable garage epoxy flooring for fleet garages, parking structures, and vehicle service facilities across Canada. Our epoxy coatings withstand tire traffic, oil, and heavy equipment.',
           category: 'Garage Epoxy Flooring',
           priceRange: 'Custom Garage Epoxy Estimate / Free Site Survey',
-          image: 'https://ironcladcommercialfloors.ca/IRONCLAD-COMMERCIAL-FLOORS.jpg'
+          image: 'https://ironcladcommercialfloors.ca/IRONCLAD-COMMERCIAL-FLOORS.webp'
         }}
         faqs={garageFaqs}
       />
@@ -90,7 +90,7 @@ export const GarageEpoxyFlooringPage: React.FC<GarageEpoxyFlooringPageProps> = (
           <motion.div 
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }}
             className="lg:col-span-6 bg-[#3B4D5D] p-8 sm:p-12 lg:p-14 flex flex-col justify-center space-y-6"
           >
             <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/10 text-[#88D2A8] text-xs font-mono font-bold uppercase tracking-wider border border-white/20 w-fit">
@@ -150,6 +150,9 @@ export const GarageEpoxyFlooringPage: React.FC<GarageEpoxyFlooringPageProps> = (
             className="lg:col-span-6 relative min-h-[350px] lg:min-h-full overflow-hidden"
           >
             <img
+              loading="eager"
+              fetchPriority="high"
+              decoding="async"
               src={flooringImages.garageEpoxyCoating}
               alt="Garage Epoxy Flooring in Vancouver, BC"
               className="w-full h-full object-cover object-center"

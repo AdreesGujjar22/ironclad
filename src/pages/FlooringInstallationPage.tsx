@@ -27,7 +27,7 @@ const sectionVariant = {
   visible: { 
     opacity: 1, 
     y: 0, 
-    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } 
+    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const } 
   }
 };
 
@@ -56,7 +56,7 @@ export const FlooringInstallationPage: React.FC<FlooringInstallationPageProps> =
         title="Commercial Flooring Installation | Ironclad Commercial Floors"
         description="Ironclad Commercial Floors offers professional commercial flooring installation across Canada. Epoxy, vinyl, tile & concrete flooring. Free quotes available."
         canonicalPath="/services/flooring-installation"
-        ogImage="https://ironcladcommercialfloors.ca/IRONCLAD-COMMERCIAL-FLOORS.jpg"
+        ogImage="https://ironcladcommercialfloors.ca/IRONCLAD-COMMERCIAL-FLOORS.webp"
         breadcrumbs={[
           { name: 'Home', path: '/' },
           { name: 'Services', path: '/services' },
@@ -67,7 +67,7 @@ export const FlooringInstallationPage: React.FC<FlooringInstallationPageProps> =
           description: 'Ironclad Commercial Floors delivers professional commercial flooring installation for businesses across Canada. As a leading commercial flooring contractor, we install durable, code-compliant flooring systems for offices, retail stores, warehouses, and industrial facilities.',
           category: 'Commercial Flooring Installation',
           priceRange: 'Custom Commercial Estimate / Free On-Site Quote',
-          image: 'https://ironcladcommercialfloors.ca/IRONCLAD-COMMERCIAL-FLOORS.jpg'
+          image: 'https://ironcladcommercialfloors.ca/IRONCLAD-COMMERCIAL-FLOORS.webp'
         }}
         faqs={installationFaqs}
       />
@@ -90,7 +90,7 @@ export const FlooringInstallationPage: React.FC<FlooringInstallationPageProps> =
           <motion.div 
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }}
             className="lg:col-span-6 bg-[#3B4D5D] p-8 sm:p-12 lg:p-14 flex flex-col justify-center space-y-6"
           >
             <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/10 text-[#88D2A8] text-xs font-mono font-bold uppercase tracking-wider border border-white/20 w-fit">
@@ -151,6 +151,8 @@ export const FlooringInstallationPage: React.FC<FlooringInstallationPageProps> =
             className="lg:col-span-6 relative min-h-[350px] lg:min-h-full overflow-hidden"
           >
             <img
+              loading="lazy"
+              decoding="async"
               src={flooringImages.flooringHandsInstallation}
               alt="Commercial Flooring Installation in Vancouver, BC"
               className="w-full h-full object-cover object-center"

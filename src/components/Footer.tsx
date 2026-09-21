@@ -76,7 +76,9 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenBooking }) => 
             <div className="flex items-center gap-3.5">
               <div className="h-13 w-auto bg-white p-1.5 border border-white/30 flex items-center justify-center shadow-md overflow-hidden shrink-0">
                 <img 
-                  src="/IRONCLAD-COMMERCIAL-FLOORS.jpg" 
+                  loading="lazy"
+                  decoding="async"
+                  src="/IRONCLAD-COMMERCIAL-FLOORS.webp" 
                   alt="Ironclad Commercial Floors Logo" 
                   className="h-10 w-auto object-contain"
                   referrerPolicy="no-referrer"

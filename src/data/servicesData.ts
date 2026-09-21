@@ -7,8 +7,8 @@ export const SERVICES: ServiceItem[] = [
     slug: 'flooring-installation',
     name: 'Commercial Flooring Installation',
     category: 'Resilient & Vinyl',
-    shortDesc: 'Turnkey commercial flooring installation for corporate offices, retail spaces, healthcare facilities, and warehouses across Canada.',
-    longDesc: 'Ironclad Commercial Floors delivers commercial flooring installation engineered for heavy foot traffic, mechanical loads, and architectural aesthetics across Canada. From commercial luxury vinyl plank (LVP) and modular carpet tiles to industrial epoxy and polished concrete, our Red Seal installers manage every phase from precision moisture testing to flawless handover.',
+    shortDesc: 'New commercial floors installed on your schedule — offices, clinics, shops and warehouses across Metro Vancouver.',
+    longDesc: 'Most managers do not lose sleep over the floor itself. They lose sleep over the two weeks their space is out of action. Our commercial flooring installation crews work nights and weekends so your team walks in Monday to a finished floor and no mess. We test the slab for moisture before anything is glued down, because that single step is what separates a floor that lasts a decade from one that lifts in a year. Vinyl plank, carpet tile, epoxy, polished concrete — we install it, warranty it for ten years, and clean up after ourselves.',
     priceRange: '$5.50 - $14.00 / sq ft',
     durabilityRating: 'Heavy Commercial / Industrial',
     cureTime: '12 - 24 Hours (Fast-Track Available)',
@@ -34,7 +34,7 @@ export const SERVICES: ServiceItem[] = [
       { label: 'Warranty', value: '10-Year Commercial Installation Warranty' }
     ],
     heroImage: flooringImages.flooringHandsInstallation,
-    metaTitle: 'Commercial Flooring Installation Canada | Ironclad Commercial Floors',
+    metaTitle: 'Commercial Flooring Installation Vancouver | Ironclad',
     metaDescription: 'Commercial flooring installation across Canada. Epoxy, vinyl, tile & concrete flooring. Free on-site estimates & 10-year warranty.'
   },
   {
@@ -42,8 +42,8 @@ export const SERVICES: ServiceItem[] = [
     slug: 'flooring-repair',
     name: 'Commercial Flooring Repair',
     category: 'Repair & Restoration',
-    shortDesc: '24/7 commercial flooring repair across Canada. Spalled joint patching, epoxy delamination repair, cracked concrete stitching & tile replacement.',
-    longDesc: 'Damaged commercial floors represent liability, trip hazards, and operational disruption. Ironclad provides rapid-response commercial floor repair across Canadian commercial and industrial facilities. Using polyurea rapid-cure elastomers, structural epoxy injections, and precision diamond grinding, we restore floor integrity overnight without halting your workflow.',
+    shortDesc: 'Cracked slabs, lifting tile and failed coatings fixed fast — often back in service the same shift.',
+    longDesc: 'A broken floor is rarely just cosmetic. It is a trip claim waiting to happen and a forklift route nobody wants to use. Our commercial flooring repair crews patch spalled joints, stitch cracks and re-bond delaminated epoxy, usually overnight. Fast-set materials mean traffic can roll again within the hour in most cases. Call us when something fails and we will tell you honestly whether it needs a patch or a proper replacement.',
     priceRange: '$3.50 - $9.00 / linear ft or sq ft',
     durabilityRating: 'Structural Heavy Industrial',
     cureTime: '15 Minutes - 2 Hours Rapid Return to Traffic',
@@ -69,7 +69,7 @@ export const SERVICES: ServiceItem[] = [
       { label: 'Return to Traffic', value: 'Forklifts in 60 Minutes' }
     ],
     heroImage: flooringImages.glovedHandsFlooring,
-    metaTitle: 'Commercial Flooring Repair Canada | Ironclad Commercial Floors',
+    metaTitle: 'Commercial Flooring Repair Vancouver BC | Ironclad',
     metaDescription: 'Fast commercial flooring repair across Canada. Cracked concrete, epoxy damage & joint restoration with 24/7 emergency dispatch.'
   },
   {
@@ -77,8 +77,8 @@ export const SERVICES: ServiceItem[] = [
     slug: 'flooring-replacement',
     name: 'Commercial Flooring Replacement',
     category: 'Repair & Restoration',
-    shortDesc: 'Full tear-out, subfloor reconstruction, and turnkey replacement of aged or failed commercial floors across Canada.',
-    longDesc: 'When existing floors reach end-of-life or suffer widespread moisture failure, Ironclad executes comprehensive flooring replacement. We handle mechanical demolition with ride-on tile strippers, dustless diamond profiling, self-leveling underlayments, and new high-performance floor installation in organized phases nationwide.',
+    shortDesc: 'Old floor out, new floor in — demolition, subfloor prep and installation handled in planned phases.',
+    longDesc: 'There comes a point where patching stops paying. When a floor has failed across the board, commercial flooring replacement is the cheaper answer over five years. We strip the old surface, grind the slab back to a sound profile, level it properly and lay the new system. Work runs in phases so part of your building stays open the whole time. You get one crew, one schedule and one point of contact.',
     priceRange: '$7.00 - $16.00 / sq ft (Includes Demo & Prep)',
     durabilityRating: 'Maximum Heavy Commercial',
     cureTime: 'Turnkey Phased Overnight Handover',
@@ -104,7 +104,7 @@ export const SERVICES: ServiceItem[] = [
       { label: 'Warranty', value: '10-Year Comprehensive System Warranty' }
     ],
     heroImage: flooringImages.laminateMalletInstall,
-    metaTitle: 'Commercial Flooring Replacement Canada | Ironclad Commercial Floors',
+    metaTitle: 'Commercial Flooring Replacement Vancouver | Ironclad',
     metaDescription: 'Commercial flooring replacement across Canada. Complete demolition, subfloor leveling, and new durable floor installation.'
   },
   {
@@ -112,8 +112,8 @@ export const SERVICES: ServiceItem[] = [
     slug: 'commercial-epoxy-flooring',
     name: 'Commercial Epoxy Flooring',
     category: 'Concrete & Epoxy',
-    shortDesc: 'Industrial & commercial 100% solids epoxy flooring systems across Canada. Chemical-resistant, seamless, and high-impact durable.',
-    longDesc: 'Ironclad’s commercial epoxy flooring systems combine 100% solids high-build epoxy with diamond-ground mechanical keying to produce an impermeable, chemical-resistant, monolithic surface. Engineered for Canadian commercial facilities to resist heavy forklift traffic, oils, acids, sanitizers, and thermal shock.',
+    shortDesc: 'Seamless, chemical-resistant epoxy floors built for plants, kitchens and warehouses that take a beating.',
+    longDesc: 'Epoxy earns its keep in rooms that get washed down, driven on, or spilled in daily. Our commercial epoxy flooring is 100% solids, mechanically ground into the slab so it bonds instead of peeling, and finished seamless so there is nowhere for grime to hide. It shrugs off oils, acids, sanitizers and hot-tire traffic. We will walk your space, talk through the finish and slip rating you actually need, and quote it plainly.',
     priceRange: '$6.00 - $12.00 / sq ft',
     durabilityRating: 'Extreme Heavy Industrial',
     cureTime: '12 - 24 Hours Light Foot Traffic / 48h Forklifts',
@@ -139,7 +139,7 @@ export const SERVICES: ServiceItem[] = [
       { label: 'VOC Content', value: '< 10 g/L (LEED Compliant)' }
     ],
     heroImage: flooringImages.heroCommercialEpoxy,
-    metaTitle: 'Commercial Epoxy Flooring Canada | Ironclad Commercial Floors',
+    metaTitle: 'Commercial Epoxy Flooring Vancouver BC | Ironclad',
     metaDescription: 'Commercial epoxy flooring across Canada. Chemical-resistant, seamless 100% solids epoxy coatings for industrial & commercial facilities.'
   },
   {
@@ -147,8 +147,8 @@ export const SERVICES: ServiceItem[] = [
     slug: 'garage-epoxy-flooring',
     name: 'Garage Epoxy Flooring',
     category: 'Concrete & Epoxy',
-    shortDesc: 'Heavy-duty polyaspartic & epoxy garage floor coatings for fleet facilities, parking structures, and automotive bays across Canada.',
-    longDesc: 'Engineered specifically for hot-tire pickup resistance, road salts, oil leaks, and abrasive vehicle friction. Ironclad installs commercial garage epoxy and rapid-cure polyaspartic topcoats for fleet maintenance depots, commercial parkades, automotive showrooms, and detail shops across Canada.',
+    shortDesc: 'Garage and parkade coatings that survive hot tires, road salt and oil without peeling.',
+    longDesc: 'Fleet bays and parkades destroy ordinary paint within a season. Our garage epoxy flooring pairs a ground-in epoxy base with a rapid-cure polyaspartic topcoat, so hot tires, winter salt and dripping oil do not lift it. Most single-bay jobs are back in use the next day. Flake, solid colour or a light-reflective finish for dim parkades — your call, and we will show you samples on site.',
     priceRange: '$6.50 - $11.00 / sq ft',
     durabilityRating: 'High-Impact Vehicle Grade',
     cureTime: '1-Day Rapid Return to Service (Polyaspartic)',
@@ -182,8 +182,8 @@ export const SERVICES: ServiceItem[] = [
     slug: 'concrete-floor-polishing',
     name: 'Concrete Floor Polishing',
     category: 'Concrete & Epoxy',
-    shortDesc: 'Architectural diamond-polished concrete floors with lithium densifiers for retail, offices, and modern public facilities across Canada.',
-    longDesc: 'Transform dull concrete into a gleaming, rock-hard architectural floor. Ironclad uses 8-step diamond planetary grinding, penetrating colloidal lithium densifiers, and stain-resistant penetrating guards to create a low-maintenance, light-reflective polished floor nationwide.',
+    shortDesc: 'Dull grey slabs turned into bright, hard-wearing polished concrete with almost no upkeep.',
+    longDesc: 'If you already have a decent slab, concrete floor polishing is usually the best value in the building. We grind through progressive diamond steps, harden the surface with a lithium densifier and seal it against stains. The result reflects light, so retail and office spaces feel brighter, and maintenance drops to a dust mop and the occasional scrub. No coating to re-apply every few years.',
     priceRange: '$4.50 - $9.00 / sq ft',
     durabilityRating: 'Maximum Long-Term Durability (50+ Year Life)',
     cureTime: 'Immediate Use (No Odor, Zero VOC)',
@@ -209,7 +209,7 @@ export const SERVICES: ServiceItem[] = [
       { label: 'VOC Content', value: '0 g/L (100% Natural Mechanical Polish)' }
     ],
     heroImage: flooringImages.concretePolishingFloor,
-    metaTitle: 'Concrete Floor Polishing Canada | Ironclad Commercial Floors',
+    metaTitle: 'Concrete Floor Polishing Vancouver BC | Ironclad',
     metaDescription: 'Architectural diamond concrete polishing across Canada. High-gloss, lithium-densified, low-maintenance commercial flooring.'
   },
   {
@@ -217,8 +217,8 @@ export const SERVICES: ServiceItem[] = [
     slug: 'commercial-luxury-vinyl-flooring',
     name: 'Commercial Luxury Vinyl Flooring (LVT / LVP)',
     category: 'Resilient & Vinyl',
-    shortDesc: 'Architectural luxury vinyl tile and plank installation with commercial 20-30 mil wear layers for offices, clinics, and hotels across Canada.',
-    longDesc: 'Commercial Luxury Vinyl Tile (LVT) and Plank (LVP) deliver realistic timber, stone, and architectural concrete aesthetics combined with 100% waterproof performance and acoustic dampening. Installed with moisture-cured commercial adhesives or loose-lay interlocking systems for commercial clients nationwide.',
+    shortDesc: 'Commercial-grade LVT and plank that looks like timber or stone and takes real traffic.',
+    longDesc: 'Clients want the look of wood in the lobby and something that survives rolling carts in the corridor. Commercial luxury vinyl flooring does both, provided you use a 20 to 30 mil wear layer and the right adhesive — which is where most budget jobs go wrong. It is fully waterproof, quieter underfoot than tile, and a damaged plank can be swapped without redoing the room. Popular in clinics, hotels and offices for exactly those reasons.',
     priceRange: '$5.50 - $9.50 / sq ft',
     durabilityRating: 'Heavy Commercial (20–30 mil Wear Layer)',
     cureTime: '12 - 24 Hours Traffic Ready',
@@ -252,8 +252,8 @@ export const SERVICES: ServiceItem[] = [
     slug: 'carpet-tile-installation',
     name: 'Commercial Carpet Tile Installation',
     category: 'Tile & Carpet',
-    shortDesc: 'Modular commercial carpet tiles with stain-resistant nylon fibers and acoustic backing for corporate offices and institutions across Canada.',
-    longDesc: 'Modular carpet tiles offer unmatched acoustic comfort, easy tile-by-tile replacement, and endless design patterns. Ironclad provides full adhesive pressure-sensitive installations, raised access floor compatibility, and overnight furniture lift systems for facilities across Canada.',
+    shortDesc: 'Modular carpet tile for offices and schools — quiet, stain-resistant and replaceable one tile at a time.',
+    longDesc: 'Open-plan offices get loud, and broadloom makes every coffee spill a full-room problem. Carpet tile installation solves both. Tiles soak up sound, resist staining and lift out individually when one gets ruined. We work around access floors, lift and re-set furniture overnight, and lay out patterns so the room reads as designed rather than patched together.',
     priceRange: '$4.50 - $8.50 / sq ft',
     durabilityRating: 'High Foot Traffic Corporate Grade',
     cureTime: 'Immediate Foot Traffic Upon Placement',
@@ -279,7 +279,7 @@ export const SERVICES: ServiceItem[] = [
       { label: 'Static Resistance', value: '< 3.0 kV (AATCC 134)' }
     ],
     heroImage: flooringImages.flooringInstallationLvt,
-    metaTitle: 'Commercial Carpet Tile Installation Canada | Ironclad Commercial Floors',
+    metaTitle: 'Carpet Tile Installation Vancouver BC | Ironclad',
     metaDescription: 'Modular commercial carpet tile installation across Canada. Acoustic dampening, stain-resistant nylon tiles for corporate offices.'
   },
   {
@@ -287,8 +287,8 @@ export const SERVICES: ServiceItem[] = [
     slug: 'commercial-sheet-vinyl-flooring',
     name: 'Commercial Sheet Vinyl Flooring',
     category: 'Resilient & Vinyl',
-    shortDesc: 'Homogeneous heat-welded sheet vinyl with 6-inch integral flash coving for hospitals, labs, and cleanroom facilities across Canada.',
-    longDesc: 'Engineered for sterile clinical environments requiring seamless, monolithic hygiene. Ironclad specializes in heat-welded grooved seam technology, hygienic cove base forming, and polyurethane anti-staining surface treatments for Canadian healthcare and research facilities.',
+    shortDesc: 'Heat-welded sheet vinyl with coved base for clinics, labs and other spaces that must stay sterile.',
+    longDesc: 'In a treatment room or lab there is no room for a seam that traps fluid. Commercial sheet vinyl flooring is heat-welded into one continuous surface and coved up the wall, so there is no joint at the floor line to scrub. It cleans fast, meets infection-control expectations and holds up to constant disinfectant. We have done clinics, dental suites, veterinary rooms and research facilities around the Lower Mainland.',
     priceRange: '$8.00 - $14.00 / sq ft',
     durabilityRating: 'Medical / Critical Hygiene Grade',
     cureTime: '24 Hours Post-Welding',
@@ -322,8 +322,8 @@ export const SERVICES: ServiceItem[] = [
     slug: 'restaurant-flooring-installation',
     name: 'Restaurant & Kitchen Flooring',
     category: 'Sector Specific',
-    shortDesc: 'Thermal-shock resistant urethane cement, quarry tile, and anti-slip epoxy systems for commercial kitchens and dining rooms across Canada.',
-    longDesc: 'Commercial kitchens subject floors to extreme thermal shock (hot oil and 80°C steam washdowns), organic animal fats, continuous water, and heavy impact. Ironclad installs high-performance urethane concrete mortar systems and heavy quarry tile with 100% epoxy grout nationwide.',
+    shortDesc: 'Kitchen and dining floors that handle boiling washdowns, grease and constant foot traffic.',
+    longDesc: 'A commercial kitchen is the hardest floor environment there is: hot oil, steam cleaning, animal fat and staff moving at speed. Restaurant flooring installation here means urethane cement or quarry tile set in epoxy grout, not something that peels after a summer. We build in slope to drains, keep the surface grippy when wet, and schedule around service so you lose as few covers as possible.',
     priceRange: '$9.00 - $16.00 / sq ft',
     durabilityRating: 'Extreme Thermal & Chemical Shock Grade',
     cureTime: '8 - 12 Hours Fast Cure Overnight Handover',
@@ -357,8 +357,8 @@ export const SERVICES: ServiceItem[] = [
     slug: 'warehouse-flooring-installation',
     name: 'Warehouse & Industrial Flooring',
     category: 'Sector Specific',
-    shortDesc: 'Heavy-tonnage polished concrete, high-traffic line striping, and chemical-resistant coatings for logistics hubs across Canada.',
-    longDesc: 'Built to withstand 10,000 lb reach trucks, hard urethane wheel abrasion, and continuous pallet drag. Ironclad provides high-flatness (FF/FL) joint armor, armored polyurea edge filler, safety zone striping, and penetrating lithium hardeners across Canadian distribution networks.',
+    shortDesc: 'Slabs, joint armour and line striping built for reach trucks and non-stop pallet movement.',
+    longDesc: 'Joints are where warehouse floors die. Reach trucks hammer the edges, the edges spall, and then the whole aisle needs attention. Our warehouse flooring installation work armours those joints with semi-rigid polyurea, hardens the slab surface and lays clear safety striping for traffic and pick zones. We phase the work aisle by aisle so shipping never stops.',
     priceRange: '$3.50 - $8.50 / sq ft',
     durabilityRating: 'Heavy Industrial Freight Load Grade',
     cureTime: 'Fast-Track Phased Execution',
@@ -384,7 +384,7 @@ export const SERVICES: ServiceItem[] = [
       { label: 'Safety Compliance', value: 'Canadian Safety Standards & High-Visibility Line Standards' }
     ],
     heroImage: flooringImages.commercialLuxuryVinyl,
-    metaTitle: 'Warehouse & Industrial Flooring Canada | Ironclad Commercial Floors',
+    metaTitle: 'Warehouse Flooring Vancouver BC | Ironclad Floors',
     metaDescription: 'Industrial warehouse flooring across Canada. Heavy forklift-grade polished concrete, joint armor & safety line striping.'
   },
   {
@@ -392,8 +392,8 @@ export const SERVICES: ServiceItem[] = [
     slug: 'commercial-concrete-floor-sealing',
     name: 'Commercial Concrete Sealing',
     category: 'Concrete & Epoxy',
-    shortDesc: 'Penetrating silane-siloxane, lithium, and acrylic concrete sealers for commercial slabs and parkades across Canada.',
-    longDesc: 'Prevent concrete dusting, water intrusion, freeze-thaw spalling, and chemical staining with Ironclad’s penetrating commercial concrete sealers. Deep molecular penetration creates a hydrophobic barrier inside the concrete pore network, engineered for harsh Canadian freeze-thaw climates.',
+    shortDesc: 'Penetrating sealers that stop dusting, staining and freeze-thaw damage on concrete slabs and parkades.',
+    longDesc: 'If your slab leaves a fine grey dust on everything, it is breaking down at the surface. Commercial concrete floor sealing soaks into the pores and blocks water, salt and oil before they get in. It is the least expensive thing you can do to add years to a parkade deck or shop floor, and it can usually be applied over a weekend with no demolition at all.',
     priceRange: '$1.75 - $3.75 / sq ft',
     durabilityRating: 'High-Penetration Protective Seal',
     cureTime: '4 - 8 Hours Rapid Dry',

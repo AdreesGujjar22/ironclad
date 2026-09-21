@@ -176,7 +176,10 @@ export const Navbar: React.FC<NavbarProps> = ({
               : 'border border-slate-200/80 bg-white group-hover:border-[#3B945E]'
           }`}>
             <img 
-              src="/IRONCLAD-COMMERCIAL-FLOORS.jpg" 
+              loading="eager"
+              fetchPriority="high"
+              decoding="async"
+              src="/IRONCLAD-COMMERCIAL-FLOORS.webp" 
               alt="Ironclad Commercial Floors Logo" 
               className="h-10 sm:h-11 w-auto object-contain max-w-[130px] sm:max-w-[150px]"
               referrerPolicy="no-referrer"
@@ -581,7 +584,9 @@ export const Navbar: React.FC<NavbarProps> = ({
                   <div className="flex items-center gap-2.5">
                     <div className="h-10 w-auto rounded-lg border border-slate-200/90 bg-white p-0.5 shadow-xs overflow-hidden flex items-center justify-center">
                       <img 
-                        src="/IRONCLAD-COMMERCIAL-FLOORS.jpg" 
+                        loading="lazy"
+                        decoding="async"
+                        src="/IRONCLAD-COMMERCIAL-FLOORS.webp" 
                         alt="Ironclad Commercial Floors Logo" 
                         className="h-full w-auto object-contain"
                         referrerPolicy="no-referrer"
