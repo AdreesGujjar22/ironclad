@@ -33,7 +33,7 @@ const sectionVariant = {
   visible: { 
     opacity: 1, 
     y: 0, 
-    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } 
+    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const } 
   }
 };
 
@@ -122,7 +122,7 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({
           <motion.div 
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }}
             className="lg:col-span-7 bg-[#3B4D5D] p-6 sm:p-10 lg:p-14 flex flex-col justify-center space-y-6"
           >
             {/* Category & Region Pill */}
@@ -203,6 +203,9 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({
             className="lg:col-span-5 relative min-h-[320px] sm:min-h-[400px] lg:min-h-full overflow-hidden bg-slate-900"
           >
             <img
+              loading="eager"
+              fetchPriority="high"
+              decoding="async"
               src={service.heroImage}
               alt={`${service.name} Vancouver - Ironclad Commercial Floors`}
               className="w-full h-full object-cover object-center"
@@ -378,6 +381,8 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({
               {service.galleryImages.map((img, idx) => (
                 <div key={idx} className="h-52 bg-white border border-slate-300 overflow-hidden shadow-sm">
                   <img
+                    loading="lazy"
+                    decoding="async"
                     src={img}
                     alt={`${service.name} installation photo ${idx + 1}`}
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"

@@ -25,7 +25,7 @@ const sectionVariant = {
   visible: { 
     opacity: 1, 
     y: 0, 
-    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } 
+    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const } 
   }
 };
 
@@ -119,6 +119,8 @@ export const ProjectsPage: React.FC<ProjectsPageProps> = ({ onNavigate, onOpenBo
                 <div className="hidden sm:block absolute -top-3 -left-3 w-full h-full bg-[#7D9A87]/30 border border-slate-300 -z-0" />
                 <div className="relative z-10 h-72 sm:h-96 overflow-hidden border border-slate-300 shadow-md bg-slate-100">
                   <img
+                    loading="lazy"
+                    decoding="async"
                     src={project.image}
                     alt={project.title}
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"

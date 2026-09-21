@@ -44,7 +44,7 @@ const sectionVariant = {
   visible: { 
     opacity: 1, 
     y: 0, 
-    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } 
+    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const } 
   }
 };
 
@@ -123,7 +123,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenBooking })
         title="Flooring Contractor Vancouver | Ironclad Commercial Floors"
         description="Ironclad Commercial Floors is Vancouver, BC's trusted commercial flooring contractor. Epoxy, installation, repair & replacement. Free on-site estimates."
         canonicalPath="/"
-        ogImage="https://ironcladcommercialfloors.ca/IRONCLAD-COMMERCIAL-FLOORS.jpg"
+        ogImage="https://ironcladcommercialfloors.ca/IRONCLAD-COMMERCIAL-FLOORS.webp"
         breadcrumbs={[
           { name: 'Home', path: '/' }
         ]}
@@ -132,7 +132,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenBooking })
           description: 'Ironclad Commercial Floors is Vancouver, BC’s trusted commercial flooring contractor, serving businesses, warehouses, retail stores, and industrial facilities across the Lower Mainland. Epoxy, installation, repair & replacement.',
           category: 'Commercial Flooring Contractor',
           priceRange: 'Custom Commercial Estimates / Free On-Site Estimates',
-          image: 'https://ironcladcommercialfloors.ca/IRONCLAD-COMMERCIAL-FLOORS.jpg'
+          image: 'https://ironcladcommercialfloors.ca/IRONCLAD-COMMERCIAL-FLOORS.webp'
         }}
         faqs={homeFaqs}
       />
@@ -162,7 +162,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenBooking })
           <motion.div 
             initial={{ opacity: 0, y: 25 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as const }}
             className="max-w-3xl space-y-6 sm:space-y-8"
           >
             {/* Exactly ONE H1 per page */}

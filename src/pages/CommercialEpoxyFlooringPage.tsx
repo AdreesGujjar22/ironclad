@@ -27,7 +27,7 @@ const sectionVariant = {
   visible: { 
     opacity: 1, 
     y: 0, 
-    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } 
+    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const } 
   }
 };
 
@@ -56,7 +56,7 @@ export const CommercialEpoxyFlooringPage: React.FC<CommercialEpoxyFlooringPagePr
         title="Commercial Epoxy Flooring | Ironclad Commercial Floors"
         description="Ironclad Commercial Floors installs industrial & commercial epoxy flooring across Canada. Chemical-resistant, seamless coatings. Free estimates."
         canonicalPath="/services/commercial-epoxy-flooring"
-        ogImage="https://ironcladcommercialfloors.ca/IRONCLAD-COMMERCIAL-FLOORS.jpg"
+        ogImage="https://ironcladcommercialfloors.ca/IRONCLAD-COMMERCIAL-FLOORS.webp"
         breadcrumbs={[
           { name: 'Home', path: '/' },
           { name: 'Services', path: '/services' },
@@ -67,7 +67,7 @@ export const CommercialEpoxyFlooringPage: React.FC<CommercialEpoxyFlooringPagePr
           description: 'Ironclad Commercial Floors installs seamless, industrial-grade epoxy flooring for warehouses, manufacturing plants, and commercial facilities across Canada. Our epoxy coatings resist chemicals, impact, and heavy foot or forklift traffic.',
           category: 'Commercial Epoxy Flooring',
           priceRange: 'Custom Commercial Epoxy Quote / Free Site Evaluation',
-          image: 'https://ironcladcommercialfloors.ca/IRONCLAD-COMMERCIAL-FLOORS.jpg'
+          image: 'https://ironcladcommercialfloors.ca/IRONCLAD-COMMERCIAL-FLOORS.webp'
         }}
         faqs={epoxyFaqs}
       />
@@ -90,7 +90,7 @@ export const CommercialEpoxyFlooringPage: React.FC<CommercialEpoxyFlooringPagePr
           <motion.div 
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }}
             className="lg:col-span-6 bg-[#3B4D5D] p-8 sm:p-12 lg:p-14 flex flex-col justify-center space-y-6"
           >
             <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/10 text-[#88D2A8] text-xs font-mono font-bold uppercase tracking-wider border border-white/20 w-fit">
@@ -150,6 +150,9 @@ export const CommercialEpoxyFlooringPage: React.FC<CommercialEpoxyFlooringPagePr
             className="lg:col-span-6 relative min-h-[350px] lg:min-h-full overflow-hidden"
           >
             <img
+              loading="eager"
+              fetchPriority="high"
+              decoding="async"
               src={flooringImages.industrialEpoxyWarehouse}
               alt="Commercial Epoxy Flooring in Vancouver, BC"
               className="w-full h-full object-cover object-center"

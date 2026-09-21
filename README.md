@@ -1,20 +1,26 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# Ironclad Preview
 
-# Run and deploy your AI Studio app
+git clone https://github.com/AdreesGujjar22/ironclad.git and preview
 
-This contains everything you need to run your app locally.
+This project was built with [Lovable](https://lovable.dev).
 
-View your app in AI Studio: https://ai.studio/apps/091ab7e7-f170-4022-84a3-e2e774bf5f08
+**Live app**: https://ironcladcommercialfloors.ca
 
-## Run Locally
+## Build with Lovable
 
-**Prerequisites:**  Node.js
+Continue developing this project in the [Lovable editor](https://lovable.dev/projects/4c772c42-4ff9-42fb-8c54-59979831b9e7).
 
+- **Ship faster**: describe what you want to build and Lovable handles the code.
+- **Stay in sync**: every change made in Lovable is committed straight to this repository.
+- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+## Development
+
+Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+
+```sh
+git clone <this-repository-url>
+cd <repository-name>
+npm i
+npm run dev
+```

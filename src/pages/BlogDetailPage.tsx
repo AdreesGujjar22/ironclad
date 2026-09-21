@@ -17,7 +17,7 @@ const sectionVariant = {
   visible: { 
     opacity: 1, 
     y: 0, 
-    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } 
+    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const } 
   }
 };
 
@@ -94,6 +94,8 @@ export const BlogDetailPage: React.FC<BlogDetailPageProps> = ({
 
           <div className="border border-slate-300 overflow-hidden">
             <img
+              loading="lazy"
+              decoding="async"
               src={blog.image}
               alt={blog.title}
               className="w-full h-72 sm:h-[420px] object-cover"

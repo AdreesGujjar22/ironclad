@@ -8,8 +8,8 @@ export const LOCATIONS: LocationArea[] = [
     slug: 'vancouver',
     name: 'Vancouver',
     headline: 'Commercial Flooring Contractor in Vancouver, BC (HQ)',
-    metaTitle: 'Commercial Flooring Contractor Vancouver BC | Ironclad Floors',
-    metaDescription: 'Commercial Flooring Contractor in Vancouver, BC. Headquarters at 783 E 60th Ave, Vancouver, BC, Canada. 24/7 industrial epoxy, polished concrete & commercial flooring installation.',
+    metaTitle: 'Commercial Flooring Contractor Vancouver BC | Ironclad',
+    metaDescription: 'Commercial flooring contractor in Vancouver, BC. Our crews run epoxy, polished concrete and vinyl installs around the clock from our East 60th Ave yard.',
     address: '783 E 60th Ave, Vancouver, BC V5X 2A5, Canada',
     phone: '(604) 540-3999',
     coverageZones: ['Downtown Vancouver', 'Yaletown', 'Gastown', 'Mount Pleasant', 'False Creek', 'Kitsilano', 'South Vancouver / Marine Gateway', 'Grandview-Woodland'],
@@ -27,7 +27,7 @@ export const LOCATIONS: LocationArea[] = [
       'Restaurant Flooring Installation',
       'Warehouse Flooring Installation'
     ],
-    description: 'Ironclad Commercial Floors is proud to be Vancouver’s premier heavy-duty commercial flooring contractor. Operating from our central facility at 783 E 60th Ave, Vancouver, BC, Canada, we provide comprehensive industrial concrete polishing, chemical-resistant epoxy coatings, luxury vinyl planks, and modular carpet tiles to Downtown corporate towers, Gastown restaurants, Mount Pleasant tech offices, and South Vancouver industrial facilities.',
+    description: 'We are based here, at 783 E 60th Ave, which means a Vancouver job usually gets a site visit within a day or two. We handle everything from Gastown restaurant kitchens to South Vancouver shop floors and Downtown office towers. Older buildings in this city hide a lot of surprises under the old flooring, so we test and inspect before quoting rather than after. Commercial flooring in Vancouver is what we do every week, not a sideline.',
     image: flooringImages.flooringHandsInstallation,
     mapEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2175.2224186218696!2d-123.088378!3d49.2158341!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5486751bef21a57d%3A0x41cd6e337360bab!2sIRONCLAD%20COMMERCIAL%20FLOORS!5e1!3m2!1sen!2sca!4v1787440209608!5m2!1sen!2sca',
     completedProjectsCount: 650,
@@ -56,7 +56,7 @@ export const LOCATIONS: LocationArea[] = [
       'Concrete Floor Polishing',
       'Commercial Floor Leveling and Preparation'
     ],
-    description: 'From heavy manufacturing plants in the Big Bend industrial park to high-tech corporate offices around Metrotown and Brentwood, Ironclad Commercial Floors delivers high-performance flooring systems across Burnaby. Our certified crews engineer durable, forklift-rated epoxy, seamless vinyl, and high-gloss polished concrete tailored to Burnaby businesses.',
+    description: 'Burnaby splits neatly in two for us: the manufacturing plants around Big Bend, and the office and retail towers at Metrotown and Brentwood. Those need very different floors. Plants get forklift-rated epoxy and armoured joints. Offices get vinyl plank or carpet tile installed overnight so nobody loses a working day. We are twenty minutes away, which matters when something fails and you need somebody on site today.',
     image: flooringImages.industrialEpoxyWarehouse,
     mapEmbedUrl: 'https://maps.google.com/maps?q=Burnaby,+BC,+Canada&t=&z=13&ie=UTF8&iwloc=&output=embed',
     completedProjectsCount: 320,
@@ -85,7 +85,7 @@ export const LOCATIONS: LocationArea[] = [
       'Concrete Epoxy Floor Installation',
       'Retail Flooring Installation'
     ],
-    description: 'Ironclad Commercial Floors serves New Westminster with reliable, high-end commercial flooring installation and restoration. We handle logistics facilities in Queensborough, heritage building commercial retrofits in Downtown New West, and medical clinics in the Brewery District, delivering durable, moisture-resistant flooring on time and on budget.',
+    description: 'New West throws a bit of everything at us — heritage retail downtown, medical space in the Brewery District, and logistics buildings out in Queensborough. The heritage work is the interesting part, because those subfloors are rarely flat and almost never dry. We check for moisture first, level properly, then install. Straight answers on timeline and cost, and we hit the dates we give you.',
     image: flooringImages.luxuryWoodFloorInterior,
     mapEmbedUrl: 'https://maps.google.com/maps?q=New+Westminster,+BC,+Canada&t=&z=13&ie=UTF8&iwloc=&output=embed',
     completedProjectsCount: 180,
@@ -114,7 +114,7 @@ export const LOCATIONS: LocationArea[] = [
       'Concrete Floor Polishing',
       'Commercial Anti-Slip Floor Coating'
     ],
-    description: 'Ironclad Commercial Floors is the trusted flooring partner for commercial developers, store owners, and industrial facility managers in Coquitlam. Whether outfitting auto showrooms on Lougheed Highway, manufacturing plants in Mayfair Industrial, or retail outlets at Coquitlam Centre, our team provides heavy-duty, beautiful surfaces that stand the test of time.',
+    description: 'Coquitlam work tends to come from developers finishing new commercial space and from owners refreshing a tired storefront. Auto showrooms on Lougheed, plants in Mayfair Industrial, retail around Coquitlam Centre — all of it done by our own crews, not subcontracted out. If you are fitting out a new unit, get us in early; the flooring decision affects your slab prep budget more than most people expect.',
     image: flooringImages.vinylPlankKneeling,
     mapEmbedUrl: 'https://maps.google.com/maps?q=Coquitlam,+BC,+Canada&t=&z=13&ie=UTF8&iwloc=&output=embed',
     completedProjectsCount: 210,
@@ -143,7 +143,7 @@ export const LOCATIONS: LocationArea[] = [
       'Restaurant Flooring Installation',
       'Commercial Floor Coating'
     ],
-    description: 'In Port Coquitlam, industrial strength and dependable timelines are essential. Ironclad Commercial Floors delivers heavy-build epoxy mortars, polished concrete, and seamless sanitary systems across Port Coquitlam’s industrial parks and vibrant commercial plazas, providing 10-year warranted solutions built for extreme duty.',
+    description: 'PoCo is industrial country, and the floors here take genuine punishment. Heavy epoxy mortar, polished concrete and seamless sanitary systems are the bulk of what we install around the industrial parks off Kingsway and Broadway. We plan around production schedules, because we know shutting a line down for a floor is not an option. Ten-year warranty on the workmanship, same as everywhere else we work.',
     image: flooringImages.heroCommercialEpoxy,
     mapEmbedUrl: 'https://maps.google.com/maps?q=Port+Coquitlam,+BC,+Canada&t=&z=13&ie=UTF8&iwloc=&output=embed',
     completedProjectsCount: 140,
@@ -173,7 +173,7 @@ export const LOCATIONS: LocationArea[] = [
       'Commercial Resilient Flooring Installation',
       'Concrete Floor Polishing'
     ],
-    description: 'For corporate law firms, financial institutions, and high-end retail stores in Downtown Vancouver, Ironclad Commercial Floors provides whisper-quiet overnight flooring installations with zero disruption to daytime tenants. Dispatched rapidly from our main Vancouver headquarters at 783 E 60th Ave, Vancouver, BC, Canada, our Red Seal teams execute precision subfloor leveling, high-traffic carpet tile, and luxury vinyl planks.',
+    description: 'Downtown jobs live or die on access and noise. Loading bay windows, elevator bookings, building management rules — we deal with all of it, and most of the work happens after hours so daytime tenants never notice. Law offices, banks and flagship retail make up most of our downtown projects. Our shop is fifteen minutes south, so night crews are dispatched easily.',
     image: flooringImages.flooringHandsInstallation,
     mapEmbedUrl: 'https://maps.google.com/maps?q=Downtown+Vancouver,+BC,+Canada&t=&z=14&ie=UTF8&iwloc=&output=embed',
     completedProjectsCount: 290,
@@ -201,7 +201,7 @@ export const LOCATIONS: LocationArea[] = [
       'Commercial Concrete Resurfacing',
       'Commercial Floor Restoration'
     ],
-    description: 'Gastown is Vancouver’s culinary and historic heart. Ironclad Commercial Floors equips Gastown restaurants, boutique studios, and heritage lofts with seamless urethane kitchen floors, anti-microbial coving, and polished architectural concrete designed to handle heavy foot traffic while respecting historic brick and timber architecture.',
+    description: 'Gastown buildings are old, beautiful and structurally opinionated. Uneven timber subfloors, brick walls out of square, and heritage rules on what you can change. We have installed in enough of these restaurants and studios to know where the trouble is. Expect us to spend real time on levelling before anything goes down — that is what makes the finished floor look right in a room where nothing is straight.',
     image: flooringImages.laminateMalletInstall,
     mapEmbedUrl: 'https://maps.google.com/maps?q=Gastown,+Vancouver,+BC,+Canada&t=&z=15&ie=UTF8&iwloc=&output=embed',
     completedProjectsCount: 145,
@@ -229,7 +229,7 @@ export const LOCATIONS: LocationArea[] = [
       'Office Flooring Installation',
       'Commercial Floor Refinishing'
     ],
-    description: 'In Yaletown, modern design meets heavy pedestrian traffic. Ironclad Commercial Floors delivers high-aesthetic, ultra-durable commercial floors for software studios, aesthetic clinics, fitness lofts, and boutique retailers. We handle subfloor leveling over heritage joists and install contemporary wide-plank vinyl and mirror-finish polished concrete.',
+    description: 'Yaletown clients are usually after a look as much as a floor: polished concrete in a showroom, wide plank vinyl in a design studio, something quiet in a converted warehouse office. We work in narrow loading conditions and tight timelines here, which is standard for the neighbourhood. Come to us with the design intent and we will tell you what will actually survive the traffic.',
     image: flooringImages.luxuryWoodFloorInterior,
     mapEmbedUrl: 'https://maps.google.com/maps?q=Yaletown,+Vancouver,+BC,+Canada&t=&z=15&ie=UTF8&iwloc=&output=embed',
     completedProjectsCount: 160,
@@ -241,7 +241,7 @@ export const LOCATIONS: LocationArea[] = [
     name: 'Mount Pleasant',
     headline: 'Creative Studio & Brewery Commercial Flooring in Mount Pleasant, Vancouver',
     metaTitle: 'Commercial Flooring Mount Pleasant Vancouver | Ironclad',
-    metaDescription: 'Commercial Flooring in Mount Pleasant, Vancouver BC. Brewery urethane cement, creative studio polished concrete, retail LVP floors by Ironclad Commercial Floors.',
+    metaDescription: 'Commercial flooring in Mount Pleasant, Vancouver: brewery urethane cement, studio polished concrete and retail vinyl installed by Ironclad crews.',
     phone: '(604) 540-3999',
     coverageZones: ['Main Street Corridor', 'Brewery District (5th & 6th Ave)', 'Broadway Tech Corridor', 'Olympic Village Perimeter', 'Kingsway Hub'],
     highlights: [
@@ -257,7 +257,7 @@ export const LOCATIONS: LocationArea[] = [
       'Industrial Flooring Installation',
       'Commercial Luxury Vinyl Flooring Installation'
     ],
-    description: 'Mount Pleasant’s thriving mix of craft breweries, technology hubs, and retail spaces requires specialized flooring engineering. Ironclad Commercial Floors installs thermal-shock resistant urethane cement capable of handling steam washdowns and keg impacts, alongside dustless polished concrete that elevates tech creative workspaces.',
+    description: 'Mount Pleasant is full of converted industrial space now hosting tech offices, breweries and studios. Those slabs were poured for machinery, not for laptops, so they often polish up beautifully with the right grinding sequence. We also do plenty of vinyl and carpet tile for office fit-outs along Main and 2nd. Quick to reach, quick to quote.',
     image: flooringImages.glovedHandsFlooring,
     mapEmbedUrl: 'https://maps.google.com/maps?q=Mount+Pleasant,+Vancouver,+BC,+Canada&t=&z=14&ie=UTF8&iwloc=&output=embed',
     completedProjectsCount: 175,
@@ -285,7 +285,7 @@ export const LOCATIONS: LocationArea[] = [
       'Commercial Luxury Vinyl Flooring Installation',
       'Commercial Floor Maintenance'
     ],
-    description: 'Serving Burnaby’s primary urban center, Ironclad Commercial Floors delivers high-throughput commercial flooring solutions for Metrotown office towers, dental clinics, financial institutions, and retail stores. Our Red Seal teams work off-peak hours to replace worn flooring seamlessly with minimal operational downtime.',
+    description: 'Retail floors around Metrotown have to be installed between closing and opening, with hoarding up and nothing left behind. That is the job we bid for. Mall units, medical offices and tower lobbies make up most of our work in this pocket of Burnaby. We handle the mall paperwork and after-hours access arrangements so you are not chasing building management.',
     image: flooringImages.flooringInstallationLvt,
     mapEmbedUrl: 'https://maps.google.com/maps?q=Metrotown,+Burnaby,+BC,+Canada&t=&z=14&ie=UTF8&iwloc=&output=embed',
     completedProjectsCount: 195,
@@ -296,7 +296,7 @@ export const LOCATIONS: LocationArea[] = [
     slug: 'queensborough',
     name: 'Queensborough',
     headline: 'Industrial Warehouse & Logistics Flooring in Queensborough, New Westminster',
-    metaTitle: 'Industrial Flooring Queensborough New Westminster | Ironclad',
+    metaTitle: 'Industrial Flooring Queensborough | Ironclad Floors',
     metaDescription: 'Industrial Warehouse Flooring in Queensborough New Westminster, BC. Forklift-rated epoxy, joint stabilization, heavy polished concrete by Ironclad Floors.',
     phone: '(604) 540-3999',
     coverageZones: ['Queensborough Industrial Park', 'Boyd Street Logistics Corridor', 'Queensborough Landing Retail', 'Ewen Avenue Light Industrial'],
@@ -313,7 +313,7 @@ export const LOCATIONS: LocationArea[] = [
       'Concrete Floor Polishing',
       'Commercial Anti-Slip Floor Coating'
     ],
-    description: 'Queensborough is a critical transportation and warehousing node in the Lower Mainland. Ironclad Commercial Floors equips Queensborough logistics centers, manufacturing facilities, and retail outlets with durable forklift-resistant coatings, polyurea joint restoration, and dustless concrete densification.',
+    description: 'Queensborough is warehouses and distribution space, and the floor issue is nearly always joints and slab surface. We armour joints, harden and seal slabs, and re-stripe traffic lanes so the yard crew can see where to drive. Work is phased by aisle so your shipping schedule holds. If forklifts are bouncing at the joints, that is worth fixing before the spalling spreads.',
     image: flooringImages.industrialEpoxyWarehouse,
     mapEmbedUrl: 'https://maps.google.com/maps?q=Queensborough,+New+Westminster,+BC,+Canada&t=&z=14&ie=UTF8&iwloc=&output=embed',
     completedProjectsCount: 110,

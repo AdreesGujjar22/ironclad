@@ -26,7 +26,7 @@ const sectionVariant = {
   visible: { 
     opacity: 1, 
     y: 0, 
-    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } 
+    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const } 
   }
 };
 
@@ -55,7 +55,7 @@ export const FlooringRepairPage: React.FC<FlooringRepairPageProps> = ({
         title="Commercial Flooring Repair | Ironclad Commercial Floors"
         description="Ironclad Commercial Floors provides fast commercial flooring repair across Canada. We fix cracked concrete, epoxy damage & worn tile. 24/7 service."
         canonicalPath="/services/flooring-repair"
-        ogImage="https://ironcladcommercialfloors.ca/IRONCLAD-COMMERCIAL-FLOORS.jpg"
+        ogImage="https://ironcladcommercialfloors.ca/IRONCLAD-COMMERCIAL-FLOORS.webp"
         breadcrumbs={[
           { name: 'Home', path: '/' },
           { name: 'Services', path: '/services' },
@@ -66,7 +66,7 @@ export const FlooringRepairPage: React.FC<FlooringRepairPageProps> = ({
           description: 'Damaged commercial flooring is a liability. Ironclad Commercial Floors provides fast, reliable flooring repair throughout Canada — restoring safety and appearance without long business closures.',
           category: 'Commercial Flooring Repair',
           priceRange: 'Custom Commercial Repair Estimate / 24/7 Emergency Dispatch',
-          image: 'https://ironcladcommercialfloors.ca/IRONCLAD-COMMERCIAL-FLOORS.jpg'
+          image: 'https://ironcladcommercialfloors.ca/IRONCLAD-COMMERCIAL-FLOORS.webp'
         }}
         faqs={repairFaqs}
       />
@@ -89,7 +89,7 @@ export const FlooringRepairPage: React.FC<FlooringRepairPageProps> = ({
           <motion.div 
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }}
             className="lg:col-span-6 bg-[#3B4D5D] p-8 sm:p-12 lg:p-14 flex flex-col justify-center space-y-6"
           >
             <div className="inline-flex items-center gap-2 px-3 py-1 bg-amber-500/20 text-amber-200 text-xs font-mono font-bold uppercase tracking-wider border border-amber-500/30 w-fit">
@@ -149,6 +149,8 @@ export const FlooringRepairPage: React.FC<FlooringRepairPageProps> = ({
             className="lg:col-span-6 relative min-h-[350px] lg:min-h-full overflow-hidden"
           >
             <img
+              loading="lazy"
+              decoding="async"
               src={flooringImages.laminateMalletInstall}
               alt="Commercial Flooring Repair in Vancouver, BC"
               className="w-full h-full object-cover object-center"

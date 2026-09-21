@@ -29,7 +29,7 @@ export const MapEmbed: React.FC<MapEmbedProps> = ({
       initial={{ opacity: 0, y: 25 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-50px' }}
-      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }}
       id="location-map-section" 
       className={`bg-white text-slate-900 rounded-3xl overflow-hidden border border-slate-200 shadow-xl ${className}`}
     >
