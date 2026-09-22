@@ -65,8 +65,8 @@ export const LOCAL_BUSINESS_SCHEMA = {
     { '@type': 'City', name: 'New Westminster' },
     { '@type': 'City', name: 'Coquitlam' },
     { '@type': 'City', name: 'Port Coquitlam' },
-    { '@type': 'City', name: 'Richmond' },
-    { '@type': 'City', name: 'Surrey' }
+    { '@type': 'City', name: 'Downtown Vancouver' },
+    { '@type': 'City', name: 'Metrotown' }
   ]
 };
 

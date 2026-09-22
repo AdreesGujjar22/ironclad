@@ -13,12 +13,12 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as ProjectsRouteImport } from './routes/projects'
-import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 import { Route as BlogsIndexRouteImport } from './routes/blogs.index'
-import { Route as LocationSlugRouteImport } from './routes/location.$slug'
+import { Route as BlogsSlugRouteImport } from './routes/blogs.$slug'
 import { Route as LocationsIndexRouteImport } from './routes/locations.index'
-import { Route as ServiceSlugRouteImport } from './routes/service.$slug'
+import { Route as LocationsSlugRouteImport } from './routes/locations.$slug'
 import { Route as ServicesIndexRouteImport } from './routes/services.index'
+import { Route as ServicesSlugRouteImport } from './routes/services.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -40,19 +40,14 @@ const ProjectsRoute = ProjectsRouteImport.update({
   path: '/projects',
   getParentRoute: () => rootRouteImport,
 } as any)
-const BlogSlugRoute = BlogSlugRouteImport.update({
-  id: '/blog/$slug',
-  path: '/blog/$slug',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const BlogsIndexRoute = BlogsIndexRouteImport.update({
   id: '/blogs/',
   path: '/blogs/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const LocationSlugRoute = LocationSlugRouteImport.update({
-  id: '/location/$slug',
-  path: '/location/$slug',
+const BlogsSlugRoute = BlogsSlugRouteImport.update({
+  id: '/blogs/$slug',
+  path: '/blogs/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LocationsIndexRoute = LocationsIndexRouteImport.update({
@@ -60,14 +55,19 @@ const LocationsIndexRoute = LocationsIndexRouteImport.update({
   path: '/locations/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ServiceSlugRoute = ServiceSlugRouteImport.update({
-  id: '/service/$slug',
-  path: '/service/$slug',
+const LocationsSlugRoute = LocationsSlugRouteImport.update({
+  id: '/locations/$slug',
+  path: '/locations/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ServicesIndexRoute = ServicesIndexRouteImport.update({
   id: '/services/',
   path: '/services/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesSlugRoute = ServicesSlugRouteImport.update({
+  id: '/services/$slug',
+  path: '/services/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
 
@@ -76,9 +76,9 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/projects': typeof ProjectsRoute
-  '/blog/$slug': typeof BlogSlugRoute
-  '/location/$slug': typeof LocationSlugRoute
-  '/service/$slug': typeof ServiceSlugRoute
+  '/blogs/$slug': typeof BlogsSlugRoute
+  '/locations/$slug': typeof LocationsSlugRoute
+  '/services/$slug': typeof ServicesSlugRoute
   '/blogs/': typeof BlogsIndexRoute
   '/locations/': typeof LocationsIndexRoute
   '/services/': typeof ServicesIndexRoute
@@ -88,9 +88,9 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/projects': typeof ProjectsRoute
-  '/blog/$slug': typeof BlogSlugRoute
-  '/location/$slug': typeof LocationSlugRoute
-  '/service/$slug': typeof ServiceSlugRoute
+  '/blogs/$slug': typeof BlogsSlugRoute
+  '/locations/$slug': typeof LocationsSlugRoute
+  '/services/$slug': typeof ServicesSlugRoute
   '/blogs': typeof BlogsIndexRoute
   '/locations': typeof LocationsIndexRoute
   '/services': typeof ServicesIndexRoute
@@ -101,9 +101,9 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/projects': typeof ProjectsRoute
-  '/blog/$slug': typeof BlogSlugRoute
-  '/location/$slug': typeof LocationSlugRoute
-  '/service/$slug': typeof ServiceSlugRoute
+  '/blogs/$slug': typeof BlogsSlugRoute
+  '/locations/$slug': typeof LocationsSlugRoute
+  '/services/$slug': typeof ServicesSlugRoute
   '/blogs/': typeof BlogsIndexRoute
   '/locations/': typeof LocationsIndexRoute
   '/services/': typeof ServicesIndexRoute
@@ -115,9 +115,9 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/projects'
-    | '/blog/$slug'
-    | '/location/$slug'
-    | '/service/$slug'
+    | '/blogs/$slug'
+    | '/locations/$slug'
+    | '/services/$slug'
     | '/blogs/'
     | '/locations/'
     | '/services/'
@@ -127,9 +127,9 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/projects'
-    | '/blog/$slug'
-    | '/location/$slug'
-    | '/service/$slug'
+    | '/blogs/$slug'
+    | '/locations/$slug'
+    | '/services/$slug'
     | '/blogs'
     | '/locations'
     | '/services'
@@ -139,9 +139,9 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/projects'
-    | '/blog/$slug'
-    | '/location/$slug'
-    | '/service/$slug'
+    | '/blogs/$slug'
+    | '/locations/$slug'
+    | '/services/$slug'
     | '/blogs/'
     | '/locations/'
     | '/services/'
@@ -152,9 +152,9 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
   ProjectsRoute: typeof ProjectsRoute
-  BlogSlugRoute: typeof BlogSlugRoute
-  LocationSlugRoute: typeof LocationSlugRoute
-  ServiceSlugRoute: typeof ServiceSlugRoute
+  BlogsSlugRoute: typeof BlogsSlugRoute
+  LocationsSlugRoute: typeof LocationsSlugRoute
+  ServicesSlugRoute: typeof ServicesSlugRoute
   BlogsIndexRoute: typeof BlogsIndexRoute
   LocationsIndexRoute: typeof LocationsIndexRoute
   ServicesIndexRoute: typeof ServicesIndexRoute
@@ -190,13 +190,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProjectsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/blog/$slug': {
-      id: '/blog/$slug'
-      path: '/blog/$slug'
-      fullPath: '/blog/$slug'
-      preLoaderRoute: typeof BlogSlugRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/blogs/': {
       id: '/blogs/'
       path: '/blogs'
@@ -204,11 +197,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BlogsIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/location/$slug': {
-      id: '/location/$slug'
-      path: '/location/$slug'
-      fullPath: '/location/$slug'
-      preLoaderRoute: typeof LocationSlugRouteImport
+    '/blogs/$slug': {
+      id: '/blogs/$slug'
+      path: '/blogs/$slug'
+      fullPath: '/blogs/$slug'
+      preLoaderRoute: typeof BlogsSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/locations/': {
@@ -218,11 +211,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LocationsIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/service/$slug': {
-      id: '/service/$slug'
-      path: '/service/$slug'
-      fullPath: '/service/$slug'
-      preLoaderRoute: typeof ServiceSlugRouteImport
+    '/locations/$slug': {
+      id: '/locations/$slug'
+      path: '/locations/$slug'
+      fullPath: '/locations/$slug'
+      preLoaderRoute: typeof LocationsSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/services/': {
@@ -230,6 +223,13 @@ declare module '@tanstack/react-router' {
       path: '/services'
       fullPath: '/services/'
       preLoaderRoute: typeof ServicesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/$slug': {
+      id: '/services/$slug'
+      path: '/services/$slug'
+      fullPath: '/services/$slug'
+      preLoaderRoute: typeof ServicesSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -240,9 +240,9 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
   ProjectsRoute: ProjectsRoute,
-  BlogSlugRoute: BlogSlugRoute,
-  LocationSlugRoute: LocationSlugRoute,
-  ServiceSlugRoute: ServiceSlugRoute,
+  BlogsSlugRoute: BlogsSlugRoute,
+  LocationsSlugRoute: LocationsSlugRoute,
+  ServicesSlugRoute: ServicesSlugRoute,
   BlogsIndexRoute: BlogsIndexRoute,
   LocationsIndexRoute: LocationsIndexRoute,
   ServicesIndexRoute: ServicesIndexRoute,

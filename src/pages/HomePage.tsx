@@ -87,17 +87,17 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenBooking })
       type: 'Rapid Response Crew'
     },
     {
-      city: 'Surrey, BC',
+      city: 'Port Coquitlam, BC',
       phone: '(604) 540-3999',
-      address: 'Serving Surrey & Fraser Valley Facilities',
-      slug: 'surrey',
+      address: 'Serving Port Coquitlam Industrial Corridors',
+      slug: 'port-coquitlam',
       type: 'Industrial Fleet Dispatch'
     },
     {
-      city: 'Richmond, BC',
+      city: 'Downtown Vancouver, BC',
       phone: '(604) 540-3999',
-      address: 'Serving Richmond Commercial & Airport Logistics',
-      slug: 'richmond',
+      address: 'Serving Downtown Vancouver Commercial Properties',
+      slug: 'downtown-vancouver',
       type: 'Commercial Surface Division'
     },
     {

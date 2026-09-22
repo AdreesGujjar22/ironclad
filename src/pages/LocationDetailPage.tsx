@@ -68,13 +68,13 @@ export const LocationDetailPage: React.FC<LocationDetailPageProps> = ({
       <SEOHead 
         title={location.metaTitle} 
         description={location.metaDescription}
-        canonicalPath={`/location/${location.slug}`}
+        canonicalPath={`/locations/${location.slug}`}
         ogImage={location.image}
         locationName={location.name}
         breadcrumbs={[
           { name: 'Home', path: '/' },
           { name: 'Service Areas', path: '/locations' },
-          { name: `${location.name}, BC`, path: `/location/${location.slug}` }
+          { name: `${location.name}, BC`, path: `/locations/${location.slug}` }
         ]}
         faqs={locationFaqs}
       />

@@ -86,12 +86,12 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({
       <SEOHead 
         title={pageTitle} 
         description={pageDescription}
-        canonicalPath={`/service/${service.slug}`}
+        canonicalPath={`/services/${service.slug}`}
         ogImage={service.heroImage}
         breadcrumbs={[
           { name: 'Home', path: '/' },
           { name: 'Commercial Flooring Services', path: '/services' },
-          { name: service.name, path: `/service/${service.slug}` }
+          { name: service.name, path: `/services/${service.slug}` }
         ]}
         serviceData={{
           name: service.name,

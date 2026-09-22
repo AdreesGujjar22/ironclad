@@ -18,31 +18,31 @@ export function getPathForRoute(page: string, param?: string): string {
       return '/services';
     case 'flooring-installation-vancouver-bc':
     case 'flooring-installation':
-      return '/service/flooring-installation';
+      return '/services/flooring-installation';
     case 'flooring-repair-vancouver-bc':
     case 'flooring-repair':
-      return '/service/flooring-repair';
+      return '/services/flooring-repair';
     case 'flooring-replacement-vancouver-bc':
     case 'flooring-replacement':
-      return '/service/flooring-replacement';
+      return '/services/flooring-replacement';
     case 'commercial-epoxy-flooring-vancouver-bc':
     case 'commercial-epoxy-flooring':
-      return '/service/commercial-epoxy-flooring';
+      return '/services/commercial-epoxy-flooring';
     case 'garage-epoxy-flooring-vancouver-bc':
     case 'garage-epoxy-flooring':
-      return '/service/garage-epoxy-flooring';
+      return '/services/garage-epoxy-flooring';
     case 'service-detail':
-      return param ? `/service/${cleanServiceSlug(param)}` : '/services';
+      return param ? `/services/${cleanServiceSlug(param)}` : '/services';
     case 'projects':
       return '/projects';
     case 'blogs':
       return '/blogs';
     case 'blog-detail':
-      return param ? `/blog/${param}` : '/blogs';
+      return param ? `/blogs/${param}` : '/blogs';
     case 'locations':
       return '/locations';
     case 'location-detail':
-      return param ? `/location/${param}` : '/locations';
+      return param ? `/locations/${param}` : '/locations';
     case 'contact':
     case 'contact-ironclad-commercial-floors-vancouver-bc':
       return '/contact';

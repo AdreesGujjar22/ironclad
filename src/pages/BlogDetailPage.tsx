@@ -33,13 +33,13 @@ export const BlogDetailPage: React.FC<BlogDetailPageProps> = ({
       <SEOHead 
         title={blog.metaTitle} 
         description={blog.metaDescription}
-        canonicalPath={`/blog/${blog.slug}`}
+        canonicalPath={`/blogs/${blog.slug}`}
         ogImage={blog.image}
         ogType="article"
         breadcrumbs={[
           { name: 'Home', path: '/' },
           { name: 'Technical Articles', path: '/blogs' },
-          { name: blog.title, path: `/blog/${blog.slug}` }
+          { name: blog.title, path: `/blogs/${blog.slug}` }
         ]}
         articleData={{
           title: blog.title,

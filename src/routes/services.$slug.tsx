@@ -13,20 +13,17 @@ import { GarageEpoxyFlooringPage } from "@/pages/GarageEpoxyFlooringPage";
 const findService = (raw: string) =>
   SERVICES.find((s) => s.slug === cleanServiceSlug(raw));
 
-export const Route = createFileRoute("/service/$slug")({
-  // Unknown slugs return a real 404 instead of silently rendering the first
-  // service, which would duplicate the same page across many URLs.
+export const Route = createFileRoute("/services/$slug")({
   beforeLoad: ({ params }) => {
     if (!findService(params.slug)) throw notFound();
   },
   head: ({ params }) => {
     const service = findService(params.slug);
     if (!service) return {};
-    const path = `/service/${service.slug}`;
+    const path = `/services/${service.slug}`;
 
     return buildHead({
-      title:
-        service.metaTitle ?? `${service.name} in Vancouver BC | Ironclad Floors`,
+      title: service.metaTitle ?? `${service.name} in Vancouver BC | Ironclad Floors`,
       description: service.metaDescription ?? service.shortDesc,
       path,
       schemas: [
@@ -56,48 +53,17 @@ function ServiceDetail() {
       {({ onNavigate, onOpenBooking }) => {
         switch (slug) {
           case "flooring-installation":
-            return (
-              <FlooringInstallationPage
-                onNavigate={onNavigate}
-                onOpenBooking={onOpenBooking}
-              />
-            );
+            return <FlooringInstallationPage onNavigate={onNavigate} onOpenBooking={onOpenBooking} />;
           case "flooring-repair":
-            return (
-              <FlooringRepairPage
-                onNavigate={onNavigate}
-                onOpenBooking={onOpenBooking}
-              />
-            );
+            return <FlooringRepairPage onNavigate={onNavigate} onOpenBooking={onOpenBooking} />;
           case "flooring-replacement":
-            return (
-              <FlooringReplacementPage
-                onNavigate={onNavigate}
-                onOpenBooking={onOpenBooking}
-              />
-            );
+            return <FlooringReplacementPage onNavigate={onNavigate} onOpenBooking={onOpenBooking} />;
           case "commercial-epoxy-flooring":
-            return (
-              <CommercialEpoxyFlooringPage
-                onNavigate={onNavigate}
-                onOpenBooking={onOpenBooking}
-              />
-            );
+            return <CommercialEpoxyFlooringPage onNavigate={onNavigate} onOpenBooking={onOpenBooking} />;
           case "garage-epoxy-flooring":
-            return (
-              <GarageEpoxyFlooringPage
-                onNavigate={onNavigate}
-                onOpenBooking={onOpenBooking}
-              />
-            );
+            return <GarageEpoxyFlooringPage onNavigate={onNavigate} onOpenBooking={onOpenBooking} />;
           default:
-            return (
-              <ServiceDetailPage
-                slug={slug}
-                onNavigate={onNavigate}
-                onOpenBooking={onOpenBooking}
-              />
-            );
+            return <ServiceDetailPage slug={slug} onNavigate={onNavigate} onOpenBooking={onOpenBooking} />;
         }
       }}
     </SiteLayout>

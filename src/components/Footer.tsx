@@ -232,12 +232,12 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenBooking }) => 
               {[
                 { name: 'Vancouver (HQ)', slug: 'vancouver' },
                 { name: 'Burnaby', slug: 'burnaby' },
-                { name: 'Richmond', slug: 'richmond' },
-                { name: 'Surrey', slug: 'surrey' },
+                { name: 'Downtown Vancouver', slug: 'downtown-vancouver' },
+                { name: 'Gastown', slug: 'gastown' },
                 { name: 'Coquitlam', slug: 'coquitlam' },
-                { name: 'Delta', slug: 'delta' },
-                { name: 'Langley', slug: 'langley' },
-                { name: 'North Vancouver', slug: 'north-vancouver' },
+                { name: 'Mount Pleasant', slug: 'mount-pleasant' },
+                { name: 'Metrotown', slug: 'metrotown' },
+                { name: 'Queensborough', slug: 'queensborough' },
                 { name: 'New Westminster', slug: 'new-westminster' },
                 { name: 'Port Coquitlam', slug: 'port-coquitlam' },
               ].map((city) => (

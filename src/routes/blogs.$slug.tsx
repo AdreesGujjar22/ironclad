@@ -6,14 +6,14 @@ import { articleSchema, breadcrumbSchema, buildHead } from "@/lib/seo";
 
 const findPost = (slug: string) => BLOGS.find((b) => b.slug === slug);
 
-export const Route = createFileRoute("/blog/$slug")({
+export const Route = createFileRoute("/blogs/$slug")({
   beforeLoad: ({ params }) => {
     if (!findPost(params.slug)) throw notFound();
   },
   head: ({ params }) => {
     const post = findPost(params.slug);
     if (!post) return {};
-    const path = `/blog/${post.slug}`;
+    const path = `/blogs/${post.slug}`;
 
     return buildHead({
       title: post.metaTitle,
@@ -44,11 +44,7 @@ function BlogDetail() {
   return (
     <SiteLayout page="blog-detail">
       {({ onNavigate, onOpenBooking }) => (
-        <BlogDetailPage
-          slug={slug}
-          onNavigate={onNavigate}
-          onOpenBooking={() => onOpenBooking()}
-        />
+        <BlogDetailPage slug={slug} onNavigate={onNavigate} onOpenBooking={() => onOpenBooking()} />
       )}
     </SiteLayout>
   );

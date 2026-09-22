@@ -6,14 +6,14 @@ import { breadcrumbSchema, buildHead, localBusinessForArea } from "@/lib/seo";
 
 const findLocation = (slug: string) => LOCATIONS.find((l) => l.slug === slug);
 
-export const Route = createFileRoute("/location/$slug")({
+export const Route = createFileRoute("/locations/$slug")({
   beforeLoad: ({ params }) => {
     if (!findLocation(params.slug)) throw notFound();
   },
   head: ({ params }) => {
     const location = findLocation(params.slug);
     if (!location) return {};
-    const path = `/location/${location.slug}`;
+    const path = `/locations/${location.slug}`;
 
     return buildHead({
       title: location.metaTitle,
@@ -37,11 +37,7 @@ function LocationDetail() {
   return (
     <SiteLayout page={`location-${slug}`}>
       {({ onNavigate, onOpenBooking }) => (
-        <LocationDetailPage
-          slug={slug}
-          onNavigate={onNavigate}
-          onOpenBooking={onOpenBooking}
-        />
+        <LocationDetailPage slug={slug} onNavigate={onNavigate} onOpenBooking={onOpenBooking} />
       )}
     </SiteLayout>
   );
