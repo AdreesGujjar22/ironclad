@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { lazy, Suspense, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { 
   ShieldCheck, 
@@ -29,8 +29,7 @@ import {
 } from 'lucide-react';
 import { SERVICES } from '../data/servicesData';
 import { TESTIMONIALS } from '../data/testimonialsData';
-import { CostCalculator } from '../components/CostCalculator';
-import { MapEmbed } from '../components/MapEmbed';
+
 import { SEOHead } from '../components/SEOHead';
 import { flooringImages } from '../assets/flooringImages';
 
@@ -39,8 +38,15 @@ interface HomePageProps {
   onOpenBooking: (initial?: any) => void;
 }
 
+const LazyCostCalculator = lazy(() =>
+  import('../components/CostCalculator').then((module) => ({ default: module.CostCalculator })),
+);
+const LazyMapEmbed = lazy(() =>
+  import('../components/MapEmbed').then((module) => ({ default: module.MapEmbed })),
+);
+
 const sectionVariant = {
-  hidden: { opacity: 0, y: 30 },
+  hidden: { opacity: 1, y: 0 },
   visible: { 
     opacity: 1, 
     y: 0, 
@@ -160,7 +166,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenBooking })
         {/* Hero Content Container */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 sm:py-40 lg:py-48 w-full">
           <motion.div 
-            initial={{ opacity: 0, y: 25 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
             className="max-w-3xl space-y-6 sm:space-y-8"
@@ -797,7 +803,9 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenBooking })
         id="calculator-section" 
         className="max-w-6xl mx-auto px-4 sm:px-6 py-14"
       >
-        <CostCalculator onOpenBooking={onOpenBooking} />
+        <Suspense fallback={<div className="min-h-[560px] bg-white border border-slate-200" />}>
+          <LazyCostCalculator onOpenBooking={onOpenBooking} />
+        </Suspense>
       </motion.section>
 
       {/* =========================================================================
@@ -947,10 +955,12 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenBooking })
 
       {/* Map Embed */}
       <section className="py-12 px-4 sm:px-6 max-w-6xl mx-auto">
-        <MapEmbed 
-          title="Vancouver Central Headquarters & Estimating Hub" 
-          subtitle="783 E 60th Ave, Vancouver, BC V5X 2A5, Canada • Serving All Lower Mainland Municipalities"
-        />
+        <Suspense fallback={<div className="min-h-[420px] bg-white border border-slate-200 rounded-3xl" />}>
+          <LazyMapEmbed
+            title="Vancouver Central Headquarters & Estimating Hub"
+            subtitle="783 E 60th Ave, Vancouver, BC V5X 2A5, Canada • Serving All Lower Mainland Municipalities"
+          />
+        </Suspense>
       </section>
     </div>
   );

@@ -9,8 +9,11 @@ import { useRouter } from "@tanstack/react-router";
 import { motion, AnimatePresence } from "motion/react";
 import { Phone, Calendar, ArrowUp } from "lucide-react";
 import { Navbar } from "./Navbar";
-import { Footer } from "./Footer";
 import { getPathForRoute } from "@/lib/site-navigation";
+
+const Footer = lazy(() =>
+  import("./Footer").then((module) => ({ default: module.Footer })),
+);
 
 const AppointmentModal = lazy(() =>
   import("./AppointmentModal").then((m) => ({ default: m.AppointmentModal })),
@@ -95,10 +98,12 @@ export function SiteLayout({ page, children }: SiteLayoutProps) {
       </main>
 
       {/* Footer Matrix */}
-      <Footer
-        onNavigate={onNavigate}
-        onOpenBooking={() => openBookingModal()}
-      />
+      <Suspense fallback={null}>
+        <Footer
+          onNavigate={onNavigate}
+          onOpenBooking={() => openBookingModal()}
+        />
+      </Suspense>
 
       {/* Floating Action Dispatch Bar */}
       <motion.div
