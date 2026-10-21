@@ -1,0 +1,7 @@
+# Robots.txt for Ironclad Commercial Floors
+# https://ironcladcommercialfloors.ca/
+
+User-agent: *
+Allow: /
+
+Sitemap: https://ironcladcommercialfloors.ca/sitemap.xml
