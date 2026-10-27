@@ -447,7 +447,8 @@ function loc(
 ): PageSeo {
   return {
     slug,
-    keyword: "Commercial Flooring Contractor",
+    // /locations/vancouver must not share its title/H1 with the home page
+    keyword: slug === "vancouver" ? "Commercial Floor Installers" : "Commercial Flooring Contractor",
     area,
     shortArea,
     metaDescription,
@@ -464,7 +465,7 @@ export const LOCATION_SEO: PageSeo[] = [
     "vancouver",
     V,
     V,
-    "Commercial flooring contractor in Vancouver, BC. Ironclad Commercial Floors installs epoxy, polished concrete and vinyl from our E 60th Ave base. Get a quote.",
+    "Commercial floor installers in Vancouver, BC. Ironclad Commercial Floors installs epoxy, polished concrete and vinyl from our E 60th Ave base. Get a quote.",
     "Ironclad Commercial Floors is a commercial flooring contractor based at 783 E 60th Ave in Vancouver, BC, installing epoxy, polished concrete, vinyl and carpet tile.",
     "Your Local Commercial Flooring Contractor in Vancouver, BC",
     [

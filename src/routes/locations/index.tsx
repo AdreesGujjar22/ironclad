@@ -19,8 +19,8 @@ export const Route = createFileRoute("/locations/")({
 function LocationsRoute() {
   return (
     <SiteLayout>
-      {({ onNavigate, onOpenBooking }) => (
-        <LocationsPage onNavigate={onNavigate} onOpenBooking={() => onOpenBooking()} />
+      {({ onNavigate }) => (
+        <LocationsPage onNavigate={onNavigate} />
       )}
     </SiteLayout>
   );

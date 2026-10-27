@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { 
   Phone, 
-  Calendar, 
+
   ArrowRight, 
   CheckCircle2, 
   Trash2, 
@@ -19,7 +19,7 @@ import { flooringImages } from '../assets/flooringImages';
 
 interface FlooringReplacementPageProps {
   onNavigate: (page: string, param?: string) => void;
-  onOpenBooking: (initial?: any) => void;
+
 }
 
 const sectionVariant = {
@@ -32,8 +32,7 @@ const sectionVariant = {
 };
 
 export const FlooringReplacementPage: React.FC<FlooringReplacementPageProps> = ({
-  onNavigate,
-  onOpenBooking
+  onNavigate
 }) => {
   const replacementFaqs = [
     {
@@ -56,7 +55,7 @@ export const FlooringReplacementPage: React.FC<FlooringReplacementPageProps> = (
         title="Commercial Flooring Replacement | Ironclad Commercial Floors"
         description="Ironclad Commercial Floors handles commercial flooring replacement across Canada. We remove old flooring and install durable new surfaces. Free estimates."
         canonicalPath="/services/flooring-replacement"
-        ogImage="https://ironcladcommercialfloors.ca/IRONCLAD-COMMERCIAL-FLOORS.webp"
+        ogImage="https://ironcladcommercialfloors.ca/IRONCLAD-COMMERCIAL-FLOORS.png"
         breadcrumbs={[
           { name: 'Home', path: '/' },
           { name: 'Services', path: '/services' },
@@ -67,7 +66,7 @@ export const FlooringReplacementPage: React.FC<FlooringReplacementPageProps> = (
           description: 'When your commercial floor is beyond repair, Ironclad Commercial Floors provides full flooring replacement services across Canada — from demolition and subfloor prep to installation of a new, durable surface.',
           category: 'Commercial Flooring Replacement',
           priceRange: 'Custom Replacement Estimate / Free Site Survey',
-          image: 'https://ironcladcommercialfloors.ca/IRONCLAD-COMMERCIAL-FLOORS.webp'
+          image: 'https://ironcladcommercialfloors.ca/IRONCLAD-COMMERCIAL-FLOORS.png'
         }}
         faqs={replacementFaqs}
       />
@@ -108,14 +107,10 @@ export const FlooringReplacementPage: React.FC<FlooringReplacementPageProps> = (
 
             {/* CTAs matching reference design */}
             <div className="pt-3 flex flex-wrap gap-3">
-              <button
-                type="button"
-                onClick={() => onOpenBooking({ serviceType: 'Commercial Flooring Replacement' })}
-                className="flex items-center justify-center gap-2 px-5 sm:px-6 py-3 sm:py-3.5 bg-[#3B945E] hover:bg-[#318051] text-white font-bold text-xs uppercase font-mono tracking-wider transition-all shadow-2xl cursor-pointer border border-white/20 shrink-0 whitespace-nowrap"
-              >
-                <Calendar className="w-4 h-4 text-white" />
-                <span>MAKE APPOINTMENT</span>
-              </button>
+              <a href="tel:6045403999" className="flex items-center justify-center gap-2 px-5 sm:px-6 py-3 sm:py-3.5 bg-[#3B945E] hover:bg-[#318051] text-white font-bold text-xs uppercase font-mono tracking-wider transition-all shadow-2xl border border-white/20 shrink-0 whitespace-nowrap">
+                <Phone className="w-4 h-4 text-white" />
+                <span>Call now</span>
+              </a>
 
               <a
                 href="tel:6045403999"
@@ -399,14 +394,10 @@ export const FlooringReplacementPage: React.FC<FlooringReplacementPageProps> = (
               <Phone className="w-4 h-4" />
               <span>Call (604) 540-3999</span>
             </a>
-            <button
-              type="button"
-              onClick={() => onOpenBooking({ serviceType: 'Commercial Flooring Replacement' })}
-              className="px-6 py-3.5 bg-white/10 hover:bg-white/20 text-white font-bold text-xs uppercase font-mono tracking-wider transition-all cursor-pointer inline-flex items-center gap-2 border border-white/20"
-            >
-              <Calendar className="w-4 h-4 text-[#88D2A8]" />
-              <span>Request In-Person Site Diagnostic</span>
-            </button>
+            <a href="tel:6045403999" className="px-6 py-3.5 bg-white/10 hover:bg-white/20 text-white font-bold text-xs uppercase font-mono tracking-wider transition-all inline-flex items-center gap-2 border border-white/20">
+              <Phone className="w-4 h-4 text-[#88D2A8]" />
+              <span>Call now</span>
+            </a>
           </div>
         </div>
       </motion.section>

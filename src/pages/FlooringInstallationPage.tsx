@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { 
   Phone, 
-  Calendar, 
+
   ArrowRight, 
   CheckCircle2, 
   Layers, 
@@ -19,7 +19,7 @@ import { flooringImages } from '../assets/flooringImages';
 
 interface FlooringInstallationPageProps {
   onNavigate: (page: string, param?: string) => void;
-  onOpenBooking: (initial?: any) => void;
+
 }
 
 const sectionVariant = {
@@ -32,8 +32,7 @@ const sectionVariant = {
 };
 
 export const FlooringInstallationPage: React.FC<FlooringInstallationPageProps> = ({
-  onNavigate,
-  onOpenBooking
+  onNavigate
 }) => {
   const installationFaqs = [
     {
@@ -56,7 +55,7 @@ export const FlooringInstallationPage: React.FC<FlooringInstallationPageProps> =
         title="Commercial Flooring Installation | Ironclad Commercial Floors"
         description="Ironclad Commercial Floors offers professional commercial flooring installation across Canada. Epoxy, vinyl, tile & concrete flooring. Free quotes available."
         canonicalPath="/services/flooring-installation"
-        ogImage="https://ironcladcommercialfloors.ca/IRONCLAD-COMMERCIAL-FLOORS.webp"
+        ogImage="https://ironcladcommercialfloors.ca/IRONCLAD-COMMERCIAL-FLOORS.png"
         breadcrumbs={[
           { name: 'Home', path: '/' },
           { name: 'Services', path: '/services' },
@@ -67,7 +66,7 @@ export const FlooringInstallationPage: React.FC<FlooringInstallationPageProps> =
           description: 'Ironclad Commercial Floors delivers professional commercial flooring installation for businesses across Canada. As a leading commercial flooring contractor, we install durable, code-compliant flooring systems for offices, retail stores, warehouses, and industrial facilities.',
           category: 'Commercial Flooring Installation',
           priceRange: 'Custom Commercial Estimate / Free On-Site Quote',
-          image: 'https://ironcladcommercialfloors.ca/IRONCLAD-COMMERCIAL-FLOORS.webp'
+          image: 'https://ironcladcommercialfloors.ca/IRONCLAD-COMMERCIAL-FLOORS.png'
         }}
         faqs={installationFaqs}
       />
@@ -108,14 +107,10 @@ export const FlooringInstallationPage: React.FC<FlooringInstallationPageProps> =
 
             {/* CTAs matching reference design */}
             <div className="pt-3 flex flex-wrap gap-3">
-              <button
-                type="button"
-                onClick={() => onOpenBooking({ serviceType: 'Commercial Flooring Installation' })}
-                className="flex items-center justify-center gap-2 px-5 sm:px-6 py-3 sm:py-3.5 bg-[#3B945E] hover:bg-[#318051] text-white font-bold text-xs uppercase font-mono tracking-wider transition-all shadow-2xl cursor-pointer border border-white/20 shrink-0 whitespace-nowrap"
-              >
-                <Calendar className="w-4 h-4 text-white" />
-                <span>MAKE APPOINTMENT</span>
-              </button>
+              <a href="tel:6045403999" className="flex items-center justify-center gap-2 px-5 sm:px-6 py-3 sm:py-3.5 bg-[#3B945E] hover:bg-[#318051] text-white font-bold text-xs uppercase font-mono tracking-wider transition-all shadow-2xl border border-white/20 shrink-0 whitespace-nowrap">
+                <Phone className="w-4 h-4 text-white" />
+                <span>Call now</span>
+              </a>
 
               <a
                 href="tel:6045403999"
@@ -413,14 +408,10 @@ export const FlooringInstallationPage: React.FC<FlooringInstallationPageProps> =
               <Phone className="w-4 h-4" />
               <span>Call (604) 540-3999</span>
             </a>
-            <button
-              type="button"
-              onClick={() => onOpenBooking({ serviceType: 'Commercial Flooring Installation' })}
-              className="px-6 py-3.5 bg-white/10 hover:bg-white/20 text-white font-bold text-xs uppercase font-mono tracking-wider transition-all cursor-pointer inline-flex items-center gap-2 border border-white/20"
-            >
-              <Calendar className="w-4 h-4 text-[#88D2A8]" />
-              <span>Request Online Proposal</span>
-            </button>
+            <a href="tel:6045403999" className="px-6 py-3.5 bg-white/10 hover:bg-white/20 text-white font-bold text-xs uppercase font-mono tracking-wider transition-all inline-flex items-center gap-2 border border-white/20">
+              <Phone className="w-4 h-4 text-[#88D2A8]" />
+              <span>Call now</span>
+            </a>
           </div>
         </div>
       </motion.section>

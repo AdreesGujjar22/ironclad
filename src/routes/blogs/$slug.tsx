@@ -51,8 +51,8 @@ function BlogRoute() {
   const { slug } = Route.useParams();
   return (
     <SiteLayout>
-      {({ onNavigate, onOpenBooking }) => (
-        <BlogDetailPage slug={slug} onNavigate={onNavigate} onOpenBooking={() => onOpenBooking()} />
+      {({ onNavigate }) => (
+        <BlogDetailPage slug={slug} onNavigate={onNavigate} />
       )}
     </SiteLayout>
   );

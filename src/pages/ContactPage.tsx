@@ -1,19 +1,10 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import { 
-  Phone, 
-  MapPin, 
-  Clock, 
-  Mail, 
-  Send, 
-  CheckCircle2, 
-  HardHat,
-  ChevronDown,
-  Lock
-} from 'lucide-react';
+import { Phone, MapPin, Clock, Mail, Send, CheckCircle2, ChevronDown } from 'lucide-react';
 import { MapEmbed } from '../components/MapEmbed';
 import { SEOHead } from '../components/SEOHead';
 import { Breadcrumbs } from '../components/Breadcrumbs';
+import { flooringImages } from '../assets/flooringImages';
 
 interface ContactPageProps {
   onNavigate?: (page: string, param?: string) => void;
@@ -31,13 +22,9 @@ const sectionVariant = {
 export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
   const [formData, setFormData] = useState({
     name: '',
-    company: '',
     email: '',
     phone: '',
-    address: '',
     service: 'Commercial Flooring Installation',
-    sqft: '2500',
-    timeframe: 'Immediately (Emergency / Tight Deadline)',
     message: ''
   });
   const [submitted, setSubmitted] = useState(false);
@@ -48,12 +35,12 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
   };
 
   return (
-    <div className="bg-[#F8F9FA] text-slate-800 min-h-screen pb-16">
+    <div className="ic-contact-page bg-[#F8F9FA] text-slate-800 min-h-screen pb-12">
       <SEOHead
         title="Contact Ironclad Commercial Floors | Commercial Flooring Estimates"
         description="Contact Ironclad Commercial Floors for a free quote on commercial flooring installation, repair & epoxy flooring services across Canada."
         canonicalPath="/contact"
-        ogImage="https://ironcladcommercialfloors.ca/IRONCLAD-COMMERCIAL-FLOORS.jpg"
+        ogImage="https://ironcladcommercialfloors.ca/IRONCLAD-COMMERCIAL-FLOORS.png"
         breadcrumbs={[
           { name: 'Home', path: '/' },
           { name: 'Contact Ironclad Commercial Floors', path: '/contact' }
@@ -63,7 +50,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
           description: 'Contact Ironclad Commercial Floors for a free quote on commercial flooring installation, repair & epoxy flooring services across Canada.',
           category: 'Commercial Flooring Contractor',
           priceRange: 'Free On-Site Diagnostic & Guaranteed Fixed Quotes',
-          image: 'https://ironcladcommercialfloors.ca/IRONCLAD-COMMERCIAL-FLOORS.jpg'
+          image: 'https://ironcladcommercialfloors.ca/IRONCLAD-COMMERCIAL-FLOORS.png'
         }}
       />
 
@@ -77,17 +64,17 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
         />
       )}
 
-      <div className="space-y-12 md:space-y-16">
+      <div className="ic-contact-sections space-y-7 md:space-y-9">
         {/* Hero Header - Split Editorial Layout */}
-      <section className="relative bg-[#1A2530] text-white">
-        <div className="max-w-[1600px] mx-auto grid grid-cols-1 lg:grid-cols-12 min-h-[380px]">
+      <section className="ic-contact-hero relative bg-[#1A2530] text-white">
+        <div className="ic-contact-hero-inner max-w-[1600px] mx-auto grid grid-cols-1 lg:grid-cols-12 min-h-[380px]">
           
           {/* Left Editorial Column */}
           <motion.div 
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }}
-            className="lg:col-span-7 bg-[#3B4D5D] p-8 sm:p-12 lg:p-14 flex flex-col justify-center space-y-6"
+            className="lg:col-span-7 bg-[#3B4D5D] p-8 sm:p-10 lg:p-12 flex flex-col justify-center space-y-5"
           >
             <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/10 text-[#88D2A8] text-xs font-mono font-bold uppercase tracking-wider border border-white/20 w-fit">
               <Phone className="w-3.5 h-3.5 text-[#88D2A8]" />
@@ -95,44 +82,18 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
             </div>
 
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-[1.1]">
-              Contact Ironclad Commercial Floors in Vancouver, BC
+              Let’s plan your flooring project
             </h1>
 
-            <p className="text-slate-200 text-xs sm:text-sm leading-relaxed">
-              Get an in-person site survey, subfloor moisture evaluation, and guaranteed fixed-price estimate anywhere in Greater Vancouver.
+            <p className="text-slate-200 text-sm sm:text-base leading-relaxed">
+              Talk with our Vancouver team about your space, flooring needs and schedule.
             </p>
 
-            <div className="pt-2 flex flex-wrap gap-4 text-xs font-mono">
-              <div className="p-3 bg-white/5 border border-white/10">
-                <span className="text-slate-300 block">DIRECT PHONE LINE</span>
-                <a href="tel:6045403999" className="font-bold text-white hover:text-[#88D2A8]">(604) 540-3999</a>
-              </div>
-              <div className="p-3 bg-white/5 border border-white/10">
-                <span className="text-slate-300 block">HQ LOCATION</span>
-                <span className="font-bold text-white">783 E 60th Ave, Vancouver, BC, Canada</span>
-              </div>
-            </div>
-          </motion.div>
 
-          {/* Right Visual / Badge Block */}
-          <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.7 }}
-            className="lg:col-span-5 bg-[#1A2530] p-8 sm:p-12 flex flex-col justify-center border-t lg:border-t-0 lg:border-l border-white/10 space-y-4"
-          >
-            <div className="p-6 bg-white/5 border border-white/10 space-y-3">
-              <span className="text-xs font-mono uppercase font-bold text-[#88D2A8] tracking-wider block">
-                GUARANTEED RESPONSE TIME
-              </span>
-              <h3 className="text-xl font-bold text-white">
-                Under 15-Minute Turnaround
-              </h3>
-              <p className="text-xs text-slate-300 leading-relaxed">
-                Direct route to our on-call commercial estimation team. All site audits include laser flatness verification and ICRI profiling.
-              </p>
-            </div>
           </motion.div>
+          <div className="ic-contact-hero-image lg:col-span-5 relative min-h-[240px]">
+            <img src={flooringImages.flooringHandsInstallation} alt="Commercial flooring installation" className="absolute inset-0 h-full w-full object-cover" fetchPriority="high" />
+          </div>
         </div>
       </section>
 
@@ -143,27 +104,13 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-50px' }}
-          className="grid grid-cols-1 lg:grid-cols-12 gap-8"
+          className="ic-contact-grid grid grid-cols-1 lg:grid-cols-12 gap-6"
         >
           {/* Info Card */}
-          <div className="lg:col-span-5 bg-white border border-slate-300 p-8 space-y-6 shadow-lg">
-            <div className="space-y-3">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-[#3B4D5D] text-white flex items-center justify-center font-bold">
-                  <HardHat className="w-5 h-5" />
-                </div>
-                <div>
-                  <span className="text-base font-black text-slate-900 uppercase font-mono block">
-                    IRONCLAD
-                  </span>
-                  <span className="text-xs font-semibold text-[#2A6E44] uppercase tracking-widest block -mt-1">
-                    COMMERCIAL FLOORS
-                  </span>
-                </div>
-              </div>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                Commercial Flooring Contractor in Vancouver, BC. Fully equipped with planetary grinders, shot blasters, and flexible night installation crews.
-              </p>
+          <div className="ic-contact-details lg:col-span-4 bg-white border border-slate-300 p-6 space-y-5 shadow-lg">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-wider text-[#3B945E]">Contact details</p>
+              <h2 className="mt-1 text-xl font-bold text-slate-900">Vancouver, BC</h2>
             </div>
 
             <div className="space-y-4 text-xs">
@@ -190,7 +137,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1.5 text-xs text-[#2A6E44] hover:underline font-bold mt-2"
                   >
-                    <span>View on Google Business Profile & Maps →</span>
+                    <span>Directions</span>
                   </a>
                 </div>
               </div>
@@ -211,7 +158,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
                 <Mail className="w-4 h-4 text-[#3B945E] shrink-0 mt-0.5" />
                 <div>
                   <span className="text-[11px] font-mono uppercase font-bold text-slate-500 block">
-                    Estimating & Proposals Email
+                    Email
                   </span>
                   <a href="mailto:info@ironcladcommercialfloors.ca" className="font-bold text-slate-700 hover:text-[#3B945E] mt-0.5 block">
                     info@ironcladcommercialfloors.ca
@@ -227,7 +174,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
                     Business Hours
                   </h2>
                   <p className="font-semibold text-slate-900 mt-0.5">
-                    Monday–Friday: 7:00 AM – 6:00 PM | 24/7 Emergency Flooring Repair Available
+                    Mon–Fri, 7 AM–6 PM · Emergency repair available
                   </p>
                 </div>
               </div>
@@ -239,41 +186,37 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
                 Service Area
               </h2>
               <p className="text-slate-700 text-xs font-semibold leading-relaxed">
-                Vancouver, Burnaby, Surrey, Richmond, Coquitlam, New Westminster, BC
+                Serving Metro Vancouver
               </p>
             </div>
           </div>
 
           {/* Form Card */}
-          <div className="lg:col-span-7 bg-white border border-slate-300 p-8 shadow-lg">
+          <div className="ic-contact-form lg:col-span-8 bg-white border border-slate-300 p-6 sm:p-8 shadow-lg">
             {submitted ? (
               <div className="py-16 text-center space-y-4">
                 <div className="w-14 h-14 bg-[#3B4D5D] text-white flex items-center justify-center mx-auto font-bold">
                   <CheckCircle2 className="w-7 h-7 text-[#88D2A8]" />
                 </div>
-                <h3 className="text-2xl font-bold text-slate-900">Commercial Proposal Dispatched!</h3>
+                <h3 className="text-2xl font-bold text-slate-900">Request received</h3>
                 <p className="text-xs sm:text-sm text-slate-600 max-w-md mx-auto leading-relaxed">
-                  Thank you {formData.name}. An Ironclad commercial estimating engineer has received your specifications and will contact you within 15 minutes.
+                  Thanks, {formData.name}. We’ll be in touch soon.
                 </p>
                 <button
                   onClick={() => setSubmitted(false)}
                   className="px-6 py-3 bg-slate-900 hover:bg-black text-white text-xs font-bold uppercase tracking-wider cursor-pointer"
                 >
-                  Submit Another Project Scope
+                  Send another request
                 </button>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-5">
                 <div>
-                  <h2 className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight">
-                    Request a Free Commercial Flooring Estimate
-                  </h2>
-                  <p className="text-xs text-slate-600 mt-1 leading-relaxed">
-                    Call (604) 540-3999 or fill out our online form to get a free quote from Vancouver, BC's trusted commercial flooring contractor.
-                  </p>
+                  <h2 className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight">Tell us about your project</h2>
+                  <p className="text-sm text-slate-600 mt-1 leading-relaxed">We’ll contact you about your flooring project.</p>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 gap-4">
                   <div>
                     <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1 font-mono">
                       Full Name *
@@ -287,19 +230,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
                       className="w-full px-3.5 py-2.5 bg-[#F8F9FA] border border-slate-300 text-slate-900 text-xs focus:border-[#3B4D5D] focus:bg-white focus:outline-none"
                     />
                   </div>
-                  <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1 font-mono">
-                      Company / Organization *
-                    </label>
-                    <input
-                      type="text"
-                      required
-                      placeholder="e.g. Pacific Logistics Corp"
-                      value={formData.company}
-                      onChange={e => setFormData({ ...formData, company: e.target.value })}
-                      className="w-full px-3.5 py-2.5 bg-[#F8F9FA] border border-slate-300 text-slate-900 text-xs focus:border-[#3B4D5D] focus:bg-white focus:outline-none"
-                    />
-                  </div>
+
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -331,10 +262,10 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="ic-contact-service-row grid grid-cols-1 gap-4">
                   <div>
                     <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1 font-mono">
-                      Flooring Service Required
+                      Flooring service
                     </label>
                     <div className="relative">
                       <select
@@ -354,47 +285,18 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
                     </div>
                   </div>
 
-                  <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1 font-mono">
-                      Approximate Area (Sq Ft)
-                    </label>
-                    <div className="relative">
-                      <select
-                        value={formData.sqft}
-                        onChange={e => setFormData({ ...formData, sqft: e.target.value })}
-                        className="w-full px-3.5 py-2.5 bg-[#F8F9FA] border border-slate-300 text-slate-900 text-xs appearance-none focus:border-[#3B4D5D] focus:bg-white focus:outline-none cursor-pointer"
-                      >
-                        <option value="500 - 1,500">500 – 1,500 sq ft (Retail / Small Bay)</option>
-                        <option value="1,500 - 5,000">1,500 – 5,000 sq ft (Office / Clinic / Auto Bay)</option>
-                        <option value="5,000 - 15,000">5,000 – 15,000 sq ft (Warehouse / Multi-Unit)</option>
-                        <option value="15,000 - 50,000">15,000 – 50,000 sq ft (Industrial Distribution)</option>
-                        <option value="50,000+">50,000+ sq ft (Enterprise Facility / High-Rise)</option>
-                      </select>
-                      <ChevronDown className="w-4 h-4 text-slate-500 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
-                    </div>
-                  </div>
+
                 </div>
+
+
 
                 <div>
                   <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1 font-mono">
-                    Facility Address / City
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="e.g. 1200 Marine Way, Burnaby, BC"
-                    value={formData.address}
-                    onChange={e => setFormData({ ...formData, address: e.target.value })}
-                    className="w-full px-3.5 py-2.5 bg-[#F8F9FA] border border-slate-300 text-slate-900 text-xs focus:border-[#3B4D5D] focus:bg-white focus:outline-none"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1 font-mono">
-                    Project Details, Substrate Conditions & Deadlines
+                    Project details
                   </label>
                   <textarea
-                    rows={4}
-                    placeholder="Describe your project: current floor type, cracked concrete, moisture issues, required work hours (e.g., night shift), or target completion date..."
+                    rows={3}
+                    placeholder="Tell us what flooring you need and when you need it."
                     value={formData.message}
                     onChange={e => setFormData({ ...formData, message: e.target.value })}
                     className="w-full px-3.5 py-2.5 bg-[#F8F9FA] border border-slate-300 text-slate-900 text-xs focus:border-[#3B4D5D] focus:bg-white focus:outline-none"
@@ -407,12 +309,9 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
                     className="w-full py-3.5 bg-[#3B945E] hover:bg-[#318051] text-white font-bold text-xs uppercase font-mono tracking-wider shadow-md transition-colors flex items-center justify-center gap-2 cursor-pointer border border-white/20"
                   >
                     <Send className="w-4 h-4" />
-                    <span>Submit Request for Free Estimate</span>
+                    <span>Send message</span>
                   </button>
-                  <p className="text-[10px] text-center text-slate-500 mt-2 font-mono flex items-center justify-center gap-1">
-                    <Lock className="w-3 h-3 text-[#3B945E]" />
-                    <span>Guaranteed privacy. Average response time: &lt; 15 minutes.</span>
-                  </p>
+
                 </div>
               </form>
             )}
@@ -422,10 +321,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
 
       {/* Map Embed */}
       <section className="max-w-6xl mx-auto px-4 sm:px-6">
-        <MapEmbed
-          title="Direct Commercial Dispatch Facility"
-          subtitle="Located at 783 E 60th Ave, Vancouver, BC V5X 2A5, Canada. Call (604) 540-3999 for immediate dispatch."
-        />
+        <MapEmbed title="Vancouver office" subtitle="Serving Metro Vancouver." className="ic-contact-map" />
       </section>
       </div>
     </div>

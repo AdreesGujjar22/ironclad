@@ -3,8 +3,7 @@ import { motion } from 'motion/react';
 import { 
   Search, 
   Layers, 
-  ArrowRight, 
-  CheckCircle2 
+  ArrowRight
 } from 'lucide-react';
 import { SERVICES } from '../data/servicesData';
 import { SEOHead } from '../components/SEOHead';
@@ -12,7 +11,6 @@ import { Breadcrumbs } from '../components/Breadcrumbs';
 
 interface ServicesPageProps {
   onNavigate: (page: string, param?: string) => void;
-  onOpenBooking: (initial?: any) => void;
 }
 
 const containerVariant = {
@@ -34,7 +32,7 @@ const cardVariant = {
   }
 };
 
-export const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigate, onOpenBooking }) => {
+export const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigate }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
 
@@ -54,7 +52,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigate, onOpenBo
     <div className="bg-[#F8F9FA] text-slate-800 min-h-screen pb-16">
       <SEOHead
         title="Commercial Flooring Services Vancouver | Ironclad Floors"
-        description="Explore commercial flooring services in Vancouver, BC. Concrete polishing, industrial epoxy, luxury vinyl & carpet tiles by Ironclad Commercial Floors."
+        description="Commercial flooring installation, epoxy, concrete polishing, vinyl and carpet tile in Vancouver, BC."
         canonicalPath="/services"
         breadcrumbs={[
           { name: 'Home', path: '/' },
@@ -72,7 +70,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigate, onOpenBo
 
       <div className="space-y-12 md:space-y-16">
         {/* Header Banner - Architectural Slate Header */}
-      <section className="relative bg-[#3B4D5D] text-white py-14 px-4 sm:px-6 lg:px-8 border-b border-[#2E3C48]">
+      <section className="ic-services-hero relative bg-[#3B4D5D] text-white py-14 px-4 sm:px-6 lg:px-8 border-b border-[#2E3C48]" style={{ backgroundImage: `linear-gradient(90deg, rgba(14, 32, 23, .96), rgba(21, 46, 33, .82) 55%, rgba(16, 34, 24, .45)), url(${SERVICES[0].heroImage})` }}>
         {/* Subtle blueprint grid overlay */}
         <div 
           className="absolute inset-0 opacity-[0.06] pointer-events-none"
@@ -82,16 +80,16 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigate, onOpenBo
           }}
         />
 
-        <div className="relative max-w-5xl mx-auto text-center space-y-4">
+        <div className="relative max-w-5xl mx-auto text-left space-y-4">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-white/10 text-[#88D2A8] text-xs font-mono font-bold uppercase tracking-wider border border-white/20">
             <Layers className="w-3.5 h-3.5 text-[#88D2A8]" />
-            <span>Commercial Flooring Catalogue</span>
+            <span>Our Services</span>
           </div>
           <h1 className="text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight">
-            Commercial Flooring Services in Vancouver, BC
+            Flooring solutions for busy workspaces
           </h1>
-          <p className="text-slate-200 text-xs sm:text-base leading-relaxed max-w-3xl mx-auto">
-            Ironclad Commercial Floors provides commercial flooring installation, repair, replacement, epoxy flooring, concrete polishing, vinyl and carpet tile for offices, warehouses, restaurants and retail in Vancouver, BC.
+          <p className="text-slate-100 text-sm sm:text-base leading-relaxed max-w-3xl">
+            Explore commercial flooring installation, repair and replacement across Metro Vancouver.
           </p>
 
           {/* Search & Filter Bar */}
@@ -100,14 +98,14 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigate, onOpenBo
               <Search className="w-4 h-4 text-slate-400 absolute left-4 top-3.5" />
               <input
                 type="text"
-                placeholder="Search commercial flooring services (e.g. epoxy, polished concrete, carpet tile, repair)..."
+                placeholder="Search flooring services..."
                 value={searchTerm}
                 onChange={e => setSearchTerm(e.target.value)}
                 className="w-full bg-white text-slate-900 border border-slate-300 pl-11 pr-4 py-3 text-xs sm:text-sm focus:ring-2 focus:ring-[#7D9A87] focus:outline-none placeholder:text-slate-400 shadow-sm"
               />
             </div>
 
-            <div className="flex flex-wrap gap-2 justify-center">
+            <div className="flex flex-wrap gap-2 justify-start">
               {categories.map(cat => (
                 <button
                   key={cat}
@@ -123,6 +121,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigate, onOpenBo
                 </button>
               ))}
             </div>
+            <a href="tel:6045403999" className="rounded-full bg-[#3B945E] px-5 py-3 text-sm font-bold text-white">Call now · (604) 540-3999</a>
           </div>
         </div>
       </section>
@@ -130,8 +129,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigate, onOpenBo
       {/* Services Grid */}
       <section className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="mb-6 text-xs font-mono text-slate-600 flex flex-wrap items-center justify-between gap-2 border-b border-slate-300 pb-3">
-          <span>Showing {filteredServices.length} of {SERVICES.length} Commercial Systems</span>
-          <span className="text-[#2A6E44] font-bold">10-Year Ironclad Warranty on All Installations</span>
+          <span>{filteredServices.length} flooring services</span>
         </div>
 
         {filteredServices.length === 0 ? (
@@ -171,10 +169,6 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigate, onOpenBo
                     <div className="absolute top-3 left-3 bg-[#1A2530]/90 backdrop-blur-sm border border-slate-600 px-2.5 py-1 text-[10px] font-mono font-bold text-white uppercase">
                       {service.category}
                     </div>
-                    <div className="absolute bottom-3 right-3 bg-white/95 text-[#2A6E44] border border-slate-300 px-2.5 py-1 text-[11px] font-mono font-bold shadow-sm flex items-center gap-1">
-                      <span className="w-1.5 h-1.5 bg-[#3B945E]" />
-                      <span>Free Site Survey</span>
-                    </div>
                   </div>
 
                   <div className="p-6 space-y-3">
@@ -185,32 +179,12 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigate, onOpenBo
                       {service.shortDesc}
                     </p>
 
-                    <div className="pt-2 space-y-1.5">
-                      {service.features.slice(0, 2).map((feat, idx) => (
-                        <div key={idx} className="flex items-center gap-1.5 text-xs text-slate-600 font-medium">
-                          <CheckCircle2 className="w-3.5 h-3.5 text-[#7D9A87] shrink-0" />
-                          <span className="truncate">{feat}</span>
-                        </div>
-                      ))}
-                    </div>
                   </div>
                 </div>
 
-                <div className="p-6 pt-0 border-t border-slate-100 mt-4 flex items-center justify-between">
-                  <button
-                    type="button"
-                    onClick={() => onNavigate('service-detail', service.slug)}
-                    className="text-xs font-bold uppercase tracking-wider text-slate-700 hover:text-[#3B945E] flex items-center gap-1 cursor-pointer"
-                  >
-                    <span>Full Technical Specs</span>
-                    <ArrowRight className="w-3.5 h-3.5 text-[#7D9A87]" />
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => onOpenBooking({ serviceId: service.id })}
-                    className="text-[11px] font-bold uppercase tracking-wider text-slate-700 hover:text-white hover:bg-[#3B4D5D] px-2.5 py-1 bg-slate-100 border border-slate-300 cursor-pointer transition-colors"
-                  >
-                    Book Survey
+                <div className="p-6 pt-0 mt-2">
+                  <button type="button" onClick={() => onNavigate('service-detail', service.slug)} className="text-sm font-bold text-[#2A6E44] flex items-center gap-2 cursor-pointer">
+                    <span>Explore service</span><ArrowRight className="w-4 h-4" />
                   </button>
                 </div>
               </motion.div>

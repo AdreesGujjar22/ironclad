@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import { MapPin, ChevronRight, Building, CheckCircle2, Star } from 'lucide-react';
+import { MapPin, ChevronRight, Star } from 'lucide-react';
 import { LOCATIONS } from '../data/locationsData';
 import { MapEmbed } from '../components/MapEmbed';
 import { SEOHead } from '../components/SEOHead';
@@ -8,7 +8,7 @@ import { Breadcrumbs } from '../components/Breadcrumbs';
 
 interface LocationsPageProps {
   onNavigate: (page: string, param?: string) => void;
-  onOpenBooking: () => void;
+
 }
 
 const sectionVariant = {
@@ -20,7 +20,7 @@ const sectionVariant = {
   }
 };
 
-export const LocationsPage: React.FC<LocationsPageProps> = ({ onNavigate, onOpenBooking }) => {
+export const LocationsPage: React.FC<LocationsPageProps> = ({ onNavigate }) => {
   const [filter, setFilter] = useState<'all' | 'cities' | 'neighborhoods'>('all');
 
   const cityIds = ['vancouver', 'burnaby', 'new-westminster', 'coquitlam', 'port-coquitlam', 'richmond', 'surrey', 'delta', 'langley', 'north-vancouver'];
@@ -51,17 +51,17 @@ export const LocationsPage: React.FC<LocationsPageProps> = ({ onNavigate, onOpen
         onNavigate={onNavigate}
       />
 
-      <div className="space-y-12 md:space-y-16">
+      <div className="space-y-7 md:space-y-9">
         {/* Hero Header - Split Editorial Layout */}
-      <section className="relative bg-[#1A2530] text-white">
-        <div className="max-w-[1600px] mx-auto grid grid-cols-1 lg:grid-cols-12 min-h-[380px]">
+      <section className="ic-locations-hero relative bg-[#1A2530] text-white">
+        <div className="ic-locations-hero-inner max-w-[1600px] mx-auto grid grid-cols-1 lg:grid-cols-12 min-h-[380px]">
           
           {/* Left Editorial Column */}
           <motion.div 
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }}
-            className="lg:col-span-7 bg-[#3B4D5D] p-8 sm:p-12 lg:p-14 flex flex-col justify-center space-y-6"
+            className="lg:col-span-7 bg-[#3B4D5D] p-8 sm:p-10 lg:p-12 flex flex-col justify-center space-y-4"
           >
             <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/10 text-[#88D2A8] text-xs font-mono font-bold uppercase tracking-wider border border-white/20 w-fit">
               <MapPin className="w-3.5 h-3.5 text-[#88D2A8]" />
@@ -69,44 +69,17 @@ export const LocationsPage: React.FC<LocationsPageProps> = ({ onNavigate, onOpen
             </div>
 
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-[1.1]">
-              Commercial Flooring Contractor Service Areas in Metro Vancouver, BC
+              Serving Metro Vancouver
             </h1>
 
-            <p className="text-slate-200 text-xs sm:text-sm leading-relaxed">
-              Ironclad Commercial Floors is a commercial flooring contractor serving Vancouver, Burnaby, Richmond, Surrey, Coquitlam, Delta, Langley, North Vancouver and New Westminster, BC, with crews dispatched from 783 E 60th Ave, Vancouver.
-            </p>
+            <p className="text-slate-200 text-base leading-relaxed">Find commercial flooring service in your area.</p>
+            <a href="tel:6045403999" className="rounded-full bg-[#3B945E] px-5 py-3 text-sm font-bold text-white">Call now · (604) 540-3999</a>
 
-            <div className="pt-2 flex flex-wrap gap-4 text-xs font-mono">
-              <div className="p-3 bg-white/5 border border-white/10">
-                <span className="text-slate-300 block">REGIONAL COVERAGE</span>
-                <span className="font-bold text-white">{LOCATIONS.length} Service Areas</span>
-              </div>
-              <div className="p-3 bg-white/5 border border-white/10">
-                <span className="text-slate-300 block">HQ PHYSICAL ADDRESS</span>
-                <span className="font-bold text-white">783 E 60th Ave, Vancouver, BC, Canada</span>
-              </div>
-            </div>
-          </motion.div>
 
-          {/* Right Visual / Map Graphic Block */}
-          <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.7 }}
-            className="lg:col-span-5 bg-[#1A2530] p-8 sm:p-12 flex flex-col justify-center border-t lg:border-t-0 lg:border-l border-white/10 space-y-4"
-          >
-            <div className="p-6 bg-white/5 border border-white/10 space-y-3">
-              <span className="text-xs font-mono uppercase font-bold text-[#88D2A8] tracking-wider block">
-                METRO VANCOUVER COVERAGE
-              </span>
-              <h3 className="text-xl font-bold text-white">
-                Commercial Flooring Across Metro Vancouver
-              </h3>
-              <p className="text-xs text-slate-300 leading-relaxed">
-                Choose your city or neighbourhood to see local commercial flooring services, FAQs and how to book a free estimate.
-              </p>
-            </div>
           </motion.div>
+          <div className="ic-locations-hero-image lg:col-span-5 relative min-h-[240px]">
+            <img src={LOCATIONS[0].image} alt="Commercial flooring service area in Metro Vancouver" className="absolute inset-0 h-full w-full object-cover" fetchPriority="high" />
+          </div>
         </div>
       </section>
 
@@ -115,10 +88,10 @@ export const LocationsPage: React.FC<LocationsPageProps> = ({ onNavigate, onOpen
         <div className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-300 pb-4">
           <div>
             <h2 className="text-xl font-black text-slate-900 tracking-tight">
-              Service Areas & Specific Neighborhood Landing Hubs
+              Browse service areas
             </h2>
             <p className="text-xs text-slate-600">
-              Select a city hub or specific commercial neighborhood for local project histories and dispatch timelines.
+              Choose a city to view local service details.
             </p>
           </div>
 
@@ -143,7 +116,7 @@ export const LocationsPage: React.FC<LocationsPageProps> = ({ onNavigate, onOpen
                   : 'bg-white text-slate-700 hover:bg-slate-50 border-slate-300'
               }`}
             >
-              Regional Cities (5)
+              Regional Cities ({cityIds.length})
             </button>
             <button
               type="button"
@@ -192,9 +165,7 @@ export const LocationsPage: React.FC<LocationsPageProps> = ({ onNavigate, onOpen
                       <span>Main HQ Dispatch</span>
                     </div>
                   )}
-                  <div className="absolute bottom-3 right-3 bg-[#3B4D5D] text-[#88D2A8] text-[11px] font-mono font-bold px-2 py-0.5 border border-white/20">
-                    {loc.completedProjectsCount}+ Projects
-                  </div>
+
                 </div>
 
                 <div className="p-6 space-y-3">
@@ -205,26 +176,12 @@ export const LocationsPage: React.FC<LocationsPageProps> = ({ onNavigate, onOpen
                     {loc.description}
                   </p>
 
-                  <div className="pt-2">
-                    <span className="text-[10px] uppercase font-mono text-slate-500 font-bold block mb-1">
-                      Key Coverage Neighborhoods:
-                    </span>
-                    <div className="flex flex-wrap gap-1">
-                      {loc.coverageZones.slice(0, 3).map((zone, idx) => (
-                        <span key={idx} className="text-[10px] px-2 py-0.5 bg-[#F8F9FA] text-slate-700 font-mono border border-slate-300">
-                          {zone}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
+
                 </div>
               </div>
 
-              <div className="p-6 pt-3 border-t border-slate-200 flex items-center justify-between text-xs text-slate-500">
-                <span className="font-mono text-[11px]">Response: {loc.averageResponseTime}</span>
-                <span className="font-bold text-[#3B4D5D] group-hover:text-[#7D9A87] flex items-center gap-1 uppercase tracking-wider text-[11px]">
-                  View Area Page <ChevronRight className="w-3.5 h-3.5" />
-                </span>
+              <div className="p-5 pt-0 text-sm font-semibold text-[#3B4D5D] group-hover:text-[#7D9A87] flex items-center gap-1">
+                View area <ChevronRight className="w-4 h-4" />
               </div>
             </motion.div>
           ))}
@@ -233,10 +190,7 @@ export const LocationsPage: React.FC<LocationsPageProps> = ({ onNavigate, onOpen
 
       {/* Map Embed */}
       <section className="max-w-6xl mx-auto px-4 sm:px-6">
-        <MapEmbed
-          title="Regional Operations & Dispatch Hub"
-          subtitle="Crews dispatch from 783 E 60th Ave, Vancouver, BC V5X 2A5. Call (604) 540-3999."
-        />
+        <MapEmbed title="Metro Vancouver" subtitle="Our local service area." className="ic-locations-map" />
       </section>
       </div>
     </div>

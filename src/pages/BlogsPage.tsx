@@ -41,7 +41,7 @@ export const BlogsPage: React.FC<BlogsPageProps> = ({ onNavigate }) => {
 
       <div className="space-y-12 md:space-y-16">
         {/* Hero Header - Split Editorial Layout */}
-      <section className="relative bg-[#1A2530] text-white">
+      <section className="ic-blogs-hero relative bg-[#1A2530] text-white" style={{ backgroundImage: `linear-gradient(90deg, rgba(9, 26, 16, .94), rgba(12, 34, 21, .78) 58%, rgba(12, 31, 19, .5)), url(${BLOGS[0].image})` }}>
         <div className="max-w-[1600px] mx-auto grid grid-cols-1 lg:grid-cols-12 min-h-[380px]">
           
           {/* Left Editorial Column */}
@@ -49,7 +49,7 @@ export const BlogsPage: React.FC<BlogsPageProps> = ({ onNavigate }) => {
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }}
-            className="lg:col-span-7 bg-[#3B4D5D] p-8 sm:p-12 lg:p-14 flex flex-col justify-center space-y-6"
+            className="lg:col-span-7 p-8 sm:p-12 lg:p-14 flex flex-col justify-center space-y-6"
           >
             <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/10 text-[#88D2A8] text-xs font-mono font-bold uppercase tracking-wider border border-white/20 w-fit">
               <BookOpen className="w-3.5 h-3.5 text-[#88D2A8]" />
@@ -70,9 +70,9 @@ export const BlogsPage: React.FC<BlogsPageProps> = ({ onNavigate }) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.7 }}
-            className="lg:col-span-5 bg-[#1A2530] p-8 sm:p-12 flex flex-col justify-center border-t lg:border-t-0 lg:border-l border-white/10 space-y-4"
+            className="lg:col-span-5 p-8 sm:p-12 flex flex-col justify-center border-t lg:border-t-0 lg:border-l border-white/20 space-y-4"
           >
-            <div className="p-6 bg-white/5 border border-white/10 space-y-3">
+            <div className="p-6 rounded-2xl bg-[#10251a]/70 border border-white/25 shadow-xl backdrop-blur-md space-y-3">
               <span className="text-xs font-mono uppercase font-bold text-[#88D2A8] tracking-wider block">
                 ASTM & ICRI STANDARDS
               </span>

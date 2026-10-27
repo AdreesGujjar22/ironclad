@@ -1,21 +1,21 @@
 import React, { useState } from 'react';
-import { Calendar, Phone, ChevronDown, ChevronUp, ArrowRight, MapPin } from 'lucide-react';
+import { Phone, ChevronDown, ChevronUp, ArrowRight } from 'lucide-react';
 import { LOCATIONS } from '../data/locationsData';
 import { SERVICES } from '../data/servicesData';
 import { getLocationSeo, pageH1 } from '../data/seoContent';
 import { MapEmbed } from '../components/MapEmbed';
 import { Breadcrumbs } from '../components/Breadcrumbs';
+import { ImageHero } from '../components/ImageHero';
 
 interface LocationDetailPageProps {
   slug: string;
   onNavigate: (page: string, param?: string) => void;
-  onOpenBooking: (initial?: any) => void;
+
 }
 
 export const LocationDetailPage: React.FC<LocationDetailPageProps> = ({
   slug,
   onNavigate,
-  onOpenBooking,
 }) => {
   const location = LOCATIONS.find((l) => l.slug === slug) || LOCATIONS[0];
   const seo = getLocationSeo(location.slug) || getLocationSeo(LOCATIONS[0].slug)!;
@@ -31,59 +31,40 @@ export const LocationDetailPage: React.FC<LocationDetailPageProps> = ({
         onNavigate={onNavigate}
       />
 
-      {/* Hero */}
-      <section className="bg-[#1A2530] text-white">
-        <div className="max-w-[1600px] mx-auto grid grid-cols-1 lg:grid-cols-12 min-h-[420px]">
-          <div className="lg:col-span-7 bg-[#3B4D5D] p-6 sm:p-10 lg:p-14 flex flex-col justify-center space-y-5">
-            <span className="inline-flex w-fit items-center gap-1.5 px-3 py-1 bg-white/10 text-[#88D2A8] text-xs font-mono font-bold uppercase tracking-wider border border-white/20">
-              <MapPin className="w-3.5 h-3.5" />
-              {seo.shortArea}
-            </span>
-            <h1 className="text-2xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-[1.15]">
-              {pageH1(seo)}
-            </h1>
-            <p className="text-slate-200 text-sm sm:text-base leading-relaxed">{seo.heroDescription}</p>
-            <div className="pt-2 flex flex-col sm:flex-row gap-3">
-              <button
-                type="button"
-                onClick={() => onOpenBooking()}
-                className="flex items-center justify-center gap-2 px-6 py-3.5 bg-[#3B945E] hover:bg-[#318051] text-white font-bold text-xs uppercase font-mono tracking-wider border border-white/20 cursor-pointer"
-              >
-                <Calendar className="w-4 h-4" />
-                <span>Get a Free Estimate</span>
-              </button>
-              <a
-                href="tel:6045403999"
-                className="flex items-center justify-center gap-2 px-6 py-3.5 bg-[#1A2530] hover:bg-[#243342] text-white border border-slate-600 font-mono font-bold text-xs uppercase tracking-wider"
-              >
-                <Phone className="w-4 h-4 text-[#88D2A8]" />
-                <span>Call (604) 540-3999</span>
-              </a>
-            </div>
-          </div>
-          <div className="lg:col-span-5 relative min-h-[240px]">
-            <img
-              src={location.image}
-              alt={`Commercial flooring contractor in ${seo.area} - Ironclad Commercial Floors`}
-              className="absolute inset-0 w-full h-full object-cover"
-              loading="eager"
-            />
-          </div>
-        </div>
-      </section>
+      <ImageHero
+        image={location.image}
+        imageAlt={`Commercial flooring contractor in ${seo.area} - Ironclad Commercial Floors`}
+        eyebrow={`Commercial flooring · ${seo.area}`}
+        title={pageH1(seo)}
+        description={seo.heroDescription}
+        actions={
+          <>
+            <a href="tel:6045403999" className="ic-pf-button ic-pf-button-primary"><Phone /> Call now</a>
+            <button type="button" onClick={() => onNavigate('services')} className="ic-pf-button ic-pf-button-outline">Our services <ArrowRight /></button>
+          </>
+        }
+        aside={
+          <aside className="ic-pf-quote-card">
+            <p className="ic-pf-card-kicker">Serving {seo.area}</p>
+            <h2>Flooring for your workspace.</h2>
+            <p>Discuss your project and schedule with our local team.</p>
+            <button type="button" onClick={() => onNavigate('contact')} className="ic-pf-button ic-pf-button-primary">Contact us <ArrowRight /></button>
+          </aside>
+        }
+      />
 
       {/* Description */}
       <section className="max-w-4xl mx-auto px-4 sm:px-6 pt-12 md:pt-16">
         <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mb-5">
           {seo.sectionHeading}
         </h2>
-        {seo.paragraphs.map((p, i) => (
+        {seo.paragraphs.slice(0, 2).map((p, i) => (
           <p key={i} className="text-slate-700 text-sm sm:text-base leading-relaxed mb-4">
             {p}
           </p>
         ))}
         <div className="flex flex-wrap gap-2 pt-3">
-          {SERVICES.slice(0, 6).map((s) => (
+          {SERVICES.slice(0, 3).map((s) => (
             <button
               key={s.slug}
               type="button"
@@ -103,7 +84,7 @@ export const LocationDetailPage: React.FC<LocationDetailPageProps> = ({
           {seo.faqHeading}
         </h2>
         <div className="space-y-2.5">
-          {seo.faqs.map((faq, idx) => {
+          {seo.faqs.slice(0, 3).map((faq, idx) => {
             const open = openFaq === idx;
             return (
               <div key={faq.question} className="bg-white border border-slate-200">
@@ -125,10 +106,7 @@ export const LocationDetailPage: React.FC<LocationDetailPageProps> = ({
 
       {/* Map */}
       <section className="max-w-4xl mx-auto px-4 sm:px-6 pt-12">
-        <MapEmbed
-          title="Ironclad Commercial Floors, Vancouver, BC"
-          subtitle={`Crews dispatch from our Vancouver base to ${location.name}.`}
-        />
+        <MapEmbed title={`${location.name} service area`} subtitle="Local commercial flooring service." className="ic-locations-map" />
       </section>
     </div>
   );

@@ -56,8 +56,8 @@ function ServiceRoute() {
   const { slug } = Route.useParams();
   return (
     <SiteLayout>
-      {({ onNavigate, onOpenBooking }) => (
-        <ServiceDetailPage slug={slug} onNavigate={onNavigate} onOpenBooking={onOpenBooking} />
+      {({ onNavigate }) => (
+        <ServiceDetailPage slug={slug} onNavigate={onNavigate} />
       )}
     </SiteLayout>
   );

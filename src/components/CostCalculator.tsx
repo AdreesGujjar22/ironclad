@@ -1,13 +1,9 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import { Calculator, ShieldCheck, ArrowRight, CheckCircle2, Building, Layers, ChevronDown, Wrench, Clock, FileText } from 'lucide-react';
+import { Calculator, ShieldCheck, CheckCircle2, Building, Layers, ChevronDown, Wrench, Clock, FileText, Phone } from 'lucide-react';
 import { SERVICES } from '../data/servicesData';
 
-interface CostCalculatorProps {
-  onOpenBooking?: (details?: { serviceId: string; sqft: string; facility: string }) => void;
-}
-
-export const CostCalculator: React.FC<CostCalculatorProps> = ({ onOpenBooking }) => {
+export const CostCalculator: React.FC = () => {
   const [sqft, setSqft] = useState<number>(5000);
   const [selectedService, setSelectedService] = useState<string>('concrete-epoxy-floor-installation');
   const [subfloorState, setSubfloorState] = useState<'clean' | 'minor-crack' | 'damaged'>('minor-crack');
@@ -33,15 +29,6 @@ export const CostCalculator: React.FC<CostCalculatorProps> = ({ onOpenBooking })
     }
   };
 
-  const handleTransferToQuote = () => {
-    if (onOpenBooking) {
-      onOpenBooking({
-        serviceId: selectedService,
-        sqft: `${sqft.toLocaleString()} sq ft`,
-        facility: `${selectedServiceObj.name} (${subfloorState === 'clean' ? 'Level Subfloor' : 'Subfloor Prep Required'})`
-      });
-    }
-  };
 
   return (
     <motion.div 
@@ -247,16 +234,10 @@ export const CostCalculator: React.FC<CostCalculatorProps> = ({ onOpenBooking })
             </div>
 
             <div className="mt-6 pt-4 border-t border-white/20 space-y-2.5">
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                type="button"
-                onClick={handleTransferToQuote}
-                className="w-full py-3.5 px-4 bg-[#7D9A87] hover:bg-[#6A8874] text-white font-bold text-xs uppercase tracking-wider transition-colors shadow-md flex items-center justify-center gap-2 cursor-pointer border border-white/20"
-              >
-                <span>Request Free On-Site Measurement & Quote</span>
-                <ArrowRight className="w-4 h-4" />
-              </motion.button>
+              <a href="tel:6045403999" className="w-full py-3.5 px-4 bg-[#7D9A87] hover:bg-[#6A8874] text-white font-bold text-xs uppercase tracking-wider transition-colors shadow-md flex items-center justify-center gap-2 border border-white/20">
+                <Phone className="w-4 h-4" />
+                <span>Call now · (604) 540-3999</span>
+              </a>
               <p className="text-xs text-center text-slate-300">
                 Call Direct: <a href="tel:6045403999" className="text-white font-bold underline hover:text-[#88D2A8]">(604) 540-3999</a>
               </p>

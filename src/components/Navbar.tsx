@@ -2,23 +2,19 @@ import React, { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { 
-  Phone, 
-  MapPin, 
-  Clock, 
+  Phone,
   Mail, 
   ChevronDown, 
   ChevronRight,
   Menu, 
-  X, 
-  Calendar,
+  X,
   Layers,
   ArrowRight,
   Home,
   Info,
   FolderKanban,
   BookOpen,
-  MapPinned,
-  Star
+  MapPinned
 } from 'lucide-react';
 import { SERVICES } from '../data/servicesData';
 import { LOCATIONS } from '../data/locationsData';
@@ -26,16 +22,14 @@ import { LOCATIONS } from '../data/locationsData';
 interface NavbarProps {
   currentPage: string;
   onNavigate: (page: string, param?: string) => void;
-  onOpenBooking: () => void;
+
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
   currentPage,
-  onNavigate,
-  onOpenBooking
+  onNavigate
 }) => {
   const [mounted, setMounted] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
   const [locationsDropdownOpen, setLocationsDropdownOpen] = useState(false);
@@ -46,16 +40,6 @@ export const Navbar: React.FC<NavbarProps> = ({
 
   useEffect(() => {
     setMounted(true);
-    const handleScroll = () => {
-      if (window.scrollY > 30) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
-    handleScroll();
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   // Prevent background scroll when mobile drawer is open
@@ -90,78 +74,16 @@ export const Navbar: React.FC<NavbarProps> = ({
     setLocationsDropdownOpen(false);
   };
 
-  const isTransparent = !isScrolled && currentPage === 'home';
+  const isDarkHeader = true;
 
   return (
-    <header className={`fixed top-0 z-40 w-full transition-all duration-300 ${
-      isTransparent 
-        ? 'bg-gradient-to-b from-black/60 via-black/25 to-transparent text-white border-b border-white/10 shadow-none' 
-        : 'bg-white/95 backdrop-blur-md border-b border-slate-200 text-slate-900 shadow-sm'
-    }`}>
-      {/* Top Info Bar */}
-      <div className={`text-xs py-2 px-4 sm:px-6 w-full max-w-full overflow-hidden transition-colors duration-300 ${
-        isTransparent
-          ? 'bg-black/40 backdrop-blur-xs text-[#DCF2E4] border-b border-white/10'
-          : 'bg-[#0B2416] text-[#DCF2E4] border-b border-[#1B412B]'
-      }`}>
-        <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2 sm:gap-3">
-          <div className="flex items-center flex-wrap gap-3 sm:gap-6 text-emerald-100/80 min-w-0">
-            <a 
-              href="tel:6045403999" 
-              className="flex items-center gap-1.5 text-white font-bold hover:text-[#88D2A8] transition-colors shrink-0"
-            >
-              <Phone className="w-3.5 h-3.5 text-[#57BC83]" />
-              <span>(604) 540-3999</span>
-            </a>
-
-            <address 
-              className="not-italic hidden lg:flex items-center gap-1.5 text-emerald-100/90"
-              itemScope 
-              itemType="https://schema.org/PostalAddress"
-            >
-              <MapPin className="w-3.5 h-3.5 text-[#57BC83] shrink-0" />
-              <span>
-                <span itemProp="streetAddress">783 E 60th Ave</span>,{' '}
-                <span itemProp="addressLocality">Vancouver</span>,{' '}
-                <span itemProp="addressRegion">BC</span>{' '}
-                <span itemProp="postalCode">V5X 2A5</span>,{' '}
-                <span itemProp="addressCountry">Canada</span>
-              </span>
-            </address>
-
-            <div className="hidden sm:flex items-center gap-1.5 text-emerald-100/80">
-              <Clock className="w-3.5 h-3.5 text-[#88D2A8]" />
-              <span>Overnight & Weekend Shifts Available</span>
-            </div>
-          </div>
-
-          <div className="flex items-center gap-3 sm:gap-4 text-emerald-100/80 min-w-0">
-            <a 
-              href="https://www.google.com/maps?q=Ironclad+Commercial+Floors+783+E+60th+Ave+Vancouver+BC+V5X+2A5"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hidden md:inline-flex items-center gap-1.5 text-xs text-[#88D2A8] hover:text-white font-medium transition-colors"
-              title="Google Business Profile & Reviews"
-            >
-              <span className="bg-white/10 px-2 py-0.5 rounded border border-white/20 text-[10px] font-bold text-white flex items-center gap-1">
-                <Star className="w-3 h-3 text-amber-400 fill-amber-400" />
-                <span>Google Business Profile</span>
-              </span>
-            </a>
-
-            <a 
-              href="mailto:info@ironcladcommercialfloors.ca" 
-              className="flex items-center gap-1.5 hover:text-white transition-colors truncate text-xs"
-            >
-              <Mail className="w-3.5 h-3.5 text-[#88D2A8] shrink-0" />
-              <span className="truncate">info@ironcladcommercialfloors.ca</span>
-            </a>
-          </div>
-        </div>
+    <header className="ic-site-navbar fixed top-0 z-40 w-full">
+      <div className="ic-navbar-meta">
+        <a href="tel:6045403999"><span>Give us a call</span> (604) 540-3999</a>
       </div>
 
       {/* Main Navigation Bar */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-2.5 sm:py-3 flex items-center justify-between">
+      <div className="ic-navbar-inner max-w-7xl mx-auto px-4 sm:px-6 py-2.5 sm:py-3 flex items-center justify-between">
         {/* Brand Logo with Image */}
         <motion.button
           whileHover={{ scale: 1.02 }}
@@ -171,7 +93,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           aria-label="Ironclad Commercial Floors Home"
         >
           <div className={`relative h-11 sm:h-12 w-auto flex items-center justify-center overflow-hidden rounded-lg p-0.5 shadow-sm transition-all ${
-            isTransparent
+            isDarkHeader
               ? 'border border-white/30 bg-white/95'
               : 'border border-slate-200/80 bg-white group-hover:border-[#3B945E]'
           }`}>
@@ -179,7 +101,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               loading="eager"
               fetchPriority="high"
               decoding="async"
-              src="/IRONCLAD-COMMERCIAL-FLOORS.webp" 
+              src="/IRONCLAD-COMMERCIAL-FLOORS.png" 
               alt="Ironclad Commercial Floors Logo" 
               className="h-10 sm:h-11 w-auto object-contain max-w-[130px] sm:max-w-[150px]"
               referrerPolicy="no-referrer"
@@ -187,12 +109,12 @@ export const Navbar: React.FC<NavbarProps> = ({
           </div>
           <div>
             <span className={`text-base sm:text-lg font-black tracking-tight block uppercase font-mono leading-tight transition-colors ${
-              isTransparent ? 'text-white drop-shadow-sm' : 'text-slate-900'
+              isDarkHeader ? 'text-white drop-shadow-sm' : 'text-slate-900'
             }`}>
               IRONCLAD
             </span>
             <span className={`text-[9px] sm:text-[11px] font-extrabold tracking-widest uppercase block transition-colors ${
-              isTransparent ? 'text-[#88D2A8]' : 'text-[#3B945E]'
+              isDarkHeader ? 'text-[#88D2A8]' : 'text-[#3B945E]'
             }`}>
               COMMERCIAL FLOORS
             </span>
@@ -205,13 +127,13 @@ export const Navbar: React.FC<NavbarProps> = ({
             onClick={() => handleNavClick('home')}
             className={`transition-all py-1 cursor-pointer relative ${
               currentPage === 'home' 
-                ? isTransparent ? 'text-[#88D2A8] font-bold' : 'text-[#3B945E] font-bold' 
-                : isTransparent ? 'text-white/90 hover:text-white' : 'text-slate-600 hover:text-slate-900'
+                ? isDarkHeader ? 'text-[#88D2A8] font-bold' : 'text-[#3B945E] font-bold' 
+                : isDarkHeader ? 'text-white/90 hover:text-white' : 'text-slate-600 hover:text-slate-900'
             }`}
           >
             <span>Home</span>
             {currentPage === 'home' && (
-              <motion.div layoutId="navIndicator" className={`absolute -bottom-1 left-0 right-0 h-0.5 ${isTransparent ? 'bg-[#88D2A8]' : 'bg-[#3B945E]'}`} />
+              <motion.div layoutId="navIndicator" className={`absolute -bottom-1 left-0 right-0 h-0.5 ${isDarkHeader ? 'bg-[#88D2A8]' : 'bg-[#3B945E]'}`} />
             )}
           </button>
 
@@ -219,13 +141,13 @@ export const Navbar: React.FC<NavbarProps> = ({
             onClick={() => handleNavClick('about')}
             className={`transition-all py-1 cursor-pointer relative ${
               currentPage === 'about' || currentPage.startsWith('about-') 
-                ? isTransparent ? 'text-[#88D2A8] font-bold' : 'text-[#3B945E] font-bold' 
-                : isTransparent ? 'text-white/90 hover:text-white' : 'text-slate-600 hover:text-slate-900'
+                ? isDarkHeader ? 'text-[#88D2A8] font-bold' : 'text-[#3B945E] font-bold' 
+                : isDarkHeader ? 'text-white/90 hover:text-white' : 'text-slate-600 hover:text-slate-900'
             }`}
           >
             <span>About Us</span>
             {(currentPage === 'about' || currentPage.startsWith('about-')) && (
-              <motion.div layoutId="navIndicator" className={`absolute -bottom-1 left-0 right-0 h-0.5 ${isTransparent ? 'bg-[#88D2A8]' : 'bg-[#3B945E]'}`} />
+              <motion.div layoutId="navIndicator" className={`absolute -bottom-1 left-0 right-0 h-0.5 ${isDarkHeader ? 'bg-[#88D2A8]' : 'bg-[#3B945E]'}`} />
             )}
           </button>
 
@@ -239,14 +161,14 @@ export const Navbar: React.FC<NavbarProps> = ({
               onClick={() => handleNavClick('services')}
               className={`flex items-center gap-1.5 transition-all py-1 cursor-pointer relative ${
                 currentPage.startsWith('service') || currentPage.includes('flooring') 
-                  ? isTransparent ? 'text-[#88D2A8] font-bold' : 'text-[#3B945E] font-bold' 
-                  : isTransparent ? 'text-white/90 hover:text-white' : 'text-slate-600 hover:text-slate-900'
+                  ? isDarkHeader ? 'text-[#88D2A8] font-bold' : 'text-[#3B945E] font-bold' 
+                  : isDarkHeader ? 'text-white/90 hover:text-white' : 'text-slate-600 hover:text-slate-900'
               }`}
             >
               <span>Services</span>
-              <ChevronDown className={`w-4 h-4 ${isTransparent ? 'text-white/70' : 'text-slate-400'}`} />
+              <ChevronDown className={`w-4 h-4 ${isDarkHeader ? 'text-white/70' : 'text-slate-400'}`} />
               {(currentPage.startsWith('service') || currentPage.includes('flooring')) && (
-                <motion.div layoutId="navIndicator" className={`absolute -bottom-1 left-0 right-0 h-0.5 ${isTransparent ? 'bg-[#88D2A8]' : 'bg-[#3B945E]'}`} />
+                <motion.div layoutId="navIndicator" className={`absolute -bottom-1 left-0 right-0 h-0.5 ${isDarkHeader ? 'bg-[#88D2A8]' : 'bg-[#3B945E]'}`} />
               )}
             </button>
 
@@ -258,7 +180,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: 8, scale: 0.98 }}
                   transition={{ duration: 0.18, ease: 'easeOut' }}
-                  className="absolute top-full left-1/2 -translate-x-1/2 w-[940px] xl:w-[980px] max-w-[95vw] bg-white border border-slate-200 rounded-2xl shadow-2xl p-6 mt-1.5 z-50 text-slate-800"
+                  className="ic-services-menu absolute top-full left-1/2 -translate-x-1/2 w-[940px] xl:w-[980px] max-w-[95vw] bg-white border border-slate-200 rounded-2xl shadow-2xl p-6 mt-1.5 z-50 text-slate-800"
                 >
                   {/* Category Columns Grid */}
                   <div className="grid grid-cols-4 gap-6">
@@ -417,7 +339,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                       onClick={() => handleNavClick('services')}
                       className="font-bold text-[#3B945E] hover:text-[#2A6E44] flex items-center gap-1.5 cursor-pointer group"
                     >
-                      <span>Explore All 40+ Commercial Flooring Services Catalogue</span>
+                      <span>Explore all flooring services</span>
                       <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </button>
 
@@ -426,12 +348,12 @@ export const Navbar: React.FC<NavbarProps> = ({
                         <span className="w-2 h-2 rounded-full bg-[#3B945E]" />
                         10-Year Ironclad Warranty
                       </span>
-                      <button
-                        onClick={onOpenBooking}
-                        className="px-3 py-1.5 bg-slate-900 hover:bg-[#3B945E] text-white rounded-lg font-bold font-mono text-[11px] uppercase tracking-wider transition-colors cursor-pointer"
+                      <a
+                        href="tel:6045403999"
+                        className="px-3 py-1.5 bg-slate-900 hover:bg-[#3B945E] text-white rounded-lg font-bold font-mono text-[11px] uppercase tracking-wider transition-colors"
                       >
-                        Book Site Survey
-                      </button>
+                        Call Now
+                      </a>
                     </div>
                   </div>
                 </motion.div>
@@ -443,13 +365,13 @@ export const Navbar: React.FC<NavbarProps> = ({
             onClick={() => handleNavClick('projects')}
             className={`transition-all py-1 cursor-pointer relative ${
               currentPage === 'projects' 
-                ? isTransparent ? 'text-[#88D2A8] font-bold' : 'text-[#3B945E] font-bold' 
-                : isTransparent ? 'text-white/90 hover:text-white' : 'text-slate-600 hover:text-slate-900'
+                ? isDarkHeader ? 'text-[#88D2A8] font-bold' : 'text-[#3B945E] font-bold' 
+                : isDarkHeader ? 'text-white/90 hover:text-white' : 'text-slate-600 hover:text-slate-900'
             }`}
           >
             <span>Projects</span>
             {currentPage === 'projects' && (
-              <motion.div layoutId="navIndicator" className={`absolute -bottom-1 left-0 right-0 h-0.5 ${isTransparent ? 'bg-[#88D2A8]' : 'bg-[#3B945E]'}`} />
+              <motion.div layoutId="navIndicator" className={`absolute -bottom-1 left-0 right-0 h-0.5 ${isDarkHeader ? 'bg-[#88D2A8]' : 'bg-[#3B945E]'}`} />
             )}
           </button>
 
@@ -457,13 +379,13 @@ export const Navbar: React.FC<NavbarProps> = ({
             onClick={() => handleNavClick('blogs')}
             className={`transition-all py-1 cursor-pointer relative ${
               currentPage.startsWith('blog') 
-                ? isTransparent ? 'text-[#88D2A8] font-bold' : 'text-[#3B945E] font-bold' 
-                : isTransparent ? 'text-white/90 hover:text-white' : 'text-slate-600 hover:text-slate-900'
+                ? isDarkHeader ? 'text-[#88D2A8] font-bold' : 'text-[#3B945E] font-bold' 
+                : isDarkHeader ? 'text-white/90 hover:text-white' : 'text-slate-600 hover:text-slate-900'
             }`}
           >
             <span>Blogs</span>
             {currentPage.startsWith('blog') && (
-              <motion.div layoutId="navIndicator" className={`absolute -bottom-1 left-0 right-0 h-0.5 ${isTransparent ? 'bg-[#88D2A8]' : 'bg-[#3B945E]'}`} />
+              <motion.div layoutId="navIndicator" className={`absolute -bottom-1 left-0 right-0 h-0.5 ${isDarkHeader ? 'bg-[#88D2A8]' : 'bg-[#3B945E]'}`} />
             )}
           </button>
 
@@ -477,14 +399,14 @@ export const Navbar: React.FC<NavbarProps> = ({
               onClick={() => handleNavClick('locations')}
               className={`flex items-center gap-1.5 transition-all py-1 cursor-pointer relative ${
                 currentPage.startsWith('location') 
-                  ? isTransparent ? 'text-[#88D2A8] font-bold' : 'text-[#3B945E] font-bold' 
-                  : isTransparent ? 'text-white/90 hover:text-white' : 'text-slate-600 hover:text-slate-900'
+                  ? isDarkHeader ? 'text-[#88D2A8] font-bold' : 'text-[#3B945E] font-bold' 
+                  : isDarkHeader ? 'text-white/90 hover:text-white' : 'text-slate-600 hover:text-slate-900'
               }`}
             >
               <span>Service Areas</span>
-              <ChevronDown className={`w-4 h-4 ${isTransparent ? 'text-white/70' : 'text-slate-400'}`} />
+              <ChevronDown className={`w-4 h-4 ${isDarkHeader ? 'text-white/70' : 'text-slate-400'}`} />
               {currentPage.startsWith('location') && (
-                <motion.div layoutId="navIndicator" className={`absolute -bottom-1 left-0 right-0 h-0.5 ${isTransparent ? 'bg-[#88D2A8]' : 'bg-[#3B945E]'}`} />
+                <motion.div layoutId="navIndicator" className={`absolute -bottom-1 left-0 right-0 h-0.5 ${isDarkHeader ? 'bg-[#88D2A8]' : 'bg-[#3B945E]'}`} />
               )}
             </button>
 
@@ -527,25 +449,29 @@ export const Navbar: React.FC<NavbarProps> = ({
             onClick={() => handleNavClick('contact')}
             className={`transition-all py-1 cursor-pointer relative ${
               currentPage.startsWith('contact') 
-                ? isTransparent ? 'text-[#88D2A8] font-bold' : 'text-[#3B945E] font-bold' 
-                : isTransparent ? 'text-white/90 hover:text-white' : 'text-slate-600 hover:text-slate-900'
+                ? isDarkHeader ? 'text-[#88D2A8] font-bold' : 'text-[#3B945E] font-bold' 
+                : isDarkHeader ? 'text-white/90 hover:text-white' : 'text-slate-600 hover:text-slate-900'
             }`}
           >
             <span>Contact Us</span>
             {currentPage.startsWith('contact') && (
-              <motion.div layoutId="navIndicator" className={`absolute -bottom-1 left-0 right-0 h-0.5 ${isTransparent ? 'bg-[#88D2A8]' : 'bg-[#3B945E]'}`} />
+              <motion.div layoutId="navIndicator" className={`absolute -bottom-1 left-0 right-0 h-0.5 ${isDarkHeader ? 'bg-[#88D2A8]' : 'bg-[#3B945E]'}`} />
             )}
           </button>
         </nav>
 
+        <div className="ic-nav-actions hidden lg:flex items-center gap-3">
+          <a href="tel:6045403999" className="ic-nav-start"><Phone /> Let’s Get Started</a>
+        </div>
+
         {/* Mobile Drawer Hamburger Trigger */}
-        <div className="flex items-center lg:hidden">
+        <div className="ic-mobile-trigger flex items-center lg:hidden">
           <button
             onClick={() => setMobileMenuOpen(true)}
             aria-label="Open Navigation Menu"
             aria-expanded={mobileMenuOpen}
-            className={`p-2 transition-all cursor-pointer flex items-center justify-center rounded-sm active:scale-95 ${
-              isTransparent 
+            className={`ic-mobile-menu-button p-2 transition-all cursor-pointer flex items-center justify-center rounded-sm active:scale-95 ${
+              isDarkHeader 
                 ? 'bg-black/40 text-white border border-white/30 hover:bg-black/60' 
                 : 'bg-[#1A2530] text-white border border-slate-600 hover:bg-[#243342]'
             }`}
@@ -586,7 +512,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                       <img 
                         loading="lazy"
                         decoding="async"
-                        src="/IRONCLAD-COMMERCIAL-FLOORS.webp" 
+                        src="/IRONCLAD-COMMERCIAL-FLOORS.png" 
                         alt="Ironclad Commercial Floors Logo" 
                         className="h-full w-auto object-contain"
                         referrerPolicy="no-referrer"

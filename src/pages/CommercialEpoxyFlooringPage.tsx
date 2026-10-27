@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { 
   Phone, 
-  Calendar, 
+
   ArrowRight, 
   CheckCircle2, 
   ShieldCheck, 
@@ -19,7 +19,7 @@ import { flooringImages } from '../assets/flooringImages';
 
 interface CommercialEpoxyFlooringPageProps {
   onNavigate: (page: string, param?: string) => void;
-  onOpenBooking: (initial?: any) => void;
+
 }
 
 const sectionVariant = {
@@ -32,8 +32,7 @@ const sectionVariant = {
 };
 
 export const CommercialEpoxyFlooringPage: React.FC<CommercialEpoxyFlooringPageProps> = ({
-  onNavigate,
-  onOpenBooking
+  onNavigate
 }) => {
   const epoxyFaqs = [
     {
@@ -56,7 +55,7 @@ export const CommercialEpoxyFlooringPage: React.FC<CommercialEpoxyFlooringPagePr
         title="Commercial Epoxy Flooring | Ironclad Commercial Floors"
         description="Ironclad Commercial Floors installs industrial & commercial epoxy flooring across Canada. Chemical-resistant, seamless coatings. Free estimates."
         canonicalPath="/services/commercial-epoxy-flooring"
-        ogImage="https://ironcladcommercialfloors.ca/IRONCLAD-COMMERCIAL-FLOORS.webp"
+        ogImage="https://ironcladcommercialfloors.ca/IRONCLAD-COMMERCIAL-FLOORS.png"
         breadcrumbs={[
           { name: 'Home', path: '/' },
           { name: 'Services', path: '/services' },
@@ -67,7 +66,7 @@ export const CommercialEpoxyFlooringPage: React.FC<CommercialEpoxyFlooringPagePr
           description: 'Ironclad Commercial Floors installs seamless, industrial-grade epoxy flooring for warehouses, manufacturing plants, and commercial facilities across Canada. Our epoxy coatings resist chemicals, impact, and heavy foot or forklift traffic.',
           category: 'Commercial Epoxy Flooring',
           priceRange: 'Custom Commercial Epoxy Quote / Free Site Evaluation',
-          image: 'https://ironcladcommercialfloors.ca/IRONCLAD-COMMERCIAL-FLOORS.webp'
+          image: 'https://ironcladcommercialfloors.ca/IRONCLAD-COMMERCIAL-FLOORS.png'
         }}
         faqs={epoxyFaqs}
       />
@@ -108,14 +107,10 @@ export const CommercialEpoxyFlooringPage: React.FC<CommercialEpoxyFlooringPagePr
 
             {/* CTAs matching reference design */}
             <div className="pt-3 flex flex-wrap gap-3">
-              <button
-                type="button"
-                onClick={() => onOpenBooking({ serviceType: 'Commercial Epoxy Flooring' })}
-                className="flex items-center justify-center gap-2 px-5 sm:px-6 py-3 sm:py-3.5 bg-[#3B945E] hover:bg-[#318051] text-white font-bold text-xs uppercase font-mono tracking-wider transition-all shadow-2xl cursor-pointer border border-white/20 shrink-0 whitespace-nowrap"
-              >
-                <Calendar className="w-4 h-4 text-white" />
-                <span>MAKE APPOINTMENT</span>
-              </button>
+              <a href="tel:6045403999" className="flex items-center justify-center gap-2 px-5 sm:px-6 py-3 sm:py-3.5 bg-[#3B945E] hover:bg-[#318051] text-white font-bold text-xs uppercase font-mono tracking-wider transition-all shadow-2xl border border-white/20 shrink-0 whitespace-nowrap">
+                <Phone className="w-4 h-4 text-white" />
+                <span>Call now</span>
+              </a>
 
               <a
                 href="tel:6045403999"
@@ -401,14 +396,10 @@ export const CommercialEpoxyFlooringPage: React.FC<CommercialEpoxyFlooringPagePr
               <Phone className="w-4 h-4" />
               <span>Call (604) 540-3999</span>
             </a>
-            <button
-              type="button"
-              onClick={() => onOpenBooking({ serviceType: 'Commercial Epoxy Flooring' })}
-              className="px-6 py-3.5 bg-white/10 hover:bg-white/20 text-white font-bold text-xs uppercase font-mono tracking-wider transition-all cursor-pointer inline-flex items-center gap-2 border border-white/20"
-            >
-              <Calendar className="w-4 h-4 text-[#88D2A8]" />
-              <span>Request Free Facility Survey</span>
-            </button>
+            <a href="tel:6045403999" className="px-6 py-3.5 bg-white/10 hover:bg-white/20 text-white font-bold text-xs uppercase font-mono tracking-wider transition-all inline-flex items-center gap-2 border border-white/20">
+              <Phone className="w-4 h-4 text-[#88D2A8]" />
+              <span>Call now</span>
+            </a>
           </div>
         </div>
       </motion.section>

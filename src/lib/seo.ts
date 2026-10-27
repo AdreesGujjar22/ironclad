@@ -1,6 +1,6 @@
 import { SITE_URL } from "./routes";
 
-const DEFAULT_IMAGE = `${SITE_URL}/IRONCLAD-COMMERCIAL-FLOORS.jpg`;
+const DEFAULT_IMAGE = `${SITE_URL}/IRONCLAD-COMMERCIAL-FLOORS.png`;
 
 export interface Crumb {
   name: string;

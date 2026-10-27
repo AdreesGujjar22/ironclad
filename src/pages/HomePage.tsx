@@ -1,196 +1,135 @@
 import React, { useState } from 'react';
-import { Calendar, Phone, ChevronDown, ChevronUp, ArrowRight, MapPin } from 'lucide-react';
+import { Phone, ChevronDown, ChevronUp, ArrowRight, MapPin, Star, ExternalLink } from 'lucide-react';
 import { SERVICES } from '../data/servicesData';
 import { LOCATIONS } from '../data/locationsData';
+import { TESTIMONIALS } from '../data/testimonialsData';
+import { MapEmbed } from '../components/MapEmbed';
 import { flooringImages } from '../assets/flooringImages';
+import { ImageHero } from '../components/ImageHero';
 
 interface HomePageProps {
   onNavigate: (page: string, param?: string) => void;
-  onOpenBooking: (initial?: any) => void;
 }
 
 export const HOME_FAQS = [
-  {
-    question: 'What does a commercial flooring contractor in Vancouver, BC do?',
-    answer:
-      'A commercial flooring contractor prepares the slab and installs, repairs or replaces floors in businesses. Ironclad Commercial Floors handles epoxy, polished concrete, luxury vinyl, sheet vinyl and carpet tile for offices, warehouses, restaurants and retail.',
-  },
-  {
-    question: 'Can you install commercial flooring without closing my business?',
-    answer:
-      'Yes. We schedule night, weekend and phased installations, so part of your space stays in use. Fast-curing systems let foot traffic return quickly, and we confirm the timeline in writing before work begins.',
-  },
-  {
-    question: 'Why do you test concrete for moisture before installing?',
-    answer:
-      'Moisture rising through a slab is a leading cause of lifting vinyl and failed coatings. Testing first lets us choose the right primer or barrier so the floor lasts, and it is part of every installation.',
-  },
-  {
-    question: 'Which cities do you serve besides Vancouver?',
-    answer:
-      'We serve Burnaby, Richmond, Surrey, Coquitlam, Port Coquitlam, New Westminster, Delta, Langley and North Vancouver, with crews dispatched from our base at 783 E 60th Ave, Vancouver.',
-  },
-  {
-    question: 'How do I get a free commercial flooring estimate?',
-    answer:
-      'Call (604) 540-3999 or book online. We visit your site, inspect the slab and send a written quote, and our installations carry a 10-year workmanship warranty.',
-  },
+  { question: 'Can you work without closing our business?', answer: 'Yes. Night, weekend and phased schedules help limit disruption while work is underway.' },
+  { question: 'What commercial flooring do you install?', answer: 'We install and repair epoxy, polished concrete, vinyl plank and carpet tile for commercial spaces.' },
+  { question: 'How do I start a project?', answer: 'Call our team to discuss your space, schedule and flooring needs.' },
 ];
 
-export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenBooking }) => {
+const FEATURED_SERVICE_SLUGS = ['commercial-epoxy-flooring', 'flooring-installation', 'flooring-repair', 'flooring-replacement'];
+const SERVICE_IMAGES: Record<string, string> = {
+  'commercial-epoxy-flooring': flooringImages.heroCommercialEpoxy,
+  'flooring-installation': flooringImages.flooringInstallationLvt,
+  'flooring-repair': flooringImages.glovedHandsFlooring,
+  'flooring-replacement': flooringImages.laminateMalletInstall,
+};
+
+export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
-  const cityIds = [
-    'vancouver', 'burnaby', 'richmond', 'surrey', 'coquitlam', 'port-coquitlam',
-    'new-westminster', 'delta', 'langley', 'north-vancouver',
-  ];
-  const cities = cityIds
-    .map((id) => LOCATIONS.find((l) => l.slug === id))
-    .filter((l): l is NonNullable<typeof l> => Boolean(l));
+  const cityIds = ['vancouver', 'burnaby', 'richmond', 'surrey'];
+  const cities = cityIds.map((id) => LOCATIONS.find((location) => location.slug === id)).filter((location): location is NonNullable<typeof location> => Boolean(location));
+  const featuredServices = FEATURED_SERVICE_SLUGS.map((slug) => SERVICES.find((service) => service.slug === slug)).filter((service): service is (typeof SERVICES)[number] => Boolean(service));
 
   return (
-    <div className="bg-[#F8F9FA] text-slate-800 selection:bg-[#3B945E] selection:text-white">
-      {/* Hero */}
-      <section className="relative w-full overflow-hidden bg-[#0A1118] text-white min-h-[560px] lg:min-h-[640px] flex items-center">
-        <div className="absolute inset-0 z-0">
-          <img
-            src={flooringImages.flooringHandsInstallation}
-            alt="Commercial flooring contractor in Vancouver, BC - Ironclad Commercial Floors"
-            className="w-full h-full object-cover object-center"
-            loading="eager"
-            fetchPriority="high"
-            decoding="async"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0B1520]/90 via-[#0B1520]/65 to-[#0B1520]/30" />
-        </div>
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 sm:py-36 w-full">
-          <div className="max-w-3xl space-y-6">
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.1] drop-shadow-md">
-              Commercial Flooring Contractor in Vancouver, BC
-            </h1>
-            <p className="text-slate-100 text-sm sm:text-base leading-relaxed max-w-2xl">
-              Ironclad Commercial Floors is a commercial flooring contractor in Vancouver, BC. We handle
-              commercial flooring installation, repair and replacement, commercial epoxy flooring, concrete floor
-              polishing, luxury vinyl and carpet tile for offices, warehouses, restaurants and retail across Metro
-              Vancouver, with night crews and a 10-year workmanship warranty.
-            </p>
-            <div className="pt-2 flex flex-wrap items-center gap-3">
-              <button
-                type="button"
-                onClick={() => onOpenBooking()}
-                className="flex items-center justify-center gap-2 px-6 py-3.5 bg-[#3B945E] hover:bg-[#318051] text-white font-bold text-xs uppercase font-mono tracking-wider shadow-2xl cursor-pointer border border-white/20"
-              >
-                <Calendar className="w-4 h-4" />
-                <span>Get a Free Estimate</span>
-              </button>
-              <a
-                href="tel:6045403999"
-                className="flex items-center justify-center gap-2 px-6 py-3.5 bg-[#1A2530] hover:bg-[#243342] text-white border border-slate-600 shadow-2xl font-mono font-bold text-xs uppercase tracking-wider"
-              >
-                <Phone className="w-4 h-4 text-[#88D2A8]" />
-                <span>Call (604) 540-3999</span>
-              </a>
-            </div>
-          </div>
+    <div className="ic-home ic-pf-home">
+      <ImageHero
+        image={flooringImages.heroCommercialEpoxy}
+        imageAlt="Commercial epoxy flooring installation by Ironclad Commercial Floors"
+        eyebrow="Commercial flooring contractor · Vancouver, BC"
+        title="Commercial Flooring Built for Busy Workspaces"
+        description="Installation, repair and replacement scheduled around your business."
+        proof={<>10-year workmanship warranty <span /> Flexible scheduling <span /> Metro Vancouver</>}
+        actions={
+          <>
+            <button type="button" onClick={() => onNavigate('services')} className="ic-pf-button ic-pf-button-primary">Explore services <ArrowRight /></button>
+            <a href="tel:6045403999" className="ic-pf-button ic-pf-button-outline"><Phone /> Call our team</a>
+          </>
+        }
+        aside={
+          <aside className="ic-pf-quote-card">
+            <p className="ic-pf-card-kicker">Project enquiry</p>
+            <h2>Let’s plan your project.</h2>
+            <p>Tell us about your space and schedule.</p>
+            <button type="button" onClick={() => onNavigate('contact')} className="ic-pf-button ic-pf-button-primary">Contact us <ArrowRight /></button>
+          </aside>
+        }
+      />
+
+      <section className="ic-pf-review-band" aria-label="Google reviews">
+        <div className="ic-pf-review-inner">
+          <div className="ic-pf-review-mark"><Star fill="currentColor" /></div>
+          <div className="ic-pf-review-copy"><p className="ic-pf-eyebrow">Client feedback</p><h2>100+ Google Reviews</h2><p>Read customer feedback about Ironclad Commercial Floors and our work across Metro Vancouver.</p></div>
+          <a href="https://www.google.com/maps?q=Ironclad+Commercial+Floors+783+E+60th+Ave+Vancouver+BC+V5X+2A5" target="_blank" rel="noopener noreferrer" className="ic-pf-text-link">Read Google Reviews <ExternalLink /></a>
         </div>
       </section>
 
-      {/* Services */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 md:py-20">
-        <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
-          Commercial Flooring Services in Vancouver, BC
-        </h2>
-        <p className="mt-3 text-slate-600 text-sm sm:text-base max-w-3xl leading-relaxed">
-          From new installations to epoxy, polished concrete, vinyl and carpet tile, every service is delivered by
-          our own crews and backed by a written warranty.
-        </p>
-        <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {SERVICES.map((service) => (
-            <button
-              key={service.slug}
-              type="button"
-              onClick={() => onNavigate('service-detail', service.slug)}
-              className="text-left bg-white border border-slate-200 hover:border-[#3B945E] p-5 transition-colors cursor-pointer group"
-            >
-              <h3 className="text-base font-extrabold text-slate-900 group-hover:text-[#3B945E]">
-                {service.name} in Vancouver, BC
-              </h3>
-              <p className="mt-2 text-sm text-slate-600 leading-relaxed">{service.shortDesc}</p>
-              <span className="mt-3 inline-flex items-center gap-1 text-xs font-mono font-bold uppercase tracking-wider text-[#3B945E]">
-                Learn more <ArrowRight className="w-3 h-3" />
-              </span>
-            </button>
-          ))}
-        </div>
-      </section>
-
-      {/* Service areas */}
-      <section className="bg-white border-y border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 md:py-16">
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-            Commercial Flooring Contractor Service Areas in Metro Vancouver, BC
-          </h2>
-          <p className="mt-3 text-slate-600 text-sm sm:text-base max-w-3xl leading-relaxed">
-            Our crews work from 783 E 60th Ave in Vancouver and serve businesses across the Lower Mainland. Choose
-            your city for local details.
-          </p>
-          <div className="mt-6 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
-            {cities.map((city) => (
-              <button
-                key={city.slug}
-                type="button"
-                onClick={() => onNavigate('location-detail', city.slug)}
-                className="flex items-center gap-2 px-4 py-3 bg-[#F8F9FA] border border-slate-200 hover:border-[#3B945E] text-sm font-bold text-slate-800 text-left cursor-pointer"
-              >
-                <MapPin className="w-4 h-4 text-[#3B945E] shrink-0" />
-                <span>{city.name}, BC</span>
+      <section className="ic-pf-section ic-pf-services">
+        <div className="ic-pf-container">
+          <p className="ic-pf-eyebrow">Flooring services</p>
+          <div className="ic-pf-section-heading"><h2>What we do</h2><p>Practical flooring solutions for commercial spaces.</p></div>
+          <div className="ic-pf-service-grid">
+            {featuredServices.map((service, index) => (
+              <button key={service.slug} type="button" onClick={() => onNavigate('service-detail', service.slug)} className="ic-pf-service-card">
+                <div className="ic-pf-service-image"><img src={SERVICE_IMAGES[service.slug] || service.heroImage || flooringImages.flooringHandsInstallation} alt={`${service.name} by Ironclad Commercial Floors`} loading="lazy" /><span>{String(index + 1).padStart(2, '0')}</span></div>
+                <div className="ic-pf-service-body"><h3>{service.name}</h3></div>
               </button>
             ))}
           </div>
+          <div className="ic-pf-centered"><button type="button" onClick={() => onNavigate('services')} className="ic-pf-button ic-pf-button-primary">View All Services <ArrowRight /></button></div>
         </div>
       </section>
 
-      {/* FAQs */}
-      <section className="max-w-4xl mx-auto px-4 sm:px-6 py-14 md:py-20">
-        <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mb-6">
-          Commercial Flooring Contractor FAQs in Vancouver, BC
-        </h2>
-        <div className="space-y-2.5">
-          {HOME_FAQS.map((faq, idx) => {
-            const open = openFaq === idx;
-            return (
-              <div key={faq.question} className="bg-white border border-slate-200">
-                <button
-                  type="button"
-                  onClick={() => setOpenFaq(open ? null : idx)}
-                  className="w-full flex items-center justify-between gap-4 text-left px-5 py-4 cursor-pointer"
-                  aria-expanded={open}
-                >
-                  <h3 className="text-sm sm:text-base font-bold text-slate-900">{faq.question}</h3>
-                  {open ? <ChevronUp className="w-4 h-4 shrink-0" /> : <ChevronDown className="w-4 h-4 shrink-0" />}
-                </button>
-                {open && <p className="px-5 pb-5 text-sm text-slate-600 leading-relaxed">{faq.answer}</p>}
-              </div>
-            );
-          })}
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="max-w-4xl mx-auto px-4 sm:px-6 pb-16">
-        <div className="bg-[#1A2530] text-white p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-          <div>
-            <h2 className="text-lg sm:text-xl font-extrabold">Book Your Commercial Flooring Estimate</h2>
-            <p className="text-slate-300 text-sm mt-1">783 E 60th Ave, Vancouver, BC V5X 2A5 · (604) 540-3999</p>
+      <section className="ic-pf-intro-section">
+        <div className="ic-pf-container">
+          <p className="ic-pf-eyebrow">Built around your operation</p>
+          <h2>Good floors. Less downtime.</h2>
+          <div className="ic-pf-benefit-grid">
+            <article><span>01</span><h3>Prepared properly</h3><p>We assess the surface before choosing the right system.</p></article>
+            <article><span>02</span><h3>Scheduled for you</h3><p>Night, weekend and phased work available.</p></article>
+            <article><span>03</span><h3>Made for commercial use</h3><p>Durable options for busy workspaces.</p></article>
           </div>
-          <button
-            type="button"
-            onClick={() => onOpenBooking()}
-            className="shrink-0 px-6 py-3.5 bg-[#3B945E] hover:bg-[#318051] text-white font-bold text-xs uppercase font-mono tracking-wider cursor-pointer"
-          >
-            Request Estimate
-          </button>
         </div>
       </section>
+
+      <section className="ic-pf-featured-project">
+        <div className="ic-pf-featured-project-image"><img src={flooringImages.garageEpoxyCoating} alt="Completed epoxy flooring project in a commercial facility" loading="lazy" /></div>
+        <div className="ic-pf-featured-project-copy">
+          <p className="ic-pf-eyebrow">Featured project</p>
+          <h2>Floors that work as hard as your business.</h2>
+          <p>From busy warehouses to customer-facing spaces, we install durable flooring with a schedule that respects your operation.</p>
+          <button type="button" onClick={() => onNavigate('projects')} className="ic-pf-text-link">See our work <ArrowRight /></button>
+        </div>
+      </section>
+
+      <section className="ic-pf-testimonial-section">
+        <div className="ic-pf-testimonial-image"><img src={flooringImages.concretePolishingFloor} alt="Finished commercial flooring project" loading="lazy" /></div>
+        <blockquote className="ic-pf-testimonial-card">
+          <p className="ic-pf-eyebrow">Trusted by local businesses</p>
+          <div className="ic-pf-testimonial-stars" aria-label="5 out of 5 stars">{Array.from({ length: TESTIMONIALS[0].rating }, (_, index) => <Star key={index} fill="currentColor" />)}</div>
+          <p className="ic-pf-testimonial-quote">“{TESTIMONIALS[0].review.split('. ').slice(0, 2).join('. ')}”</p>
+          <div className="ic-pf-testimonial-attribution"><strong>{TESTIMONIALS[0].name}</strong><span>{TESTIMONIALS[0].role} · {TESTIMONIALS[0].location}</span></div>
+        </blockquote>
+      </section>
+
+      <section className="ic-pf-service-area">
+        <div className="ic-pf-service-area-copy">
+          <p className="ic-pf-eyebrow">Local team</p>
+          <h2>Serving Metro Vancouver</h2>
+          <p>Commercial flooring installation and repair, close to home.</p>
+          <div className="ic-pf-city-grid">{cities.map((city) => <button key={city.slug} type="button" onClick={() => onNavigate('location-detail', city.slug)}><MapPin /><span>{city.name}</span><ArrowRight /></button>)}</div>
+          <button type="button" onClick={() => onNavigate('locations')} className="ic-pf-text-link ic-pf-all-locations">View all service areas <ArrowRight /></button>
+        </div>
+        <MapEmbed title="Metro Vancouver Service Area" subtitle="Explore our local service area." className="ic-pf-home-map" />
+      </section>
+
+      <section className="ic-pf-faq-section">
+        <div className="ic-pf-container ic-pf-faq-layout"><div className="ic-pf-faq-intro"><p className="ic-pf-eyebrow">Need to know</p><h2>Commercial Flooring FAQs</h2><p>Quick answers to common questions about planning a flooring project.</p><a href="tel:6045403999" className="ic-pf-text-link">Call our team <Phone /></a></div>
+          <div className="ic-pf-faq-list">{HOME_FAQS.slice(0, 3).map((faq, index) => { const isOpen = openFaq === index; return <article key={faq.question} className={`ic-pf-faq-item ${isOpen ? 'is-open' : ''}`}><button type="button" onClick={() => setOpenFaq(isOpen ? null : index)} aria-expanded={isOpen}><span className="ic-pf-faq-number">{String(index + 1).padStart(2, '0')}</span><h3>{faq.question}</h3><span className="ic-pf-faq-toggle">{isOpen ? <ChevronUp /> : <ChevronDown />}</span></button>{isOpen && <p>{faq.answer}</p>}</article>; })}</div>
+        </div>
+      </section>
+
+      <section className="ic-pf-final-cta"><img src={flooringImages.concretePolishingFloor} alt="Finished commercial concrete floor" loading="lazy" /><div className="ic-pf-final-overlay" /><div className="ic-pf-final-content"><p className="ic-pf-eyebrow">Start your project</p><h2>Need a flooring partner you can plan around?</h2><p>Contact Ironclad Commercial Floors to discuss your site and schedule.</p><div className="ic-pf-actions"><a href="tel:6045403999" className="ic-pf-button ic-pf-button-primary"><Phone /> Call now · (604) 540-3999</a></div></div></section>
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { X, Calendar, Phone, Mail, CheckCircle2, ArrowRight, ShieldCheck, ChevronDown } from 'lucide-react';
+import { X, Calendar, Phone, Mail, CheckCircle2, ArrowRight, ChevronDown } from 'lucide-react';
 import { SERVICES } from '../data/servicesData';
 import { AppointmentFormData } from '../types';
 
@@ -8,6 +8,8 @@ interface AppointmentModalProps {
   isOpen: boolean;
   onClose: () => void;
   initialData?: {
+    fullName?: string;
+    phone?: string;
     serviceId?: string;
     sqft?: string;
     facility?: string;
@@ -25,10 +27,10 @@ export const AppointmentModal: React.FC<AppointmentModalProps> = ({
   const defaultService = initialData?.serviceId || initialServiceId || 'commercial-flooring-installation';
 
   const [formData, setFormData] = useState<AppointmentFormData>({
-    fullName: '',
+    fullName: initialData?.fullName || '',
     companyName: '',
     email: '',
-    phone: '',
+    phone: initialData?.phone || '',
     serviceId: defaultService,
     facilityType: initialData?.facility || 'Commercial Facility',
     approxSqFt: initialData?.sqft || '5,000 sq ft',
@@ -48,6 +50,8 @@ export const AppointmentModal: React.FC<AppointmentModalProps> = ({
     if (sId || initialData) {
       setFormData(prev => ({
         ...prev,
+        fullName: initialData?.fullName || prev.fullName,
+        phone: initialData?.phone || prev.phone,
         serviceId: sId || prev.serviceId,
         approxSqFt: initialData?.sqft || prev.approxSqFt,
         facilityType: initialData?.facility || prev.facilityType,
@@ -117,10 +121,10 @@ export const AppointmentModal: React.FC<AppointmentModalProps> = ({
                 </div>
                 <div className="min-w-0">
                   <h2 id="modal-appointment-title" className="text-sm sm:text-base font-black tracking-tight text-white uppercase font-mono truncate">
-                    Book Site Survey & Free Estimate
+                    Request an estimate
                   </h2>
                   <p className="text-[11px] sm:text-xs text-slate-200 truncate font-normal">
-                    Ironclad Commercial Floors • Metro Vancouver
+                    Metro Vancouver commercial flooring
                   </p>
                 </div>
               </div>
@@ -146,10 +150,10 @@ export const AppointmentModal: React.FC<AppointmentModalProps> = ({
                     <CheckCircle2 className="w-8 h-8 sm:w-10 sm:h-10 text-[#3B945E]" />
                   </div>
                   <h3 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">
-                    Site Survey Request Received!
+                    Request received
                   </h3>
                   <p className="text-slate-600 text-xs sm:text-sm max-w-md mx-auto leading-relaxed">
-                    Thank you, <strong className="text-slate-900">{formData.fullName || 'Valued Client'}</strong>. Our commercial project team is reviewing your specifications and will contact you promptly at <strong className="text-slate-900">{formData.phone || formData.email}</strong>.
+                    Thanks, <strong className="text-slate-900">{formData.fullName}</strong>. We’ll be in touch at <strong className="text-slate-900">{formData.phone || formData.email}</strong>.
                   </p>
                   
                   <div className="p-4 bg-[#F8F9FA] border border-slate-300 text-left text-xs sm:text-sm space-y-2.5 max-w-md mx-auto mt-4 text-slate-700">
@@ -159,20 +163,12 @@ export const AppointmentModal: React.FC<AppointmentModalProps> = ({
                         {selectedService?.name || formData.serviceId}
                       </span>
                     </div>
-                    <div className="flex justify-between items-center pb-2 border-b border-slate-200">
-                      <span className="text-slate-500">Project Area:</span>
-                      <span className="text-slate-900 font-medium">{formData.approxSqFt || 'Not specified'}</span>
-                    </div>
+
                     <div className="flex justify-between items-center pb-2 border-b border-slate-200">
                       <span className="text-slate-500">Location:</span>
                       <span className="text-slate-900 font-medium">{formData.location}</span>
                     </div>
-                    <div className="flex justify-between items-center">
-                      <span className="text-slate-500">Direct Office Line:</span>
-                      <a href="tel:6045403999" className="text-[#3B945E] font-bold hover:underline">
-                        (604) 540-3999
-                      </a>
-                    </div>
+
                   </div>
 
                   <div className="pt-3 flex justify-center">
@@ -187,17 +183,8 @@ export const AppointmentModal: React.FC<AppointmentModalProps> = ({
                 </motion.div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
-                  {/* Trust Tag */}
-                  <div className="p-2.5 sm:p-3 bg-[#E9EEF2] border border-slate-300 flex items-center justify-between text-xs text-slate-700">
-                    <div className="flex items-center gap-2">
-                      <ShieldCheck className="w-4 h-4 text-[#7D9A87] shrink-0" />
-                      <span className="font-semibold">Free On-Site Moisture & Slab Assessment</span>
-                    </div>
-                    <span className="text-[#3B945E] font-bold uppercase tracking-wider text-[11px] hidden sm:inline">No Obligation</span>
-                  </div>
 
-                  {/* Personal & Company Info */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                  <div className="grid grid-cols-1 gap-3 sm:gap-4">
                     <div>
                       <label className="text-xs font-bold uppercase tracking-wider text-slate-700 block mb-1">
                         Contact Name *
@@ -211,19 +198,7 @@ export const AppointmentModal: React.FC<AppointmentModalProps> = ({
                         className="w-full h-11 bg-white border border-slate-300 px-3.5 text-base sm:text-sm text-slate-900 focus:ring-2 focus:ring-[#7D9A87] focus:border-[#7D9A87] focus:outline-none placeholder:text-slate-400"
                       />
                     </div>
-                    <div>
-                      <label className="text-xs font-bold uppercase tracking-wider text-slate-700 block mb-1">
-                        Company / Organization *
-                      </label>
-                      <input
-                        type="text"
-                        required
-                        placeholder="e.g. Pacific Logistics"
-                        value={formData.companyName}
-                        onChange={e => setFormData({ ...formData, companyName: e.target.value })}
-                        className="w-full h-11 bg-white border border-slate-300 px-3.5 text-base sm:text-sm text-slate-900 focus:ring-2 focus:ring-[#7D9A87] focus:border-[#7D9A87] focus:outline-none placeholder:text-slate-400"
-                      />
-                    </div>
+
                   </div>
 
                   {/* Contact Info */}
@@ -266,7 +241,7 @@ export const AppointmentModal: React.FC<AppointmentModalProps> = ({
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                     <div>
                       <label className="text-xs font-bold uppercase tracking-wider text-slate-700 block mb-1">
-                        Flooring Solution *
+                        Flooring service
                       </label>
                       <div className="relative">
                         <select
@@ -310,40 +285,7 @@ export const AppointmentModal: React.FC<AppointmentModalProps> = ({
                     </div>
                   </div>
 
-                  {/* Area & Timeline */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-                    <div>
-                      <label className="text-xs font-bold uppercase tracking-wider text-slate-700 block mb-1">
-                        Approximate Area (Sq Ft)
-                      </label>
-                      <input
-                        type="text"
-                        placeholder="e.g. 5,000 sq ft"
-                        value={formData.approxSqFt}
-                        onChange={e => setFormData({ ...formData, approxSqFt: e.target.value })}
-                        className="w-full h-11 bg-white border border-slate-300 px-3.5 text-base sm:text-sm text-slate-900 focus:ring-2 focus:ring-[#7D9A87] focus:border-[#7D9A87] focus:outline-none placeholder:text-slate-400 shadow-xs"
-                      />
-                    </div>
-                    <div>
-                      <label className="text-xs font-bold uppercase tracking-wider text-slate-700 block mb-1">
-                        Desired Timeline
-                      </label>
-                      <div className="relative">
-                        <select
-                          value={formData.timeline}
-                          onChange={e => setFormData({ ...formData, timeline: e.target.value })}
-                          className="w-full h-11 bg-white border border-slate-300 pl-3.5 pr-10 text-base sm:text-sm font-medium text-slate-900 focus:ring-2 focus:ring-[#7D9A87] focus:border-[#7D9A87] focus:outline-none appearance-none truncate shadow-xs cursor-pointer hover:border-slate-400 transition-colors"
-                        >
-                          <option value="Urgent (Within 48 Hours)">Urgent (Within 48 Hours)</option>
-                          <option value="Within 1-2 Weeks">Within 1-2 Weeks</option>
-                          <option value="Within 2-4 Weeks">Within 2-4 Weeks</option>
-                          <option value="Next Month / Flexible">Next Month / Flexible</option>
-                          <option value="Budgeting & Planning Phase">Budgeting & Planning Phase</option>
-                        </select>
-                        <ChevronDown className="w-4 h-4 text-slate-500 absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
-                      </div>
-                    </div>
-                  </div>
+
 
                   {/* Project Notes */}
                   <div>
@@ -352,7 +294,7 @@ export const AppointmentModal: React.FC<AppointmentModalProps> = ({
                     </label>
                     <textarea
                       rows={2}
-                      placeholder="Facility type, existing flooring, night shift requirements, or specific slab conditions..."
+                      placeholder="What flooring do you need?"
                       value={formData.projectDetails}
                       onChange={e => setFormData({ ...formData, projectDetails: e.target.value })}
                       className="w-full bg-white border border-slate-300 p-3 text-base sm:text-sm text-slate-900 focus:ring-2 focus:ring-[#7D9A87] focus:border-[#7D9A87] focus:outline-none placeholder:text-slate-400 resize-none"
@@ -369,18 +311,18 @@ export const AppointmentModal: React.FC<AppointmentModalProps> = ({
                       {isSubmitting ? (
                         <span className="flex items-center gap-2">
                           <span className="w-4 h-4 border-2 border-[#57BC83] border-t-transparent rounded-full animate-spin" />
-                          Submitting Site Survey Request...
+                          Sending request...
                         </span>
                       ) : (
                         <>
                           <Calendar className="w-4 h-4 text-[#57BC83]" />
-                          <span>Confirm & Book Free Site Survey</span>
+                          <span>Send estimate request</span>
                           <ArrowRight className="w-4 h-4 text-[#88D2A8] group-hover:translate-x-1 transition-transform" />
                         </>
                       )}
                     </button>
                     <p className="text-center text-xs text-slate-500 font-mono">
-                      Need Immediate 24/7 Dispatch?{' '}
+                      Need immediate help?{' '}
                       <a href="tel:6045403999" className="text-[#3B945E] font-bold hover:underline">(604) 540-3999</a>
                     </p>
                   </div>

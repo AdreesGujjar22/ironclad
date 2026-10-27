@@ -65,8 +65,8 @@ function LocationRoute() {
   const { slug } = Route.useParams();
   return (
     <SiteLayout>
-      {({ onNavigate, onOpenBooking }) => (
-        <LocationDetailPage slug={slug} onNavigate={onNavigate} onOpenBooking={onOpenBooking} />
+      {({ onNavigate }) => (
+        <LocationDetailPage slug={slug} onNavigate={onNavigate} />
       )}
     </SiteLayout>
   );

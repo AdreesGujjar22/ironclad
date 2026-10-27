@@ -55,3 +55,9 @@
 ## Documentation
 - XML Sitemap: https://ironcladcommercialfloors.ca/sitemap.xml
 - Full Knowledgebase: https://ironcladcommercialfloors.ca/llms-full.txt
+
+## Guides
+
+- [Polished Concrete vs Epoxy in Vancouver](https://ironcladcommercialfloors.ca/blogs/polished-concrete-vs-epoxy-vancouver-warehouses)
+- [Slab Moisture Testing in Vancouver, BC](https://ironcladcommercialfloors.ca/blogs/subfloor-moisture-testing-bc-climate)
+- [Overnight Commercial Flooring in Vancouver](https://ironcladcommercialfloors.ca/blogs/overnight-commercial-flooring-zero-downtime)

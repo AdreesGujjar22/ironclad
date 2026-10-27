@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { 
   Phone, 
-  Calendar, 
+
   ArrowRight, 
   CheckCircle2, 
   Wrench, 
@@ -18,7 +18,7 @@ import { flooringImages } from '../assets/flooringImages';
 
 interface FlooringRepairPageProps {
   onNavigate: (page: string, param?: string) => void;
-  onOpenBooking: (initial?: any) => void;
+
 }
 
 const sectionVariant = {
@@ -31,8 +31,7 @@ const sectionVariant = {
 };
 
 export const FlooringRepairPage: React.FC<FlooringRepairPageProps> = ({
-  onNavigate,
-  onOpenBooking
+  onNavigate
 }) => {
   const repairFaqs = [
     {
@@ -55,7 +54,7 @@ export const FlooringRepairPage: React.FC<FlooringRepairPageProps> = ({
         title="Commercial Flooring Repair | Ironclad Commercial Floors"
         description="Ironclad Commercial Floors provides fast commercial flooring repair across Canada. We fix cracked concrete, epoxy damage & worn tile. 24/7 service."
         canonicalPath="/services/flooring-repair"
-        ogImage="https://ironcladcommercialfloors.ca/IRONCLAD-COMMERCIAL-FLOORS.webp"
+        ogImage="https://ironcladcommercialfloors.ca/IRONCLAD-COMMERCIAL-FLOORS.png"
         breadcrumbs={[
           { name: 'Home', path: '/' },
           { name: 'Services', path: '/services' },
@@ -66,7 +65,7 @@ export const FlooringRepairPage: React.FC<FlooringRepairPageProps> = ({
           description: 'Damaged commercial flooring is a liability. Ironclad Commercial Floors provides fast, reliable flooring repair throughout Canada — restoring safety and appearance without long business closures.',
           category: 'Commercial Flooring Repair',
           priceRange: 'Custom Commercial Repair Estimate / 24/7 Emergency Dispatch',
-          image: 'https://ironcladcommercialfloors.ca/IRONCLAD-COMMERCIAL-FLOORS.webp'
+          image: 'https://ironcladcommercialfloors.ca/IRONCLAD-COMMERCIAL-FLOORS.png'
         }}
         faqs={repairFaqs}
       />
@@ -107,14 +106,10 @@ export const FlooringRepairPage: React.FC<FlooringRepairPageProps> = ({
 
             {/* CTAs matching reference design */}
             <div className="pt-3 flex flex-wrap gap-3">
-              <button
-                type="button"
-                onClick={() => onOpenBooking({ serviceType: 'Commercial Flooring Repair' })}
-                className="flex items-center justify-center gap-2 px-5 sm:px-6 py-3 sm:py-3.5 bg-[#3B945E] hover:bg-[#318051] text-white font-bold text-xs uppercase font-mono tracking-wider transition-all shadow-2xl cursor-pointer border border-white/20 shrink-0 whitespace-nowrap"
-              >
-                <Calendar className="w-4 h-4 text-white" />
-                <span>MAKE APPOINTMENT</span>
-              </button>
+              <a href="tel:6045403999" className="flex items-center justify-center gap-2 px-5 sm:px-6 py-3 sm:py-3.5 bg-[#3B945E] hover:bg-[#318051] text-white font-bold text-xs uppercase font-mono tracking-wider transition-all shadow-2xl border border-white/20 shrink-0 whitespace-nowrap">
+                <Phone className="w-4 h-4 text-white" />
+                <span>Call now</span>
+              </a>
 
               <a
                 href="tel:6045403999"
@@ -391,14 +386,10 @@ export const FlooringRepairPage: React.FC<FlooringRepairPageProps> = ({
               <Phone className="w-4 h-4" />
               <span>Call (604) 540-3999</span>
             </a>
-            <button
-              type="button"
-              onClick={() => onOpenBooking({ serviceType: 'Commercial Flooring Repair' })}
-              className="px-6 py-3.5 bg-white/10 hover:bg-white/20 text-white font-bold text-xs uppercase font-mono tracking-wider transition-all cursor-pointer inline-flex items-center gap-2 border border-white/20"
-            >
-              <Calendar className="w-4 h-4 text-[#88D2A8]" />
-              <span>Schedule On-Site Assessment</span>
-            </button>
+            <a href="tel:6045403999" className="px-6 py-3.5 bg-white/10 hover:bg-white/20 text-white font-bold text-xs uppercase font-mono tracking-wider transition-all inline-flex items-center gap-2 border border-white/20">
+              <Phone className="w-4 h-4 text-[#88D2A8]" />
+              <span>Call now</span>
+            </a>
           </div>
         </div>
       </motion.section>
