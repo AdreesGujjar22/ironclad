@@ -880,3 +880,26 @@ main section.ic-detail-hero h1 { max-width:720px; font-size:clamp(34px,4.5vw,52p
   .ic-blog-detail-copy { width:calc(100% - 36px); padding:118px 0 52px; }
   .ic-pf-hero h1,.ic-contact-hero h1,.ic-about-hero h1,.ic-locations-hero h1,.ic-services-hero h1,.ic-projects-hero h1,.ic-detail-hero h1,.ic-blogs-hero h1,.ic-blog-detail-copy h1 { font-size:clamp(36px,8vw,54px)!important; }
 }
+
+main article,
+main section [class*="grid"] > article,
+main section [class*="grid"] > button,
+main section [class*="grid"] > div[class*="border"],
+main section > div[class*="bg-white"][class*="border"],
+main section > div[class*="bg-[#F8F9FA]"][class*="border"],
+.ic-pf-review-band,
+.ic-pf-section > .ic-pf-container,
+.ic-pf-intro-section > .ic-pf-container,
+.ic-pf-faq-section > .ic-pf-container,
+.ic-pf-areas-section,
+.ic-pf-quote-card,
+.ic-pf-featured-project-image,
+.ic-contact-details,
+.ic-contact-form {
+  border:0!important;
+}
+
+#footer-section,
+#footer-section * {
+  border:0!important;
+}
