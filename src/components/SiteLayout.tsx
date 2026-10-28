@@ -1,10 +1,9 @@
-import React, { Suspense, lazy, useEffect, useState, type ReactNode } from "react";
-import { motion, AnimatePresence } from "motion/react";
+import React, { Suspense, lazy, type ReactNode } from "react";
 import { useNavigate, useRouterState } from "@tanstack/react-router";
-import { Phone, ArrowUp } from "lucide-react";
 
 import { Navbar } from "./Navbar";
 import { Footer } from "./Footer";
+import { FloatingContactMenu } from "./FloatingContactMenu";
 import { getPathForRoute, pageKeyFromPath } from "../lib/routes";
 
 export interface PageHelpers {
@@ -24,14 +23,6 @@ export const SiteLayout: React.FC<SiteLayoutProps> = ({ children }) => {
   const navigate = useNavigate();
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   const currentPage = pageKeyFromPath(pathname);
-
-  const [showScrollTop, setShowScrollTop] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => setShowScrollTop(window.scrollY > 350);
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   const onNavigate = (page: string, param?: string) => {
     const to = getPathForRoute(page, param);
@@ -58,30 +49,19 @@ export const SiteLayout: React.FC<SiteLayoutProps> = ({ children }) => {
 
       <Footer onNavigate={onNavigate} />
 
-      <div className="ic-floating-actions fixed bottom-3 sm:bottom-6 right-3 sm:right-6 z-30 flex items-center gap-1.5 sm:gap-2 max-w-[calc(100vw-1.5rem)]">
-        <AnimatePresence>
-          {showScrollTop && (
-            <motion.button
-              initial={{ scale: 0, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0, opacity: 0 }}
-              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-              aria-label="Scroll to top"
-              className="p-2.5 sm:p-3 bg-[#1A2530] text-slate-200 hover:text-white hover:bg-[#243342] border border-slate-600 shadow-2xl transition-all cursor-pointer shrink-0"
-            >
-              <ArrowUp className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#88D2A8]" />
-            </motion.button>
-          )}
-        </AnimatePresence>
-
-        <a
-          href="tel:6045403999"
-          className="flex items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2.5 sm:py-3 bg-[#1A2530] hover:bg-[#243342] text-white border border-slate-600 shadow-2xl transition-all font-mono font-bold text-[11px] sm:text-xs uppercase tracking-wider shrink-0 whitespace-nowrap"
-        >
-          <Phone className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#88D2A8]" />
-          <span className="text-white">Call (604) 540-3999</span>
-        </a>
-      </div>
+      <a
+        href="https://www.google.com/maps?q=Ironclad+Commercial+Floors+783+E+60th+Ave+Vancouver+BC+V5X+2A5"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Read 100+ Google reviews"
+        className="fixed bottom-5 left-3 sm:bottom-7 sm:left-7 z-[110] inline-flex h-12 items-center gap-2 rounded-full border border-slate-200 bg-white px-4 shadow-[0_6px_18px_rgba(0,0,0,0.16)] transition hover:-translate-y-0.5 hover:shadow-[0_8px_22px_rgba(0,0,0,0.22)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#4285F4]"
+      >
+        <span className="whitespace-nowrap text-xs font-medium text-slate-900">100+ reviews on</span>
+        <span aria-hidden="true" className="whitespace-nowrap text-[15px] font-bold tracking-tight">
+          <span className="text-[#4285F4]">G</span><span className="text-[#EA4335]">o</span><span className="text-[#FBBC05]">o</span><span className="text-[#4285F4]">g</span><span className="text-[#34A853]">l</span><span className="text-[#EA4335]">e</span>
+        </span>
+      </a>
+      <FloatingContactMenu />
     </div>
   );
 };

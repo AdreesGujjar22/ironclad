@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Mail, MessageCircle, Phone, X } from 'lucide-react';
 
 const actionClass =
-  'flex size-[52px] items-center justify-center rounded-full text-white shadow-[0_6px_18px_rgba(0,0,0,0.2)] transition duration-200 hover:scale-110 hover:shadow-[0_8px_22px_rgba(0,0,0,0.28)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#88D2A8]';
+  'flex size-[56px] items-center justify-center rounded-full text-white shadow-[0_6px_18px_rgba(0,0,0,0.2)] transition duration-200 hover:scale-110 hover:shadow-[0_8px_22px_rgba(0,0,0,0.28)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#88D2A8]';
 
 /** Quick contact actions, styled with Ironclad's existing green brand palette. */
 export function FloatingContactMenu() {
@@ -30,7 +30,7 @@ export function FloatingContactMenu() {
           href="mailto:info@ironcladcommercialfloors.ca"
           aria-label="Email Ironclad Commercial Floors"
           tabIndex={open ? 0 : -1}
-          className={`${actionClass} bg-[#3B945E]`}
+          className={`${actionClass} bg-[#F43F5E]`}
         >
           <Mail aria-hidden="true" className="size-6" strokeWidth={2} />
         </a>
@@ -38,7 +38,7 @@ export function FloatingContactMenu() {
           href="tel:+16045403999"
           aria-label="Call Ironclad at (604) 540-3999"
           tabIndex={open ? 0 : -1}
-          className={`${actionClass} bg-[#1A2530] border border-[#88D2A8]/40`}
+          className={`${actionClass} bg-[#10B981]`}
         >
           <Phone aria-hidden="true" className="size-6" strokeWidth={2} />
         </a>
@@ -48,7 +48,7 @@ export function FloatingContactMenu() {
         aria-label={open ? 'Close contact options' : 'Open contact options'}
         aria-expanded={open}
         onClick={() => setOpen((current) => !current)}
-        className={`${actionClass} bg-[#3B945E] border border-white/30`}
+        className={`${actionClass} bg-black`}
       >
         {open ? <X aria-hidden="true" className="size-6" strokeWidth={2.2} /> : <MessageCircle aria-hidden="true" className="size-6" strokeWidth={1.9} />}
       </button>
