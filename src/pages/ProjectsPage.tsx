@@ -49,13 +49,13 @@ export const ProjectsPage: React.FC = () => {
         <div className="relative max-w-6xl mx-auto text-left space-y-4">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-white/10 text-[#88D2A8] text-xs font-mono font-bold uppercase tracking-wider border border-white/20">
             <Building2 className="w-3.5 h-3.5 text-[#88D2A8]" />
-            <span>Selected Projects</span>
+            <span>Commercial flooring work</span>
           </div>
           <h1 className="text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight">
-            Commercial Flooring Projects in Vancouver, BC
+            Commercial flooring projects across Metro Vancouver
           </h1>
           <p className="text-slate-100 text-sm sm:text-base leading-relaxed max-w-2xl">
-            Commercial flooring projects across Metro Vancouver.
+            Examples of flooring work for local workplaces, from warehouses and offices to retail and service spaces.
           </p>
 
           {/* Filter Pills */}
@@ -128,7 +128,7 @@ export const ProjectsPage: React.FC = () => {
 
                 <div className="pt-1 flex flex-wrap items-center justify-between gap-3">
                   <span className="text-xs font-mono text-slate-600">
-                    System: <strong className="text-slate-900">{project.serviceUsed}</strong>
+                    Flooring system: <strong className="text-slate-900">{project.serviceUsed}</strong>
                   </span>
                   <a href="tel:6045403999" className="ic-project-cta px-5 py-3 bg-[#3B945E] hover:bg-[#2d784a] text-white font-bold text-xs uppercase tracking-wider transition-all">
                     Call now

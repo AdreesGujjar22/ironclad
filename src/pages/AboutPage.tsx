@@ -71,15 +71,15 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
           >
             <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/10 text-[#88D2A8] text-xs font-mono font-bold uppercase tracking-wider border border-white/20 w-fit">
               <HardHat className="w-3.5 h-3.5 text-[#88D2A8]" />
-              <span>Commercial Flooring Contractor in Vancouver, BC</span>
+              <span>Commercial floors across Metro Vancouver</span>
             </div>
 
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-[1.1]">
-              Commercial flooring, built around your business
+              Commercial flooring for Metro Vancouver businesses
             </h1>
 
             <p className="text-slate-200 text-sm sm:text-base leading-relaxed">
-              We install, repair and replace commercial floors across Metro Vancouver, with scheduling designed to reduce disruption.
+              From installation and repairs to full replacements, we help local businesses plan flooring work around their day-to-day operations.
             </p>
 
             {/* CTAs matching reference design */}
@@ -132,10 +132,10 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
             <div className="lg:col-span-7 space-y-5">
               <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#7D9A87]/15 text-[#2A6E44] text-xs font-mono font-bold uppercase tracking-wider border border-[#7D9A87]/30">
                 <Award className="w-3.5 h-3.5 text-[#3B945E]" />
-                <span>Our Heritage & Standards</span>
+                <span>Local team, practical approach</span>
               </div>
-              <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">Local crew. Commercial floors.</h2>
-              <p className="text-slate-600 text-base leading-relaxed">We install, repair and replace commercial floors across Metro Vancouver, with flexible scheduling for active businesses.</p>
+              <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">A local team for active workplaces</h2>
+              <p className="text-slate-600 text-base leading-relaxed">We work with businesses throughout Metro Vancouver to select flooring systems that suit their spaces, schedules and daily use.</p>
             </div>
 
             <div className="lg:col-span-5 relative">
@@ -170,10 +170,10 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
               <span>Reliability First</span>
             </div>
             <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
-              What you can expect
+              A thoughtful approach to every project
             </h2>
             <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
-              Reliable work, clear communication and less disruption.
+              We plan around your space, schedule and operational needs.
             </p>
           </div>
 
@@ -192,9 +192,9 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
               <div className="w-10 h-10 bg-[#7D9A87] text-white flex items-center justify-center font-bold">
                 <ShieldCheck className="w-5 h-5" />
               </div>
-              <h3 className="text-lg font-bold text-slate-900">10-year workmanship warranty</h3>
+              <h3 className="text-lg font-bold text-slate-900">Installation warranty</h3>
               <p className="text-slate-600 text-xs leading-relaxed">
-                Warranty coverage is available on qualifying installations.
+                Ask us which warranty terms apply to your flooring system and project.
               </p>
             </div>
 

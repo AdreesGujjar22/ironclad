@@ -2,14 +2,14 @@ import { createFileRoute } from "@tanstack/react-router";
 
 import { AboutPage } from "../pages/AboutPage";
 import { SiteLayout } from "../components/SiteLayout";
-import { STATIC_SEO, staticTitle } from "../data/seoContent";
+import { STATIC_SEO, staticDescription, staticTitle } from "../data/seoContent";
 import { buildHead } from "../lib/seo";
 
 export const Route = createFileRoute("/about")({
   head: () =>
     buildHead({
       title: staticTitle(STATIC_SEO.about),
-      description: STATIC_SEO.about.description,
+      description: staticDescription(STATIC_SEO.about),
       path: "/about",
       breadcrumbs: [{ name: "About", path: "/about" }],
     }),

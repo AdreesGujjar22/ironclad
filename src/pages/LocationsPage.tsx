@@ -65,14 +65,14 @@ export const LocationsPage: React.FC<LocationsPageProps> = ({ onNavigate }) => {
           >
             <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/10 text-[#88D2A8] text-xs font-mono font-bold uppercase tracking-wider border border-white/20 w-fit">
               <MapPin className="w-3.5 h-3.5 text-[#88D2A8]" />
-              <span>Service Areas & Regional Coverage</span>
+              <span>Local service across Metro Vancouver</span>
             </div>
 
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-[1.1]">
-              Serving Metro Vancouver
+              Commercial flooring across Metro Vancouver
             </h1>
 
-            <p className="text-slate-200 text-base leading-relaxed">Find commercial flooring service in your area.</p>
+            <p className="text-slate-200 text-base leading-relaxed">See the cities and neighbourhoods where we take on commercial flooring projects.</p>
             <a href="tel:6045403999" className="rounded-full bg-[#3B945E] px-5 py-3 text-sm font-bold text-white">Call now · (604) 540-3999</a>
 
 
@@ -88,10 +88,10 @@ export const LocationsPage: React.FC<LocationsPageProps> = ({ onNavigate }) => {
         <div className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-300 pb-4">
           <div>
             <h2 className="text-xl font-black text-slate-900 tracking-tight">
-              Browse service areas
+              Find your service area
             </h2>
             <p className="text-xs text-slate-600">
-              Choose a city to view local service details.
+              Browse cities and neighbourhoods across Metro Vancouver.
             </p>
           </div>
 
@@ -116,7 +116,7 @@ export const LocationsPage: React.FC<LocationsPageProps> = ({ onNavigate }) => {
                   : 'bg-white text-slate-700 hover:bg-slate-50 border-slate-300'
               }`}
             >
-              Regional Cities ({cityIds.length})
+              Cities ({cityIds.length})
             </button>
             <button
               type="button"
@@ -181,7 +181,7 @@ export const LocationsPage: React.FC<LocationsPageProps> = ({ onNavigate }) => {
               </div>
 
               <div className="p-5 pt-0 text-sm font-semibold text-[#3B4D5D] group-hover:text-[#7D9A87] flex items-center gap-1">
-                View area <ChevronRight className="w-4 h-4" />
+                View service area <ChevronRight className="w-4 h-4" />
               </div>
             </motion.div>
           ))}
@@ -190,7 +190,7 @@ export const LocationsPage: React.FC<LocationsPageProps> = ({ onNavigate }) => {
 
       {/* Map Embed */}
       <section className="max-w-6xl mx-auto px-4 sm:px-6">
-        <MapEmbed title="Metro Vancouver" subtitle="Our local service area." className="ic-locations-map" />
+        <MapEmbed title="Metro Vancouver service area" subtitle="Explore where we work across the region." className="ic-locations-map" />
       </section>
       </div>
     </div>

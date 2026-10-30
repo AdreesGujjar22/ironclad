@@ -83,13 +83,13 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigate }) => {
         <div className="relative max-w-5xl mx-auto text-left space-y-4">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-white/10 text-[#88D2A8] text-xs font-mono font-bold uppercase tracking-wider border border-white/20">
             <Layers className="w-3.5 h-3.5 text-[#88D2A8]" />
-            <span>Our Services</span>
+            <span>Commercial flooring services</span>
           </div>
           <h1 className="text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight">
-            Flooring solutions for busy workspaces
+            Commercial flooring for Metro Vancouver workplaces
           </h1>
           <p className="text-slate-100 text-sm sm:text-base leading-relaxed max-w-3xl">
-            Explore commercial flooring installation, repair and replacement across Metro Vancouver.
+            Compare flooring installation, repair and replacement options for commercial spaces throughout Metro Vancouver.
           </p>
 
           {/* Search & Filter Bar */}
@@ -129,7 +129,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigate }) => {
       {/* Services Grid */}
       <section className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="mb-6 text-xs font-mono text-slate-600 flex flex-wrap items-center justify-between gap-2 border-b border-slate-300 pb-3">
-          <span>{filteredServices.length} flooring services</span>
+          <span>{filteredServices.length} services for commercial floors</span>
         </div>
 
         {filteredServices.length === 0 ? (
@@ -184,7 +184,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigate }) => {
 
                 <div className="p-6 pt-0 mt-2">
                   <button type="button" onClick={() => onNavigate('service-detail', service.slug)} className="text-sm font-bold text-[#2A6E44] flex items-center gap-2 cursor-pointer">
-                    <span>Explore service</span><ArrowRight className="w-4 h-4" />
+                    <span>View service details</span><ArrowRight className="w-4 h-4" />
                   </button>
                 </div>
               </motion.div>

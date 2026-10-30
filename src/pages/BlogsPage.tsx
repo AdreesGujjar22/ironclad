@@ -34,7 +34,7 @@ export const BlogsPage: React.FC<BlogsPageProps> = ({ onNavigate }) => {
       {/* Visual Breadcrumbs */}
       <Breadcrumbs
         items={[
-          { name: 'Technical Flooring Guides & Engineering Articles', current: true }
+          { name: 'Commercial flooring guides', current: true }
         ]}
         onNavigate={onNavigate}
       />
@@ -53,15 +53,15 @@ export const BlogsPage: React.FC<BlogsPageProps> = ({ onNavigate }) => {
           >
             <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/10 text-[#88D2A8] text-xs font-mono font-bold uppercase tracking-wider border border-white/20 w-fit">
               <BookOpen className="w-3.5 h-3.5 text-[#88D2A8]" />
-              <span>Engineering Insights & Articles</span>
+              <span>Commercial flooring guides</span>
             </div>
 
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-[1.1]">
-              Commercial Flooring Guides for Vancouver, BC Businesses
+              Commercial flooring guides for Metro Vancouver businesses
             </h1>
 
             <p className="text-slate-200 text-xs sm:text-sm leading-relaxed">
-              Essential knowledge for Vancouver facility managers, general contractors, and architects planning commercial flooring projects.
+              Clear, practical reading on flooring materials, preparation and care for commercial spaces around Metro Vancouver.
             </p>
           </motion.div>
 
@@ -74,13 +74,13 @@ export const BlogsPage: React.FC<BlogsPageProps> = ({ onNavigate }) => {
           >
             <div className="p-6 rounded-2xl bg-[#10251a]/70 border border-white/25 shadow-xl backdrop-blur-md space-y-3">
               <span className="text-xs font-mono uppercase font-bold text-[#88D2A8] tracking-wider block">
-                ASTM & ICRI STANDARDS
+                Project planning
               </span>
               <h3 className="text-xl font-bold text-white">
-                Field-Tested Best Practices
+                Practical flooring guidance
               </h3>
               <p className="text-xs text-slate-300 leading-relaxed">
-                Authored by Red Seal certified installers and commercial estimators with 20+ years in Pacific Northwest concrete moisture and epoxy environments.
+                Explore key considerations for choosing flooring systems and planning work in active commercial spaces.
               </p>
             </div>
           </motion.div>

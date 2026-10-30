@@ -78,15 +78,15 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
           >
             <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/10 text-[#88D2A8] text-xs font-mono font-bold uppercase tracking-wider border border-white/20 w-fit">
               <Phone className="w-3.5 h-3.5 text-[#88D2A8]" />
-              <span>Commercial Dispatch & Estimating</span>
+              <span>Metro Vancouver project enquiries</span>
             </div>
 
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-[1.1]">
-              Let’s plan your flooring project
+              Tell us about your flooring project
             </h1>
 
             <p className="text-slate-200 text-sm sm:text-base leading-relaxed">
-              Talk with our Vancouver team about your space, flooring needs and schedule.
+              Share a little about your commercial space, the flooring work you need and your preferred timing.
             </p>
 
 
@@ -110,7 +110,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
           <div className="ic-contact-details lg:col-span-4 bg-white border border-slate-300 p-6 space-y-5 shadow-lg">
             <div>
               <p className="text-xs font-bold uppercase tracking-wider text-[#3B945E]">Contact details</p>
-              <h2 className="mt-1 text-xl font-bold text-slate-900">Vancouver, BC</h2>
+              <h2 className="mt-1 text-xl font-bold text-slate-900">Vancouver office</h2>
             </div>
 
             <div className="space-y-4 text-xs">
@@ -118,7 +118,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
                 <MapPin className="w-4 h-4 text-[#3B945E] shrink-0 mt-0.5" />
                 <div>
                   <span className="text-[11px] font-mono uppercase font-bold text-slate-500 block">
-                    Facility & Headquarters
+                    Office address
                   </span>
                   <address 
                     className="not-italic font-bold text-slate-900 mt-0.5"
@@ -146,7 +146,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
                 <Phone className="w-4 h-4 text-[#3B945E] shrink-0 mt-0.5" />
                 <div>
                   <span className="text-[11px] font-mono uppercase font-bold text-slate-500 block">
-                    Direct Line & Dispatch
+                    Phone
                   </span>
                   <a href="tel:6045403999" className="text-sm font-bold text-slate-900 hover:text-[#3B945E] hover:underline mt-0.5 block">
                     (604) 540-3999
@@ -174,7 +174,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
                     Business Hours
                   </h2>
                   <p className="font-semibold text-slate-900 mt-0.5">
-                    Mon–Fri, 7 AM–6 PM · Emergency repair available
+                    Monday–Friday, 7 AM–6 PM
                   </p>
                 </div>
               </div>
@@ -183,10 +183,10 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
             {/* H2: Service Area */}
             <div className="pt-2 border-t border-slate-200 space-y-1.5">
               <h2 className="text-xs font-mono uppercase font-bold text-slate-500 block">
-                Service Area
+                Where we work
               </h2>
               <p className="text-slate-700 text-xs font-semibold leading-relaxed">
-                Serving Metro Vancouver
+                Commercial flooring service across Metro Vancouver.
               </p>
             </div>
           </div>
@@ -212,8 +212,8 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
             ) : (
               <form onSubmit={handleSubmit} className="space-y-5">
                 <div>
-                  <h2 className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight">Tell us about your project</h2>
-                  <p className="text-sm text-slate-600 mt-1 leading-relaxed">We’ll contact you about your flooring project.</p>
+                  <h2 className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight">A few details about your project</h2>
+                  <p className="text-sm text-slate-600 mt-1 leading-relaxed">Tell us what the space needs and when you’d like the work done.</p>
                 </div>
 
                 <div className="grid grid-cols-1 gap-4">
@@ -296,7 +296,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
                   </label>
                   <textarea
                     rows={3}
-                    placeholder="Tell us what flooring you need and when you need it."
+                    placeholder="Describe the space, flooring work and preferred timing."
                     value={formData.message}
                     onChange={e => setFormData({ ...formData, message: e.target.value })}
                     className="w-full px-3.5 py-2.5 bg-[#F8F9FA] border border-slate-300 text-slate-900 text-xs focus:border-[#3B4D5D] focus:bg-white focus:outline-none"

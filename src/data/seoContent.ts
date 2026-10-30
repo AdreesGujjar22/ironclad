@@ -2,18 +2,72 @@ import type { FAQItem } from "../types";
 
 export const BUSINESS = "Ironclad Commercial Floors";
 
-/** Title ladder: "keyword in Area | business" kept to 60 characters or fewer. */
 export function buildTitle(keyword: string, shortArea: string): string {
   const city = shortArea.replace(/, BC$/, "");
+  const conciseKeyword = keyword.replace("Commercial ", "").replace(" Contractor", "");
   const options = [
-    `${keyword} in ${shortArea} | ${BUSINESS}`,
+    `${keyword} in ${shortArea} | Ironclad Commercial Floors`,
     `${keyword} in ${shortArea} | Ironclad Floors`,
     `${keyword} in ${shortArea} | Ironclad`,
-    `${keyword} in ${city} | Ironclad`,
-    `${keyword.replace(" Contractor", "")} in ${city} | Ironclad`,
+    `${conciseKeyword} in ${city} | Ironclad Commercial Floors`,
+    `${conciseKeyword} in ${city} | Ironclad Floors`,
+    `${conciseKeyword} in ${city} | Ironclad`,
+    `${keyword} | ${city} | Ironclad Floors`,
+    `${keyword} | ${city} | Ironclad`,
   ];
-  return options.find((o) => o.length <= 60) ?? options[options.length - 1];
+  return options.find((title) => title.length >= 55 && title.length <= 59)
+    ?? options.filter((title) => title.length >= 55).sort((a, b) => a.length - b.length)[0]
+    ?? options.find((title) => title.length < 55)
+    ?? options[options.length - 1].slice(0, 59).trimEnd();
 }
+
+export function fitMetaDescription(description: string, keyword: string): string {
+  const base = description.toLowerCase().includes(keyword.toLowerCase())
+    ? description.trim()
+    : `${keyword}: ${description.trim()}`;
+  if (base.length >= 155 && base.length <= 159) return base;
+  if (base.length > 159) {
+    const trimmed = base.slice(0, 159);
+    return trimmed.slice(0, trimmed.lastIndexOf(" ")).replace(/[,;:]$/, ".");
+  }
+
+  const additions = [
+    " Contact Ironclad for a local estimate today.",
+    " Ask our team about your flooring project today.",
+    " Contact our Vancouver team to discuss your project.",
+  ];
+  const complete = additions.find((addition) => base.length + addition.length <= 159);
+  if (complete) {
+    const result = `${base}${complete}`;
+    return result.length >= 155 ? result : `${result} today.`;
+  }
+
+  const addition = additions[0];
+  const available = 159 - addition.length;
+  const head = base.slice(0, available).replace(/\s+\S*$/, "").trimEnd();
+  return `${head}${addition}`;
+}
+
+export const pageDescription = (p: PageSeo) => fitMetaDescription(p.metaDescription, p.keyword);
+export const staticDescription = (s: StaticSeo) => fitMetaDescription(s.description, s.keyword);
+
+const standardizePageDescriptions = (pages: PageSeo[]) => {
+  pages.forEach((page) => {
+    page.metaDescription = pageDescription(page);
+  });
+};
+
+export const fitBlogTitle = (title: string) => {
+  const options = [
+    title,
+    `${title} | Ironclad`,
+    `${title} | Ironclad Floors`,
+    `${title} | Vancouver`,
+  ];
+  return options.find((option) => option.length >= 55 && option.length <= 59)
+    ?? options.find((option) => option.length < 55)
+    ?? options[0].slice(0, 59).trimEnd();
+};
 
 export interface PageSeo {
   slug: string;
@@ -927,6 +981,9 @@ export const LOCATION_SEO: PageSeo[] = [
   ),
 ];
 
+standardizePageDescriptions(SERVICE_SEO);
+standardizePageDescriptions(LOCATION_SEO);
+
 export const getServiceSeo = (slug: string) => SERVICE_SEO.find((s) => s.slug === slug);
 export const getLocationSeo = (slug: string) => LOCATION_SEO.find((s) => s.slug === slug);
 
@@ -937,13 +994,18 @@ export interface StaticSeo {
   description: string;
 }
 
+/** Home page meta: title 58 characters, description 158 characters. */
+export const HOME_TITLE = "Commercial Flooring Contractor in Vancouver, BC | Ironclad";
+export const HOME_DESCRIPTION =
+  "Commercial flooring contractor in Vancouver, BC. Ironclad Commercial Floors installs and repairs epoxy, polished concrete, vinyl and carpet tile. Get a quote today.";
+
 export const STATIC_SEO: Record<string, StaticSeo> = {
   home: {
     path: "/",
     keyword: "Commercial Flooring Contractor",
     area: "Vancouver, BC",
     description:
-      "Commercial flooring contractor in Vancouver, BC. Ironclad Commercial Floors installs epoxy, polished concrete, vinyl and carpet tile at night. Free quote.",
+      HOME_DESCRIPTION,
   },
   services: {
     path: "/services",
