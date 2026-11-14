@@ -12,14 +12,12 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as ContactRouteImport } from './routes/contact'
-import { Route as ProjectsRouteImport } from './routes/projects'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
-import { Route as BlogsIndexRouteImport } from './routes/blogs/index'
-import { Route as BlogsSlugRouteImport } from './routes/blogs/$slug'
-import { Route as LocationsIndexRouteImport } from './routes/locations/index'
-import { Route as LocationsSlugRouteImport } from './routes/locations/$slug'
-import { Route as ServicesIndexRouteImport } from './routes/services/index'
-import { Route as ServicesSlugRouteImport } from './routes/services/$slug'
+import { Route as ServiceAreasIndexRouteImport } from './routes/service-areas.index'
+import { Route as ServiceAreasSlugRouteImport } from './routes/service-areas.$slug'
+import { Route as ServicesIndexRouteImport } from './routes/services.index'
+import { Route as ServicesSlugRouteImport } from './routes/services.$slug'
+import { Route as ApiPublicGoogleProfileRouteImport } from './routes/api/public/google-profile'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -36,34 +34,19 @@ const ContactRoute = ContactRouteImport.update({
   path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ProjectsRoute = ProjectsRouteImport.update({
-  id: '/projects',
-  path: '/projects',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
-const BlogsIndexRoute = BlogsIndexRouteImport.update({
-  id: '/blogs/',
-  path: '/blogs/',
+const ServiceAreasIndexRoute = ServiceAreasIndexRouteImport.update({
+  id: '/service-areas/',
+  path: '/service-areas/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const BlogsSlugRoute = BlogsSlugRouteImport.update({
-  id: '/blogs/$slug',
-  path: '/blogs/$slug',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const LocationsIndexRoute = LocationsIndexRouteImport.update({
-  id: '/locations/',
-  path: '/locations/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const LocationsSlugRoute = LocationsSlugRouteImport.update({
-  id: '/locations/$slug',
-  path: '/locations/$slug',
+const ServiceAreasSlugRoute = ServiceAreasSlugRouteImport.update({
+  id: '/service-areas/$slug',
+  path: '/service-areas/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ServicesIndexRoute = ServicesIndexRouteImport.update({
@@ -76,46 +59,45 @@ const ServicesSlugRoute = ServicesSlugRouteImport.update({
   path: '/services/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiPublicGoogleProfileRoute = ApiPublicGoogleProfileRouteImport.update({
+  id: '/api/public/google-profile',
+  path: '/api/public/google-profile',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
-  '/projects': typeof ProjectsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
-  '/blogs/$slug': typeof BlogsSlugRoute
-  '/locations/$slug': typeof LocationsSlugRoute
+  '/service-areas/$slug': typeof ServiceAreasSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
-  '/blogs/': typeof BlogsIndexRoute
-  '/locations/': typeof LocationsIndexRoute
+  '/service-areas/': typeof ServiceAreasIndexRoute
   '/services/': typeof ServicesIndexRoute
+  '/api/public/google-profile': typeof ApiPublicGoogleProfileRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
-  '/projects': typeof ProjectsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
-  '/blogs/$slug': typeof BlogsSlugRoute
-  '/locations/$slug': typeof LocationsSlugRoute
+  '/service-areas/$slug': typeof ServiceAreasSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
-  '/blogs': typeof BlogsIndexRoute
-  '/locations': typeof LocationsIndexRoute
+  '/service-areas': typeof ServiceAreasIndexRoute
   '/services': typeof ServicesIndexRoute
+  '/api/public/google-profile': typeof ApiPublicGoogleProfileRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
-  '/projects': typeof ProjectsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
-  '/blogs/$slug': typeof BlogsSlugRoute
-  '/locations/$slug': typeof LocationsSlugRoute
+  '/service-areas/$slug': typeof ServiceAreasSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
-  '/blogs/': typeof BlogsIndexRoute
-  '/locations/': typeof LocationsIndexRoute
+  '/service-areas/': typeof ServiceAreasIndexRoute
   '/services/': typeof ServicesIndexRoute
+  '/api/public/google-profile': typeof ApiPublicGoogleProfileRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -123,54 +105,46 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/contact'
-    | '/projects'
     | '/sitemap.xml'
-    | '/blogs/$slug'
-    | '/locations/$slug'
+    | '/service-areas/$slug'
     | '/services/$slug'
-    | '/blogs/'
-    | '/locations/'
+    | '/service-areas/'
     | '/services/'
+    | '/api/public/google-profile'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/about'
     | '/contact'
-    | '/projects'
     | '/sitemap.xml'
-    | '/blogs/$slug'
-    | '/locations/$slug'
+    | '/service-areas/$slug'
     | '/services/$slug'
-    | '/blogs'
-    | '/locations'
+    | '/service-areas'
     | '/services'
+    | '/api/public/google-profile'
   id:
     | '__root__'
     | '/'
     | '/about'
     | '/contact'
-    | '/projects'
     | '/sitemap.xml'
-    | '/blogs/$slug'
-    | '/locations/$slug'
+    | '/service-areas/$slug'
     | '/services/$slug'
-    | '/blogs/'
-    | '/locations/'
+    | '/service-areas/'
     | '/services/'
+    | '/api/public/google-profile'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
-  ProjectsRoute: typeof ProjectsRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
-  BlogsSlugRoute: typeof BlogsSlugRoute
-  LocationsSlugRoute: typeof LocationsSlugRoute
+  ServiceAreasSlugRoute: typeof ServiceAreasSlugRoute
   ServicesSlugRoute: typeof ServicesSlugRoute
-  BlogsIndexRoute: typeof BlogsIndexRoute
-  LocationsIndexRoute: typeof LocationsIndexRoute
+  ServiceAreasIndexRoute: typeof ServiceAreasIndexRoute
   ServicesIndexRoute: typeof ServicesIndexRoute
+  ApiPublicGoogleProfileRoute: typeof ApiPublicGoogleProfileRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -196,13 +170,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/projects': {
-      id: '/projects'
-      path: '/projects'
-      fullPath: '/projects'
-      preLoaderRoute: typeof ProjectsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/sitemap.xml': {
       id: '/sitemap.xml'
       path: '/sitemap.xml'
@@ -210,32 +177,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/blogs/': {
-      id: '/blogs/'
-      path: '/blogs'
-      fullPath: '/blogs/'
-      preLoaderRoute: typeof BlogsIndexRouteImport
+    '/service-areas/': {
+      id: '/service-areas/'
+      path: '/service-areas'
+      fullPath: '/service-areas/'
+      preLoaderRoute: typeof ServiceAreasIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/blogs/$slug': {
-      id: '/blogs/$slug'
-      path: '/blogs/$slug'
-      fullPath: '/blogs/$slug'
-      preLoaderRoute: typeof BlogsSlugRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/locations/': {
-      id: '/locations/'
-      path: '/locations'
-      fullPath: '/locations/'
-      preLoaderRoute: typeof LocationsIndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/locations/$slug': {
-      id: '/locations/$slug'
-      path: '/locations/$slug'
-      fullPath: '/locations/$slug'
-      preLoaderRoute: typeof LocationsSlugRouteImport
+    '/service-areas/$slug': {
+      id: '/service-areas/$slug'
+      path: '/service-areas/$slug'
+      fullPath: '/service-areas/$slug'
+      preLoaderRoute: typeof ServiceAreasSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/services/': {
@@ -252,6 +205,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicesSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/public/google-profile': {
+      id: '/api/public/google-profile'
+      path: '/api/public/google-profile'
+      fullPath: '/api/public/google-profile'
+      preLoaderRoute: typeof ApiPublicGoogleProfileRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -259,14 +219,12 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
-  ProjectsRoute: ProjectsRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
-  BlogsSlugRoute: BlogsSlugRoute,
-  LocationsSlugRoute: LocationsSlugRoute,
+  ServiceAreasSlugRoute: ServiceAreasSlugRoute,
   ServicesSlugRoute: ServicesSlugRoute,
-  BlogsIndexRoute: BlogsIndexRoute,
-  LocationsIndexRoute: LocationsIndexRoute,
+  ServiceAreasIndexRoute: ServiceAreasIndexRoute,
   ServicesIndexRoute: ServicesIndexRoute,
+  ApiPublicGoogleProfileRoute: ApiPublicGoogleProfileRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

@@ -1,66 +1,46 @@
-import { SITE_URL } from "./routes";
+import { business } from "./site";
 
-const DEFAULT_IMAGE = `${SITE_URL}/IRONCLAD-COMMERCIAL-FLOORS.png`;
+const SITE = "Ironclad Commercial Floors";
 
-export interface Crumb {
-  name: string;
-  path: string;
-}
-
-export interface BuildHeadOptions {
+/** Per-page head tags: title, description, Open Graph, Twitter and a self-referencing canonical. */
+export function pageHead({
+  title,
+  description,
+  path,
+  type = "website",
+  noindex = false,
+  jsonLd = [],
+}: {
   title: string;
   description: string;
-  /** Path of this page, e.g. "/services/flooring-repair" */
   path: string;
-  image?: string;
-  ogType?: "website" | "article";
-  /** Breadcrumb trail excluding "Home", which is prepended automatically. */
-  breadcrumbs?: Crumb[];
-  /** Extra JSON-LD objects (Service, LocalBusiness, FAQPage, Article...) */
-  schemas?: Record<string, unknown>[];
-}
-
-function absolute(path: string): string {
-  if (path === "/") return `${SITE_URL}/`;
-  return `${SITE_URL}${path.startsWith("/") ? path : `/${path}`}`;
-}
-
-export function breadcrumbSchema(crumbs: Crumb[]): Record<string, unknown> {
-  const all: Crumb[] = [{ name: "Home", path: "/" }, ...crumbs];
+  type?: string;
+  noindex?: boolean;
+  jsonLd?: object[];
+}) {
+  const meta: Record<string, string>[] = [
+    { title },
+    { name: "description", content: description },
+    { property: "og:title", content: title },
+    { property: "og:description", content: description },
+    { property: "og:type", content: type },
+    { property: "og:url", content: path },
+    { name: "twitter:card", content: "summary_large_image" },
+    { name: "twitter:title", content: title },
+    { name: "twitter:description", content: description },
+  ];
+  if (noindex) meta.push({ name: "robots", content: "noindex" });
   return {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: all.map((crumb, index) => ({
-      "@type": "ListItem",
-      position: index + 1,
-      name: crumb.name,
-      item: absolute(crumb.path),
-    })),
+    meta,
+    links: noindex ? [] : [{ rel: "canonical", href: path }],
+    scripts: jsonLd.map((d) => ({ type: "application/ld+json", children: JSON.stringify(d) })),
   };
 }
 
-export function faqSchema(faqs: { question: string; answer: string }[]): Record<string, unknown> {
-  return {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqs.map((faq) => ({
-      "@type": "Question",
-      name: faq.question,
-      acceptedAnswer: { "@type": "Answer", text: faq.answer },
-    })),
-  };
-}
-
-export const ORGANIZATION_SCHEMA: Record<string, unknown> = {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "@id": `${SITE_URL}/#organization`,
-  name: "Ironclad Commercial Floors",
-  image: DEFAULT_IMAGE,
-  url: `${SITE_URL}/`,
-  telephone: "+1-604-540-3999",
-  email: "info@ironcladcommercialfloors.ca",
-  priceRange: "$$",
+export const providerLd = {
+  "@type": "GeneralContractor",
+  name: SITE,
+  telephone: business.phone,
   address: {
     "@type": "PostalAddress",
     streetAddress: "783 E 60th Ave",
@@ -69,68 +49,29 @@ export const ORGANIZATION_SCHEMA: Record<string, unknown> = {
     postalCode: "V5X 2A5",
     addressCountry: "CA",
   },
-  geo: { "@type": "GeoCoordinates", latitude: 49.2158341, longitude: -123.088378 },
-  areaServed: [
-    "Vancouver", "Burnaby", "Richmond", "Surrey", "Coquitlam", "Port Coquitlam",
-    "New Westminster", "Delta", "Langley", "North Vancouver",
-  ].map((name) => ({ "@type": "City", name })),
-  openingHoursSpecification: [
-    {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: [
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday",
-        "Saturday",
-        "Sunday",
-      ],
-      opens: "00:00",
-      closes: "23:59",
-    },
-  ],
 };
 
-/** Builds a complete, self-referencing-canonical head config for a route. */
-export function buildHead(options: BuildHeadOptions) {
-  const {
-    title,
-    description,
-    path,
-    image = DEFAULT_IMAGE,
-    ogType = "website",
-    breadcrumbs,
-    schemas = [],
-  } = options;
-
-  const canonical = absolute(path);
-  const jsonLd: Record<string, unknown>[] = [...schemas];
-  if (breadcrumbs && breadcrumbs.length > 0) {
-    jsonLd.unshift(breadcrumbSchema(breadcrumbs));
-  }
-
+export function serviceLd(name: string, description: string, areaNames: string[]) {
   return {
-    meta: [
-      { title },
-      { name: "description", content: description },
-      { property: "og:title", content: title },
-      { property: "og:description", content: description },
-      { property: "og:type", content: ogType },
-      { property: "og:url", content: canonical },
-      { property: "og:site_name", content: "Ironclad Commercial Floors" },
-      { property: "og:image", content: image },
-      { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: title },
-      { name: "twitter:description", content: description },
-      { name: "twitter:image", content: image },
-      { name: "robots", content: "index, follow, max-image-preview:large" },
-    ],
-    links: [{ rel: "canonical", href: canonical }],
-    scripts: jsonLd.map((schema, index) => ({
-      type: "application/ld+json",
-      children: JSON.stringify(schema),
-      key: `ld-${index}`,
+    "@context": "https://schema.org",
+    "@type": "Service",
+    serviceType: name,
+    name,
+    description,
+    provider: providerLd,
+    areaServed: areaNames.map((n) => ({ "@type": "Place", name: n })),
+  };
+}
+
+/** FAQPage structured data built from the same FAQs shown on the page. */
+export function faqLd(faqs: { q: string; a: string }[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
     })),
   };
 }

@@ -6,11 +6,22 @@ import {
   useRouter,
   HeadContent,
   Scripts,
+  type ErrorComponentProps,
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
-import redesignCss from "../index.css?url";
+
 import appCss from "../styles.css?url";
+import { Header } from "@/components/site/Header";
+import { Footer } from "@/components/site/Footer";
+import { ReviewsBadge } from "@/components/site/ReviewsBadge";
+import { FloatingContact } from "@/components/site/FloatingContact";
+import { GmbSection } from "@/components/site/GmbSection";
+import { IntroLoader } from "@/components/site/IntroLoader";
+import { ScrollProgress } from "@/components/site/ScrollProgress";
+import { Toaster } from "@/components/ui/sonner";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { areas, business } from "@/lib/site";
+import { providerLd } from "@/lib/seo";
 
 function NotFoundComponent() {
   return (
@@ -34,7 +45,7 @@ function NotFoundComponent() {
   );
 }
 
-function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
+function ErrorComponent({ error, reset }: ErrorComponentProps) {
   console.error(error);
   const router = useRouter();
   useEffect(() => {
@@ -72,34 +83,46 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   );
 }
 
-
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
+  staticData: { sitemap: false },
   head: () => ({
+    // Sitewide defaults only. Each content route sets its own head() via pageHead().
+    // Never add og:image, twitter:image or canonical here.
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Commercial Flooring Contractor in Vancouver, BC | Ironclad" },
-      {
-        name: "description",
-        content:
-          "Commercial flooring contractor in Vancouver, BC. Ironclad Commercial Floors installs epoxy, polished concrete, vinyl and carpet tile at night. Free quote.",
-      },
+      { title: "Commercial Flooring Vancouver | Ironclad Floors" },
+      { name: "description", content: "Commercial Flooring Experts in Vancouver, BC across Metro Vancouver: epoxy, vinyl, carpet, tile, installation and repair. | IRONCLAD COMMERCIAL FLOORS" },
       { name: "author", content: "Ironclad Commercial Floors" },
-      { property: "og:locale", content: "en_CA" },
+      { name: "theme-color", content: "#1a211e" },
+      { property: "og:site_name", content: "Ironclad Commercial Floors" },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
       {
         rel: "stylesheet",
         href: appCss,
       },
+      { rel: "icon", type: "image/png", href: "/favicon.png" },
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: redesignCss,
+        href: "https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&family=Unbounded:wght@400;500;600;700&display=swap",
       },
+    ],
+    scripts: [
       {
-        rel: "icon",
-        href: "/favicon.png",
-        type: "image/png",
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          ...providerLd,
+          email: business.email,
+          openingHours: "Mo-Su 00:00-23:59",
+          hasMap: business.gmb,
+          areaServed: areas.map((a) => ({ "@type": "Place", name: `${a.name}, BC` })),
+        }),
       },
     ],
   }),
@@ -109,10 +132,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
   errorComponent: ErrorComponent,
 });
 
-
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en-CA">
       <head>
         <HeadContent />
       </head>
@@ -129,8 +151,18 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <Outlet />
+      <IntroLoader />
+      <ScrollProgress />
+      <Header />
+      <main>
+        {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+        <Outlet />
+      </main>
+      <GmbSection />
+      <Footer />
+      <ReviewsBadge />
+      <FloatingContact />
+      <Toaster />
     </QueryClientProvider>
   );
 }
