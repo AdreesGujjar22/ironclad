@@ -61,7 +61,7 @@ export function AreaPage({ a }: { a: Area }) {
             )}
           </div>
           <Reveal dir="right" className="lg:col-span-5">
-            <aside className="glass sticky top-28 rounded-3xl p-8" aria-label={`Working in ${a.name}`}>
+            <aside className="card-luxe sticky top-28 rounded-3xl p-8" aria-label={`Working in ${a.name}`}>
               <p className="eyebrow flex items-center gap-2"><Building2 className="h-4 w-4" /> Buildings we floor</p>
               <ul className="mt-5 flex flex-wrap gap-2">
                 {a.buildingTypes.map((t) => <li key={t} className="rounded-full border border-primary/30 px-3 py-1 text-xs">{t}</li>)}
@@ -72,7 +72,7 @@ export function AreaPage({ a }: { a: Area }) {
                 <Button asChild variant="hero" size="xl">
                   <Link to="/contact">Free flooring estimate in {place} <ArrowUpRight /></Link>
                 </Button>
-                <Button asChild variant="glass" size="xl">
+                <Button asChild variant="outline" size="xl">
                   <a href={business.phoneHref}><Phone /> {business.phone}</a>
                 </Button>
               </div>

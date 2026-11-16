@@ -150,7 +150,7 @@ function AboutPreview() {
           <TiltCard className="rounded-3xl" max={6}>
             <img src={crewImg} alt="Ironclad Commercial Floors crew installing plank flooring in Vancouver, BC" loading="lazy" decoding="async" width={1600} height={1072} className="aspect-[4/5] w-full rounded-3xl object-cover shadow-deep" />
           </TiltCard>
-          <div className="glass absolute -bottom-8 -right-4 w-56 rounded-2xl p-5 md:-right-10">
+          <div className="card-luxe absolute -bottom-8 -right-4 w-56 rounded-2xl p-5 md:-right-10">
             <p className="font-display text-4xl font-semibold text-primary-glow">24/7</p>
             <p className="mt-1 text-sm text-muted-foreground">Crews scheduled around your operating hours</p>
           </div>
@@ -200,8 +200,8 @@ function ServicesSection() {
                 <article className="card-luxe flex h-full flex-col overflow-hidden rounded-3xl">
                   <div className="relative aspect-[4/3] overflow-hidden">
                     <img src={c.image} alt={`${c.name} commercial flooring in Vancouver, BC`} loading="lazy" decoding="async" width={1600} height={1072} className="h-full w-full object-cover transition-transform duration-[1.2s] group-hover:scale-110" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-card via-card/10 to-transparent" />
-                    <span className="glass absolute left-4 top-4 flex h-10 w-10 items-center justify-center rounded-full font-display text-lg text-primary-glow">{c.letter}</span>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
+                    <span className="glass absolute left-4 top-4 flex h-10 w-10 items-center justify-center rounded-full font-display text-lg text-emerald-100">{c.letter}</span>
                   </div>
                   <div className="flex flex-1 flex-col p-6">
                     <h3 className="text-xl font-semibold">{c.name}</h3>
@@ -244,7 +244,7 @@ function WhyChoose() {
             );
           })}
         </div>
-        <div className="mt-16 grid grid-cols-2 gap-6 rounded-3xl border border-border p-8 md:grid-cols-4">
+        <div className="card-luxe mt-16 grid grid-cols-2 gap-6 rounded-3xl p-8 md:grid-cols-4">
           {stats.map((s) => (
             <Reveal key={s.label} className="text-center">
               <p className="font-display text-4xl font-semibold text-gradient md:text-5xl"><Counter value={s.value} suffix={s.suffix} /></p>
@@ -264,7 +264,7 @@ function Reviews() {
         <div className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-end">
           <SectionHeading eyebrow="Customer Reviews" title={<>Trusted on the <span className="text-gradient">toughest sites</span></>} />
           <Reveal>
-            <a href={business.gmb} target="_blank" rel="noreferrer" className="glass flex items-center gap-4 rounded-2xl px-5 py-4 transition-colors hover:border-primary/50">
+            <a href={business.gmb} target="_blank" rel="noreferrer" className="card-luxe flex items-center gap-4 rounded-2xl px-5 py-4 transition-colors hover:border-primary/50">
               <div className="flex text-primary-glow">{Array.from({ length: 5 }).map((_, i) => <Star key={i} className="h-4 w-4 fill-current" />)}</div>
               <span className="text-sm">Read our Google reviews <ArrowUpRight className="ml-1 inline h-4 w-4" /></span>
             </a>

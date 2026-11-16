@@ -36,7 +36,7 @@ const details = [
   { icon: Clock, label: "Hours", value: `${business.hours} — ${business.hoursDetail}` },
 ];
 
-const fieldCls = "h-12 rounded-xl bg-background/40";
+const fieldCls = "h-12 rounded-xl border-black/15 bg-white text-paper-foreground placeholder:text-paper-muted focus-visible:ring-emerald-600";
 
 function Contact() {
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -127,7 +127,7 @@ function Contact() {
                     id="service"
                     name="service"
                     defaultValue=""
-                    className="h-12 w-full rounded-xl border border-input bg-background/40 px-3 text-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+                    className="h-12 w-full rounded-xl border border-black/15 bg-white px-3 text-sm text-paper-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-emerald-600"
                   >
                     <option value="">Not sure yet</option>
                     {categories.map((c) => (
@@ -146,7 +146,7 @@ function Contact() {
                     rows={5}
                     maxLength={2000}
                     placeholder="Building type, approx. square footage, timeline…"
-                    className="rounded-xl bg-background/40"
+                    className="rounded-xl border-black/15 bg-white text-paper-foreground placeholder:text-paper-muted focus-visible:ring-emerald-600"
                   />
                 </Field>
               </div>

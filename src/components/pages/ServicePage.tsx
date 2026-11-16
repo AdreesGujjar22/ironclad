@@ -65,7 +65,7 @@ export function ServicePage({ s }: { s: Service }) {
             )}
           </div>
           <Reveal dir="right" className="lg:col-span-5">
-            <aside className="glass sticky top-28 rounded-3xl p-8" aria-label={`${s.name} specifications`}>
+            <aside className="card-luxe sticky top-28 rounded-3xl p-8" aria-label={`${s.name} specifications`}>
               <p className="eyebrow">Specifications</p>
               <dl className="mt-6 divide-y divide-border">
                 {s.specs.map((sp) => (

@@ -62,7 +62,7 @@ function ServiceAreas() {
                   >
                     <div className="relative aspect-[16/9] overflow-hidden">
                       <img src={a.image} alt={`Commercial flooring in ${a.name}, BC — Ironclad Commercial Floors`} loading="lazy" decoding="async" width={1600} height={1072} className="h-full w-full object-cover transition-transform duration-[1.2s] group-hover:scale-110" />
-                      <div className="absolute inset-0 bg-gradient-to-t from-card via-card/20 to-transparent" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
                       {a.hq && <span className="bg-gradient-primary absolute left-4 top-4 rounded-full px-3 py-1 font-mono text-[11px] tracking-[0.2em] text-primary-foreground">HQ</span>}
                     </div>
                     <div className="flex flex-1 flex-col p-6">

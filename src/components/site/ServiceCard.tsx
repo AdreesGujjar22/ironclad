@@ -21,8 +21,8 @@ export function ServiceCard({ service, index }: { service: Service; index: numbe
             height={1072}
             className="h-full w-full object-cover transition-transform duration-[1.2s] group-hover:scale-110"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-card via-card/10 to-transparent" />
-          <span className="glass absolute left-4 top-4 rounded-full px-3 py-1 font-mono text-[11px] tracking-[0.25em] text-primary-glow">
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
+          <span className="glass absolute left-4 top-4 rounded-full px-3 py-1 font-mono text-[11px] tracking-[0.25em] text-emerald-100">
             {String(index + 1).padStart(2, "0")}
           </span>
         </div>
