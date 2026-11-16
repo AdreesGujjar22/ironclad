@@ -11,6 +11,7 @@ import { faqLd, pageHead } from "@/lib/seo";
 import { pageMeta } from "@/lib/seo-meta";
 import { areasIndexFaqs } from "@/lib/seo-content";
 import { FaqBlock } from "@/components/site/FaqBlock";
+import { areaSlug } from "@/lib/urls";
 
 export const Route = createFileRoute("/service-areas/")({
   staticData: { sitemap: true },
@@ -55,8 +56,8 @@ function ServiceAreas() {
               <Reveal key={a.slug} delay={(i % 3) * 90} className="h-full">
                 <TiltCard className="group h-full rounded-3xl">
                   <Link
-                    to="/service-areas/$slug"
-                    params={{ slug: a.slug }}
+                    to="/$slug"
+                    params={{ slug: areaSlug(a.slug) }}
                     className="card-luxe flex h-full flex-col overflow-hidden rounded-3xl transition-colors hover:border-primary/50"
                   >
                     <div className="relative aspect-[16/9] overflow-hidden">
@@ -129,7 +130,7 @@ function ServiceAreas() {
       </section>
 
       <FaqBlock faqs={areasIndexFaqs} title={<>Metro Vancouver flooring <span className="text-gradient">FAQs</span></>} exclude="/service-areas" />
-      <CtaBand />
+      <CtaBand title={<>Flooring project anywhere in <span className="text-gradient">Metro Vancouver?</span></>} text="Tell us the address and timeline and we will book a free on-site estimate in your part of Metro Vancouver." />
     </>
   );
 }

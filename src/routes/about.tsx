@@ -11,6 +11,7 @@ import { faqLd, pageHead } from "@/lib/seo";
 import { pageMeta } from "@/lib/seo-meta";
 import { aboutFaqs } from "@/lib/seo-content";
 import { FaqBlock } from "@/components/site/FaqBlock";
+import { serviceSlug } from "@/lib/urls";
 
 export const Route = createFileRoute("/about")({
   staticData: { sitemap: true },
@@ -98,7 +99,7 @@ function About() {
           <Reveal dir="right">
             <h2 className="text-3xl font-semibold leading-[1.1] md:text-4xl">One team for installation <span className="text-gradient">and repair</span></h2>
             <p className="mt-6 leading-relaxed text-muted-foreground">
-              Whether you need <Link to="/services/$slug" params={{ slug: "commercial-flooring-installation" }} className="font-medium text-primary-glow underline decoration-primary/40 underline-offset-4">commercial flooring installation in Vancouver</Link> for a new suite or <Link to="/services/$slug" params={{ slug: "commercial-flooring-repair" }} className="font-medium text-primary-glow underline decoration-primary/40 underline-offset-4">flooring repair</Link> for an existing one, the same crews handle both.
+              Whether you need <Link to="/$slug" params={{ slug: serviceSlug("commercial-flooring-installation") }} className="font-medium text-primary-glow underline decoration-primary/40 underline-offset-4">commercial flooring installation in Vancouver</Link> for a new suite or <Link to="/$slug" params={{ slug: serviceSlug("commercial-flooring-repair") }} className="font-medium text-primary-glow underline decoration-primary/40 underline-offset-4">flooring repair</Link> for an existing one, the same crews handle both.
             </p>
             <p className="mt-4 leading-relaxed text-muted-foreground">
               We serve <Link to="/service-areas" className="font-medium text-primary-glow underline decoration-primary/40 underline-offset-4">Vancouver and communities across Metro Vancouver</Link> and answer calls day and night.
@@ -107,7 +108,7 @@ function About() {
         </div>
       </section>
       <FaqBlock faqs={aboutFaqs} title={<>Vancouver flooring company <span className="text-gradient">FAQs</span></>} tone="surface" exclude="/about" />
-      <CtaBand />
+      <CtaBand title={<>Work with a Vancouver flooring team <span className="text-gradient">that stays accountable</span></>} text="Book a free site visit and meet the crew who will install or repair your commercial floor." />
     </>
   );
 }

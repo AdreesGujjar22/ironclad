@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { getRouterInstance } from "@tanstack/react-start";
-import { isSitemapRouteIncluded, sitemapPathForLocation, sitemapStaticPaths, sitemapXML, type SitemapEntry } from "@/lib/sitemap";
+import { sitemapStaticPaths, sitemapXML, type SitemapEntry } from "@/lib/sitemap";
+import { areaUrl, serviceUrl } from "@/lib/urls";
 import { SITE_URL, areas, services } from "@/lib/site";
 
 const BASE_URL = SITE_URL;
@@ -20,23 +21,9 @@ export const Route = createFileRoute("/sitemap.xml")({
         const router = await getRouterInstance();
         const entries: SitemapEntry[] = sitemapStaticPaths(router).map((path) => ({ path, lastmod: LASTMOD }));
 
-        const serviceRouteId = "/services/$slug";
-        if (isSitemapRouteIncluded(router.routesById[serviceRouteId])) {
-          for (const s of services) {
-            const location = router.buildLocation({ to: "/services/$slug", params: { slug: s.slug }, search: () => ({}), hash: "" });
-            const path = sitemapPathForLocation(router, location, serviceRouteId);
-            if (path) entries.push({ path, lastmod: LASTMOD });
-          }
-        }
-
-        const areaRouteId = "/service-areas/$slug";
-        if (isSitemapRouteIncluded(router.routesById[areaRouteId])) {
-          for (const a of areas) {
-            const location = router.buildLocation({ to: "/service-areas/$slug", params: { slug: a.slug }, search: () => ({}), hash: "" });
-            const path = sitemapPathForLocation(router, location, areaRouteId);
-            if (path) entries.push({ path, lastmod: LASTMOD });
-          }
-        }
+        // Service and area pages live at the site root, so they are listed explicitly.
+        for (const sv of services) entries.push({ path: serviceUrl(sv.slug), lastmod: LASTMOD });
+        for (const ar of areas) entries.push({ path: areaUrl(ar.slug), lastmod: LASTMOD });
 
         if (entries.length === 0) {
           return new Response(

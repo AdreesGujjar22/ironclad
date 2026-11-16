@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { ArrowUpRight, Clock, ExternalLink, Mail, MapPin, Phone } from "lucide-react";
 import logo from "@/assets/ironclad-logo.png.asset.json";
 import { areas, business, categories, services } from "@/lib/site";
+import { areaSlug } from "@/lib/urls";
 
 const linkCls = "text-muted-foreground transition-colors hover:text-primary-glow";
 const viewAllCls = "mt-5 inline-flex items-center gap-2 text-sm font-semibold text-primary-glow hover:underline";
@@ -56,7 +57,7 @@ export function Footer() {
             <p className="eyebrow mb-5">Flooring Service Areas</p>
             <ul className="space-y-3 text-sm">
               {areas.slice(0, 5).map((a) => (
-                <li key={a.slug}><Link to="/service-areas/$slug" params={{ slug: a.slug }} className={linkCls}>Flooring {a.slug === "vancouver" ? "South Vancouver" : a.name}</Link></li>
+                <li key={a.slug}><Link to="/$slug" params={{ slug: areaSlug(a.slug) }} className={linkCls}>Flooring {a.slug === "vancouver" ? "South Vancouver" : a.name}</Link></li>
               ))}
             </ul>
             <Link to="/service-areas" className={viewAllCls}>All {areas.length} Metro Vancouver areas <ArrowUpRight className="h-4 w-4" /></Link>

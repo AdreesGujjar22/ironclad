@@ -4,6 +4,7 @@ import { describe, expect, it } from "vitest";
 
 import { routeTree } from "@/routeTree.gen";
 import { areas, categories, navLinks, services, servicesIn } from "@/lib/site";
+import { areaSlugs as areaSlugMap, areaUrl, resolvePage, serviceSlugs, serviceUrl } from "@/lib/urls";
 
 const router = () => createRouter({ routeTree, context: { queryClient: new QueryClient() } });
 const leaf = (path: string) => router().matchRoutes(path).at(-1)?.routeId;
@@ -14,7 +15,7 @@ describe("Site pages", () => {
   });
 
   it("has no gallery page", () => {
-    expect(leaf("/gallery")).toBe(rootRouteId);
+    expect(resolvePage("gallery")).toBeNull();
     expect(navLinks.map((l) => l.to)).not.toContain("/gallery");
   });
 });
@@ -28,7 +29,12 @@ describe("Services", () => {
 
   it("gives every service its own page and unique address", () => {
     expect(new Set(services.map((s) => s.slug)).size).toBe(24);
-    services.forEach((s) => expect(leaf(`/services/${s.slug}`)).toBe("/services/$slug"));
+    expect(new Set(Object.values(serviceSlugs)).size).toBe(24);
+    services.forEach((s) => {
+      expect(serviceUrl(s.slug)).toMatch(/^\/commercial-[a-z0-9-]+-vancouver$/);
+      expect(resolvePage(serviceSlugs[s.slug]!)).toMatchObject({ kind: "service" });
+      expect(leaf(serviceUrl(s.slug))).toBe("/$slug");
+    });
   });
 });
 
@@ -41,13 +47,19 @@ describe("Service areas", () => {
     expect(areas.filter((a) => a.hq).map((a) => a.name)).toEqual(["Vancouver"]);
   });
 
+  it("keeps the South Vancouver head-office address", () => {
+    expect(areaUrl("vancouver")).toBe("/commercial-flooring-contractor-south-vancouver");
+  });
+
   it("links each area only to real services and areas", () => {
     const slugs = new Set(services.map((s) => s.slug));
     const areaSlugs = new Set(areas.map((a) => a.slug));
     areas.forEach((a) => {
       a.featuredServices.forEach((s) => expect(slugs.has(s)).toBe(true));
       a.nearby.forEach((n) => expect(areaSlugs.has(n)).toBe(true));
-      expect(leaf(`/service-areas/${a.slug}`)).toBe("/service-areas/$slug");
+      expect(areaUrl(a.slug)).toMatch(/^\/commercial-flooring-contractor-[a-z0-9-]+$/);
+      expect(resolvePage(areaSlugMap[a.slug]!)).toMatchObject({ kind: "area" });
+      expect(leaf(areaUrl(a.slug))).toBe("/$slug");
     });
   });
 });

@@ -3,8 +3,10 @@
 
 export type Segment = { text: string; to?: string };
 
-const S = (slug: string) => `/services/${slug}`;
-const A = (slug: string) => `/service-areas/${slug}`;
+import { areaUrl, serviceUrl } from "./urls";
+
+const S = (slug: string) => serviceUrl(slug);
+const A = (slug: string) => areaUrl(slug);
 
 // Order matters only for alternation priority: longer, more specific phrases first.
 const rules: [pattern: string, to: string][] = [

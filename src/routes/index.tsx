@@ -19,6 +19,7 @@ import { homeMeta } from "@/lib/seo-meta";
 import { homeFaqs as faqs } from "@/lib/seo-content";
 import { HeroQuoteForm } from "@/components/site/HeroQuoteForm";
 import { LinkedText } from "@/components/site/LinkedText";
+import { serviceSlug } from "@/lib/urls";
 
 export const Route = createFileRoute("/")({
   staticData: { sitemap: true },
@@ -311,7 +312,7 @@ function Faqs() {
             {faqs.map((f, i) => (
               <AccordionItem key={f.q} value={`item-${i}`} className="card-luxe rounded-2xl border px-6">
                 <AccordionTrigger className="py-5 text-left font-display text-base hover:no-underline">{f.q}</AccordionTrigger>
-                <AccordionContent className="pb-5 text-sm leading-relaxed text-muted-foreground"><LinkedText text={f.a} exclude="/" /></AccordionContent>
+                <AccordionContent className="pb-5 text-sm leading-relaxed text-muted-foreground"><LinkedText text={f.a} exclude="/" cta={{ label: "Request a free commercial flooring quote in Vancouver", to: "/contact" }} /></AccordionContent>
               </AccordionItem>
             ))}
           </Accordion>
@@ -330,7 +331,7 @@ function LocalCopy() {
           <p className="eyebrow mb-5 flex items-center gap-3"><span className="h-px w-10 bg-primary" />Installation in Vancouver</p>
           <h2 className="text-3xl font-semibold leading-[1.1] md:text-4xl">Commercial flooring installation <span className="text-gradient">in Vancouver</span></h2>
           <p className="mt-6 leading-relaxed text-muted-foreground">
-            From a single tenant suite to a multi-floor fit-out, our crews handle <Link to="/services/$slug" params={{ slug: "commercial-flooring-installation" }} className={link}>commercial flooring installation in Vancouver</Link> from slab to handover. We test moisture, grind and level the substrate, then install luxury vinyl, sheet vinyl, carpet tile, rubber, porcelain tile or epoxy with clean transitions and tight seams.
+            From a single tenant suite to a multi-floor fit-out, our crews handle <Link to="/$slug" params={{ slug: serviceSlug("commercial-flooring-installation") }} className={link}>commercial flooring installation in Vancouver</Link> from slab to handover. We test moisture, grind and level the substrate, then install luxury vinyl, sheet vinyl, carpet tile, rubber, porcelain tile or epoxy with clean transitions and tight seams.
           </p>
           <p className="mt-4 leading-relaxed text-muted-foreground">
             Night, weekend and phased schedules keep offices, clinics, schools and restaurants open while we work, and one crew lead means one schedule and one warranty for the whole floor package.
@@ -340,10 +341,10 @@ function LocalCopy() {
           <p className="eyebrow mb-5 flex items-center gap-3"><span className="h-px w-10 bg-primary" />Repair in Vancouver</p>
           <h2 className="text-3xl font-semibold leading-[1.1] md:text-4xl">Commercial flooring repair <span className="text-gradient">in Vancouver</span></h2>
           <p className="mt-6 leading-relaxed text-muted-foreground">
-            Lifting vinyl, failed seams, cracked tile, spalled joints and worn coatings do not always mean a new floor. Our <Link to="/services/$slug" params={{ slug: "commercial-flooring-repair" }} className={link}>commercial flooring repair in Vancouver</Link> finds the root cause first, whether moisture, movement or adhesive, so the fix lasts.
+            Lifting vinyl, failed seams, cracked tile, spalled joints and worn coatings do not always mean a new floor. Our <Link to="/$slug" params={{ slug: serviceSlug("commercial-flooring-repair") }} className={link}>commercial flooring repair in Vancouver</Link> finds the root cause first, whether moisture, movement or adhesive, so the fix lasts.
           </p>
           <p className="mt-4 leading-relaxed text-muted-foreground">
-            When a floor is truly finished, we manage <Link to="/services/$slug" params={{ slug: "commercial-floor-replacement" }} className={link}>full floor replacement</Link> in phases. We serve <Link to="/service-areas" className={link}>Vancouver, Burnaby, New Westminster, Coquitlam and Port Coquitlam</Link> with free on-site estimates.
+            When a floor is truly finished, we manage <Link to="/$slug" params={{ slug: serviceSlug("commercial-floor-replacement") }} className={link}>full floor replacement</Link> in phases. We serve <Link to="/service-areas" className={link}>Vancouver, Burnaby, New Westminster, Coquitlam and Port Coquitlam</Link> with free on-site estimates.
           </p>
         </Reveal>
       </div>

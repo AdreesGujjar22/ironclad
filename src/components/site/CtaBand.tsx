@@ -4,7 +4,13 @@ import { Button } from "@/components/ui/button";
 import { business } from "@/lib/site";
 import { Reveal } from "./Reveal";
 
-export function CtaBand() {
+export function CtaBand({
+  title = <>Ready for a floor that <span className="text-gradient">outlasts the lease?</span></>,
+  text = "Tell us about your space — we'll measure, test the substrate and send a clear, itemized quote.",
+}: {
+  title?: React.ReactNode;
+  text?: string;
+} = {}) {
   return (
     <section className="px-6 py-24">
       <Reveal dir="zoom" className="noise relative mx-auto max-w-7xl overflow-hidden rounded-3xl border border-primary/30 bg-surface px-8 py-16 md:px-16 md:py-20">
@@ -15,9 +21,9 @@ export function CtaBand() {
           <div className="max-w-2xl">
             <p className="eyebrow mb-4">Free on-site estimate</p>
             <h2 className="text-3xl font-semibold leading-tight md:text-5xl">
-              Ready for a floor that <span className="text-gradient">outlasts the lease?</span>
+              {title}
             </h2>
-            <p className="mt-4 text-muted-foreground">Tell us about your space — we'll measure, test the substrate and send a clear, itemized quote.</p>
+            <p className="mt-4 text-muted-foreground">{text}</p>
           </div>
           <div className="flex flex-wrap gap-4">
             <Button asChild variant="hero" size="xl">

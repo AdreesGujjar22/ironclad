@@ -26,7 +26,7 @@ export const pageMeta = {
     h1: "About Our Commercial Flooring Company in Vancouver, BC",
   },
   contact: {
-    title: title("Flooring Quote Vancouver"),
+    title: title("Contact Flooring Vancouver"),
     description: desc("Contact commercial flooring contractors in Vancouver, BC for a free on-site estimate. Call (604) 540-3999 — open 24 hours."),
     h1: "Contact Commercial Flooring Contractors in Vancouver, BC",
   },
@@ -60,13 +60,13 @@ export const serviceMeta: Record<string, { kw: string; h1: string; lead: string 
   "broadloom-carpet-installation": { kw: "Broadloom Carpet Vancouver", h1: "Broadloom Carpet Installation in Vancouver, BC", lead: "Broadloom carpet installation in Vancouver, BC for offices, hotels and care homes: stretched or glue-down. Free estimates." },
   "ceramic-porcelain-tile": { kw: "Porcelain Tile Vancouver", h1: "Ceramic & Porcelain Tile Installation in Vancouver, BC", lead: "Ceramic and porcelain tile installation in Vancouver, BC for lobbies, washrooms and retail: precise, durable. Free quotes." },
   "commercial-quarry-tile": { kw: "Quarry Tile Vancouver", h1: "Commercial Quarry Tile in Vancouver, BC", lead: "Commercial quarry tile in Vancouver, BC: heavy-duty, slip-resistant floors for kitchens and food service. Free estimates." },
-  "entryway-walk-off-systems": { kw: "Walk-Off Mats Vancouver", h1: "Entryway Walk-Off Systems in Vancouver, BC", lead: "Entryway walk-off systems in Vancouver, BC: recessed mats that trap rain, grit and salt at the door. Free commercial quotes." },
+  "entryway-walk-off-systems": { kw: "Walk-Off Systems Vancouver", h1: "Entryway Walk-Off Systems in Vancouver, BC", lead: "Entryway walk-off systems in Vancouver, BC: recessed mats that trap rain, grit and salt at the door. Free commercial quotes." },
   "acoustic-subfloor-systems": { kw: "Acoustic Floors Vancouver", h1: "Acoustic Subfloor Systems in Vancouver, BC", lead: "Acoustic subfloor systems in Vancouver, BC: cut impact noise in condos, offices and clinics under any finish. Free quotes." },
   "warehouse-logistics-floors": { kw: "Warehouse Floors Vancouver", h1: "Warehouse & Logistics Floors in Vancouver, BC", lead: "Warehouse and logistics floors in Vancouver, BC: forklift-ready epoxy, densified concrete and line striping. Free quotes." },
   "restaurant-kitchen-flooring": { kw: "Kitchen Flooring Vancouver", h1: "Restaurant & Kitchen Flooring in Vancouver, BC", lead: "Restaurant and kitchen flooring in Vancouver, BC: quarry tile and urethane cement that survive hot washdowns. Free quotes." },
   "commercial-flooring-repair": { kw: "Floor Repair Vancouver", h1: "Commercial Flooring Repair in Vancouver, BC", lead: "Commercial flooring repair in Vancouver, BC: fix lifting vinyl, failed seams, cracked tile and worn coatings. Free quotes." },
   "commercial-floor-replacement": { kw: "Replace Flooring Vancouver", h1: "Commercial Floor Replacement in Vancouver, BC", lead: "Commercial floor replacement in Vancouver, BC: tear-out, prep and new floors phased around your operations. Get free quotes." },
-  "joint-spall-crack-stitching": { kw: "Crack Repair Vancouver", h1: "Joint, Spall & Crack Stitching Repair in Vancouver, BC", lead: "Joint, spall and crack stitching repair in Vancouver, BC: restore concrete slabs and stop further breakdown. Free estimates." },
+  "joint-spall-crack-stitching": { kw: "Crack Stitching Vancouver", h1: "Joint, Spall & Crack Stitching Repair in Vancouver, BC", lead: "Joint, spall and crack stitching repair in Vancouver, BC: restore concrete slabs and stop further breakdown. Free estimates." },
   "demolition-self-leveling": { kw: "Self-Leveling Vancouver", h1: "Demolition & Self-Leveling Floors in Vancouver, BC", lead: "Flooring demolition and self-leveling in Vancouver, BC: clean removal and a flat slab ready for any new floor. Free quotes." },
 };
 

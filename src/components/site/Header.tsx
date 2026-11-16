@@ -5,6 +5,7 @@ import logo from "@/assets/ironclad-logo.png.asset.json";
 import { areas, business, categories, servicesIn } from "@/lib/site";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { serviceSlug, areaSlug } from "@/lib/urls";
 
 const linkCls =
   "relative px-1 py-2 text-sm font-medium tracking-wide text-foreground/80 transition-colors hover:text-foreground after:absolute after:-bottom-0.5 after:left-0 after:h-px after:w-0 after:bg-primary after:transition-all hover:after:w-full";
@@ -77,8 +78,8 @@ export function Header() {
                           {servicesIn(c.key).map((s) => (
                             <li key={s.slug}>
                               <Link
-                                to="/services/$slug"
-                                params={{ slug: s.slug }}
+                                to="/$slug"
+                                params={{ slug: serviceSlug(s.slug) }}
                                 className="block rounded-lg px-2 py-1.5 text-sm text-muted-foreground transition-colors hover:bg-accent hover:text-primary-glow"
                                 activeProps={{ className: "text-primary-glow" }}
                               >
@@ -108,8 +109,8 @@ export function Header() {
                     {areas.map((a) => (
                       <li key={a.slug}>
                         <Link
-                          to="/service-areas/$slug"
-                          params={{ slug: a.slug }}
+                          to="/$slug"
+                          params={{ slug: areaSlug(a.slug) }}
                           className="flex items-center gap-2 rounded-lg px-2 py-2 text-sm text-muted-foreground transition-colors hover:bg-accent hover:text-primary-glow"
                           activeProps={{ className: "text-primary-glow" }}
                         >
@@ -186,7 +187,7 @@ export function Header() {
                   <ul className="mt-2 space-y-1">
                     {servicesIn(c.key).map((s) => (
                       <li key={s.slug}>
-                        <Link to="/services/$slug" params={{ slug: s.slug }} onClick={close} className="block py-1.5 text-sm text-muted-foreground">{s.name}</Link>
+                        <Link to="/$slug" params={{ slug: serviceSlug(s.slug) }} onClick={close} className="block py-1.5 text-sm text-muted-foreground">{s.name}</Link>
                       </li>
                     ))}
                   </ul>
@@ -202,7 +203,7 @@ export function Header() {
             <div className="flex flex-col gap-1 border-b border-border py-4 pl-2">
               <Link to="/service-areas" onClick={close} className="py-1.5 text-sm font-semibold text-primary-glow">All Metro Vancouver service areas</Link>
               {areas.map((a) => (
-                <Link key={a.slug} to="/service-areas/$slug" params={{ slug: a.slug }} onClick={close} className="py-1.5 text-sm text-muted-foreground">
+                <Link key={a.slug} to="/$slug" params={{ slug: areaSlug(a.slug) }} onClick={close} className="py-1.5 text-sm text-muted-foreground">
                   {a.name}{a.hq ? " (HQ)" : ""}
                 </Link>
               ))}

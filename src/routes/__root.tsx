@@ -19,8 +19,7 @@ import { GmbSection } from "@/components/site/GmbSection";
 import { ScrollProgress } from "@/components/site/ScrollProgress";
 import { Toaster } from "@/components/ui/sonner";
 import { reportLovableError } from "../lib/lovable-error-reporting";
-import { localBusinessLd, OG_IMAGE, OG_IMAGE_ALT } from "@/lib/seo";
-import { SITE_URL } from "@/lib/site";
+import { localBusinessLd } from "@/lib/seo";
 
 function NotFoundComponent() {
   return (
@@ -95,10 +94,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "author", content: "Ironclad Commercial Floors" },
       { name: "robots", content: "index, follow, max-image-preview:large" },
       { property: "og:locale", content: "en_CA" },
-      { property: "og:url", content: SITE_URL },
-      { property: "og:image", content: OG_IMAGE },
-      { property: "og:image:alt", content: OG_IMAGE_ALT },
-      { name: "twitter:image", content: OG_IMAGE },
       { name: "theme-color", content: "#1a211e" },
       { property: "og:site_name", content: "Ironclad Commercial Floors" },
       { property: "og:type", content: "website" },
@@ -110,12 +105,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: appCss,
       },
       { rel: "icon", type: "image/png", href: "/favicon.png" },
-      { rel: "preconnect", href: "https://fonts.googleapis.com" },
-      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      {
-        rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&family=Manrope:wght@400;500;600;700&family=Unbounded:wght@500;600&display=swap",
-      },
     ],
     scripts: [
       {

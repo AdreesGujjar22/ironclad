@@ -11,6 +11,7 @@ import { SectionHeading } from "@/components/site/SectionHeading";
 import { Reveal } from "@/components/site/Reveal";
 import { ServiceCard } from "@/components/site/ServiceCard";
 import { CtaBand } from "@/components/site/CtaBand";
+import { serviceSlug } from "@/lib/urls";
 
 export const Route = createFileRoute("/services/")({
   staticData: { sitemap: true },
@@ -33,7 +34,7 @@ function ServicesPage() {
         title={<>Commercial Flooring Services in <span className="text-gradient">Vancouver, BC</span></>}
         text="Ironclad Commercial Floors offers 24 commercial flooring services in Vancouver, BC: concrete and epoxy, vinyl and rubber, tile and carpet, plus installation, repair and replacement over a properly prepared substrate."
         image={epoxyImg}
-        imageAlt="Commercial epoxy flooring installed in Vancouver, BC by Ironclad Commercial Floors"
+        imageAlt="Commercial flooring services in Vancouver, BC — epoxy floor installed by Ironclad Commercial Floors"
         crumb={[{ label: "Services" }]}
       />
 
@@ -75,7 +76,7 @@ function ServicesPage() {
         <div className="mx-auto max-w-4xl">
           <h2 className="text-3xl font-semibold leading-[1.1] md:text-4xl">Every floor type, <span className="text-gradient">one Vancouver contractor</span></h2>
           <p className="mt-6 leading-relaxed text-muted-foreground">
-            Choose from concrete and epoxy systems, resilient vinyl and rubber, tile and carpet, and sector floors for warehouses and kitchens. Our <Link to="/services/$slug" params={{ slug: "commercial-flooring-installation" }} className="font-medium text-primary-glow underline decoration-primary/40 underline-offset-4">commercial flooring installation in Vancouver</Link> bundles several finishes into one schedule, while our <Link to="/services/$slug" params={{ slug: "commercial-flooring-repair" }} className="font-medium text-primary-glow underline decoration-primary/40 underline-offset-4">commercial flooring repair in Vancouver</Link> fixes damaged areas without replacing the whole floor.
+            Choose from concrete and epoxy systems, resilient vinyl and rubber, tile and carpet, and sector floors for warehouses and kitchens. Our <Link to="/$slug" params={{ slug: serviceSlug("commercial-flooring-installation") }} className="font-medium text-primary-glow underline decoration-primary/40 underline-offset-4">commercial flooring installation in Vancouver</Link> bundles several finishes into one schedule, while our <Link to="/$slug" params={{ slug: serviceSlug("commercial-flooring-repair") }} className="font-medium text-primary-glow underline decoration-primary/40 underline-offset-4">commercial flooring repair in Vancouver</Link> fixes damaged areas without replacing the whole floor.
           </p>
         </div>
       </section>
@@ -91,7 +92,7 @@ function ServicesPage() {
         </div>
       </section>
       <FaqBlock faqs={servicesIndexFaqs} title={<>Flooring services in Vancouver <span className="text-gradient">FAQs</span></>} tone="surface" exclude="/services" />
-      <CtaBand />
+      <CtaBand title={<>Not sure which commercial flooring <span className="text-gradient">service you need?</span></>} text="Describe your Vancouver space and traffic and we will recommend the right system, then send an itemized quote." />
     </>
   );
 }

@@ -305,3 +305,153 @@ export const areasIndexFaqs: Faq[] = [
   { q: "Do you take projects outside Metro Vancouver?", a: "Yes. Call us with your site location and timeline and we will confirm whether we can take the project." },
   { q: "Is there a travel fee for commercial flooring installation in Metro Vancouver?", a: "Site visits and estimates are free across our listed service areas. Any travel allowance for distant projects is explained in your written quote." },
 ];
+
+type Step = { title: string; text: string };
+
+/** Unique, service-specific "Our process" steps (4 per service) so no step text repeats across pages. */
+export const processSteps: Record<string, Step[]> = {
+  "commercial-epoxy-flooring": [
+    { title: "Slab testing", text: "We test moisture, hardness and contamination so your commercial epoxy flooring in Vancouver starts on a slab that will hold the coating." },
+    { title: "Shot-blast or grind", text: "Diamond grinding or shot-blasting opens the pores of the concrete and removes sealers, oils and laitance for a deep mechanical bond." },
+    { title: "Fill and prime", text: "Cracks and joints are repaired, then a penetrating epoxy primer locks into the slab before any body coat goes down." },
+    { title: "Build and cure", text: "Body and top coats are applied to specification, then cured and inspected so your facility can return to service on schedule." },
+  ],
+  "garage-epoxy-flooring": [
+    { title: "Garage slab check", text: "We inspect the parkade or shop slab for oil, salt contamination and moisture before choosing a garage epoxy system for Vancouver conditions." },
+    { title: "Degrease and grind", text: "Oil and tire residue are removed, then the slab is ground so the coating bonds firmly under heavy vehicle traffic." },
+    { title: "Patch and prime", text: "Pits, cracks and expansion joints are patched, and a moisture-tolerant primer protects the bond through our wet winters." },
+    { title: "Hot-tire topcoat", text: "A hot-tire-resistant topcoat with optional grit is applied in bays, so garages stay open to residents or fleets between stages." },
+  ],
+  "concrete-floor-polishing": [
+    { title: "Slab evaluation", text: "We assess hardness, flatness and past coatings to decide how much grinding your polished concrete floor in Vancouver needs." },
+    { title: "Coarse grinding", text: "Metal-bond diamond tooling removes the surface layer and exposes aggregate to the level of finish you selected." },
+    { title: "Densify and refine", text: "A lithium densifier hardens the slab, then progressively finer resin diamonds refine it toward your target sheen." },
+    { title: "Guard and burnish", text: "A stain guard is burnished into the floor so spills wipe clean and the shine holds up under daily retail or office traffic." },
+  ],
+  "commercial-concrete-sealing": [
+    { title: "Surface survey", text: "We check porosity, dusting and existing stains to match a penetrating densifier or topical sealer to your Vancouver slab." },
+    { title: "Clean and open", text: "Degreasing and light grinding remove contaminants so the commercial concrete sealer can absorb or bond evenly." },
+    { title: "Fill and treat", text: "Hairline cracks and joints are filled, then densifier is applied so the slab stops shedding dust and resists moisture." },
+    { title: "Seal and protect", text: "The sealer is applied in controlled coats and cured, giving warehouses and parkades a floor that is easier to clean." },
+  ],
+  "metallic-flake-epoxy": [
+    { title: "Colour approval", text: "We mock up metallic pigments or flake blends on sample boards so you approve the look before your Vancouver floor is poured." },
+    { title: "Ground and primed", text: "The slab is ground flat and primed, because decorative epoxy shows every flaw in the surface beneath it." },
+    { title: "Pour and work", text: "Metallic epoxy is poured and hand-worked for movement, while flake is broadcast to refusal for a textured, uniform finish." },
+    { title: "Clear coat finish", text: "Urethane clear coats lock in colour and add scratch resistance, so lobbies and showrooms keep their depth for years." },
+  ],
+  "anti-slip-safety-coatings": [
+    { title: "Hazard review", text: "We walk the dock, ramp or kitchen to identify water, grease and traffic so the anti-slip texture in Vancouver matches the real risk." },
+    { title: "Clean and etch", text: "Contaminants are removed and the surface is abraded so the safety coating bonds to existing epoxy, tile or concrete." },
+    { title: "Coat and broadcast", text: "A base coat is applied and graded aggregate is broadcast to the grit level chosen for your slip-resistance target." },
+    { title: "Seal and document", text: "A sealing top coat locks in the texture, and we provide product data to support your WorkSafeBC and insurance records." },
+  ],
+  "commercial-flooring-installation": [
+    { title: "Site measure", text: "We measure the space, review finishes and confirm access rules so your commercial flooring installation in Vancouver is planned before work starts." },
+    { title: "Prep the subfloor", text: "Moisture testing, grinding, patching and levelling prepare the substrate so every finish goes down flat and stays bonded." },
+    { title: "Install by zone", text: "One crew installs vinyl, carpet, tile or epoxy in phases, after hours if needed, so offices and clinics stay in operation." },
+    { title: "Details and handover", text: "Base, transitions and clean-up are completed, followed by a walk-through and written care notes for your facility team." },
+  ],
+  "luxury-vinyl-lvt-lvp": [
+    { title: "Moisture readings", text: "RH probes and pH tests confirm the slab is dry enough for luxury vinyl, or whether a barrier is needed first." },
+    { title: "Level the slab", text: "Patching and self-levelling bring the surface within tolerance, because LVT and LVP telegraph dips and ridges." },
+    { title: "Lay out and bond", text: "Planks and tiles are laid out from the centre, then glued down, loose-laid or clicked together to the product specification." },
+    { title: "Roll and trim", text: "The floor is rolled for full adhesive transfer, then base and transitions are fitted for a clean, commercial finish." },
+  ],
+  "commercial-sheet-vinyl": [
+    { title: "Infection-control plan", text: "We review cleaning protocols and traffic in your clinic, lab or school so the sheet vinyl system suits Vancouver healthcare standards." },
+    { title: "Smooth substrate", text: "The slab is patched, skim-coated and primed, since sheet vinyl needs a perfectly smooth surface to avoid show-through." },
+    { title: "Fit and adhere", text: "Rolls are cut to fit, relaxed, then adhered with full-spread adhesive and rolled to remove trapped air." },
+    { title: "Weld and cove", text: "Seams are routed and heat-welded, and the vinyl is coved up the wall, leaving no joints where moisture can enter." },
+  ],
+  "commercial-rubber-flooring": [
+    { title: "Use-case review", text: "We match rubber thickness and density to your gym, lab or corridor, covering impact, noise and slip-resistance needs." },
+    { title: "Flatten the base", text: "Slabs are levelled and primed so rubber tiles or rolls lie flat, with moisture tested before adhesive is chosen." },
+    { title: "Adhere and seam", text: "Rubber is bonded with approved adhesive, then seams are welded or tightly butted so dirt and liquid stay out." },
+    { title: "Base and cure", text: "Matching rubber base is applied and the floor is protected while adhesives cure, ready for commercial traffic." },
+  ],
+  "integral-flash-coving": [
+    { title: "Wall and floor check", text: "We confirm walls are sound and the floor system is compatible before planning flash coving in your Vancouver clinic or kitchen." },
+    { title: "Form the cove", text: "A cove strip or fillet is fixed at the wall base to create the radius that the flooring will follow." },
+    { title: "Run the floor up", text: "Sheet vinyl or resinous material is carried up the wall, typically four to six inches, in one continuous piece." },
+    { title: "Cap and seal", text: "A cap strip or sealant finishes the top edge so the floor-to-wall transition has no crevice for bacteria or moisture." },
+  ],
+  "baseboard-moisture-barriers": [
+    { title: "RH probe testing", text: "In-slab relative humidity probes measure vapour emission so your moisture barrier decision in Vancouver is based on data." },
+    { title: "Profile the slab", text: "The concrete is shot-blasted or ground to create the profile a moisture mitigation coating needs to adhere." },
+    { title: "Apply the barrier", text: "A two-coat epoxy or urethane moisture barrier is applied at the rate required to bring emissions within limits." },
+    { title: "Fit the baseboard", text: "Rubber, vinyl or tile base is installed against the finished floor, closing the edge and protecting walls." },
+  ],
+  "commercial-carpet-tile": [
+    { title: "Layout and pattern", text: "We plan quarter-turn, ashlar or monolithic layouts and schedule furniture moves so carpet tile installation in Vancouver causes little disruption." },
+    { title: "Prepare the floor", text: "Old flooring is removed, the slab is flattened and primed, and raised-floor panels are checked where present." },
+    { title: "Glue and set", text: "Tiles are set with releasable adhesive from a centre line, keeping seams tight so damaged squares can be replaced later." },
+    { title: "Clean and inspect", text: "The floor is vacuumed, spare tiles are labelled and stored, and we complete a walk-through with your team." },
+  ],
+  "broadloom-carpet-installation": [
+    { title: "Measure and seam plan", text: "Rolls are measured to minimize waste and plan seams away from traffic lines for broadloom carpet installation in Vancouver." },
+    { title: "Prepare and pad", text: "Old carpet is lifted, tack strips and cushion are fitted, or the slab is smoothed for a glue-down installation." },
+    { title: "Stretch or bond", text: "Carpet is power-stretched over padding or adhered to the slab, depending on whether comfort or rolling loads come first." },
+    { title: "Seam and trim", text: "Seams are heat-bonded, edges trimmed and transitions fitted so patterns line up from room to room." },
+  ],
+  "ceramic-porcelain-tile": [
+    { title: "Layout and grout lines", text: "We set out tile from the centre of the space, planning cuts, grout width and movement joints before any mortar is mixed." },
+    { title: "Flatten and isolate", text: "The substrate is levelled and crack-isolation membranes are added where needed to protect ceramic and porcelain tile." },
+    { title: "Set with full coverage", text: "Tiles are bedded in mortar with full coverage and a levelling system, so large-format porcelain finishes flush." },
+    { title: "Grout and seal", text: "Joints are grouted and sealed, then the floor is cleaned and protected until it is ready for foot traffic." },
+  ],
+  "commercial-quarry-tile": [
+    { title: "Drain and slope plan", text: "We map drains and falls so quarry tile in your Vancouver kitchen sheds water instead of pooling at the edges." },
+    { title: "Waterproof the bed", text: "A mortar bed or membrane is installed to create a waterproof layer under the tile in wet kitchen areas." },
+    { title: "Set the quarry tile", text: "Dense quarry tiles are set in epoxy or cement mortar with tight joints and cove base returns at the walls." },
+    { title: "Epoxy grout", text: "Chemical-resistant grout is packed into joints, cleaned and cured so the floor handles grease and hot washdowns." },
+  ],
+  "entryway-walk-off-systems": [
+    { title: "Traffic and depth survey", text: "We measure entrance traffic and available depth, so the walk-off system in Vancouver is long enough to capture rain and grit." },
+    { title: "Cut the recess", text: "A recess is cut or formed in the slab, with drainage considered so water has a place to go." },
+    { title: "Fit the frame", text: "Aluminum frames or edging are set level with the surrounding floor to remove trip hazards at the door." },
+    { title: "Insert the matting", text: "Walk-off mats or grilles are fitted into the frame and can be lifted later for cleaning underneath." },
+  ],
+  "acoustic-subfloor-systems": [
+    { title: "Target rating", text: "We confirm your strata or tenant impact-noise requirement so the acoustic subfloor in Vancouver is chosen to meet it." },
+    { title: "Prepare the slab", text: "The slab is cleaned and flattened, and perimeter isolation strips are placed to stop sound travelling through the walls." },
+    { title: "Lay the underlay", text: "Resilient mats or underlayments are rolled out with taped seams to form a continuous sound-reducing layer." },
+    { title: "Install the finish", text: "Tile, vinyl, wood or carpet is installed over the underlay, and ratings are documented for your approval file." },
+  ],
+  "warehouse-logistics-floors": [
+    { title: "Operations walk-through", text: "We map forklift routes, racking and shipping hours so the warehouse floor in Vancouver can be treated in sections." },
+    { title: "Grind and densify", text: "Surfaces are ground and densified, and pits, cracks and joints are repaired to give forklifts a smooth path." },
+    { title: "Coat by zone", text: "Epoxy or polyaspartic coatings are applied zone by zone, with cured areas reopened while we move on." },
+    { title: "Stripe and mark", text: "Aisles, docks and pedestrian lanes are striped with durable line markings that improve safety and flow." },
+  ],
+  "restaurant-kitchen-flooring": [
+    { title: "Health code review", text: "We check drainage, cove and slip-resistance requirements so your restaurant kitchen floor in Vancouver is ready for inspection." },
+    { title: "Demo and slope", text: "Old tile and failed topping are removed, and the substrate is sloped to drains for reliable washdowns." },
+    { title: "Install the system", text: "Quarry tile, urethane cement or non-slip epoxy is installed, with coved edges where walls meet the floor." },
+    { title: "Cure and reopen", text: "Fast-cure materials let you reopen quickly, and we schedule the dining room finish to match in the same project." },
+  ],
+  "commercial-flooring-repair": [
+    { title: "Find the cause", text: "We inspect lifting vinyl, failed seams or cracked tile to identify moisture, movement or adhesive failure before quoting repair." },
+    { title: "Isolate and protect", text: "The repair area is isolated with dust control so your Vancouver business can keep operating around the work." },
+    { title: "Remove and rebuild", text: "Damaged material is removed down to a sound base, and the substrate is patched or levelled to hold the new floor." },
+    { title: "Match and blend", text: "New material is installed and blended with the existing floor, then inspected so the repair lasts." },
+  ],
+  "commercial-floor-replacement": [
+    { title: "Phasing plan", text: "We schedule commercial floor replacement in Vancouver by zone, with move-outs, noise limits and access rules agreed ahead." },
+    { title: "Tear out safely", text: "Old flooring is removed and disposed of, with licensed abatement coordinated where asbestos is suspected." },
+    { title: "Grind and level", text: "Adhesive residue is ground off and the slab is tested, patched and levelled for the new floor." },
+    { title: "Install and reopen", text: "The new floor is installed zone by zone, then inspected and handed back so staff can return on schedule." },
+  ],
+  "joint-spall-crack-stitching": [
+    { title: "Map the damage", text: "We survey cracks, spalls and failing joints in your slab to decide where stitching or edge rebuilding is required." },
+    { title: "Rout and clean", text: "Cracks and joints are routed and vacuumed so repair materials reach clean, sound concrete on both sides." },
+    { title: "Stitch and fill", text: "Steel staples are bonded across structural cracks, and spalled edges are rebuilt with rapid-set repair mortar." },
+    { title: "Refill the joints", text: "Joints are filled with semi-rigid filler and trimmed flush, so wheels cross smoothly and edges stop breaking down." },
+  ],
+  "demolition-self-leveling": [
+    { title: "Scope and test", text: "We check floor flatness, old adhesives and possible asbestos so flooring demolition in Vancouver is planned safely." },
+    { title: "Dust-controlled removal", text: "Grinders with HEPA extraction remove old flooring, adhesive and failed toppings while keeping dust out of your space." },
+    { title: "Prime and dam", text: "The slab is primed and drains and doorways are dammed so self-levelling underlayment flows only where it should." },
+    { title: "Pour and flatten", text: "Self-levelling underlayment is pumped and finished to your tolerance, giving a flat base ready for any new floor." },
+  ],
+};

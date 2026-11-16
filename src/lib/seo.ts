@@ -1,4 +1,5 @@
 import { SITE_URL, areas, business, services } from "./site";
+import { serviceUrl } from "./urls";
 
 export const SITE_NAME = "Ironclad Commercial Floors";
 export const OG_IMAGE = `${SITE_URL}/og-image.jpg`;
@@ -109,7 +110,7 @@ export function localBusinessLd() {
       name: "Commercial flooring services in Vancouver, BC",
       itemListElement: services.map((s) => ({
         "@type": "Offer",
-        itemOffered: { "@type": "Service", name: s.name, url: `${SITE_URL}/services/${s.slug}` },
+        itemOffered: { "@type": "Service", name: s.name, url: `${SITE_URL}${serviceUrl(s.slug)}` },
       })),
     },
   };

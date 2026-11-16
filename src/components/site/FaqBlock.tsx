@@ -27,7 +27,7 @@ export function FaqBlock({
               <AccordionItem key={f.q} value={`faq-${i}`} className="card-luxe rounded-2xl border px-6">
                 <AccordionTrigger className="py-5 text-left font-display text-base hover:no-underline">{f.q}</AccordionTrigger>
                 <AccordionContent className="pb-5 text-sm leading-relaxed text-muted-foreground">
-                  <LinkedText text={f.a} exclude={exclude} />
+                  <LinkedText text={f.a} exclude={exclude} cta={{ label: "Request a free flooring quote in Vancouver", to: "/contact" }} />
                 </AccordionContent>
               </AccordionItem>
             ))}

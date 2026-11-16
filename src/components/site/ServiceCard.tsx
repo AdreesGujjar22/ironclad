@@ -2,13 +2,14 @@ import { Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
 import { getCategory, type Service } from "@/lib/site";
 import { TiltCard } from "./TiltCard";
+import { serviceSlug } from "@/lib/urls";
 
 export function ServiceCard({ service, index }: { service: Service; index: number }) {
   return (
     <TiltCard className="group h-full rounded-3xl">
       <Link
-        to="/services/$slug"
-        params={{ slug: service.slug }}
+        to="/$slug"
+        params={{ slug: serviceSlug(service.slug) }}
         className="card-luxe flex h-full flex-col overflow-hidden rounded-3xl transition-colors hover:border-primary/50"
       >
         <div className="relative aspect-[16/10] overflow-hidden">

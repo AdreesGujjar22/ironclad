@@ -66,7 +66,7 @@ function Contact() {
         title={<>Contact Commercial Flooring Contractors in <span className="text-gradient">Vancouver, BC</span></>}
         text="Let's talk about your floor. Tell us about the space and the schedule, and we'll book a free site visit, test the substrate and send a clear, itemized quote for installation or repair in Vancouver."
         image={crewImg}
-        imageAlt="Ironclad Commercial Floors flooring crew on site in Vancouver, BC"
+        imageAlt="Contact Ironclad Commercial Floors — flooring crew on site in Vancouver, BC"
         crumb={[{ label: "Contact Us" }]}
       />
 
@@ -160,7 +160,7 @@ function Contact() {
           </Reveal>
         </div>
       </section>
-      <FaqBlock faqs={contactFaqs} title={<>Free flooring quote <span className="text-gradient">FAQs</span></>} tone="surface" exclude="/contact" />
+      <FaqBlock faqs={contactFaqs} title={<>Contact our Vancouver flooring team: <span className="text-gradient">FAQs</span></>} tone="surface" exclude="/contact" />
     </>
   );
 }
