@@ -27,11 +27,12 @@ export function GmbSection() {
     <section className="px-6 pb-24" aria-labelledby="gmb-heading">
       <Reveal className="relative mx-auto max-w-7xl overflow-hidden rounded-3xl border border-border shadow-deep">
         <iframe
-          title="Ironclad Commercial Floors on Google Maps"
+          title="Map: IRONCLAD COMMERCIAL FLOORS, 783 E 60th Ave, Vancouver, BC"
           src={business.mapEmbed}
-          className="block h-[520px] w-full grayscale-[0.6] invert-[0.9] hue-rotate-180 md:h-[460px]"
+          className="block h-[520px] w-full border-0 md:h-[460px]"
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
+          allowFullScreen
         />
         <div className="absolute inset-x-4 top-4 rounded-2xl bg-paper p-5 text-paper-foreground shadow-deep sm:right-auto sm:w-[22rem] md:left-6 md:top-6">
           <p className="flex items-center gap-2 text-xs text-paper-muted">

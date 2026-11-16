@@ -2,7 +2,7 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowUpRight, CheckCircle2, MapPin } from "lucide-react";
 import { areas, getCategory, getService, services, servicesIn } from "@/lib/site";
 import { faqLd, pageHead, serviceLd } from "@/lib/seo";
-import { serviceSeo } from "@/lib/seo-meta";
+import { serviceHero, serviceSeo } from "@/lib/seo-meta";
 import { serviceExtra, serviceFaqs } from "@/lib/seo-content";
 import { PageHero } from "@/components/site/PageHero";
 import { SectionHeading } from "@/components/site/SectionHeading";
@@ -23,15 +23,16 @@ export const Route = createFileRoute("/services/$slug")({
   head: ({ loaderData, params }) => {
     const s = loaderData?.service;
     if (!s) {
-      return pageHead({ title: "Service not found | Ironclad Commercial Floors", description: "This service page could not be found.", path: `/services/${params.slug}`, noindex: true });
+      return pageHead({ title: "Service not found | Ironclad Commercial Floors", description: "This service page could not be found.", path: `/services/${params.slug}` });
     }
     const seo = serviceSeo(s.slug);
     return pageHead({
       title: seo?.title ?? `${s.name} Vancouver | Ironclad Commercial Floors`,
       description: seo?.description ?? s.short,
       path: `/services/${s.slug}`,
+      crumbs: [{ name: "Services", path: "/services" }, { name: s.name, path: `/services/${s.slug}` }],
       jsonLd: [
-        serviceLd(s.name, s.short, areas.map((a) => `${a.name}, BC`)),
+        serviceLd(s.name, s.short, areas.map((a) => `${a.name}, BC`), `/services/${s.slug}`),
         faqLd(serviceFaqs(s.slug, s.faqs)),
       ],
     });
@@ -53,8 +54,9 @@ function ServiceDetail() {
       <PageHero
         eyebrow={cat.name}
         title={seo?.h1 ?? `${s.name} in Vancouver, BC`}
-        text={s.short}
+        text={serviceHero(s.name, s.short)}
         image={s.image}
+        imageAlt={`${s.name} in Vancouver, BC by Ironclad Commercial Floors`}
         crumb={[{ label: "Services", to: "/services" }, { label: s.name }]}
       />
       <section className="px-6 py-28">
@@ -106,7 +108,7 @@ function ServiceDetail() {
                 {s.idealFor.map((t) => <li key={t} className="rounded-full border border-primary/30 px-3 py-1 text-xs">{t}</li>)}
               </ul>
               <Link to="/contact" className="bg-gradient-primary mt-8 flex items-center justify-center gap-2 rounded-full py-4 text-sm font-semibold text-primary-foreground shadow-glow">
-                Get a free quote <ArrowUpRight className="h-4 w-4" />
+                Get a free flooring quote in Vancouver <ArrowUpRight className="h-4 w-4" />
               </Link>
             </aside>
           </Reveal>
@@ -153,7 +155,7 @@ function ServiceDetail() {
                     params={{ slug: a.slug }}
                     className="inline-flex items-center gap-2 rounded-full border border-border px-4 py-2 text-sm transition-colors hover:border-primary/50 hover:text-primary-glow"
                   >
-                    <MapPin className="h-3.5 w-3.5 text-primary" /> {a.name}
+                    <MapPin className="h-3.5 w-3.5 text-primary" /> {s.name} in {a.name}
                   </Link>
                 </li>
               ))}
@@ -167,7 +169,7 @@ function ServiceDetail() {
           <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
             <SectionHeading eyebrow={cat.name} title="Related services" />
             <Link to="/services" className="inline-flex items-center gap-2 text-sm font-semibold text-primary-glow hover:underline">
-              All services <ArrowUpRight className="h-4 w-4" />
+              All commercial flooring services <ArrowUpRight className="h-4 w-4" />
             </Link>
           </div>
           <div className="mt-12 grid gap-6 md:grid-cols-3">

@@ -16,12 +16,11 @@ import { Footer } from "@/components/site/Footer";
 import { ReviewsBadge } from "@/components/site/ReviewsBadge";
 import { FloatingContact } from "@/components/site/FloatingContact";
 import { GmbSection } from "@/components/site/GmbSection";
-import { IntroLoader } from "@/components/site/IntroLoader";
 import { ScrollProgress } from "@/components/site/ScrollProgress";
 import { Toaster } from "@/components/ui/sonner";
 import { reportLovableError } from "../lib/lovable-error-reporting";
-import { areas, business } from "@/lib/site";
-import { providerLd } from "@/lib/seo";
+import { localBusinessLd, OG_IMAGE, OG_IMAGE_ALT } from "@/lib/seo";
+import { SITE_URL } from "@/lib/site";
 
 function NotFoundComponent() {
   return (
@@ -94,6 +93,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { title: "Commercial Flooring Vancouver | Ironclad Floors" },
       { name: "description", content: "Commercial Flooring Experts in Vancouver, BC across Metro Vancouver: epoxy, vinyl, carpet, tile, installation and repair. | IRONCLAD COMMERCIAL FLOORS" },
       { name: "author", content: "Ironclad Commercial Floors" },
+      { name: "robots", content: "index, follow, max-image-preview:large" },
+      { property: "og:locale", content: "en_CA" },
+      { property: "og:url", content: SITE_URL },
+      { property: "og:image", content: OG_IMAGE },
+      { property: "og:image:alt", content: OG_IMAGE_ALT },
+      { name: "twitter:image", content: OG_IMAGE },
       { name: "theme-color", content: "#1a211e" },
       { property: "og:site_name", content: "Ironclad Commercial Floors" },
       { property: "og:type", content: "website" },
@@ -109,20 +114,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&family=Unbounded:wght@400;500;600;700&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&family=Manrope:wght@400;500;600;700&family=Unbounded:wght@500;600&display=swap",
       },
     ],
     scripts: [
       {
         type: "application/ld+json",
-        children: JSON.stringify({
-          "@context": "https://schema.org",
-          ...providerLd,
-          email: business.email,
-          openingHours: "Mo-Su 00:00-23:59",
-          hasMap: business.gmb,
-          areaServed: areas.map((a) => ({ "@type": "Place", name: `${a.name}, BC` })),
-        }),
+        children: JSON.stringify(localBusinessLd()),
       },
     ],
   }),
@@ -151,10 +149,10 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <IntroLoader />
+      <a href="#main" className="sr-only z-[100] rounded-md bg-primary px-4 py-2 text-primary-foreground focus:not-sr-only focus:fixed focus:left-4 focus:top-4">Skip to main content</a>
       <ScrollProgress />
       <Header />
-      <main>
+      <main id="main">
         {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
         <Outlet />
       </main>

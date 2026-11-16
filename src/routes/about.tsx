@@ -20,6 +20,7 @@ export const Route = createFileRoute("/about")({
       description: pageMeta.about.description,
       path: "/about",
       jsonLd: [faqLd(aboutFaqs)],
+      crumbs: [{ name: "About Us", path: "/about" }],
     }),
   component: About,
 });
@@ -37,8 +38,9 @@ function About() {
       <PageHero
         eyebrow="About Us"
         title={<>About Our Commercial Flooring Company in <span className="text-gradient">Vancouver, BC</span></>}
-        text="A Vancouver flooring contractor dedicated to commercial, institutional and industrial spaces that demand more from every square foot."
+        text="Ironclad Commercial Floors is a Vancouver commercial flooring company specializing in installation and repair for offices, schools, clinics, retail and industrial spaces across Metro Vancouver."
         image={lobbyImg}
+        imageAlt="Commercial lobby floor installed by Ironclad Commercial Floors in Vancouver, BC"
         crumb={[{ label: "About Us" }]}
       />
       <section className="px-6 py-28">
@@ -59,7 +61,7 @@ function About() {
           </div>
           <Reveal dir="right">
             <TiltCard className="rounded-3xl" max={6}>
-              <img src={crewImg} alt="Ironclad crew installing commercial flooring" loading="lazy" width={1600} height={1072} className="w-full rounded-3xl object-cover shadow-deep" />
+              <img src={crewImg} alt="Ironclad Commercial Floors crew installing commercial flooring in Vancouver, BC" loading="lazy" decoding="async" width={1600} height={1072} className="w-full rounded-3xl object-cover shadow-deep" />
             </TiltCard>
           </Reveal>
         </div>

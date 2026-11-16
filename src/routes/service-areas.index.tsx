@@ -20,6 +20,7 @@ export const Route = createFileRoute("/service-areas/")({
       description: pageMeta.areas.description,
       path: "/service-areas",
       jsonLd: [faqLd(areasIndexFaqs)],
+      crumbs: [{ name: "Service Areas", path: "/service-areas" }],
     }),
   component: ServiceAreas,
 });
@@ -36,8 +37,9 @@ function ServiceAreas() {
       <PageHero
         eyebrow="Service Areas"
         title={<>Commercial Flooring Across <span className="text-gradient">Metro Vancouver, BC</span></>}
-        text="From Gastown heritage buildings to Port Coquitlam industrial parks, our crews cover Greater Vancouver every day from our head office in South Vancouver."
+        text="Commercial flooring across Metro Vancouver, BC: from Gastown heritage buildings to Port Coquitlam industrial parks, Ironclad Commercial Floors crews work every day from our South Vancouver head office."
         image={skylineImg}
+        imageAlt="Vancouver skyline — Ironclad Commercial Floors serves commercial buildings across Metro Vancouver"
         crumb={[{ label: "Service Areas" }]}
       />
 
@@ -58,7 +60,7 @@ function ServiceAreas() {
                     className="card-luxe flex h-full flex-col overflow-hidden rounded-3xl transition-colors hover:border-primary/50"
                   >
                     <div className="relative aspect-[16/9] overflow-hidden">
-                      <img src={a.image} alt={`Commercial buildings in ${a.name}`} loading="lazy" width={1600} height={1072} className="h-full w-full object-cover transition-transform duration-[1.2s] group-hover:scale-110" />
+                      <img src={a.image} alt={`Commercial flooring in ${a.name}, BC — Ironclad Commercial Floors`} loading="lazy" decoding="async" width={1600} height={1072} className="h-full w-full object-cover transition-transform duration-[1.2s] group-hover:scale-110" />
                       <div className="absolute inset-0 bg-gradient-to-t from-card via-card/20 to-transparent" />
                       {a.hq && <span className="bg-gradient-primary absolute left-4 top-4 rounded-full px-3 py-1 font-mono text-[11px] tracking-[0.2em] text-primary-foreground">HQ</span>}
                     </div>
@@ -69,7 +71,7 @@ function ServiceAreas() {
                       <h3 className="mt-2 text-xl font-semibold">{a.name}</h3>
                       <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">{a.short}</p>
                       <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-primary-glow">
-                        Flooring in {a.name} <ArrowUpRight className="h-4 w-4 transition-transform group-hover:rotate-45" />
+                        Commercial flooring in {a.name} <ArrowUpRight className="h-4 w-4 transition-transform group-hover:rotate-45" />
                       </span>
                     </div>
                   </Link>

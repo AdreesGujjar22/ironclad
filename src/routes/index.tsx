@@ -77,7 +77,7 @@ function Hero() {
         muted
         loop
         playsInline
-        preload="auto"
+        preload="metadata"
       />
       <div className="bg-overlay-side absolute inset-0" />
       <div className="bg-overlay absolute inset-0" />
@@ -97,10 +97,10 @@ function Hero() {
             </p>
             <div className="mt-10 flex flex-wrap items-center gap-4">
               <Button asChild variant="hero" size="xl">
-                <Link to="/services">Explore Services <ArrowUpRight /></Link>
+                <Link to="/services">Explore Commercial Flooring Services <ArrowUpRight /></Link>
               </Button>
               <Button asChild variant="glass" size="xl">
-                <Link to="/contact">Get a Free Estimate</Link>
+                <Link to="/contact">Get a Free Flooring Estimate</Link>
               </Button>
             </div>
             <a href={business.phoneHref} className="mt-8 inline-flex items-center gap-3 text-sm text-muted-foreground hover:text-primary-glow">
@@ -147,13 +147,13 @@ function AboutPreview() {
       <div className="mx-auto grid max-w-7xl items-center gap-16 lg:grid-cols-2">
         <Reveal dir="left" className="relative">
           <TiltCard className="rounded-3xl" max={6}>
-            <img src={crewImg} alt="Ironclad flooring crew installing plank flooring" loading="lazy" width={1600} height={1072} className="aspect-[4/5] w-full rounded-3xl object-cover shadow-deep" />
+            <img src={crewImg} alt="Ironclad Commercial Floors crew installing plank flooring in Vancouver, BC" loading="lazy" decoding="async" width={1600} height={1072} className="aspect-[4/5] w-full rounded-3xl object-cover shadow-deep" />
           </TiltCard>
           <div className="glass absolute -bottom-8 -right-4 w-56 rounded-2xl p-5 md:-right-10">
             <p className="font-display text-4xl font-semibold text-primary-glow">24/7</p>
             <p className="mt-1 text-sm text-muted-foreground">Crews scheduled around your operating hours</p>
           </div>
-          <img src={healthImg} alt="" loading="lazy" width={400} height={300} className="absolute -left-6 -top-8 hidden w-40 rotate-[-6deg] rounded-2xl border border-border object-cover shadow-deep md:block" />
+          <img src={healthImg} alt="Healthcare flooring installed by Ironclad in a Vancouver clinic" loading="lazy" decoding="async" width={400} height={300} className="absolute -left-6 -top-8 hidden w-40 rotate-[-6deg] rounded-2xl border border-border object-cover shadow-deep md:block" />
         </Reveal>
         <div>
           <SectionHeading
@@ -168,7 +168,7 @@ function AboutPreview() {
               ))}
             </ul>
             <Button asChild variant="hero" size="xl" className="mt-10">
-              <Link to="/about">More About Us <ArrowUpRight /></Link>
+              <Link to="/about">About Ironclad Commercial Floors <ArrowUpRight /></Link>
             </Button>
           </Reveal>
         </div>
@@ -189,7 +189,7 @@ function ServicesSection() {
             text="Four specialties, each delivered by crews with the right tools, materials and prep for commercial-grade performance."
           />
           <Reveal>
-            <Button asChild variant="glass" size="xl"><Link to="/services">Explore All Services <ArrowUpRight /></Link></Button>
+            <Button asChild variant="glass" size="xl"><Link to="/services">All Commercial Flooring Services <ArrowUpRight /></Link></Button>
           </Reveal>
         </div>
         <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -198,7 +198,7 @@ function ServicesSection() {
               <TiltCard className="group h-full rounded-3xl">
                 <article className="card-luxe flex h-full flex-col overflow-hidden rounded-3xl">
                   <div className="relative aspect-[4/3] overflow-hidden">
-                    <img src={c.image} alt={`${c.name} commercial flooring`} loading="lazy" width={1600} height={1072} className="h-full w-full object-cover transition-transform duration-[1.2s] group-hover:scale-110" />
+                    <img src={c.image} alt={`${c.name} commercial flooring in Vancouver, BC`} loading="lazy" decoding="async" width={1600} height={1072} className="h-full w-full object-cover transition-transform duration-[1.2s] group-hover:scale-110" />
                     <div className="absolute inset-0 bg-gradient-to-t from-card via-card/10 to-transparent" />
                     <span className="glass absolute left-4 top-4 flex h-10 w-10 items-center justify-center rounded-full font-display text-lg text-primary-glow">{c.letter}</span>
                   </div>
@@ -206,7 +206,7 @@ function ServicesSection() {
                     <h3 className="text-xl font-semibold">{c.name}</h3>
                     <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">{c.blurb}</p>
                     <Link to="/services" hash={c.key} className="mt-5 inline-flex items-center gap-2 self-start text-sm font-semibold text-primary-glow hover:underline">
-                      View {servicesIn(c.key).length} services <ArrowUpRight className="h-4 w-4" />
+                      View {servicesIn(c.key).length} {c.name} flooring services <ArrowUpRight className="h-4 w-4" />
                     </Link>
                   </div>
                 </article>
@@ -265,7 +265,7 @@ function Reviews() {
           <Reveal>
             <a href={business.gmb} target="_blank" rel="noreferrer" className="glass flex items-center gap-4 rounded-2xl px-5 py-4 transition-colors hover:border-primary/50">
               <div className="flex text-primary-glow">{Array.from({ length: 5 }).map((_, i) => <Star key={i} className="h-4 w-4 fill-current" />)}</div>
-              <span className="text-sm">Read us on Google <ArrowUpRight className="ml-1 inline h-4 w-4" /></span>
+              <span className="text-sm">Read our Google reviews <ArrowUpRight className="ml-1 inline h-4 w-4" /></span>
             </a>
           </Reveal>
         </div>

@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { ArrowUpRight, Clock, Mail, MapPin, Phone } from "lucide-react";
+import { ArrowUpRight, Clock, ExternalLink, Mail, MapPin, Phone } from "lucide-react";
 import logo from "@/assets/ironclad-logo.png.asset.json";
 import { areas, business, categories, services } from "@/lib/site";
 
@@ -14,27 +14,28 @@ export function Footer() {
       <div className="relative mx-auto max-w-7xl px-6 pb-10 pt-20">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-12">
           <div className="lg:col-span-4">
-            <img src={logo.url} alt={business.name} className="h-14 w-auto" width={1729} height={370} loading="lazy" />
+            <img src={logo.url} alt={`${business.name} logo`} className="h-14 w-auto" width={1729} height={370} loading="lazy" decoding="async" />
             <p className="mt-6 max-w-sm text-sm leading-relaxed text-muted-foreground">
-              Commercial, institutional and industrial flooring contractor based in Vancouver — epoxy and concrete, resilient and vinyl, tile and carpet, plus repairs and floor prep across Greater Vancouver.
+              Ironclad Commercial Floors is a commercial flooring contractor in Vancouver, BC — epoxy and concrete, vinyl, tile and carpet, plus installation, repair and floor prep across Metro Vancouver.
             </p>
             <ul className="mt-6 space-y-3 text-sm">
               <li className="flex gap-3"><MapPin className="mt-0.5 h-4 w-4 shrink-0 text-primary" /><span className="text-muted-foreground">{business.address}</span></li>
               <li className="flex gap-3"><Phone className="mt-0.5 h-4 w-4 shrink-0 text-primary" /><a href={business.phoneHref} className={linkCls}>{business.phone}</a></li>
               <li className="flex gap-3"><Mail className="mt-0.5 h-4 w-4 shrink-0 text-primary" /><a href={`mailto:${business.email}`} className={`break-all ${linkCls}`}>{business.email}</a></li>
+              <li className="flex gap-3"><ExternalLink className="mt-0.5 h-4 w-4 shrink-0 text-primary" /><a href={business.gmb} target="_blank" rel="noopener noreferrer" className={linkCls}>Google Business Profile</a></li>
               <li className="flex gap-3"><Clock className="mt-0.5 h-4 w-4 shrink-0 text-primary" /><span className="text-muted-foreground">{business.hours}</span></li>
             </ul>
           </div>
 
           <div className="lg:col-span-2">
-            <h2 className="eyebrow mb-5">Company</h2>
+            <p className="eyebrow mb-5">Company</p>
             <ul className="space-y-3 text-sm">
               {[
                 { to: "/", label: "Home" },
-                { to: "/about", label: "About Us" },
-                { to: "/services", label: "Services" },
-                { to: "/service-areas", label: "Service Areas" },
-                { to: "/contact", label: "Contact Us" },
+                { to: "/about", label: "About Ironclad" },
+                { to: "/services", label: "Flooring Services" },
+                { to: "/service-areas", label: "Metro Vancouver Areas" },
+                { to: "/contact", label: "Free Flooring Quote" },
               ].map((l) => (
                 <li key={l.to}><Link to={l.to} className={linkCls}>{l.label}</Link></li>
               ))}
@@ -42,23 +43,23 @@ export function Footer() {
           </div>
 
           <div className="lg:col-span-3">
-            <h2 className="eyebrow mb-5">Services</h2>
+            <p className="eyebrow mb-5">Commercial Flooring Services</p>
             <ul className="space-y-3 text-sm">
               {categories.map((c) => (
                 <li key={c.key}><Link to="/services" hash={c.key} className={linkCls}>{c.name}</Link></li>
               ))}
             </ul>
-            <Link to="/services" className={viewAllCls}>View all {services.length} services <ArrowUpRight className="h-4 w-4" /></Link>
+            <Link to="/services" className={viewAllCls}>All {services.length} commercial flooring services <ArrowUpRight className="h-4 w-4" /></Link>
           </div>
 
           <div className="lg:col-span-3">
-            <h2 className="eyebrow mb-5">Service Areas</h2>
+            <p className="eyebrow mb-5">Flooring Service Areas</p>
             <ul className="space-y-3 text-sm">
               {areas.slice(0, 5).map((a) => (
-                <li key={a.slug}><Link to="/service-areas/$slug" params={{ slug: a.slug }} className={linkCls}>{a.name}</Link></li>
+                <li key={a.slug}><Link to="/service-areas/$slug" params={{ slug: a.slug }} className={linkCls}>Flooring {a.slug === "vancouver" ? "South Vancouver" : a.name}</Link></li>
               ))}
             </ul>
-            <Link to="/service-areas" className={viewAllCls}>View all {areas.length} areas <ArrowUpRight className="h-4 w-4" /></Link>
+            <Link to="/service-areas" className={viewAllCls}>All {areas.length} Metro Vancouver areas <ArrowUpRight className="h-4 w-4" /></Link>
           </div>
         </div>
 

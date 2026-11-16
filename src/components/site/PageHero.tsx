@@ -7,17 +7,19 @@ export function PageHero({
   title,
   text,
   image,
+  imageAlt,
   crumb,
 }: {
   eyebrow: string;
   title: React.ReactNode;
   text: string;
   image: string;
+  imageAlt: string;
   crumb: { label: string; to?: string }[];
 }) {
   return (
     <section className="noise relative flex min-h-[78vh] items-end overflow-hidden pb-20 pt-40">
-      <img src={image} alt="" className="absolute inset-0 h-full w-full scale-105 object-cover" width={1920} height={1080} />
+      <img src={image} alt={imageAlt} className="absolute inset-0 h-full w-full scale-105 object-cover" width={1920} height={1080} fetchPriority="high" decoding="async" />
       <div className="bg-overlay-side absolute inset-0" />
       <div className="bg-overlay absolute inset-0" />
       <div className="grid-lines absolute inset-0 opacity-40" />

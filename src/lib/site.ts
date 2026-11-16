@@ -3,6 +3,9 @@ export type { Service, Category, CategoryKey } from "./services";
 export { areas, getArea } from "./areas";
 export type { Area } from "./areas";
 
+/** Public site origin used for canonical, og:url, sitemap and schema. Change here when the custom domain goes live. */
+export const SITE_URL = "https://ironclad-surface-studio.lovable.app";
+
 export const business = {
   name: "Ironclad Commercial Floors",
   phone: "(604) 540-3999",
@@ -14,8 +17,10 @@ export const business = {
   hours: "Open 24 Hours",
   hoursDetail: "Day, night & weekend crews available",
   gmb: "https://maps.app.goo.gl/RvWaqdfoddTgzFLZA",
+  /** Google Place ID / CID of the Business Profile. Paste it here to add it to the schema as the profile identifier. */
+  googlePlaceId: "",
   mapEmbed:
-    "https://www.google.com/maps?q=783+E+60th+Ave,+Vancouver,+BC+V5X+2A5,+Canada&output=embed",
+    "https://www.google.com/maps?q=Ironclad+Commercial+Floors,+783+E+60th+Ave,+Vancouver,+BC+V5X+2A5,+Canada&hl=en&z=15&output=embed",
   tagline:
     "Heavy-duty commercial, institutional and industrial flooring, engineered from the subfloor up.",
 };

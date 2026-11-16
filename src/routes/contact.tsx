@@ -24,6 +24,7 @@ export const Route = createFileRoute("/contact")({
       description: pageMeta.contact.description,
       path: "/contact",
       jsonLd: [faqLd(contactFaqs)],
+      crumbs: [{ name: "Contact Us", path: "/contact" }],
     }),
   component: Contact,
 });
@@ -65,6 +66,7 @@ function Contact() {
         title={<>Contact Commercial Flooring Contractors in <span className="text-gradient">Vancouver, BC</span></>}
         text="Let's talk about your floor. Tell us about the space and the schedule, and we'll book a free site visit, test the substrate and send a clear, itemized quote for installation or repair in Vancouver."
         image={crewImg}
+        imageAlt="Ironclad Commercial Floors flooring crew on site in Vancouver, BC"
         crumb={[{ label: "Contact Us" }]}
       />
 

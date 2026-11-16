@@ -20,6 +20,7 @@ export const Route = createFileRoute("/services/")({
       description: pageMeta.services.description,
       path: "/services",
       jsonLd: [faqLd(servicesIndexFaqs)],
+      crumbs: [{ name: "Services", path: "/services" }],
     }),
   component: ServicesPage,
 });
@@ -30,8 +31,9 @@ function ServicesPage() {
       <PageHero
         eyebrow="Our Services"
         title={<>Commercial Flooring Services in <span className="text-gradient">Vancouver, BC</span></>}
-        text="24 specialized services across concrete and epoxy, resilient and vinyl, tile and carpet, and sector work and repairs — each installed over a properly prepared substrate."
+        text="Ironclad Commercial Floors offers 24 commercial flooring services in Vancouver, BC: concrete and epoxy, vinyl and rubber, tile and carpet, plus installation, repair and replacement over a properly prepared substrate."
         image={epoxyImg}
+        imageAlt="Commercial epoxy flooring installed in Vancouver, BC by Ironclad Commercial Floors"
         crumb={[{ label: "Services" }]}
       />
 
@@ -83,7 +85,7 @@ function ServicesPage() {
           <p className="text-muted-foreground">
             Not sure which system fits your space?{" "}
             <Link to="/contact" className="inline-flex items-center gap-1 font-semibold text-primary-glow hover:underline">
-              Book a free site assessment <ArrowUpRight className="h-4 w-4" />
+              Book a free flooring site assessment in Vancouver <ArrowUpRight className="h-4 w-4" />
             </Link>
           </p>
         </div>

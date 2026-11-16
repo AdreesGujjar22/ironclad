@@ -48,7 +48,7 @@ export function Header() {
           <Link to="/" className="flex shrink-0 items-center" aria-label={`${business.name} — Home`}>
             <img
               src={logo.url}
-              alt={business.name}
+              alt={`${business.name} logo`}
               width={1729}
               height={370}
               className={cn("w-auto transition-all duration-500", scrolled ? "h-10 md:h-11" : "h-11 md:h-14")}
@@ -91,7 +91,7 @@ export function Header() {
                     ))}
                   </div>
                   <Link to="/services" className="mt-5 flex items-center justify-between rounded-xl border border-primary/30 px-4 py-3 text-sm font-medium text-primary-glow hover:bg-primary/10">
-                    Explore all 24 services <ArrowUpRight className="h-4 w-4" />
+                    Explore all 24 commercial flooring services <ArrowUpRight className="h-4 w-4" />
                   </Link>
                 </div>
               </div>
@@ -120,7 +120,7 @@ export function Header() {
                     ))}
                   </ul>
                   <Link to="/service-areas" className="mt-3 flex items-center justify-between rounded-xl border border-primary/30 px-4 py-3 text-sm font-medium text-primary-glow hover:bg-primary/10">
-                    All service areas <ArrowUpRight className="h-4 w-4" />
+                    All Metro Vancouver service areas <ArrowUpRight className="h-4 w-4" />
                   </Link>
                 </div>
               </div>
@@ -165,7 +165,7 @@ export function Header() {
         )}
       >
         <div className="flex items-center justify-between px-6 py-5">
-          <img src={logo.url} alt={business.name} className="h-10 w-auto" width={1729} height={370} />
+          <img src={logo.url} alt={`${business.name} logo`} className="h-10 w-auto" width={1729} height={370} />
           <button type="button" onClick={close} className="glass flex h-11 w-11 items-center justify-center rounded-full" aria-label="Close menu">
             <X className="h-5 w-5" />
           </button>
@@ -179,7 +179,7 @@ export function Header() {
           </button>
           {section === "services" && (
             <div className="flex flex-col gap-4 border-b border-border py-4 pl-2">
-              <Link to="/services" onClick={close} className="text-sm font-semibold text-primary-glow">All services</Link>
+              <Link to="/services" onClick={close} className="text-sm font-semibold text-primary-glow">All commercial flooring services</Link>
               {categories.map((c) => (
                 <div key={c.key}>
                   <p className="eyebrow">{c.name}</p>
@@ -200,7 +200,7 @@ export function Header() {
           </button>
           {section === "areas" && (
             <div className="flex flex-col gap-1 border-b border-border py-4 pl-2">
-              <Link to="/service-areas" onClick={close} className="py-1.5 text-sm font-semibold text-primary-glow">All service areas</Link>
+              <Link to="/service-areas" onClick={close} className="py-1.5 text-sm font-semibold text-primary-glow">All Metro Vancouver service areas</Link>
               {areas.map((a) => (
                 <Link key={a.slug} to="/service-areas/$slug" params={{ slug: a.slug }} onClick={close} className="py-1.5 text-sm text-muted-foreground">
                   {a.name}{a.hq ? " (HQ)" : ""}

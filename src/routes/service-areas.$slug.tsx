@@ -2,7 +2,7 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowUpRight, Building2, CheckCircle2, MapPin, Phone } from "lucide-react";
 import { business, categories, getArea, getService, services, servicesIn, type Service } from "@/lib/site";
 import { faqLd, pageHead, providerLd } from "@/lib/seo";
-import { areaSeo } from "@/lib/seo-meta";
+import { areaHero, areaSeo } from "@/lib/seo-meta";
 import { areaExtra, areaFaqs } from "@/lib/seo-content";
 import { PageHero } from "@/components/site/PageHero";
 import { SectionHeading } from "@/components/site/SectionHeading";
@@ -24,13 +24,14 @@ export const Route = createFileRoute("/service-areas/$slug")({
   head: ({ loaderData, params }) => {
     const a = loaderData?.area;
     if (!a) {
-      return pageHead({ title: "Area not found | Ironclad Commercial Floors", description: "This service area page could not be found.", path: `/service-areas/${params.slug}`, noindex: true });
+      return pageHead({ title: "Area not found | Ironclad Commercial Floors", description: "This service area page could not be found.", path: `/service-areas/${params.slug}` });
     }
     const seo = areaSeo(a.slug);
     return pageHead({
       title: seo?.title ?? `Flooring ${a.name} | Ironclad Commercial Floors`,
       description: seo?.description ?? a.short,
       path: `/service-areas/${a.slug}`,
+      crumbs: [{ name: "Service Areas", path: "/service-areas" }, { name: a.name, path: `/service-areas/${a.slug}` }],
       jsonLd: [
         {
           "@context": "https://schema.org",
@@ -60,8 +61,9 @@ function AreaDetail() {
       <PageHero
         eyebrow={a.hq ? `${a.region} · Head Office` : a.region}
         title={seo?.h1 ?? `Commercial Flooring in ${a.name}, BC`}
-        text={a.short}
+        text={areaHero(place, a.short)}
         image={a.image}
+        imageAlt={`Commercial flooring in ${place}, BC by Ironclad Commercial Floors`}
         crumb={[{ label: "Service Areas", to: "/service-areas" }, { label: a.name }]}
       />
 
@@ -103,7 +105,7 @@ function AreaDetail() {
               <p className="mt-3 text-sm text-muted-foreground">{business.address}</p>
               <div className="mt-8 flex flex-col gap-3">
                 <Button asChild variant="hero" size="xl">
-                  <Link to="/contact">Free estimate in {a.name} <ArrowUpRight /></Link>
+                  <Link to="/contact">Free flooring estimate in {place} <ArrowUpRight /></Link>
                 </Button>
                 <Button asChild variant="glass" size="xl">
                   <a href={business.phoneHref}><Phone /> {business.phone}</a>
@@ -139,7 +141,7 @@ function AreaDetail() {
                 </p>
                 <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{c.blurb}</p>
                 <Link to="/services" hash={c.key} className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-primary-glow hover:underline">
-                  View {servicesIn(c.key).length} services <ArrowUpRight className="h-4 w-4" />
+                  View {servicesIn(c.key).length} {c.name} services <ArrowUpRight className="h-4 w-4" />
                 </Link>
               </div>
             ))}
@@ -166,7 +168,7 @@ function AreaDetail() {
               {nearby.map((n) => (
                 <TiltCard key={n.slug} className="group rounded-2xl" max={4}>
                   <Link to="/service-areas/$slug" params={{ slug: n.slug }} className="card-luxe flex items-center gap-5 overflow-hidden rounded-2xl p-3 pr-6 transition-colors hover:border-primary/50">
-                    <img src={n.image} alt="" loading="lazy" width={160} height={110} className="h-20 w-28 rounded-xl object-cover" />
+                    <img src={n.image} alt={`Commercial flooring in ${n.name}, BC`} loading="lazy" decoding="async" width={160} height={110} className="h-20 w-28 rounded-xl object-cover" />
                     <span className="flex-1">
                       <span className="block font-semibold transition-colors group-hover:text-primary-glow">{n.name}</span>
                       <span className="line-clamp-1 text-xs text-muted-foreground">{n.short}</span>
@@ -176,7 +178,7 @@ function AreaDetail() {
                 </TiltCard>
               ))}
               <Link to="/service-areas" className="mt-2 inline-flex items-center gap-2 text-sm font-semibold text-primary-glow hover:underline">
-                View all service areas <ArrowUpRight className="h-4 w-4" />
+                All Metro Vancouver service areas <ArrowUpRight className="h-4 w-4" />
               </Link>
             </div>
           </div>
