@@ -1,73 +1,38 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { getRouterInstance } from "@tanstack/react-start";
+import { sitemapStaticPaths, sitemapXML, type SitemapEntry } from "@/lib/sitemap";
+import { areaUrl, serviceUrl } from "@/lib/urls";
+import { SITE_URL, areas, services } from "@/lib/site";
 
-import { SERVICES } from "../data/servicesData";
-import { LOCATIONS } from "../data/locationsData";
-import { BLOGS } from "../data/testimonialsData";
-import { SITE_URL } from "../lib/routes";
-
-const LASTMOD = "2026-10-18";
-
-interface Entry {
-  path: string;
-  priority: string;
-  changefreq: string;
-}
-
-function buildEntries(): Entry[] {
-  const statics: Entry[] = [
-    { path: "/", priority: "1.0", changefreq: "weekly" },
-    { path: "/services", priority: "0.9", changefreq: "weekly" },
-    { path: "/locations", priority: "0.9", changefreq: "weekly" },
-    { path: "/about", priority: "0.7", changefreq: "monthly" },
-    { path: "/projects", priority: "0.7", changefreq: "monthly" },
-    { path: "/blogs", priority: "0.7", changefreq: "weekly" },
-    { path: "/contact", priority: "0.8", changefreq: "monthly" },
-  ];
-
-  const services: Entry[] = SERVICES.map((s) => ({
-    path: `/services/${s.slug}`,
-    priority: "0.9",
-    changefreq: "monthly",
-  }));
-
-  const locations: Entry[] = LOCATIONS.map((l) => ({
-    path: `/locations/${l.slug}`,
-    priority: "0.8",
-    changefreq: "monthly",
-  }));
-
-  const blogs: Entry[] = BLOGS.map((b) => ({
-    path: `/blogs/${b.slug}`,
-    priority: "0.6",
-    changefreq: "monthly",
-  }));
-
-  return [...statics, ...services, ...locations, ...blogs];
-}
+const BASE_URL = SITE_URL;
+const LASTMOD = new Date().toISOString().slice(0, 10);
 
 export const Route = createFileRoute("/sitemap.xml")({
+  staticData: { sitemap: false },
   server: {
     handlers: {
-      GET: () => {
-        const body = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${buildEntries()
-  .map(
-    (entry) => `  <url>
-    <loc>${SITE_URL}${entry.path === "/" ? "/" : entry.path}</loc>
-    <lastmod>${LASTMOD}</lastmod>
-    <changefreq>${entry.changefreq}</changefreq>
-    <priority>${entry.priority}</priority>
-  </url>`,
-  )
-  .join("\n")}
-</urlset>
-`;
-        return new Response(body, {
-          headers: {
-            "Content-Type": "application/xml; charset=utf-8",
-            "Cache-Control": "public, max-age=3600",
-          },
+      GET: async () => {
+        if (!BASE_URL) {
+          return new Response("Sitemap domain not configured", {
+            status: 503,
+            headers: { "Cache-Control": "no-store" },
+          });
+        }
+        const router = await getRouterInstance();
+        const entries: SitemapEntry[] = sitemapStaticPaths(router).map((path) => ({ path, lastmod: LASTMOD }));
+
+        // Service and area pages live at the site root, so they are listed explicitly.
+        for (const sv of services) entries.push({ path: serviceUrl(sv.slug), lastmod: LASTMOD });
+        for (const ar of areas) entries.push({ path: areaUrl(ar.slug), lastmod: LASTMOD });
+
+        if (entries.length === 0) {
+          return new Response(
+            'No pages are included in this sitemap. Check route decisions and ancestor exclusions. Setting "exclude-subtree" on the root excludes the entire site.',
+            { status: 404, headers: { "Cache-Control": "no-store" } },
+          );
+        }
+        return new Response(sitemapXML(BASE_URL, entries), {
+          headers: { "Content-Type": "application/xml", "Cache-Control": "public, max-age=3600" },
         });
       },
     },

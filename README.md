@@ -1,14 +1,16 @@
-# Ironclad Preview
+# Ironclad Surface Studio
 
-git clone https://github.com/AdreesGujjar22/ironclad.git and preview
+git clone https://github.com/fraservalley001/ironclad-floor-studio.git
+
+add its remaining pages except gallery which to remove
 
 This project was built with [Lovable](https://lovable.dev).
 
-**Live app**: https://trusty-shell-friend.lovable.app
+**Live app**: https://ironclad-surface-studio.lovable.app
 
 ## Build with Lovable
 
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/4c772c42-4ff9-42fb-8c54-59979831b9e7).
+Continue developing this project in the [Lovable editor](https://lovable.dev/projects/f41dcfe8-85da-4dca-908f-1dc64f050ec0).
 
 - **Ship faster**: describe what you want to build and Lovable handles the code.
 - **Stay in sync**: every change made in Lovable is committed straight to this repository.
