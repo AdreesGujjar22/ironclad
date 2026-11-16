@@ -1,6 +1,5 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowUpRight, Clock, ExternalLink, Mail, MapPin, Phone } from "lucide-react";
-import logo from "@/assets/ironclad-logo.png.asset.json";
 import { areas, business, categories, services } from "@/lib/site";
 import { areaSlug } from "@/lib/urls";
 
@@ -15,7 +14,7 @@ export function Footer() {
       <div className="relative mx-auto max-w-7xl px-6 pb-10 pt-20">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-12">
           <div className="lg:col-span-4">
-            <img src={logo.url} alt={`${business.name} logo`} className="h-14 w-auto" width={1729} height={370} loading="lazy" decoding="async" />
+            <img src="/ironclad-logo.png" alt={`${business.name} logo`} className="h-14 w-auto" width={1729} height={370} loading="lazy" decoding="async" />
             <p className="mt-6 max-w-sm text-sm leading-relaxed text-muted-foreground">
               Ironclad Commercial Floors is a commercial flooring contractor in Vancouver, BC — epoxy and concrete, vinyl, tile and carpet, plus installation, repair and floor prep across Metro Vancouver.
             </p>

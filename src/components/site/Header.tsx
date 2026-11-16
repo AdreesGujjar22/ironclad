@@ -1,7 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { ChevronDown, Menu, Phone, X, ArrowUpRight, MapPin } from "lucide-react";
-import logo from "@/assets/ironclad-logo.png.asset.json";
 import { areas, business, categories, servicesIn } from "@/lib/site";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -48,7 +47,7 @@ export function Header() {
         <div className="relative mx-auto flex max-w-7xl items-center justify-between gap-6 px-6">
           <Link to="/" className="flex shrink-0 items-center" aria-label={`${business.name} — Home`}>
             <img
-              src={logo.url}
+              src="/ironclad-logo.png"
               alt={`${business.name} logo`}
               width={1729}
               height={370}
@@ -66,12 +65,12 @@ export function Header() {
                 Services <ChevronDown className="h-3.5 w-3.5 transition-transform group-hover:rotate-180" />
               </Link>
               <div className={cn(panelCls, "inset-x-6")}>
-                <div className="glass rounded-2xl p-6 shadow-deep">
+                <div className="rounded-2xl border border-black/10 bg-paper p-6 text-paper-foreground shadow-deep">
                   <div className="grid grid-cols-4 gap-6">
                     {categories.map((c) => (
                       <div key={c.key}>
-                        <p className="flex items-center gap-2 border-b border-border pb-3">
-                          <span className="font-display text-2xl leading-none text-gradient">{c.letter}</span>
+                        <p className="flex items-center gap-2 border-b border-black/10 pb-3">
+                          <span className="font-display text-2xl leading-none text-emerald-700">{c.letter}</span>
                           <span className="text-sm font-semibold">{c.name}</span>
                         </p>
                         <ul className="mt-3 space-y-1">
@@ -80,8 +79,8 @@ export function Header() {
                               <Link
                                 to="/$slug"
                                 params={{ slug: serviceSlug(s.slug) }}
-                                className="block rounded-lg px-2 py-1.5 text-sm text-muted-foreground transition-colors hover:bg-accent hover:text-primary-glow"
-                                activeProps={{ className: "text-primary-glow" }}
+                                className="block rounded-lg px-2 py-1.5 text-sm text-paper-muted transition-colors hover:bg-emerald-100 hover:text-emerald-800"
+                                activeProps={{ className: "text-emerald-800" }}
                               >
                                 {s.name}
                               </Link>
@@ -91,7 +90,7 @@ export function Header() {
                       </div>
                     ))}
                   </div>
-                  <Link to="/services" className="mt-5 flex items-center justify-between rounded-xl border border-primary/30 px-4 py-3 text-sm font-medium text-primary-glow hover:bg-primary/10">
+                  <Link to="/services" className="mt-5 flex items-center justify-between rounded-xl border border-emerald-700/30 px-4 py-3 text-sm font-medium text-emerald-800 hover:bg-emerald-100">
                     Explore all 24 commercial flooring services <ArrowUpRight className="h-4 w-4" />
                   </Link>
                 </div>
@@ -103,24 +102,24 @@ export function Header() {
                 Service Areas <ChevronDown className="h-3.5 w-3.5 transition-transform group-hover:rotate-180" />
               </Link>
               <div className={cn(panelCls, "left-1/2 w-[480px] -translate-x-1/2")}>
-                <div className="glass rounded-2xl p-4 shadow-deep">
-                  <p className="eyebrow px-2 pb-3">Greater Vancouver Coverage</p>
+                <div className="rounded-2xl border border-black/10 bg-paper p-4 text-paper-foreground shadow-deep">
+                  <p className="eyebrow px-2 pb-3 !text-emerald-800">Greater Vancouver Coverage</p>
                   <ul className="grid grid-cols-2 gap-1">
                     {areas.map((a) => (
                       <li key={a.slug}>
                         <Link
                           to="/$slug"
                           params={{ slug: areaSlug(a.slug) }}
-                          className="flex items-center gap-2 rounded-lg px-2 py-2 text-sm text-muted-foreground transition-colors hover:bg-accent hover:text-primary-glow"
-                          activeProps={{ className: "text-primary-glow" }}
+                          className="flex items-center gap-2 rounded-lg px-2 py-2 text-sm text-paper-muted transition-colors hover:bg-emerald-100 hover:text-emerald-800"
+                          activeProps={{ className: "text-emerald-800" }}
                         >
-                          <MapPin className="h-3.5 w-3.5 text-primary" /> {a.name}
-                          {a.hq && <span className="rounded-full bg-primary/15 px-2 py-0.5 font-mono text-[10px] text-primary-glow">HQ</span>}
+                          <MapPin className="h-3.5 w-3.5 text-emerald-700" /> {a.name}
+                          {a.hq && <span className="rounded-full bg-emerald-100 px-2 py-0.5 font-mono text-[10px] text-emerald-800">HQ</span>}
                         </Link>
                       </li>
                     ))}
                   </ul>
-                  <Link to="/service-areas" className="mt-3 flex items-center justify-between rounded-xl border border-primary/30 px-4 py-3 text-sm font-medium text-primary-glow hover:bg-primary/10">
+                  <Link to="/service-areas" className="mt-3 flex items-center justify-between rounded-xl border border-emerald-700/30 px-4 py-3 text-sm font-medium text-emerald-800 hover:bg-emerald-100">
                     All Metro Vancouver service areas <ArrowUpRight className="h-4 w-4" />
                   </Link>
                 </div>
@@ -166,7 +165,7 @@ export function Header() {
         )}
       >
         <div className="flex items-center justify-between px-6 py-5">
-          <img src={logo.url} alt={`${business.name} logo`} className="h-10 w-auto" width={1729} height={370} />
+          <img src="/ironclad-logo.png" alt={`${business.name} logo`} className="h-10 w-auto" width={1729} height={370} />
           <button type="button" onClick={close} className="glass flex h-11 w-11 items-center justify-center rounded-full" aria-label="Close menu">
             <X className="h-5 w-5" />
           </button>
