@@ -1,5 +1,4 @@
 import { business } from "@/lib/site";
-import { business } from "@/lib/site";
 import { Reveal } from "./Reveal";
 
 export function GmbSection() {
