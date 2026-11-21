@@ -65,5 +65,6 @@ export const navLinks = [
   { to: "/about", label: "About Us" },
   { to: "/services", label: "Services" },
   { to: "/service-areas", label: "Service Areas" },
+  { to: "/blog", label: "Blog" },
   { to: "/contact", label: "Contact Us" },
 ] as const;
