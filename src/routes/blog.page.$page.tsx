@@ -11,10 +11,10 @@ export const Route = createFileRoute("/blog/page/$page")({
     return page;
   },
   head: ({ loaderData, params }) => loaderData ? pageHead({
-    title: `Commercial Flooring Blog — Page ${loaderData} | Ironclad Commercial Floors`,
-    description: `Page ${loaderData} of the Ironclad Commercial Floors blog.`,
+    title: `Commercial Flooring Blogs — Page ${loaderData} | Ironclad Commercial Floors`,
+    description: `Page ${loaderData} of the Ironclad Commercial Floors blogs.`,
     path: `/blog/page/${loaderData}`,
-    crumbs: [{ name: "Blog", path: "/blog" }, { name: `Page ${loaderData}`, path: `/blog/page/${loaderData}` }],
+    crumbs: [{ name: "Blogs", path: "/blog" }, { name: `Page ${loaderData}`, path: `/blog/page/${loaderData}` }],
   }) : pageHead({ title: "Page not found | Ironclad Commercial Floors", description: "This page could not be found.", path: `/blog/page/${params.page}` }),
   component: BlogPage,
 });

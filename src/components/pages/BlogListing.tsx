@@ -13,16 +13,16 @@ export function BlogListing({ page }: { page: number }) {
         <div className="absolute -right-20 top-0 h-96 w-96 rounded-full bg-primary/10 blur-3xl" />
         <div className="relative mx-auto max-w-7xl">
           <nav aria-label="Breadcrumb" className="mb-10 flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">
-            <Link to="/" className="hover:text-primary-glow">Home</Link><span aria-hidden="true">/</span><span className="text-primary-glow">Blog</span>
+            <Link to="/" className="hover:text-primary-glow">Home</Link><span aria-hidden="true">/</span><span className="text-primary-glow">Blogs</span>
           </nav>
           <p className="eyebrow mb-5 flex items-center gap-3"><span className="h-px w-10 bg-primary" />Ironclad Commercial Floors</p>
-          <h1 className="max-w-4xl text-4xl font-semibold leading-[1.05] md:text-7xl">Commercial Flooring <span className="text-gradient">Blog</span></h1>
+          <h1 className="max-w-4xl text-4xl font-semibold leading-[1.05] md:text-7xl">Commercial Flooring <span className="text-gradient">Blogs</span></h1>
         </div>
       </section>
       <section className="px-6 py-20 md:py-28">
         <div className="mx-auto max-w-7xl">
           <div className="flex items-end justify-between gap-6 border-b border-border pb-7">
-            <div><p className="eyebrow mb-3">The Blog</p><h2 className="text-2xl font-semibold md:text-4xl">Latest <span className="text-gradient">articles</span></h2></div>
+            <div><p className="eyebrow mb-3">Blogs</p><h2 className="text-2xl font-semibold md:text-4xl">Latest <span className="text-gradient">articles</span></h2></div>
             {posts.length > 0 && <span className="hidden font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground sm:block">Page {page} / {pages}</span>}
           </div>
           {posts.length === 0 ? (
@@ -43,7 +43,7 @@ export function BlogListing({ page }: { page: number }) {
             </div>
           )}
           {pages > 1 && (
-            <nav aria-label="Blog pagination" className="mt-12 flex flex-wrap items-center justify-between gap-4 border-t border-border pt-8">
+            <nav aria-label="Blogs pagination" className="mt-12 flex flex-wrap items-center justify-between gap-4 border-t border-border pt-8">
               {page > 1 ? <PageLink page={page - 1} label="Previous" direction="previous" /> : <span />}
               <span className="font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">Page {page} of {pages}</span>
               {page < pages ? <PageLink page={page + 1} label="Next" direction="next" /> : <span />}

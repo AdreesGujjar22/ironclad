@@ -35,7 +35,7 @@ export function Footer() {
                 { to: "/about", label: "About Ironclad" },
                 { to: "/services", label: "Flooring Services" },
                 { to: "/service-areas", label: "Metro Vancouver Areas" },
-                { to: "/blog", label: "Blog" },
+                { to: "/blog", label: "Blogs" },
                 { to: "/contact", label: "Free Flooring Quote" },
               ].map((l) => (
                 <li key={l.to}><Link to={l.to} className={linkCls}>{l.label}</Link></li>

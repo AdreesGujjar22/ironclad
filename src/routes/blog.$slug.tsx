@@ -22,7 +22,7 @@ export const Route = createFileRoute("/blog/$slug")({
       description: post.description,
       path,
       type: "article",
-      crumbs: [{ name: "Blog", path: "/blog" }, { name: post.title, path }],
+      crumbs: [{ name: "Blogs", path: "/blog" }, { name: post.title, path }],
       jsonLd: [
         { "@context": "https://schema.org", "@type": "BlogPosting", headline: post.title, description: post.description, ...(post.publishedAt ? { datePublished: post.publishedAt } : {}), ...(post.updatedAt ? { dateModified: post.updatedAt } : {}), mainEntityOfPage: `${SITE_URL}${path}`, publisher: providerLd },
         ...(post.faqs?.length ? [faqLd(post.faqs.map(({ question, answer }) => ({ q: question, a: answer })))] : []),
@@ -43,7 +43,7 @@ function BlogPostPage() {
         <div className="grid-lines absolute inset-0 opacity-40" />
         <div className="relative mx-auto max-w-4xl">
           <nav aria-label="Breadcrumb" className="mb-10 flex flex-wrap items-center gap-3 font-mono text-xs uppercase tracking-[0.15em] text-muted-foreground">
-            <Link to="/" className="hover:text-primary-glow">Home</Link><span aria-hidden="true">/</span><Link to="/blog" className="hover:text-primary-glow">Blog</Link><span aria-hidden="true">/</span><span className="text-primary-glow">{post.title}</span>
+            <Link to="/" className="hover:text-primary-glow">Home</Link><span aria-hidden="true">/</span><Link to="/blog" className="hover:text-primary-glow">Blogs</Link><span aria-hidden="true">/</span><span className="text-primary-glow">{post.title}</span>
           </nav>
           {post.publishedAt && <time dateTime={post.publishedAt} className="eyebrow">{formatBlogDate(post.publishedAt)}</time>}
           <h1 className="mt-5 text-4xl font-semibold leading-[1.1] md:text-6xl">{post.title}</h1>

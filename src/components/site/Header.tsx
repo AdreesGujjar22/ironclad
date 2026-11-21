@@ -126,7 +126,7 @@ export function Header() {
               </div>
             </div>
 
-            <Link to="/blog" className={linkCls} activeProps={{ className: activeCls }}>Blog</Link>
+            <Link to="/blog" className={linkCls} activeProps={{ className: activeCls }}>Blogs</Link>
             <Link to="/contact" className={linkCls} activeProps={{ className: activeCls }}>Contact Us</Link>
           </nav>
 
@@ -210,7 +210,7 @@ export function Header() {
             </div>
           )}
 
-          <Link to="/blog" onClick={close} className={mobileLinkCls}>Blog</Link>
+          <Link to="/blog" onClick={close} className={mobileLinkCls}>Blogs</Link>
           <Link to="/contact" onClick={close} className={mobileLinkCls}>Contact Us</Link>
           <Button asChild variant="hero" size="xl" className="mb-8 mt-8">
             <a href={business.phoneHref}><Phone /> {business.phone}</a>

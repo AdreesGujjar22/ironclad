@@ -5,10 +5,10 @@ import { pageHead } from "@/lib/seo";
 export const Route = createFileRoute("/blog/")({
   staticData: { sitemap: true },
   head: () => pageHead({
-    title: "Commercial Flooring Blog | Ironclad Commercial Floors",
-    description: "The commercial flooring blog from Ironclad Commercial Floors in Vancouver, BC.",
+    title: "Commercial Flooring Blogs | Ironclad Commercial Floors",
+    description: "The commercial flooring blogs from Ironclad Commercial Floors in Vancouver, BC.",
     path: "/blog",
-    crumbs: [{ name: "Blog", path: "/blog" }],
+    crumbs: [{ name: "Blogs", path: "/blog" }],
   }),
   component: () => <BlogListing page={1} />,
 });
